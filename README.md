@@ -12,7 +12,7 @@ Später soll ein Rangsystem eingeführt werden, sodass die User untereinander ih
 -	Aufgabenfortschritt visuell einsehbar
 -	Level- und Rangsystem zur Motivation des Übenden
 
-##Design und Struktur
+## Design und Struktur
 Das Main Window ist in kleine Bereiche unterteilt. 
 Am linken Rand ist die Übersicht der Stufen. Oben rechts wird das Profil mit einem änderbaren Profilbild, dem momentanen Level und einem Fortschrittsbalken angezeigt. Rechts unter dem Profil wird das Ranking und links vom Ranking wird die letzte Übung angezeigt und andere Optionen.
 Hauptfarbton Orange mit verschiedenen Akzenten.
