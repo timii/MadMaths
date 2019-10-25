@@ -2,12 +2,17 @@
 university project @ Worms University of Applied Science
 
 ## Beschreibung des Projekts
-Das Programm soll ein Rechentraining für die Klassen 1-13 sein. Der User kann nach freiem belieben Übungsaufgaben für die jeweiligen Klassenstufen erledigen. Hierbei werden nicht geschaffte Aufgaben gespeichert, sodass der User wieder auf diese zugreifen und sie wiederholen kann. Des Weiteren wird ein Punktesystem eingeführt, welches den User motivieren soll. 
+Das Programm soll ein Rechentraining für die Klassen 1-13 sein. Der User kann nach freiem belieben Übungsaufgaben für die jeweiligen Klassenstufen erledigen. Hierbei werden nicht geschaffte Aufgaben gespeichert, sodass der User wieder auf diese zugreifen und sie wiederholen kann. Des Weiteren wird ein Punktesystem eingeführt, welches den User motivieren soll.
 Später soll ein Rangsystem eingeführt werden, sodass die User untereinander ihre Leistungen vergleichen können. Darüber hinaus wird es den User dazu motivieren mehr Übungen zu machen, um in den Rängen aufzusteigen.
 
 ## Benutzeranforderungen:
--	Die App soll den User motivieren, sich neuen Herausforderungen zu stellen (z.B. durch Belohnung)
--	Die Aufgabenstellungen sowie die Erklärungen der Aufgaben sollen leicht verständlich sein, ohne das Fachliche zu vernachlässigen
--	Die App soll bei Problemen Feedback geben können
--	Der Benutzer will seinen mathematischen Wissensstand erweitern
--	Keine technischen Kenntnisse vorausgesetzt
+1.	Auswahl von verschiedenen Klassenstufen und den jeweiligen Themen
+2.	Tests zum prüfen gelernter Kenntnisse
+3.	Speichern von nicht geschafften Aufgaben zur Wiederholung
+4.	Aufgabenfortschritt visuell einsehbar
+5.	Level- und Rangsystem zur Motivation des Übenden
+
+## Design und Struktur
+Das Main Window ist in kleine Bereiche unterteilt.
+Am linken Rand ist die Übersicht der Stufen. Oben rechts wird das Profil mit einem änderbaren Profilbild, dem momentanen Level und einem Fortschrittsbalken angezeigt. Rechts unter dem Profil wird das Ranking und links vom Ranking wird die letzte Übung angezeigt und andere Optionen.
+Hauptfarbton Orange mit verschiedenen Akzenten.
