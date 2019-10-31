@@ -16,3 +16,6 @@ Später soll ein Rangsystem eingeführt werden, sodass die User untereinander ih
 Das Main Window ist in kleine Bereiche unterteilt.
 Am linken Rand ist die Übersicht der Stufen. Oben rechts wird das Profil mit einem änderbaren Profilbild, dem momentanen Level und einem Fortschrittsbalken angezeigt. Rechts unter dem Profil wird das Ranking und links vom Ranking wird die letzte Übung angezeigt und andere Optionen.
 Hauptfarbton Orange mit verschiedenen Akzenten.
+
+## Aufgabensammlung
+Die Aufgaben werden in einer .json Datei gespeichert und von dort aus herausgelesen.
