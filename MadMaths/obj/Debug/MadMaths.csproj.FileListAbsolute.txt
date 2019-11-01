@@ -13,3 +13,13 @@ C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\MadMat
 C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\MadMaths.csproj.CoreCompileInputs.cache
 C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\MadMaths.exe
 C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\MadMaths.pdb
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\pages\home.g.cs
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\App.baml
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\pages\home.baml
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\bin\Debug\Newtonsoft.Json.dll
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\bin\Debug\Newtonsoft.Json.xml
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\MadMaths.csproj.CopyComplete
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\pages\ThemenAuswahl.g.cs
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\pages\ThemenAuswahl.baml
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\pages\AufgabenFenster.g.cs
+C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\obj\Debug\pages\AufgabenFenster.baml
