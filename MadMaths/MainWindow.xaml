@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MadMaths"
         mc:Ignorable="d"
-        Title="MadMaths" Height="650" Width="1000" MinHeight="450" MinWidth="700"
-        Background="#ffeac3" FontFamily="Axion,Arial Rounded MT,Arial">
-    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"/>
+        Title="MadMaths" Height="600" Width="900" MinHeight="470" MinWidth="700"
+        Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial">
+    
+    <!-- Inhalte werden als Pages ins Frame geladen -->
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
+           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 </Window>

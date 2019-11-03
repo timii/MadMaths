@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Newtonsoft.Json.Linq;
 
-namespace MadMaths
+namespace MadMaths.pages
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für AufgabenFenster.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AufgabenFenster : Page
     {
-        public MainWindow()
+        public AufgabenFenster()
         {
             InitializeComponent();
-            MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
     }
 }

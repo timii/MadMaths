@@ -4,6 +4,79 @@
              xmlns:local="clr-namespace:MadMaths"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- Style für die Buttons -->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Control.FontSize" Value="25"/>
+            <Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>
+            <Setter Property="Control.MinHeight" Value="70"/>
+            <Setter Property="Control.Height" Value="auto"/>
+            <Setter Property="Foreground" Value="#FF343433"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Background">
+                <Setter.Value>#cfffa500
+                    <!--<LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
+                        <GradientStop Offset="0.0" Color="#FFFFBE00"/>
+                        <GradientStop Offset="0.5" Color="DarkOrange"/>
+                        <GradientStop Offset="1.0" Color="OrangeRed"/>
+                    </LinearGradientBrush>-->
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,4">
+                                <GradientStop Offset="0.0" Color="#ff7600"/>
+                                <GradientStop Offset="0.5"  Color="#ff7600"/>
+                                <GradientStop Offset="1.0" Color="#ff7600"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Background" Value="#FFFF4B00"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+         <!-- Style für den MainBackground -->
+        <Style TargetType="{x:Type Grid}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,5">
+                        <GradientStop Offset="0.0" Color="Aqua"/>
+                        <GradientStop Offset="0.5" Color="#FF1464FF"/>
+                        <GradientStop Offset="1.0" Color="Blue"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter> 
+        </Style>
+        <!-- Alternativer Style für Buttons -->
+        <Style x:Key="ButtonStyle2">
+            <Setter Property="Control.Background" Value="#FFFFFF58"/>
+            <Setter Property="Control.FontSize" Value="25"/>
+            <Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>
+            <Setter Property="Control.MinHeight" Value="70"/>
+            <Setter Property="Control.Height" Value="auto"/>
+            <Setter Property="Control.Foreground" Value="#FF343433"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
