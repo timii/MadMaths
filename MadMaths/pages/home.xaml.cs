@@ -24,5 +24,10 @@ namespace MadMaths.pages
         {
             InitializeComponent();
         }
+
+        private void Stufen_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenasuwahl
+        }
     }
 }
