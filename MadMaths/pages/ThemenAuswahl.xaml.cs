@@ -24,5 +24,10 @@ namespace MadMaths.pages
         {
             InitializeComponent();
         }
+
+        private void AufgabenClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
+        }
     }
 }

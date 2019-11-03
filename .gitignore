@@ -1,5 +1,8 @@
 skizze_entwurf/*
 .vs/**
+.vs/*
 v16/**
+v16/*
 *sqlite3*
-debug/*
+Debug/*
+Debug/**

@@ -23,11 +23,11 @@
         <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
             <Button x:Name="Grundschule"
-                    Content="Grundschule" Margin="25"/>
+                    Content="Grundschule" Margin="25" Click="Stufen_Click"/>
             <Button x:Name="Mittelstufe"
-                    Content="Mittelstufe" Margin="25"/>
+                    Content="Mittelstufe" Margin="25" Click="Stufen_Click"/>
             <Button x:Name="Oberstufe"
-                    Content="Oberstufe" Margin="25"/>
+                    Content="Oberstufe" Margin="25" Click="Stufen_Click"/>
             <!-- Beispiel für Responsive Design -->
             <!--<Button x:Name="Oberstufe" Margin="25">
                 <Viewbox Stretch="Uniform">
