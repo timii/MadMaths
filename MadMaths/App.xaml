@@ -100,7 +100,8 @@
                 <Setter.Value>
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Image Source="C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\icons\backButton.png"/>
+                        <Image Source="assets/icons/backButton.png"/>
+                        <!--<Image Source="C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\icons\backButton.png"/>-->
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -109,7 +110,8 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
-                                <Image Source="C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\icons\backButton_active.png"/>
+                                <Image Source="assets/icons/backButton_active.png"/>
+                                <!--<Image Source="C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\icons\backButton_active.png"/>-->
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>

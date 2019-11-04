@@ -29,5 +29,10 @@ namespace MadMaths.pages
         {
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
+
+        private void ThemenBackClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new home()); // Bei Klick zurück auf die Startseite
+        }
     }
 }
