@@ -22,7 +22,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
-                    Style="{StaticResource BackButton}"/>
+                    Style="{StaticResource BackButton}" Click="ThemenBackClick" />
             <TextBlock Text="Aktueller StufenName" Grid.Column="0" Grid.Row="1"
                    TextAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
         </Grid>
