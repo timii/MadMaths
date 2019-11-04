@@ -22,6 +22,7 @@
                    TextAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
         <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
+            <Separator/>
             <Button x:Name="Grundschule"
                     Content="Grundschule" Margin="25" Click="Stufen_Click"/>
             <Button x:Name="Mittelstufe"
