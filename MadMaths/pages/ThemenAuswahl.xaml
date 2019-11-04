@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Background="Transparent">
             <Grid.RowDefinitions>
-                <RowDefinition Height="65"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"

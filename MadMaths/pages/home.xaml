@@ -18,9 +18,9 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Name="placeholder1" Text="MadMaths" Grid.Column="0" Grid.Row="0" Margin="20"
+        <TextBlock Name="App_Title" Text="MadMaths" Grid.Column="0" Grid.Row="0" Margin="20"
                    TextAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
-        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Beige" BorderThickness="1" Margin="5">
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Beige" BorderThickness="0" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
                 <Button x:Name="Grundschule"
@@ -37,12 +37,14 @@
             </Button>-->
             </StackPanel>
         </Border>
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
-            <Button x:Name="lastSession" Content="letzte Übung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
-            <Button x:Name="challenge" Content="Herausforderung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
-        </StackPanel>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+                <Button x:Name="lastSession" Content="letzte Übung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
+                <Button x:Name="challenge" Content="Herausforderung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
+            </StackPanel>
+        </Border>
         <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
-                 HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige">
+                 HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5">
             <ListBoxItem>
                 <TextBlock Text="1. Rodion" FontSize="20"/>
             </ListBoxItem>
@@ -53,5 +55,7 @@
                 <TextBlock Text="3. Black Star" FontSize="20"/>
             </ListBoxItem>
         </ListBox>
+        <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
+        </Border>
     </Grid>
 </Page>
