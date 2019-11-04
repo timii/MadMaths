@@ -77,6 +77,44 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,4">
+                                <GradientStop Offset="0.0" Color="#ff7600"/>
+                                <GradientStop Offset="0.5"  Color="#ff7600"/>
+                                <GradientStop Offset="1.0" Color="#ff7600"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Background" Value="#FFFF4B00"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Image x:Key="backButtonimg" Source="pack://application:,,,/Assembly;component/assets/icons/backButton.png"/>
+        <Style x:Key="BackButton">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\icons\backButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\icons\backButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Application.Resources>
 </Application>

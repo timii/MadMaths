@@ -142,5 +142,15 @@
   <ItemGroup>
     <Folder Include="data\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\icons\backButton.png">
+      <CustomToolNamespace>MadMaths</CustomToolNamespace>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="assets\icons\backButton_active.png" />
+    <Resource Include="assets\icons\home1.png" />
+    <Resource Include="assets\icons\home2.png" />
+    <Resource Include="assets\icons\home3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

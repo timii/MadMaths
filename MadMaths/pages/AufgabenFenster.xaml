@@ -22,7 +22,7 @@
                  IsReadOnly="True" Background="Transparent" Text="Irgendeine Aufgabe"
                  TextAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="Antwort" Grid.Row="1" Grid.Column="0"
-                 IsReadOnly="True" Background="Transparent" Text="Irgendeine Antwort"
+                 IsReadOnly="False" Background="Transparent" Text="Irgendeine Antwort"
                  TextAlignment="Center" VerticalContentAlignment="Center" Margin="50,20,50,20" 
                  BorderBrush="AliceBlue"/>
         <Button Grid.Row="2" Content="Abgabe" Margin="350,5,350,5"/>
