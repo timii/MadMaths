@@ -18,7 +18,11 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Source="assets/logo/madmaths_logo1.png" Grid.Column="0" Grid.Row="0" Margin="10"/>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\logo\madmaths_logo1.png" Stretch="None"/>
+            </Grid.Background>
+        </Grid>
         <Border Grid.Row="1" Grid.Column="0" BorderBrush="Beige" BorderThickness="0" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
