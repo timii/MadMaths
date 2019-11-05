@@ -7,16 +7,22 @@
         <!-- Style für die Buttons -->
         <Style TargetType="{x:Type Button}">
             <Setter Property="Control.FontSize" Value="25"/>
-            <Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>
+            <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
+            <Setter Property="Control.FontFamily" Value="Segoe UI"/>
             <Setter Property="Control.MinHeight" Value="70"/>
             <Setter Property="Control.Height" Value="auto"/>
             <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Control.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -94,7 +100,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Image x:Key="backButtonimg" Source="pack://application:,,,/Assembly;component/assets/icons/backButton.png"/>
         <Style x:Key="BackButton">
             <Setter Property="Control.Template">
                 <Setter.Value>

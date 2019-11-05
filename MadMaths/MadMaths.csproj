@@ -148,6 +148,10 @@
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\logo\madmaths_logo1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CustomToolNamespace>MadMaths</CustomToolNamespace>
+    </Content>
     <Resource Include="assets\icons\backButton_active.png" />
     <Resource Include="assets\icons\home1.png" />
     <Resource Include="assets\icons\home2.png" />

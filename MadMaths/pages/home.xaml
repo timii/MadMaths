@@ -18,8 +18,7 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Name="App_Title" Text="MadMaths" Grid.Column="0" Grid.Row="0" Margin="20"
-                   TextAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+        <Image Source="assets/logo/madmaths_logo1.png" Grid.Column="0" Grid.Row="0" Margin="10"/>
         <Border Grid.Row="1" Grid.Column="0" BorderBrush="Beige" BorderThickness="0" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
