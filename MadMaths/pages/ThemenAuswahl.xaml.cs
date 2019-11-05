@@ -32,7 +32,7 @@ namespace MadMaths.pages
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new home()); // Bei Klick zurück auf die Startseite
+            NavigationService.GoBack(); // geht eine Seite zurück
         }
     }
 }

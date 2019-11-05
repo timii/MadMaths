@@ -27,7 +27,8 @@ namespace MadMaths.pages
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick zurück auf die Startseite
+            NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
+
         }
     }
 }
