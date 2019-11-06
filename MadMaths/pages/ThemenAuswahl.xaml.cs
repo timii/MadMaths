@@ -23,11 +23,17 @@ namespace MadMaths.pages
         public ThemenAuswahl()
         {
             InitializeComponent();
+            StufenName.Text = Controller.currentPage;   // setzt die aktuelle Stufe als Überschrift
         }
 
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
+        }
+
+        private void ThemenBackClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack(); // geht eine Seite zurück
         }
     }
 }

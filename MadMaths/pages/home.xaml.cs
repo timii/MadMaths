@@ -25,9 +25,10 @@ namespace MadMaths.pages
             InitializeComponent();
         }
 
-        private void Stufen_Click(object sender, RoutedEventArgs e)
+        private void StufenClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenasuwahl
+            Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
+            NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenauswahl
         }
     }
 }

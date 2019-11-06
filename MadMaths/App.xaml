@@ -7,30 +7,39 @@
         <!-- Style für die Buttons -->
         <Style TargetType="{x:Type Button}">
             <Setter Property="Control.FontSize" Value="25"/>
-            <Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>
+            <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
+            <Setter Property="Control.FontFamily" Value="Bahnschrift, Segoe UI, Consolas"/>
             <Setter Property="Control.MinHeight" Value="70"/>
             <Setter Property="Control.Height" Value="auto"/>
-            <Setter Property="Foreground" Value="#FF343433"/>
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Control.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Auto"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Setter Property="Control.Background">
-                <Setter.Value>#cfffa500
-                    <!--<LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
-                        <GradientStop Offset="0.0" Color="#FFFFBE00"/>
+                <!-- Standard Background -->
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
+                        <GradientStop Offset="0.0" Color="Orange"/>
                         <GradientStop Offset="0.5" Color="DarkOrange"/>
                         <GradientStop Offset="1.0" Color="OrangeRed"/>
-                    </LinearGradientBrush>-->
+                    </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
+                <!-- Hover Effekt -->
                 <Trigger Property="Button.IsMouseOver" Value="True">
                     <Setter Property="Control.Background">
                         <Setter.Value>
@@ -51,22 +60,22 @@
         <Style TargetType="{x:Type Grid}">
             <Setter Property="Background">
                 <Setter.Value>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,5">
-                        <GradientStop Offset="0.0" Color="Aqua"/>
-                        <GradientStop Offset="0.5" Color="#FF1464FF"/>
-                        <GradientStop Offset="1.0" Color="Blue"/>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                        <GradientStop Color="#FF01C8FF" Offset="0.0"/>
+                        <GradientStop Color="#FF648CFF" Offset="1.0"/>
+                        <!--<GradientStop Color="#FF6464FF" Offset="1.0"/>-->
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter> 
         </Style>
         <!-- Alternativer Style für Buttons -->
         <Style x:Key="ButtonStyle2">
-            <Setter Property="Control.Background" Value="#FFFFFF58"/>
+            <Setter Property="Control.Background" Value="Orange"/>
             <Setter Property="Control.FontSize" Value="25"/>
             <Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>
             <Setter Property="Control.MinHeight" Value="70"/>
             <Setter Property="Control.Height" Value="auto"/>
-            <Setter Property="Control.Foreground" Value="#FF343433"/>
+            <Setter Property="Control.Foreground" Value="Beige"/>
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
@@ -77,6 +86,89 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,4">
+                                <GradientStop Offset="0.0" Color="#ff7600"/>
+                                <GradientStop Offset="0.5"  Color="#ff7600"/>
+                                <GradientStop Offset="1.0" Color="#ff7600"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Background" Value="#FFFF4B00"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!-- Style für den Zurück Button -->
+        <Style x:Key="BackButton">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/backButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="assets/icons/backButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!-- Style für die Ranking Liste -->
+        <Style x:Key="RankingListStyle">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Margin" Value="2"/>
+            <Setter Property="Control.Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF01C8FF" Offset="0.0"/>
+                        <GradientStop Color="#FF648CFF" Offset="0.6"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                <GradientStop Color="#FF01C8FF" Offset="0.0"/>
+                                <GradientStop Color="#FF648CFF" Offset="0.6"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Control.Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Application.Resources>
 </Application>

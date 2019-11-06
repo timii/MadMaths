@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MadMaths.pages"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="900"
-      Title="home" Background="Aqua">
+      Title="home">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,38 +18,51 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Name="placeholder1" Text="MadMaths" Grid.Column="0" Grid.Row="0" Margin="20"
-                   TextAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
-        <StackPanel Grid.Row="1" Grid.Column="0"
+        <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+            <!--<Grid.Background>
+                <ImageBrush ImageSource="assets/logo/madmaths_logo1.png" Stretch="None"/>
+            </Grid.Background>-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
-            <Separator/>
-            <Button x:Name="Grundschule"
-                    Content="Grundschule" Margin="25" Click="Stufen_Click"/>
-            <Button x:Name="Mittelstufe"
-                    Content="Mittelstufe" Margin="25" Click="Stufen_Click"/>
-            <Button x:Name="Oberstufe"
-                    Content="Oberstufe" Margin="25" Click="Stufen_Click"/>
-            <!-- Beispiel für Responsive Design -->
-            <!--<Button x:Name="Oberstufe" Margin="25">
+                <Button x:Name="Grundschule"
+                    Content="Grundschule" Margin="25" Click="StufenClick"/>
+                <Button x:Name="Mittelstufe"
+                    Content="Mittelstufe" Margin="25" Click="StufenClick"/>
+                <Button x:Name="Oberstufe"
+                    Content="Oberstufe" Margin="25" Click="StufenClick"/>
+                <!-- Beispiel für Responsive Design -->
+                <!--<Button x:Name="Oberstufe" Margin="25">
                 <Viewbox Stretch="Uniform">
                     <TextBlock Text="Oberstufe" Width="270" TextAlignment="Center"/>
                 </Viewbox>
             </Button>-->
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
-            <Button x:Name="lastSession" Content="letzte Übung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
-            <Button x:Name="challenge" Content="Herausforderung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
-        </StackPanel>
-        <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Stretch" Background="Transparent">
-            <ListBoxItem>
+            </StackPanel>
+        </Grid>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
+            <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
+                <Button x:Name="challenge" Content="Herausforderung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
+                <Button x:Name="lastSession" Content="letzte Übung" Margin="5" Style="{StaticResource ButtonStyle2}"/>
+            </StackPanel>
+        </Border>
+        <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
+                 HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5"
+                 >
+            <ListBoxItem Style="{StaticResource RankingListStyle}">
                 <TextBlock Text="1. Rodion" FontSize="20"/>
             </ListBoxItem>
-            <ListBoxItem>
+            <ListBoxItem Style="{StaticResource RankingListStyle}">
                 <TextBlock Text="2. Sentouki" FontSize="20"/>
             </ListBoxItem>
-            <ListBoxItem>
+            <ListBoxItem Style="{StaticResource RankingListStyle}">
                 <TextBlock Text="3. Black Star" FontSize="20"/>
             </ListBoxItem>
         </ListBox>
+        <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
+        </Border>
     </Grid>
 </Page>

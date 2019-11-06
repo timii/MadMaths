@@ -18,16 +18,25 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="AufgabenStellung" Grid.Row="0" Grid.Column="0"
+        <Grid Grid.Row="0" Grid.Column="0" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
+                    Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"/>
+            <TextBox x:Name="AufgabenStellung" Grid.Row="1" Grid.Column="0"
                  IsReadOnly="True" Background="Transparent" Text="Irgendeine Aufgabe"
-                 TextAlignment="Center" VerticalContentAlignment="Center"/>
+                 TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0"/>
+        </Grid>
         <TextBox x:Name="Antwort" Grid.Row="1" Grid.Column="0"
-                 IsReadOnly="True" Background="Transparent" Text="Irgendeine Antwort"
+                 IsReadOnly="False" Background="Transparent" Text="Irgendeine Antwort"
                  TextAlignment="Center" VerticalContentAlignment="Center" Margin="50,20,50,20" 
-                 BorderBrush="AliceBlue"/>
-        <Button Grid.Row="2" Content="Abgabe" Margin="350,5,350,5"/>
-        <TextBox x:Name="Lösung" Grid.Row="3" Grid.Column="0"
-                 IsReadOnly="True" Background="Transparent" Text="Truen't"
-                 TextAlignment="Center" VerticalContentAlignment="Center"/>
+                 BorderBrush="AliceBlue" BorderThickness="2"/>
+        <Button Grid.Row="2" Content="Abgabe" VerticalContentAlignment="Center"
+                MinHeight="50" MaxHeight="90" MinWidth="100" MaxWidth="250"/>
+        <TextBlock x:Name="Lösung" Grid.Row="3" Grid.Column="0"
+                 Background="Transparent" Text="Truen't"
+                 TextAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>
