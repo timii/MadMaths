@@ -23,6 +23,7 @@ namespace MadMaths.pages
         public ThemenAuswahl()
         {
             InitializeComponent();
+            StufenName.Text = Controller.currentPage;   // setzt die aktuelle Stufe als Überschrift
         }
 
         private void AufgabenClick(object sender, RoutedEventArgs e)

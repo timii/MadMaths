@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
             <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"/>
-            <TextBlock Text="Aktueller StufenName" Grid.Column="0" Grid.Row="1"
+            <TextBlock Name="StufenName" Text="Placeholder" Grid.Column="0" Grid.Row="1"
                    TextAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
         </Grid>
         <WrapPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">

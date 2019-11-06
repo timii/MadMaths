@@ -8,6 +8,6 @@ namespace MadMaths
 {
     static public class Controller
     {
-        public static string currentPage { get; set; }      // enthält den Namen der aktuell aufgerufenen Page
+        public static string currentPage { get; set; } = "None";  // enthält den Namen der aktuell aufgerufenen Page
     }
 }   
