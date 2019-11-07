@@ -63,7 +63,7 @@
             </ListBoxItem>
         </ListBox>
         <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
-            <Canvas>
+            <!--<Canvas>
                 <Ellipse
                     Margin="10,10,0,0"
                     Width="70"
@@ -71,10 +71,23 @@
                     Stroke="Orange"
                     StrokeThickness="1">
                     <Ellipse.Fill>
-                        <ImageBrush x:Name="Avatar" ImageSource="../assets/icons/profile-picture-icon.jpg" Stretch="UniformToFill"/>
+                        <ImageBrush x:Name="Avatar" ImageSource="../assets/icons/profile-picture-icon.jpg" 
+                                    Stretch="UniformToFill"/>
                     </Ellipse.Fill>
                 </Ellipse>
-            </Canvas>
+            </Canvas>-->
+            <Button  Width="70" Height="70" HorizontalAlignment="Left" Margin="10,0,0,0" Click="AvatarClick" >
+                <Button.Template>
+                    <ControlTemplate>
+                        <Ellipse >
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="Avatar" ImageSource="../assets/icons/profile-picture-icon.jpg" 
+                                Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </Border>
     </Grid>
 </Page>
