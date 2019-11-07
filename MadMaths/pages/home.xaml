@@ -77,16 +77,17 @@
                 </Ellipse>
             </Canvas>-->
             <Button  Width="70" Height="70" HorizontalAlignment="Left" Margin="10,0,0,0" Click="AvatarClick" >
-                <Button.Template>
+                <!--<Button.Template>
                     <ControlTemplate>
-                        <Ellipse >
+                        <Ellipse Name="Avatar">
                             <Ellipse.Fill>
-                                <ImageBrush x:Name="Avatar" ImageSource="../assets/icons/profile-picture-icon.jpg" 
+                                <ImageBrush ImageSource="../assets/icons/profile-picture-icon.jpg" 
                                 Stretch="UniformToFill"/>
                             </Ellipse.Fill>
                         </Ellipse>
                     </ControlTemplate>
-                </Button.Template>
+                </Button.Template>-->
+                <Image Source="../assets/icons/profile-picture-icon.jpg" x:Name="Avatar"/>
             </Button>
         </Border>
     </Grid>

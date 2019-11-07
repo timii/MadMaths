@@ -37,7 +37,7 @@ namespace MadMaths.pages
             {
                 Title = "Wähle ein Bild als Avatar aus",
                 Filter = "Alle supportete Grafiken| *.jpg;*.jpeg;*.png|" +
-                 "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg" +
+                 "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
                  "Portable Network Graphic (*.png)|*.png"
             };
 
@@ -51,7 +51,8 @@ namespace MadMaths.pages
                 }
                 else
                 {
-                    Avatar.ImageSource = new BitmapImage(new Uri(op.FileName));
+                    Avatar.Source = new BitmapImage(new Uri(op.FileName));
+         
                 }
             }
 
