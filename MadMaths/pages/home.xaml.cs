@@ -44,11 +44,15 @@ namespace MadMaths.pages
             if (op.ShowDialog() == true)
             {
                 FileInfo fi = new FileInfo(op.FileName);
-                if (fi.Length > 2000000) {
-
+                if (fi.Length > 2000000)
+                {
+                    MessageBox.Show("Die Datei darf nicht über 2 MB groß sein", "ERROR");
+                    AvatarClick(sender, e);
                 }
-
-                //Avatar.Source = new BitmapImage(new Uri(op.FileName));
+                else
+                {
+                    Avatar.ImageSource = new BitmapImage(new Uri(op.FileName));
+                }
             }
 
         }
