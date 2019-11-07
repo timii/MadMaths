@@ -26,7 +26,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Image Source="assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <Image Source="../assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
                 <Button x:Name="Grundschule"
@@ -63,6 +63,18 @@
             </ListBoxItem>
         </ListBox>
         <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
+            <Canvas>
+                <Ellipse
+                    Margin="10,10,0,0"
+                    Width="70"
+                    Height="70"
+                    Stroke="Orange"
+                    StrokeThickness="1">
+                    <Ellipse.Fill>
+                        <ImageBrush x:Name="Avatar" ImageSource="../assets/icons/profile-picture-icon.jpg" Stretch="UniformToFill"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Canvas>
         </Border>
     </Grid>
 </Page>
