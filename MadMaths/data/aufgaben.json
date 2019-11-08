@@ -1,0 +1,54 @@
+{
+  "Grundschule": { /*Würde das eigentlich eher mit randomzahlen machen btw*/
+    "Zahlenraum bis 10": {
+      "Addieren": [
+        [ "Addiere 5 mit 3", "8" ],
+        [ "Addiere 1 mit 3", "4" ],
+        [ "Addiere 4 mit 2", "6" ],
+        [ "Addiere 4 mit 6", "10" ],
+        [ "Addiere 3 mit 3", "6" ],
+        [ "Addiere 7 mit 1", "8" ],
+        [ "Addiere 4 mit 1", "5" ],
+        [ "Addiere 8 mit 2", "10" ],
+        [ "Addiere 5 mit 2", "7" ],
+        [ "Addiere 3 mit 6", "9" ]
+      ],
+      "Subtrahieren": [
+        [ "Subtrahiere 6 mit 5", "1" ],
+        [ "Subtrahiere 3 mit 1", "2" ],
+        [ "Subtrahiere 8 mit 2", "6" ],
+        [ "Subtrahiere 10 mit 6", "4" ],
+        [ "Subtrahiere 9 mit 3", "6" ],
+        [ "Subtrahiere 10 mit 3", "7" ],
+        [ "Subtrahiere 3 mit 2", "1" ],
+        [ "Subtrahiere 10 mit 4", "6" ],
+        [ "Subtrahiere 7 mit 7", "0" ],
+        [ "Subtrahiere 6 mit 1", "5" ],
+        [ "Subtrahiere 6 mit 3", "3" ]
+      ],
+      "Größen Vergleich": [
+        [ "Welche Zahl ist größer: 5 oder 3", "5" ],
+        [ "Welche Zahl ist größer: 10 oder 3", "10" ],
+        [ "Welche Zahl ist größer: 6 oder 2", "6" ],
+        [ "Welche Zahl ist größer: 3 oder 9", "9" ],
+        [ "Welche Zahl ist größer: 6 oder 3", "6" ],
+        [ "Welche Zahl ist größer: 5 oder 7", "7" ],
+        [ "Welche Zahl ist größer: 9 oder 10", "10" ],
+        [ "Welche Zahl ist größer: 3 oder 2", "3" ],
+        [ "Welche Zahl ist größer: 3 oder 4", "4" ],
+        [ "Welche Zahl ist größer: 9 oder 0", "9" ]
+
+      ]
+
+    },
+    /*Versuch das Random zu machen */
+    "Zahlenraum bis 20": {
+      "Addieren": [
+        [ "Addiere ", 234 ]
+
+      ]
+
+    }
+
+  }
+}

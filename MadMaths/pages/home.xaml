@@ -19,14 +19,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
-            <!--<Grid.Background>
-                <ImageBrush ImageSource="assets/logo/madmaths_logo1.png" Stretch="None"/>
-            </Grid.Background>-->
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Image Source="assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top"/>
+            <Image Source="../assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top"/>
             <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
                 <Button x:Name="Grundschule"
@@ -63,6 +60,29 @@
             </ListBoxItem>
         </ListBox>
         <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
+            <Grid Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button  Width="70" Height="70" HorizontalAlignment="Left" Margin="10,0,0,0" Click="AvatarClick" 
+                         Background="Transparent" Cursor="Hand" Grid.RowSpan="2">
+                    <Image Source="../assets/icons/profile-picture-icon.jpg" x:Name="Avatar" Stretch="UniformToFill">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="35" RadiusY="35" Center="35,35"/>
+                        </Image.Clip>
+                    </Image>
+                </Button>
+                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User" FontSize="25" VerticalAlignment="Center"/>
+                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" Maximum="100" Value="50" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
+                <TextBlock Name="Level" Grid.Row="0" Grid.Column="2" Text="Level 69" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="2" Text="10000/-1000" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Grid>
         </Border>
     </Grid>
 </Page>
