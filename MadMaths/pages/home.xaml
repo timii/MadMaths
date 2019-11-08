@@ -49,14 +49,23 @@
         <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
                  HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5"
                  >
-            <ListBoxItem Style="{StaticResource RankingListStyle}">
-                <TextBlock Text="1. Rodion" FontSize="20"/>
+            <ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
+                <TextBlock Text="Rangliste" FontSize="15"/>
             </ListBoxItem>
             <ListBoxItem Style="{StaticResource RankingListStyle}">
-                <TextBlock Text="2. Sentouki" FontSize="20"/>
+                <TextBlock Text="1. Rodion"/>
             </ListBoxItem>
             <ListBoxItem Style="{StaticResource RankingListStyle}">
-                <TextBlock Text="3. Black Star" FontSize="20"/>
+                <TextBlock Text="2. Sentouki"/>
+            </ListBoxItem>
+            <ListBoxItem Style="{StaticResource RankingListStyle}">
+                <TextBlock Text="3. Black Star"/>
+            </ListBoxItem>
+            <ListBoxItem Style="{StaticResource RankingListStyle}">
+                <TextBlock Text="4. Juzcan"/>
+            </ListBoxItem>
+            <ListBoxItem Style="{StaticResource RankingListStyle}">
+                <TextBlock Text="5. ToAst"/>
             </ListBoxItem>
         </ListBox>
         <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
@@ -78,7 +87,7 @@
                         </Image.Clip>
                     </Image>
                 </Button>
-                <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User" FontSize="25" VerticalAlignment="Center"/>
+                <TextBlock Name="Username" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User" FontSize="25" VerticalAlignment="Center"/>
                 <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" Maximum="100" Value="50" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
                 <TextBlock Name="Level" Grid.Row="0" Grid.Column="2" Text="Level 69" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="2" Text="10000/-1000" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>

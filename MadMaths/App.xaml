@@ -36,7 +36,7 @@
         </Style>
         <!-- Style für die Buttons -->
         <Style TargetType="{x:Type Button}">
-            <Setter Property="Control.FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="28"/>
             <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
             <Setter Property="FontFamily" Value="Segoe UI Light"/>
             <Setter Property="MinHeight" Value="70"/>
@@ -51,7 +51,7 @@
                 <Setter.Value>
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="3">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
                                               TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Auto"/>
                         </Border>
@@ -102,7 +102,7 @@
         <Style x:Key="ButtonStyle2">
             <Setter Property="Control.Background" Value="Orange"/>
             <Setter Property="Control.FontSize" Value="25"/>
-            <Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>
+            <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
             <Setter Property="Control.MinHeight" Value="70"/>
             <Setter Property="Control.Height" Value="auto"/>
             <Setter Property="Control.Foreground" Value="Beige"/>
@@ -164,6 +164,7 @@
         </Style>
         <!-- Style für die Ranking Liste -->
         <Style x:Key="RankingListStyle">
+            <Setter Property="Control.FontSize" Value="20"/>
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
