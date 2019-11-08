@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace MadMaths.pages
 {
@@ -22,6 +23,15 @@ namespace MadMaths.pages
     /// </summary>
     public partial class home : Page
     {
+        // (vorläufige) Struktur, um Benutzerdaten zu speichern
+        public struct User
+        {
+            public string UserName { get; set; }
+            public string password { get; set; }
+            public string avatarImg;
+        }
+        public string temp;
+
         public home()
         {
             InitializeComponent();
@@ -33,26 +43,43 @@ namespace MadMaths.pages
             NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenauswahl
         }
         private void AvatarClick(object sender, RoutedEventArgs e) {
-            OpenFileDialog op = new OpenFileDialog
+            if (Controller.UserIsLoggedIn)
             {
-                Title = "Wähle ein Bild als Avatar aus",
-                Filter = "Alle supportete Grafiken| *.jpg;*.jpeg;*.png|" +
-                 "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-                 "Portable Network Graphic (*.png)|*.png"
-            };
 
-            if (op.ShowDialog() == true)
-            {
-                FileInfo fi = new FileInfo(op.FileName);
-                if (fi.Length > 2000000)
+                OpenFileDialog op = new OpenFileDialog
                 {
-                    MessageBox.Show("Die Datei darf nicht über 2 MB groß sein", "ERROR");
-                    AvatarClick(sender, e);
-                }
-                else
+                    Title = "Wähle ein Bild als Avatar aus",
+                    Filter = "Alle Bilder| *.jpg;*.jpeg;*.png|" +
+                     "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
+                     "Portable Network Graphic (*.png)|*.png"
+                };
+
+                if (op.ShowDialog() == true)
                 {
-                    Avatar.Source = new BitmapImage(new Uri(op.FileName));
-         
+                    FileInfo fi = new FileInfo(op.FileName);
+                    if (fi.Length > 2000000)
+                    {
+                        MessageBox.Show("Die Datei darf nicht über 2 MB groß sein", "Datei zu groß");
+                        AvatarClick(sender, e);
+                    }
+                    else
+                    {
+                        using (StreamReader sr = new StreamReader("user.json"))
+                        {
+                            temp = sr.ReadToEnd();
+                        }
+                        User user = JsonConvert.DeserializeObject<User>(temp); // ignoriert diesen Abschnitt
+                        //using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open)))
+                        //{
+                        //    temp = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length));
+                        //}
+                        //using (StreamWriter sw = new StreamWriter(File.Open("img.txt", FileMode.CreateNew)))
+                        //{
+                        //    sw.Write(temp);
+                        //}
+                        //Avatar.Source = new BitmapImage(new Uri(op.FileName));
+                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
+                    }
                 }
             }
 
