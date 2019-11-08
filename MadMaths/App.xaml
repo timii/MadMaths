@@ -4,13 +4,43 @@
              xmlns:local="clr-namespace:MadMaths"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="{x:Type Page}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="5" Direction="315" Color="Gray" Opacity="0.20" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type PasswordBox}">
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="5" Direction="315" Color="Gray" Opacity="0.20" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="5" Direction="315" Color="Gray" Opacity="0.20" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <!-- Style für die Buttons -->
         <Style TargetType="{x:Type Button}">
             <Setter Property="Control.FontSize" Value="25"/>
             <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
-            <Setter Property="Control.FontFamily" Value="Bahnschrift, Segoe UI, Consolas"/>
-            <Setter Property="Control.MinHeight" Value="70"/>
-            <Setter Property="Control.Height" Value="auto"/>
+            <Setter Property="FontFamily" Value="Segoe UI Light"/>
+            <Setter Property="MinHeight" Value="70"/>
+            <Setter Property="Height" Value="auto"/>
             <Setter Property="Foreground" Value="Beige"/>
             <Setter Property="Control.Effect">
                 <Setter.Value>
