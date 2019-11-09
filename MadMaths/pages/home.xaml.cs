@@ -24,12 +24,12 @@ namespace MadMaths.pages
     public partial class home : Page
     {
         // (vorläufige) Struktur, um Benutzerdaten zu speichern
-        public struct User
-        {
-            public string UserName { get; set; }
-            public string password { get; set; }
-            public string avatarImg;
-        }
+        //public struct User
+        //{
+        //    public string UserName { get; set; }
+        //    public string password { get; set; }
+        //    public string avatarImg;
+        //}
         public string temp;
 
         public home()
@@ -68,7 +68,7 @@ namespace MadMaths.pages
                         {
                             temp = sr.ReadToEnd();
                         }
-                        User user = JsonConvert.DeserializeObject<User>(temp); // ignoriert diesen Abschnitt
+                        //User user = JsonConvert.DeserializeObject<User>(temp); // ignoriert diesen Abschnitt
                         //using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open)))
                         //{
                         //    temp = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length));
@@ -77,8 +77,8 @@ namespace MadMaths.pages
                         //{
                         //    sw.Write(temp);
                         //}
-                        //Avatar.Source = new BitmapImage(new Uri(op.FileName));
-                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
+                        Avatar.Source = new BitmapImage(new Uri(op.FileName));
+                        //Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
                     }
                 }
             }

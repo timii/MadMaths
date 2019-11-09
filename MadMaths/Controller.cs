@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Media.Imaging;
 
 namespace MadMaths
@@ -9,6 +10,11 @@ namespace MadMaths
         public static string currentPage { get; set; } = "None";  // enthält den Namen der aktuell aufgerufenen Page
 
         public static bool UserIsLoggedIn = false;
+
+        private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
+
+        private static string UserSaveFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/","user.json");
+
 
         public static BitmapImage LoadImage(byte[] imageData)
         {
@@ -26,6 +32,22 @@ namespace MadMaths
             }
             image.Freeze();
             return image;
+        }
+
+        public static bool CheckSaveDir()
+        {
+            return Directory.Exists(UserSaveDir);
+        }
+
+        public static void CreateSaveDir()
+        {
+            DirectoryInfo di = Directory.CreateDirectory(UserSaveDir);
+            di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+
+            File.Create(UserSaveFile);
+
+            FileInfo fi = new FileInfo(UserSaveFile);
+            fi.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
         }
     }
 }   
