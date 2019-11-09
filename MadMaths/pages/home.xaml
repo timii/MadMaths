@@ -52,13 +52,13 @@
             <ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
                 <TextBlock Text="Rangliste" FontSize="15"/>
             </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle}">
+            <ListBoxItem Style="{StaticResource RankingListStyle1}">
                 <TextBlock Text="1. Rodion"/>
             </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle}">
+            <ListBoxItem Style="{StaticResource RankingListStyle2}">
                 <TextBlock Text="2. Sentouki"/>
             </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle}">
+            <ListBoxItem Style="{StaticResource RankingListStyle3}">
                 <TextBlock Text="3. Black Star"/>
             </ListBoxItem>
             <ListBoxItem Style="{StaticResource RankingListStyle}">
