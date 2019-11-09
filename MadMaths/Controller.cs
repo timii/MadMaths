@@ -13,7 +13,7 @@ namespace MadMaths
 
         private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
 
-        private static string UserSaveFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/","user.json");
+        public static string UserSaveFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/","user.json");
 
 
         public static BitmapImage LoadImage(byte[] imageData)
