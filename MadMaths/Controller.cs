@@ -44,7 +44,7 @@ namespace MadMaths
         public static void CreateSaveDir()
         {
             DirectoryInfo di = Directory.CreateDirectory(UserSaveDir);
-            di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+            di.Attributes = FileAttributes.Directory | FileAttributes.Hidden; // erstellt einen versteckten Ordner
 
             File.Create(UserSaveFile);
 

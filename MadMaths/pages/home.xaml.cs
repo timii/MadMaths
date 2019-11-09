@@ -23,13 +23,11 @@ namespace MadMaths.pages
     /// </summary>
     public partial class home : Page
     {
-
-        public string temp;
+        private User user = new User();
 
         public home()
         {
             InitializeComponent();
-            User user = new User();
             Controller.ReadUserJS(); // die JSON wird als string eingelesen
             if (Controller.UserJson.Length !=0)
             {
@@ -44,6 +42,15 @@ namespace MadMaths.pages
             else
             {
                 Username.Text = "Einloggen";
+            }
+            if (user.avatarImg != null)
+            {
+                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
+            }
+            if (user.level != null && user.currentProgress != null)
+            {
+                Level.Text = user.level;
+                progressInNumbers.Text = user.currentProgress;
             }
         }
 
@@ -74,21 +81,15 @@ namespace MadMaths.pages
                     }
                     else
                     {
-                        using (StreamReader sr = new StreamReader("user.json"))
+                        using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open))) // liest das Bild ein in bytes
+                        using (StreamWriter file = new StreamWriter(File.Open(Controller.UserSaveFile, FileMode.Open))) // öffnet die user.json
                         {
-                            temp = sr.ReadToEnd();
+                            user.avatarImg = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length)); // konvertiert die bytes in string
+                            JsonSerializer serializer = new JsonSerializer();
+                            serializer.Serialize(file, user);   // speicher das User objekt als user.json
                         }
-                        //User user = JsonConvert.DeserializeObject<User>(temp); // ignoriert diesen Abschnitt
-                        //using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open)))
-                        //{
-                        //    temp = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length));
-                        //}
-                        //using (StreamWriter sw = new StreamWriter(File.Open("img.txt", FileMode.CreateNew)))
-                        //{
-                        //    sw.Write(temp);
-                        //}
-                        Avatar.Source = new BitmapImage(new Uri(op.FileName));
-                        //Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
+                        //Avatar.Source = new BitmapImage(new Uri(op.FileName));
+                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
                     }
                 }
             }

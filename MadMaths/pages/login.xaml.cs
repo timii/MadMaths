@@ -29,11 +29,13 @@ namespace MadMaths.pages
 
         private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            // überprüft, ob Leerzeichen vorkommen
             if (e.Key == Key.Space && UserPassword.IsFocused == true){e.Handled = true;}
         }
 
         private void UserName_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            // überprüft, ob Leerzeichen vorkommen
             if (e.Key == Key.Space && UserName.IsFocused == true) {e.Handled = true;}
         }
 
