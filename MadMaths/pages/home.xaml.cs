@@ -35,6 +35,15 @@ namespace MadMaths.pages
         public home()
         {
             InitializeComponent();
+            User user = new User();
+            try
+            {
+                user = JsonConvert.DeserializeObject<User>(Controller.UserSaveFile);
+            }
+            catch (JsonSerializationException)
+            {
+                Controller.UserIsLoggedIn = false;
+            }
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)

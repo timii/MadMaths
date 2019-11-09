@@ -8,11 +8,11 @@ namespace MadMaths
 {
     public class User
     {
-        public string UserName { get; set; }
-        public string password { get; set; }
-        public string avatarImg { get; set; }
-        public string level { get; set; }
-        public string currentProgress { get; set; }
-        public string lastSessions { get; set; }
+        public string UserName { get; set; } = null;
+        public string password { get; set; } = null;
+        public string avatarImg { get; set; } = null;
+        public string level { get; set; } = null;
+        public string currentProgress { get; set; } = null;
+        public string lastSessions { get; set; } = null;
     }
 }
