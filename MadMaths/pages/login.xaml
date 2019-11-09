@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MadMaths.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="900"
       Title="login" FontSize="20">
 
     <Grid>
@@ -13,7 +13,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition MinHeight="50"/>
+            <RowDefinition MinHeight="50" MaxHeight="220"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -24,12 +24,12 @@
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Grid.Row="1" Text="Benutzername" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox x:Name="UserName" Grid.Column="0" Grid.Row="2" Margin="5"
-                 MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                 MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF2B2B2B" PreviewKeyDown="UserName_PreviewKeyDown" />
         <TextBlock Grid.Row="3" Text="Password" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <PasswordBox x:Name="UserPassword" Grid.Row="4" MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5"/>
+        <PasswordBox x:Name="UserPassword" Grid.Row="4" MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" Foreground="#FF2B2B2B" PreviewKeyDown="UserPassword_PreviewKeyDown"/>
         <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30">
             <Button x:Name="Login" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" MinHeight="40" MinWidth="120" FontSize="20"/>
-            <Button x:Name="Register" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" MinHeight="40" MinWidth="120" FontSize="20"/>
+            <Button x:Name="Register" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" MinHeight="40" MinWidth="120" FontSize="20" Click="Register_Click"/>
         </StackPanel>
     </Grid>
 </Page>

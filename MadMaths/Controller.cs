@@ -15,6 +15,8 @@ namespace MadMaths
 
         public static string UserSaveFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/","user.json");
 
+        public static string UserJson;
+
 
         public static BitmapImage LoadImage(byte[] imageData)
         {
@@ -48,6 +50,14 @@ namespace MadMaths
 
             FileInfo fi = new FileInfo(UserSaveFile);
             fi.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+        }
+
+        public static void ReadUserJS()
+        {
+            using (StreamReader sr = new StreamReader(UserSaveFile))
+            {
+                UserJson = sr.ReadToEnd();
+            }
         }
     }
 }   

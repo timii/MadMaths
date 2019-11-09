@@ -23,26 +23,27 @@ namespace MadMaths.pages
     /// </summary>
     public partial class home : Page
     {
-        // (vorläufige) Struktur, um Benutzerdaten zu speichern
-        //public struct User
-        //{
-        //    public string UserName { get; set; }
-        //    public string password { get; set; }
-        //    public string avatarImg;
-        //}
+
         public string temp;
 
         public home()
         {
             InitializeComponent();
             User user = new User();
-            try
+            Controller.ReadUserJS(); // die JSON wird als string eingelesen
+            if (Controller.UserJson.Length !=0)
             {
-                user = JsonConvert.DeserializeObject<User>(Controller.UserSaveFile);
+                user = JsonConvert.DeserializeObject<User>(Controller.UserJson); // die daten werden im User Objekt gespeichert
             }
-            catch (JsonSerializationException)
+
+            if (user.UserName != null)
             {
-                Controller.UserIsLoggedIn = false;
+                Username.Text = user.UserName;
+                Controller.UserIsLoggedIn = true;
+            }
+            else
+            {
+                Username.Text = "Einloggen";
             }
         }
 
@@ -92,6 +93,14 @@ namespace MadMaths.pages
                 }
             }
 
+        }
+
+        private void Username_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!Controller.UserIsLoggedIn)
+            {
+                NavigationService.Navigate(new login());
+            }
         }
     }
 }
