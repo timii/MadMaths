@@ -165,32 +165,153 @@
         </Style>
         <!-- Style für die Ranking Liste -->
         <Style x:Key="RankingListStyle">
+            <Setter Property="Control.Background" Value="#FF01C8FF"/>
             <Setter Property="Control.FontSize" Value="20"/>
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="1">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="0" CornerRadius="15">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Setter Property="Control.Margin" Value="2"/>
-            <Setter Property="Control.Background">
+            <!--<Setter Property="Control.Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="#FF01C8FF" Offset="0.0"/>
                         <GradientStop Color="#FF648CFF" Offset="0.6"/>
                     </LinearGradientBrush>
                 </Setter.Value>
-            </Setter>
+            </Setter>-->
             <Style.Triggers>
                 <Trigger Property="Control.IsMouseOver" Value="True">
                     <Setter Property="Control.Background">
                         <Setter.Value>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                                 <GradientStop Color="#FF01C8FF" Offset="0.0"/>
-                                <GradientStop Color="#FF648CFF" Offset="0.6"/>
+                                <GradientStop Color="#FF01C8FF" Offset="0.6"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Control.Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--Ranglistenstyle für den ersten Platz-->
+        <Style x:Key="RankingListStyle1">
+            <Setter Property="Control.Background" Value="Orange" />
+            <Setter Property="Control.FontSize" Value="20"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="0" CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Margin" Value="2"/>
+            <!--<Setter Property="Control.Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF01C8FF" Offset="0.0"/>
+                        <GradientStop Color="#FF648CFF" Offset="0.6"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>-->
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                <GradientStop Color="#FFFF8B00" Offset="0.0"/>
+                                <GradientStop Color="#FFFF8B00" Offset="0.6"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Control.Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--Ranglistenstyle für den zweiten Platz-->
+        <Style x:Key="RankingListStyle2">
+            <Setter Property="Control.Background" Value="#FFFDB83B" />
+            <Setter Property="Control.FontSize" Value="20"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="0" CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Margin" Value="2"/>
+            <!--<Setter Property="Control.Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF01C8FF" Offset="0.0"/>
+                        <GradientStop Color="#FF648CFF" Offset="0.6"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>-->
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                <GradientStop Color="#FFFF9F40" Offset="0.0"/>
+                                <GradientStop Color="#FFFF9F40" Offset="0.6"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Control.Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!--Ranglistenstyle für den dritten Platz-->
+        <Style x:Key="RankingListStyle3">
+            <Setter Property="Control.Background" Value="#FFFDC560" />
+            <Setter Property="Control.FontSize" Value="20"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="0" CornerRadius="15">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Margin" Value="2"/>
+            <!--<Setter Property="Control.Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF01C8FF" Offset="0.0"/>
+                        <GradientStop Color="#FF648CFF" Offset="0.6"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>-->
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                                <GradientStop Color="#FFFFD588" Offset="0.0"/>
+                                <GradientStop Color="#FFFFD588" Offset="0.6"/>
                             </LinearGradientBrush>
                         </Setter.Value>
                     </Setter>
