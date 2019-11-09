@@ -5,11 +5,11 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="{x:Type Page}">
-            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
             <Setter Property="FontSize" Value="15"/>
         </Style>
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect ShadowDepth="5" Direction="315" Color="Gray" Opacity="0.20" BlurRadius="10.5"/>
@@ -25,7 +25,7 @@
             </Setter>
         </Style>
         <Style TargetType="{x:Type TextBox}">
-            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Foreground" Value="Beige"/>
             <Setter Property="Effect">
@@ -38,7 +38,7 @@
         <Style TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="28"/>
             <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
-            <Setter Property="FontFamily" Value="Segoe UI Light"/>
+            <Setter Property="FontFamily" Value="Microsoft Sans Serif"/>
             <Setter Property="MinHeight" Value="70"/>
             <Setter Property="Height" Value="auto"/>
             <Setter Property="Foreground" Value="Beige"/>
@@ -53,7 +53,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="3">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
-                                              TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Auto"/>
+                                              TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -102,7 +102,7 @@
         <Style x:Key="ButtonStyle2">
             <Setter Property="Control.Background" Value="Orange"/>
             <Setter Property="Control.FontSize" Value="25"/>
-            <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
+            <Setter Property="Control.FontFamily" Value="Microsoft Sans Serif"/>
             <Setter Property="Control.MinHeight" Value="70"/>
             <Setter Property="Control.Height" Value="auto"/>
             <Setter Property="Control.Foreground" Value="Beige"/>
@@ -111,7 +111,8 @@
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              TextOptions.TextRenderingMode="Grayscale"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
