@@ -24,6 +24,10 @@ namespace MadMaths
         public MainWindow()
         {
             InitializeComponent();
+            if (!Controller.CheckSaveDir())
+            {
+                Controller.CreateSaveDir();
+            }
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
     }
