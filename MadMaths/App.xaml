@@ -164,19 +164,21 @@
             </Style.Triggers>
         </Style>
         <!-- Style für die Ranking Liste -->
-        <Style x:Key="RankingListStyle">
-            <Setter Property="Control.Background" Value="#FF01C8FF"/>
-            <Setter Property="Control.FontSize" Value="20"/>
-            <Setter Property="Control.Template">
+        
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Background" Value="#FF01C8FF"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Focusable" Value="False" />
+            <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="ListBoxItem">
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="0" CornerRadius="15">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Control.Margin" Value="2"/>
+            <Setter Property="Margin" Value="2"/>
             <!--<Setter Property="Control.Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -186,8 +188,8 @@
                 </Setter.Value>
             </Setter>-->
             <Style.Triggers>
-                <Trigger Property="Control.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background">
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
                         <Setter.Value>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
                                 <GradientStop Color="#FF01C8FF" Offset="0.0"/>
@@ -195,7 +197,7 @@
                             </LinearGradientBrush>
                         </Setter.Value>
                     </Setter>
-                    <Setter Property="Control.Effect">
+                    <Setter Property="Effect">
                         <Setter.Value>
                             <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
                         </Setter.Value>

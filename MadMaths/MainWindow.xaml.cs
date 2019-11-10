@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +24,20 @@ namespace MadMaths
     {
         public MainWindow()
         {
-            InitializeComponent();
+            FileInfo fi = new FileInfo(Controller.UserSaveFile);
+            fi.Attributes = FileAttributes.Normal;
+
             if (!Controller.CheckSaveDir())
             {
                 Controller.CreateSaveDir();
             }
+            InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
+        }
+        ~MainWindow()
+        {
+            FileInfo fi = new FileInfo(Controller.UserSaveFile);
+            fi.Attributes = FileAttributes.ReadOnly | FileAttributes.Hidden;
         }
     }
 }

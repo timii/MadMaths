@@ -49,7 +49,7 @@
         <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
                  HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5"
                  >
-            <ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
+            <!--<ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
                 <TextBlock Text="Rangliste" FontSize="15"/>
             </ListBoxItem>
             <ListBoxItem Style="{StaticResource RankingListStyle1}">
@@ -66,7 +66,12 @@
             </ListBoxItem>
             <ListBoxItem Style="{StaticResource RankingListStyle}">
                 <TextBlock Text="5. ToAst"/>
-            </ListBoxItem>
+            </ListBoxItem>-->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding UserName}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <Grid Background="Transparent">

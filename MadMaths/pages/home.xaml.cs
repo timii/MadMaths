@@ -24,6 +24,7 @@ namespace MadMaths.pages
     public partial class home : Page
     {
         private User user = new User();
+        public List<UserRank> RankList = new List<UserRank>();
 
         public home()
         {
@@ -49,9 +50,13 @@ namespace MadMaths.pages
             }
             if (user.level != null && user.currentProgress != null)
             {
-                Level.Text = user.level;
-                progressInNumbers.Text = user.currentProgress;
+                Level.Text = user.level.ToString();
+                progressInNumbers.Text = string.Format("{0}/{1}", user.currentProgress, user.level*100);
             }
+            RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
+            RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
+            RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
+            RankingList.ItemsSource = RankList;
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
@@ -82,7 +87,7 @@ namespace MadMaths.pages
                     else
                     {
                         using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open))) // liest das Bild ein in bytes
-                        using (StreamWriter file = new StreamWriter(File.Open(Controller.UserSaveFile, FileMode.Open))) // öffnet die user.json
+                        using (StreamWriter file = new StreamWriter(Controller.UserSaveFile,false)) // öffnet die user.json
                         {
                             user.avatarImg = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length)); // konvertiert die bytes in string
                             JsonSerializer serializer = new JsonSerializer();
