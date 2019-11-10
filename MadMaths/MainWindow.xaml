@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:MadMaths"
         mc:Ignorable="d"
         Title="MadMaths" Height="600" Width="900" MinHeight="470" MinWidth="700"
-        Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial">
+        Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial"
+        Icon="assets/logo/WindowIcon.png">
     
     <!-- Inhalte werden als Pages ins Frame geladen -->
     <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"

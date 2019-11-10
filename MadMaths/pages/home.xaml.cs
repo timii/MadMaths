@@ -23,18 +23,35 @@ namespace MadMaths.pages
     /// </summary>
     public partial class home : Page
     {
-        // (vorläufige) Struktur, um Benutzerdaten zu speichern
-        public struct User
-        {
-            public string UserName { get; set; }
-            public string password { get; set; }
-            public string avatarImg;
-        }
-        public string temp;
+        private User user = new User();
 
         public home()
         {
             InitializeComponent();
+            Controller.ReadUserJS(); // die JSON wird als string eingelesen
+            if (Controller.UserJson.Length !=0)
+            {
+                user = JsonConvert.DeserializeObject<User>(Controller.UserJson); // die daten werden im User Objekt gespeichert
+            }
+
+            if (user.UserName != null)
+            {
+                Username.Text = user.UserName;
+                Controller.UserIsLoggedIn = true;
+            }
+            else
+            {
+                Username.Text = "Einloggen";
+            }
+            if (user.avatarImg != null)
+            {
+                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
+            }
+            if (user.level != null && user.currentProgress != null)
+            {
+                Level.Text = user.level;
+                progressInNumbers.Text = user.currentProgress;
+            }
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
@@ -64,25 +81,27 @@ namespace MadMaths.pages
                     }
                     else
                     {
-                        using (StreamReader sr = new StreamReader("user.json"))
+                        using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open))) // liest das Bild ein in bytes
+                        using (StreamWriter file = new StreamWriter(File.Open(Controller.UserSaveFile, FileMode.Open))) // öffnet die user.json
                         {
-                            temp = sr.ReadToEnd();
+                            user.avatarImg = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length)); // konvertiert die bytes in string
+                            JsonSerializer serializer = new JsonSerializer();
+                            serializer.Serialize(file, user);   // speicher das User objekt als user.json
                         }
-                        User user = JsonConvert.DeserializeObject<User>(temp); // ignoriert diesen Abschnitt
-                        //using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open)))
-                        //{
-                        //    temp = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length));
-                        //}
-                        //using (StreamWriter sw = new StreamWriter(File.Open("img.txt", FileMode.CreateNew)))
-                        //{
-                        //    sw.Write(temp);
-                        //}
                         //Avatar.Source = new BitmapImage(new Uri(op.FileName));
                         Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
                     }
                 }
             }
 
+        }
+
+        private void Username_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!Controller.UserIsLoggedIn)
+            {
+                NavigationService.Navigate(new login());
+            }
         }
     }
 }
