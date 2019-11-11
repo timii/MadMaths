@@ -26,8 +26,10 @@
       "Meine Zahl ist {0} mal größer als {1}",
       "Wenn du mich {0} mal nimmst und {1} dazuaddierst, erhältst du meine Zahl",
 
-      "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommt er? ",
-      "Tim bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Tim 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Tim zum {1}. Geburtstag?" 
+      "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
+      "Tim bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Tim 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Tim zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
+      "Tim bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Tim 3€ mehr als beim zweiten und so weiter. Wieviel hat Tim insgesamt wenn er bis zum {1}. Lebensjahr spart?"
+
 
     ]
   }
