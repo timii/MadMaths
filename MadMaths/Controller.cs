@@ -45,16 +45,28 @@ namespace MadMaths
         {
             return Directory.Exists(UserSaveDir);
         }
+        
+        public static bool CheckSaveFile()
+        {
+            return File.Exists(UserSaveFile);
+        }
 
         public static void CreateSaveDir()
         {
             DirectoryInfo di = Directory.CreateDirectory(UserSaveDir);
             di.Attributes = FileAttributes.Directory | FileAttributes.Hidden; // erstellt einen versteckten Ordner
 
-            File.Create(UserSaveFile);
-
             //FileInfo fi = new FileInfo(UserSaveFile);
             //fi.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+            CreateUserJS();
+        }
+
+        public static void CreateUserJS()
+        {
+            DirectoryInfo di = new DirectoryInfo(UserSaveDir);
+            di.Attributes = FileAttributes.Normal;
+            File.Create(UserSaveFile);
+            di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
         }
 
         public static void ReadUserJS()

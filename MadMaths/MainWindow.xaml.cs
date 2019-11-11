@@ -29,6 +29,10 @@ namespace MadMaths
             {
                 Controller.CreateSaveDir();
             }
+            if (!Controller.CheckSaveFile())
+            {
+                Controller.CreateUserJS();
+            }
             FileInfo fi = new FileInfo(Controller.UserSaveFile);
             fi.Attributes = FileAttributes.Normal;
             InitializeComponent();
