@@ -24,13 +24,13 @@ namespace MadMaths
     {
         public MainWindow()
         {
-            FileInfo fi = new FileInfo(Controller.UserSaveFile);
-            fi.Attributes = FileAttributes.Normal;
 
             if (!Controller.CheckSaveDir())
             {
                 Controller.CreateSaveDir();
             }
+            FileInfo fi = new FileInfo(Controller.UserSaveFile);
+            fi.Attributes = FileAttributes.Normal;
             InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
