@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media.Imaging;
@@ -13,13 +14,32 @@ namespace MadMaths
 
         private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
 
-        public static string UserSaveFile = Path.Combine(UserSaveDir,"user.json");
+        public static string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
+
+        public static User _user;
 
         public static string UserJson;
 
+
         static Controller()
         {
-            //
+            if (!CheckSaveDir())
+            {
+                CreateSaveDir();
+            }
+            if (!CheckSaveFile())
+            {
+                CreateUserJS();
+            }
+            FileInfo fi = new FileInfo(UserSaveFile);
+            fi.Attributes = FileAttributes.Normal;
+
+            _user = new User();
+            ReadUserJS();
+            if (UserJson.Length != 0)
+            {
+                _user = JsonConvert.DeserializeObject<User>(UserJson); // die daten werden im User Objekt gespeichert
+            }
         }
 
 
@@ -45,7 +65,7 @@ namespace MadMaths
         {
             return Directory.Exists(UserSaveDir);
         }
-        
+
         public static bool CheckSaveFile()
         {
             return File.Exists(UserSaveFile);
@@ -56,17 +76,12 @@ namespace MadMaths
             DirectoryInfo di = Directory.CreateDirectory(UserSaveDir);
             di.Attributes = FileAttributes.Directory | FileAttributes.Hidden; // erstellt einen versteckten Ordner
 
-            //FileInfo fi = new FileInfo(UserSaveFile);
-            //fi.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
             CreateUserJS();
         }
 
         public static void CreateUserJS()
         {
-            //DirectoryInfo di = new DirectoryInfo(UserSaveDir);
-            //di.Attributes = FileAttributes.Normal;
-            File.Create(UserSaveFile);
-            //di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+            using (File.Create(UserSaveFile)) { };
         }
 
         public static void ReadUserJS()
@@ -78,4 +93,4 @@ namespace MadMaths
 
         }
     }
-}   
+}

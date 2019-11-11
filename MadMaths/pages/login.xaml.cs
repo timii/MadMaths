@@ -41,13 +41,13 @@ namespace MadMaths.pages
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.UserName = UserName.Text;
-            user.password = UserPassword.Password;
+            //User user = new User();
+            Controller._user.UserName = UserName.Text;
+            Controller._user.password = UserPassword.Password;
             using (StreamWriter file = new StreamWriter(File.Open(Controller.UserSaveFile, FileMode.Open)))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, user);
+                serializer.Serialize(file, Controller._user);
             }
             NavigationService.GoBack();
         }
