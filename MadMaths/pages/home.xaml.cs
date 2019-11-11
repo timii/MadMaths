@@ -23,21 +23,15 @@ namespace MadMaths.pages
     /// </summary>
     public partial class home : Page
     {
-        private User user = new User();
         public List<UserRank> RankList = new List<UserRank>();
 
         public home()
         {
             InitializeComponent();
-            Controller.ReadUserJS(); // die JSON wird als string eingelesen
-            if (Controller.UserJson.Length !=0)
-            {
-                user = JsonConvert.DeserializeObject<User>(Controller.UserJson); // die daten werden im User Objekt gespeichert
-            }
 
-            if (user.UserName != null)
+            if (Controller._user.UserName != null)
             {
-                Username.Text = user.UserName;
+                Username.Text = Controller._user.UserName;
                 Username.Cursor = null;
                 Controller.UserIsLoggedIn = true;
             }
@@ -45,14 +39,14 @@ namespace MadMaths.pages
             {
                 Username.Text = "Einloggen";
             }
-            if (user.avatarImg != null)
+            if (Controller._user.avatarImg != null)
             {
-                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
+                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));
             }
-            if (user.level != null && user.currentProgress != null)
+            if (Controller._user.level != null && Controller._user.currentProgress != null)
             {
-                Level.Text = user.level.ToString();
-                progressInNumbers.Text = string.Format("{0}/{1}", user.currentProgress, user.level*100);
+                Level.Text = Controller._user.level.ToString();
+                progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level*100);
             }
             RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
             RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
@@ -90,12 +84,12 @@ namespace MadMaths.pages
                         using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open))) // liest das Bild ein in bytes
                         using (StreamWriter file = new StreamWriter(Controller.UserSaveFile,false)) // öffnet die user.json
                         {
-                            user.avatarImg = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length)); // konvertiert die bytes in string
+                            Controller._user.avatarImg = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length)); // konvertiert die bytes in string
                             JsonSerializer serializer = new JsonSerializer();
-                            serializer.Serialize(file, user);   // speicher das User objekt als user.json
+                            serializer.Serialize(file, Controller._user);   // speicher das User objekt als user.json
                         }
                         //Avatar.Source = new BitmapImage(new Uri(op.FileName));
-                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(user.avatarImg));
+                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));
                     }
                 }
             }

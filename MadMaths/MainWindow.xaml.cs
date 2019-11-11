@@ -25,16 +25,16 @@ namespace MadMaths
         public MainWindow()
         {
 
-            if (!Controller.CheckSaveDir())
-            {
-                Controller.CreateSaveDir();
-            }
-            if (!Controller.CheckSaveFile())
-            {
-                Controller.CreateUserJS();
-            }
-            FileInfo fi = new FileInfo(Controller.UserSaveFile);
-            fi.Attributes = FileAttributes.Normal;
+            //if (!Controller.CheckSaveDir())
+            //{
+            //    Controller.CreateSaveDir();
+            //}
+            //if (!Controller.CheckSaveFile())
+            //{
+            //    Controller.CreateUserJS();
+            //}
+            //FileInfo fi = new FileInfo(Controller.UserSaveFile);
+            //fi.Attributes = FileAttributes.Normal;
             InitializeComponent();
             //MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
