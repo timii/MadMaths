@@ -7,9 +7,27 @@
         mc:Ignorable="d"
         Title="MadMaths" Height="600" Width="900" MinHeight="470" MinWidth="700"
         Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial"
-        Icon="assets/logo/WindowIcon.png">
+        Icon="assets/logo/WindowIcon.png"
+        WindowStyle="None" AllowsTransparency="True"> <!--Entfernt Standard Windows Border-->
+
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="35"/>
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid VerticalAlignment="Top" Background="Orange">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Height="70"
+                        WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
+                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Content="-" Width="35" />
+                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" Height="35"/>
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="x" Width="35" Height="35"/>
+            </StackPanel>
+        </Grid>
     
     <!-- Inhalte werden als Pages ins Frame geladen -->
-    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
-           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    <!--<Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
+           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
+    </Grid>
+    
 </Window>

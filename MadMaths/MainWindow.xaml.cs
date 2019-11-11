@@ -36,12 +36,58 @@ namespace MadMaths
             FileInfo fi = new FileInfo(Controller.UserSaveFile);
             fi.Attributes = FileAttributes.Normal;
             InitializeComponent();
-            MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
+            //MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
+
         ~MainWindow()
         {
             FileInfo fi = new FileInfo(Controller.UserSaveFile);
             fi.Attributes = FileAttributes.ReadOnly | FileAttributes.Hidden;
+        }
+
+        // Minimize Button Click
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        // Maximize Button Click
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdjustWindowSize();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private void AdjustWindowSize()
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+                MaximizeButton.Content = "1";
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+                MaximizeButton.Content = "2";
+            }
+
+        }
+        
+        /// TitleBar_MouseDown - Drag if single-click, resize if double-click
+        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                if (e.ClickCount == 2)
+                {
+                    AdjustWindowSize();
+                }
+                else
+                {
+                    Application.Current.MainWindow.DragMove();
+                }
         }
     }
 }
