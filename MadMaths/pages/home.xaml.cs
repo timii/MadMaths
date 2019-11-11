@@ -38,6 +38,7 @@ namespace MadMaths.pages
             if (user.UserName != null)
             {
                 Username.Text = user.UserName;
+                Username.Cursor = null;
                 Controller.UserIsLoggedIn = true;
             }
             else

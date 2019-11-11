@@ -63,10 +63,10 @@ namespace MadMaths
 
         public static void CreateUserJS()
         {
-            DirectoryInfo di = new DirectoryInfo(UserSaveDir);
-            di.Attributes = FileAttributes.Normal;
+            //DirectoryInfo di = new DirectoryInfo(UserSaveDir);
+            //di.Attributes = FileAttributes.Normal;
             File.Create(UserSaveFile);
-            di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+            //di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
         }
 
         public static void ReadUserJS()
