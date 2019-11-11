@@ -5,11 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MadMaths"
         mc:Ignorable="d"
-        Title="MadMaths" Height="600" Width="900" MinHeight="470" MinWidth="700"
+        Title="MadMaths" Height="635" Width="900" MinHeight="470" MinWidth="700"
         Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial"
-        Icon="assets/logo/WindowIcon.png">
+        Icon="assets/logo/WindowIcon.png"
+        WindowStyle="None" AllowsTransparency="True"> <!--Entfernt Standard Windows Border-->
+
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="35"/>
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Inhalte werden als Pages ins Frame geladen -->
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
+           HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"/>
+        
+        <Grid VerticalAlignment="Top" Background="Orange" Grid.Row="0">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Height="35"
+                        WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
+                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Content="-" Width="35" />
+                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" Height="35"/>
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="x" Width="35" Height="36"/>
+            </StackPanel>
+        </Grid>
     
     <!-- Inhalte werden als Pages ins Frame geladen -->
-    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
-           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    <!--<Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
+           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
+    </Grid>
+    
 </Window>
