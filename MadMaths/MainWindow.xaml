@@ -32,7 +32,7 @@
                 <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" 
                         Style="{StaticResource WindowButton}"/>
                 <Button x:Name="CloseButton" Click="CloseButton_Click" Content="✖" Width="35" 
-                        Style="{StaticResource WindowButton}" FontSize="12" />
+                        Style="{StaticResource WindowButton}" FontSize="12"/>
             </StackPanel>
         </Grid>
     
