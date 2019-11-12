@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MadMaths"
         mc:Ignorable="d"
-        Title="MadMaths" Height="635" Width="900" MinHeight="470" MinWidth="700"
+        Title="MadMaths" Height="635" Width="900" MinHeight="550" MinWidth="720"
         Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial"
         Icon="assets/logo/WindowIcon.png"
-        WindowStyle="None" AllowsTransparency="True"> <!--Entfernt Standard Windows Border-->
-
+        WindowStyle="None" AllowsTransparency="True" SizeChanged="Window_SizeChanged">
+    <!-- WindowStyle=None Entfernt Standard Windows Border-->
     
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="35"/>
@@ -23,7 +23,7 @@
         <!-- Inhalte werden als Pages ins Frame geladen -->
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"/>
-        
+
         <Grid VerticalAlignment="Top" Background="DarkOrange" Grid.Row="0">
             <StackPanel HorizontalAlignment="Right" Height="35"
                         WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
@@ -35,10 +35,6 @@
                         Style="{StaticResource WindowButton}" FontSize="10" Margin="-2,0,0,0"/>
             </StackPanel>
         </Grid>
-    
-    <!-- Inhalte werden als Pages ins Frame geladen -->
-    <!--<Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
-           HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
     </Grid>
-    
+
 </Window>

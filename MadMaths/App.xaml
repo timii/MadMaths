@@ -17,7 +17,7 @@
             </Setter>
         </Style>
         <Style TargetType="{x:Type PasswordBox}">
-            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Foreground" Value="#FF2B2B2B"/>
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect ShadowDepth="5" Direction="315" Color="Gray" Opacity="0.20" BlurRadius="10.5"/>
@@ -27,13 +27,14 @@
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
             <Setter Property="FontSize" Value="15"/>
-            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Effect">
                 <Setter.Value>
                     <DropShadowEffect ShadowDepth="5" Direction="315" Color="Gray" Opacity="0.20" BlurRadius="10.5"/>
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <!-- Style für die Buttons -->
         <Style TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="28"/>
@@ -71,21 +72,14 @@
             <Style.Triggers>
                 <!-- Hover Effekt -->
                 <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,4">
-                                <GradientStop Offset="0.0" Color="#ff7600"/>
-                                <GradientStop Offset="0.5"  Color="#ff7600"/>
-                                <GradientStop Offset="1.0" Color="#ff7600"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Control.Background" Value="#ff7600"/>
                 </Trigger>
                 <Trigger Property="Button.IsPressed" Value="True">
                     <Setter Property="Background" Value="#FFFF4B00"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
          <!-- Style für den MainBackground -->
         <Style TargetType="{x:Type Grid}">
             <Setter Property="Background">
@@ -98,14 +92,15 @@
                 </Setter.Value>
             </Setter> 
         </Style>
+        
         <!-- Alternativer Style für Buttons -->
-        <Style x:Key="ButtonStyle2">
-            <Setter Property="Control.Background" Value="Orange"/>
+        <Style x:Key="WindowButton">
+            <Setter Property="Control.Background" Value="DarkOrange"/>
             <Setter Property="Control.FontSize" Value="25"/>
             <Setter Property="Control.FontFamily" Value="Microsoft Sans Serif"/>
-            <Setter Property="Control.MinHeight" Value="70"/>
+            <Setter Property="Control.MinHeight" Value="35"/>
             <Setter Property="Control.Height" Value="auto"/>
-            <Setter Property="Control.Foreground" Value="Beige"/>
+            <Setter Property="Control.Foreground" Value="White"/>
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
@@ -119,27 +114,14 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,4">
-                                <GradientStop Offset="0.0" Color="#ff7600"/>
-                                <GradientStop Offset="0.5"  Color="#ff7600"/>
-                                <GradientStop Offset="1.0" Color="#ff7600"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Control.Background" Value="#ff7600"/>
                 </Trigger>
                 <Trigger Property="Button.IsPressed" Value="True">
                     <Setter Property="Control.Background" Value="#FFFF4B00"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
-        <!-- Style für Window Buttons -->
-        <Style x:Key="WindowButton" BasedOn="{StaticResource ButtonStyle2}">
-            <Setter Property="Control.MinHeight" Value="35"/>
-            <Setter Property="Control.Background" Value="DarkOrange"/>
-        </Style>
+
         <!-- Style für den Window Minimize Button -->
         <Style x:Key="WindowButtonMinimize" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.Template">
@@ -148,8 +130,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
                             <Border Background="{TemplateBinding Background}" BorderBrush="DarkOrange" BorderThickness="0">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
-                                              TextOptions.TextRenderingMode="Grayscale"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                             <Image Source="assets/icons/WindowMinimize.png" Height="19" Width="19"/>
                         </Grid>
@@ -173,8 +154,7 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
                             <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
-                                              TextOptions.TextRenderingMode="Grayscale"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                             <Image Source="assets/icons/WindowMaximize.png" Height="15" Width="15"/>
                         </Grid>
@@ -190,10 +170,12 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
         <!-- Style für die Window Close Button -->
         <Style x:Key="WindowButtonClose" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
         </Style>
+        
         <!-- Style für den Back Button -->
         <Style x:Key="BackButton">
             <Setter Property="Control.Template">
@@ -223,8 +205,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <!-- Style für die Ranking Liste -->
         
+        <!-- Style für die Ranking Liste -->     
         <Style TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="#FF01C8FF"/>
             <Setter Property="FontSize" Value="20"/>
@@ -239,24 +221,9 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="Margin" Value="2"/>
-            <!--<Setter Property="Control.Background">
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#FF01C8FF" Offset="0.0"/>
-                        <GradientStop Color="#FF648CFF" Offset="0.6"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>-->
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                                <GradientStop Color="#FF01C8FF" Offset="0.0"/>
-                                <GradientStop Color="#FF01C8FF" Offset="0.6"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Background" Value="#FF01C8FF"/>
                     <Setter Property="Effect">
                         <Setter.Value>
                             <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
@@ -265,19 +232,13 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
         <!--Ranglistenstyle für den ersten Platz-->
         <Style x:Key="RankingListStyle1" BasedOn="{StaticResource RankingListStyle}">
             <Setter Property="Control.Background" Value="Orange" />
             <Style.Triggers>
                 <Trigger Property="Control.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                                <GradientStop Color="#FFFF8B00" Offset="0.0"/>
-                                <GradientStop Color="#FFFF8B00" Offset="0.6"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Control.Background" Value="#FFFF8B00"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -286,33 +247,21 @@
             <Setter Property="Control.Background" Value="#FFFDB83B" />
             <Style.Triggers>
                 <Trigger Property="Control.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                                <GradientStop Color="#FFFF9F40" Offset="0.0"/>
-                                <GradientStop Color="#FFFF9F40" Offset="0.6"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Control.Background" Value="#FFFF9F40"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
         <!--Ranglistenstyle für den dritten Platz-->
         <Style x:Key="RankingListStyle3" BasedOn="{StaticResource RankingListStyle}">
             <Setter Property="Control.Background" Value="#FFFDC560" />
             <Style.Triggers>
                 <Trigger Property="Control.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background">
-                        <Setter.Value>
-                            <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                                <GradientStop Color="#FFFDBD4A" Offset="0.0"/>
-                                <GradientStop Color="#FFFDBD4A" Offset="0.6"/>
-                            </LinearGradientBrush>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Control.Background" Value="#FFFDBD4A"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
         <!-- Style für ProgressBar -->
         <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
             <Setter Property="Foreground" Value="Orange"/>

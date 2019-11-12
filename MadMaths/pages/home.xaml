@@ -20,25 +20,36 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Image Source="../assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top"/>
-            <StackPanel Grid.Row="1" Grid.Column="0"
+            <Grid Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="logo" Grid.Row="0" Grid.Column="0" Margin="50,0">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="../assets/logo/logo.png" Stretch="Uniform"/>
+                    </Grid.Background>
+                </Grid>
+                <!--<Image Source="../assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=logo}"/>-->
+                <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
-                <Button x:Name="Grundschule"
+                    <Button x:Name="Grundschule"
                     Content="Grundschule" Margin="25" Click="StufenClick"/>
-                <Button x:Name="Mittelstufe"
+                    <Button x:Name="Mittelstufe"
                     Content="Mittelstufe" Margin="25" Click="StufenClick"/>
-                <Button x:Name="Oberstufe"
+                    <Button x:Name="Oberstufe"
                     Content="Oberstufe" Margin="25" Click="StufenClick"/>
-                <!-- Beispiel für Responsive Design -->
-                <!--<Button x:Name="Oberstufe" Margin="25">
+                    <!-- Beispiel für Responsive Design -->
+                    <!--<Button x:Name="Oberstufe" Margin="25">
                 <Viewbox Stretch="Uniform">
                     <TextBlock Text="Oberstufe" Width="270" TextAlignment="Center"/>
                 </Viewbox>
             </Button>-->
-            </StackPanel>
+                </StackPanel>
+            </Grid>
         </Grid>
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
