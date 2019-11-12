@@ -79,6 +79,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CalcFunctions.cs" />
+    <Compile Include="CustomWindowSizing.cs" />
     <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -160,7 +161,7 @@
     <Resource Include="assets\logo\WindowIcon.png" />
     <Resource Include="assets\icons\profile-picture-icon.jpg" />
     <Resource Include="assets\icons\WindowMaximize.png" />
-    <Resource Include="assets\icons\WindowClose.png" />
+    <Resource Include="assets\icons\WindowMinimize.png" />
     <Content Include="assets\logo\madmaths_logo1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CustomToolNamespace>MadMaths</CustomToolNamespace>

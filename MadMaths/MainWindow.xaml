@@ -28,11 +28,11 @@
             <StackPanel HorizontalAlignment="Right" Height="35"
                         WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
                 <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Width="35" 
-                        Style="{StaticResource WindowButton}" Content="-" />
-                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" 
-                        Style="{StaticResource WindowButton}"/>
+                        Style="{StaticResource WindowButton}" Content="-"/>
+                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Width="35" 
+                        Style="{StaticResource WindowButtonMaximize}"/>
                 <Button x:Name="CloseButton" Click="CloseButton_Click" Content="✖" Width="35" 
-                        Style="{StaticResource WindowButton}" FontSize="12"/>
+                        Style="{StaticResource WindowButton}" FontSize="10" Margin="-2,0,0,0"/>
             </StackPanel>
         </Grid>
     

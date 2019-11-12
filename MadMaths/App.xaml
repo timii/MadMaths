@@ -134,27 +134,67 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
         <!-- Style für Window Buttons -->
         <Style x:Key="WindowButton" BasedOn="{StaticResource ButtonStyle2}">
             <Setter Property="Control.MinHeight" Value="35"/>
             <Setter Property="Control.Background" Value="DarkOrange"/>
         </Style>
-        <!-- Style für die Window Maximize Button -->
+        <!-- Style für den Window Minimize Button -->
+        <Style x:Key="WindowButtonMinimize" BasedOn="{StaticResource WindowButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="DarkOrange" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              TextOptions.TextRenderingMode="Grayscale"/>
+                            </Border>
+                            <Image Source="assets/icons/WindowMinimize.png" Height="19" Width="19"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#ff7600"/>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Background" Value="#FFFF4B00"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!-- Style für den Window Maximize Button -->
         <Style x:Key="WindowButtonMaximize" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Image Source="assets/icons/WindowMaximize.png"/>
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              TextOptions.TextRenderingMode="Grayscale"/>
+                            </Border>
+                            <Image Source="assets/icons/WindowMaximize.png" Height="15" Width="15"/>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#ff7600"/>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Background" Value="#FFFF4B00"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <!-- Style für die Window Close Button -->
         <Style x:Key="WindowButtonClose" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
         </Style>
-        <!-- Style für den Zurück Button -->
+        <!-- Style für den Back Button -->
         <Style x:Key="BackButton">
             <Setter Property="Control.Template">
                 <Setter.Value>
