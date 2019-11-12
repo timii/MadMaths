@@ -135,7 +135,7 @@
             </Style.Triggers>
         </Style>
         <!-- Style für die Window Buttons (Minimize,Maximize,Close) -->
-        <Style x:Key="WindowButton">
+        <Style x:Key="WindowButton" BasedOn="{StaticResource ButtonStyle2}">
             <Setter Property="Control.MinHeight" Value="35"/>
         </Style>
         <!-- Style für den Zurück Button -->
