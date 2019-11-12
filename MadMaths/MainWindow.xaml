@@ -25,11 +25,11 @@
            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"/>
         
         <Grid VerticalAlignment="Top" Background="Orange" Grid.Row="0">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Height="35"
+            <StackPanel HorizontalAlignment="Right" Height="35"
                         WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
-                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Content="-" Width="35" />
-                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" Height="35"/>
-                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="x" Width="35" Height="36"/>
+                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Content="-" Width="35" Height="35" Style="{StaticResource WindowButton}"/>
+                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" Height="35" Style="{StaticResource WindowButton}"/>
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="x" Width="35" Height="35" VerticalAlignment="Top" Style="{StaticResource WindowButton}"/>
             </StackPanel>
         </Grid>
     

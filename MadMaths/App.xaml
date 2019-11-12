@@ -134,6 +134,10 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <!-- Style für die Window Buttons (Minimize,Maximize,Close) -->
+        <Style x:Key="WindowButton">
+            <Setter Property="Control.MinHeight" Value="35"/>
+        </Style>
         <!-- Style für den Zurück Button -->
         <Style x:Key="BackButton">
             <Setter Property="Control.Template">
