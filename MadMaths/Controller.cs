@@ -16,13 +16,14 @@ namespace MadMaths
 
         public static string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
 
-        public static User _user;
+        public static User _user;           // das user Objekt, welches alle Daten des  Benutzers zur Laufzeit enthält
 
-        public static string UserJson;
+        public static string UserJson;          // hier wird die user.json als string "zwischen" gespeichert
 
 
         static Controller()
         {
+            // Initialisierung
             if (!CheckSaveDir())
             {
                 CreateSaveDir();
@@ -44,6 +45,7 @@ namespace MadMaths
 
 
         public static BitmapImage LoadImage(byte[] imageData)
+            // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
             if (imageData == null || imageData.Length == 0) return null;
             var image = new BitmapImage();
@@ -61,7 +63,7 @@ namespace MadMaths
             return image;
         }
 
-        public static bool CheckSaveDir()
+        public static bool CheckSaveDir()           // überprüft, ob der .madmaths Ordner vorhanden ist
         {
             return Directory.Exists(UserSaveDir);
         }
@@ -88,7 +90,17 @@ namespace MadMaths
         {
             using (StreamReader sr = new StreamReader(UserSaveFile))
             {
-                UserJson = sr.ReadToEnd();
+                UserJson = sr.ReadToEnd();          // liest die user.json als string ein
+            }
+        }
+
+        public static void UpdateAvatarImg(in BinaryReader img, in long fileLength)
+        {
+            using (StreamWriter file = new StreamWriter(UserSaveFile, false)) // öffnet die user.json
+            {
+                _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, _user);              // speichert das User objekt als user.json
             }
 
         }

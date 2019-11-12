@@ -31,7 +31,7 @@ namespace MadMaths.pages
 
             if (Controller._user.UserName != null)
             {
-                Username.Text = Controller._user.UserName;
+                Username.Text = Controller._user.UserName; 
                 Username.Cursor = null;
                 Controller.UserIsLoggedIn = true;
             }
@@ -41,12 +41,13 @@ namespace MadMaths.pages
             }
             if (Controller._user.avatarImg != null)
             {
-                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));
+                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));         // lädt das Avatar Bild
             }
             if (Controller._user.level != null && Controller._user.currentProgress != null)
+                /* wenn Level und Fortschritt vorhanden sind,  werden diese angezeigt */
             {
                 Level.Text = Controller._user.level.ToString();
-                progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level*100);
+                progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 100);
             }
             RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
             RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
@@ -59,7 +60,8 @@ namespace MadMaths.pages
             Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
             NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenauswahl
         }
-        private void AvatarClick(object sender, RoutedEventArgs e) {
+        private void AvatarClick(object sender, RoutedEventArgs e)
+        {
             if (Controller.UserIsLoggedIn)
             {
 
@@ -82,18 +84,11 @@ namespace MadMaths.pages
                     else
                     {
                         using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open))) // liest das Bild ein in bytes
-                        using (StreamWriter file = new StreamWriter(Controller.UserSaveFile,false)) // öffnet die user.json
-                        {
-                            Controller._user.avatarImg = System.Convert.ToBase64String(br.ReadBytes((int)fi.Length)); // konvertiert die bytes in string
-                            JsonSerializer serializer = new JsonSerializer();
-                            serializer.Serialize(file, Controller._user);   // speicher das User objekt als user.json
-                        }
-                        //Avatar.Source = new BitmapImage(new Uri(op.FileName));
-                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));
+                        { Controller.UpdateAvatarImg(br, fi.Length); }       // updatet die User Daten
+                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));     // liest die updatete avatarImg Property wieder aus und updatet das icon
                     }
                 }
             }
-
         }
 
         private void Username_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
