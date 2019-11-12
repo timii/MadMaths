@@ -134,9 +134,25 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <!-- Style für die Window Buttons (Minimize,Maximize,Close) -->
+        <!-- Style für Window Buttons -->
         <Style x:Key="WindowButton" BasedOn="{StaticResource ButtonStyle2}">
             <Setter Property="Control.MinHeight" Value="35"/>
+            <Setter Property="Control.Background" Value="DarkOrange"/>
+        </Style>
+        <!-- Style für die Window Maximize Button -->
+        <Style x:Key="WindowButtonMaximize" BasedOn="{StaticResource WindowButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/WindowMaximize.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Style für die Window Close Button -->
+        <Style x:Key="WindowButtonClose" BasedOn="{StaticResource WindowButton}">
+            <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
         </Style>
         <!-- Style für den Zurück Button -->
         <Style x:Key="BackButton">
@@ -260,7 +276,7 @@
         <!-- Style für ProgressBar -->
         <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
             <Setter Property="Foreground" Value="Orange"/>
-            <Setter Property="Background" Value="Beige"/>
+            <Setter Property="Background" Value="White"/>
             <Setter Property="BorderBrush" Value="#FFBCBCBC"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
@@ -315,6 +331,16 @@
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#FFFEB329" Offset="0.0"/>
+                        <!--<GradientStop Color="Orange" Offset="0.3"/>
+                        <GradientStop Color="DarkOrange" Offset="0.6"/>-->
+                        <GradientStop Color="#FFFF5014" Offset="1.0"/>
+                    </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
         </Style>

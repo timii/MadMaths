@@ -24,12 +24,15 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"/>
         
-        <Grid VerticalAlignment="Top" Background="Orange" Grid.Row="0">
+        <Grid VerticalAlignment="Top" Background="DarkOrange" Grid.Row="0">
             <StackPanel HorizontalAlignment="Right" Height="35"
                         WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
-                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Content="-" Width="35" Height="35" Style="{StaticResource WindowButton}"/>
-                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" Height="35" Style="{StaticResource WindowButton}"/>
-                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="x" Width="35" Height="35" VerticalAlignment="Top" Style="{StaticResource WindowButton}"/>
+                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Width="35" 
+                        Style="{StaticResource WindowButton}" Content="-" />
+                <Button x:Name="MaximizeButton" Click="MaximizeButton_Click" Content="+" Width="35" 
+                        Style="{StaticResource WindowButton}"/>
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="✖" Width="35" 
+                        Style="{StaticResource WindowButton}" FontSize="12" />
             </StackPanel>
         </Grid>
     

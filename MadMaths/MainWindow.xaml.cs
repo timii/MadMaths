@@ -66,12 +66,12 @@ namespace MadMaths
             if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
-                MaximizeButton.Content = "1";
+                MaximizeButton.Content = "+";
             }
             else
             {
                 this.WindowState = WindowState.Maximized;
-                MaximizeButton.Content = "2";
+                MaximizeButton.Content = "+";
             }
 
         }
