@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MadMaths.pages"
+      xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="900"
       Title="home">
@@ -25,15 +26,12 @@
             </Grid.RowDefinitions>
             <Grid Background="Transparent">
                 <Grid.RowDefinitions>
-                    <RowDefinition MinHeight="100"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
-                <Grid x:Name="logo" Grid.Row="0" Grid.Column="0" Margin="50,0">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="../assets/logo/logo.png" Stretch="Uniform"/>
-                    </Grid.Background>
+                <Grid x:Name="logo" Grid.Row="0" Grid.Column="0" Margin="-30,-10,-30,-50" Background="Transparent">
+                    <Image Source="../assets/logo/logo_transparent4.png" Stretch="Uniform"/>
                 </Grid>
-                <!--<Image Source="../assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top" Width="{Binding ActualWidth, ElementName=logo}"/>-->
                 <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
                     <Button x:Name="Grundschule"
