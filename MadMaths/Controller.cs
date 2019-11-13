@@ -18,9 +18,6 @@ namespace MadMaths
 
         public static User _user;           // das user Objekt, welches alle Daten des  Benutzers zur Laufzeit enthält
 
-        public static string UserJson;          // hier wird die user.json als string "zwischen" gespeichert
-
-
         static Controller()
         {
             // Initialisierung
@@ -36,13 +33,12 @@ namespace MadMaths
             fi.Attributes = FileAttributes.Normal;
 
             _user = new User();
-            ReadUserJS();
-            if (UserJson.Length != 0)
+
+            if (ReadUserJS(out string userjson))
             {
-                _user = JsonConvert.DeserializeObject<User>(UserJson); // die daten werden im User Objekt gespeichert
+                _user = JsonConvert.DeserializeObject<User>(userjson); // die daten werden im User Objekt gespeichert
             }
         }
-
 
         public static BitmapImage LoadImage(byte[] imageData)
             // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
@@ -86,12 +82,14 @@ namespace MadMaths
             using (File.Create(UserSaveFile)) { };
         }
 
-        public static void ReadUserJS()
+        public static bool ReadUserJS(out string UserJson)
         {
             using (StreamReader sr = new StreamReader(UserSaveFile))
             {
                 UserJson = sr.ReadToEnd();          // liest die user.json als string ein
             }
+            if (UserJson.Length > 0) { return true; }
+            else { return false; }
         }
 
         public static void UpdateAvatarImg(in BinaryReader img, in long fileLength)

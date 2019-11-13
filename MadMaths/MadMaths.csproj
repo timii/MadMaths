@@ -65,7 +65,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -161,6 +160,7 @@
     <Resource Include="assets\icons\profile-picture-icon.jpg" />
     <Resource Include="assets\icons\WindowMaximize.png" />
     <Resource Include="assets\icons\WindowMinimize.png" />
+    <Resource Include="assets\logo\logo.png" />
     <Content Include="assets\logo\madmaths_logo1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
