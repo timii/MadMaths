@@ -23,6 +23,8 @@ namespace MadMaths.pages
         public AufgabenFenster()
         {
             InitializeComponent();
+            Grundschule test = new Grundschule();
+            AufgabenStellung.Text = test.getAufgabenText();
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)

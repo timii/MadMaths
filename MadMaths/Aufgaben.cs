@@ -11,7 +11,7 @@ namespace MadMaths
     interface IStufe
     {
         List<string> AufgabenListe { get; set; }
-        string aufgabenPath { get; set; }
+       string aufgabenPath { get; set; }
         dynamic RawJson { get; set; }
         string getAufgabenText();
         bool checksSolution();
@@ -20,18 +20,22 @@ namespace MadMaths
 
     public class Grundschule : IStufe
     {
-        public List<string> AufgabenListe { get ; set ; }
+        public List<string> AufgabenListe { get; set; } = new List<string>();
         public string aufgabenPath { get; set; } = "data/grundschule.json";
-        public dynamic RawJson { get ; set; }
+        public dynamic RawJson { get; set; }
 
+        public Grundschule()
+        {
+            ReadAufgabenJS();
+        }
         public bool checksSolution()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public string getAufgabenText()
         {
-            throw new NotImplementedException();
+            return "Hello";
         }
 
         public void ReadAufgabenJS()
@@ -40,12 +44,16 @@ namespace MadMaths
             {
                 RawJson = JsonConvert.DeserializeObject(sr.ReadToEnd());
             }
+            Dictionary<string,dynamic> liste = new Dictionary<string, dynamic>();
+            liste = RawJson.ToObject(typeof(Dictionary<string,dynamic>));
+            Dictionary<string, string> dic2 = new Dictionary<string, string>();
 
-            foreach (var item in RawJson)
+
+            foreach (var item in liste)
             {
-                AufgabenListe.Add(item);
+                AufgabenListe.Add(item.Key);
+                dic2 += item.Value.ToObject(typeof(Dictionary<string, string>));
             }
-
         }
     }
 }

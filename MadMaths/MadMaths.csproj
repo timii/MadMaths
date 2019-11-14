@@ -102,7 +102,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Aufgaben.cs" />
-    <Compile Include="CalcFunctions.cs" />
+    <Compile Include="CalcFunctions_Grundschule.cs" />
     <Compile Include="CustomWindowSizing.cs" />
     <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
