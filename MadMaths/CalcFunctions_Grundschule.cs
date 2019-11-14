@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MadMaths
 {
-    class CalcFunctions
+    class CalcFunctions_Grundschule
     {
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
         double standard_addieren(double input_a, double input_b) { return (input_a + input_b); }
@@ -36,11 +36,6 @@ namespace MadMaths
         double kindersachtext(double input_a) {
             return input_a / 4;
             
-        }
-        double AddierenZuZahl(double input_a, double input_b)
-        {
-            return (input_b - input_a);
-
         }
         double timaufgabe(double input_a, double input_b) /* input_a = Anfangsgeld, input_b = Jahr */
         {

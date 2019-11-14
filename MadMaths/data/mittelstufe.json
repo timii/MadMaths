@@ -17,10 +17,42 @@
     "Gleichungen4": "{0} + x + {1} = {2}",
     "Gleichungen5": "{0} - {1} + {2} = x + {3}",
     "Gleichungen6": "{0}*x={1}",
-    "Gleichungen7": "{0}*x + {1} · {2}  ={3}",
-    "Gleichungen8": "{0}x + {1} · {2} = {3}x"
+    "Gleichungen7": "{0}*x + {1} · {2} ={3}",
+    "Gleichungen8": "{0}*x + {1} · {2} ={3}x"
 
   },
-  ""
+  //ungleichungen
+  "Gleichungssysteme2x2": {
+    "Gleichungssystem1": [
+      "{0}x + {1}y = {2}",
+      "{3}x + {4}y = {5}"
+    ],
+    "Gleichungssystem2": [
+      "{0}x+ {1}y = {2}",
+      "{3}x- {4}y = {5}"
+    ],
+    "Gleichungssystem3": [
+      "{0}x - {1}y = {2}",
+      "{3}x - {4}y = {5}"
+    ]
+  },
+  "Einheiten_Umwandeln": {
+    "Umwandeln1": "Wandle {0}m in km um",
+    "Umwandeln2": "Wandle {0}cm in m um",
+    "Umwandeln3": "Wandle {0}ml in liter um",
+    "Umwandeln4": "Wandle {0}liter in ml um",
+    "Umwandeln5": "Wandle {0}m² in km² um",
+    "Umwandeln6": "Wandle {0}km² in m² um",
+    "Umwandeln7": "Wandle {0}m² in cm² um"
+  },
+  //Stochastik
+
+  "Dreisatz": {
+    "Dreisatz1": "{0} Lampen kosten {1} Euro. Wie viel kosten {2} Lampen?",
+    "Dreisatz2": "{0} Personen brauchen {1} Stunden für die Rodung eines Waldes. Wie lange würden {2} Personen benötigen?",
+    "Dreisatz3": "{0} Äpfel kosten {1} Euro. Was kosten {2} Äpfel?"
+  }
+  //Prozentrechnung
+
 
 }
