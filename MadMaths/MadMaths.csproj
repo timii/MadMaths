@@ -168,6 +168,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="data\grundschule.json" />
+    <None Include="data\oberstufe.json" />
     <None Include="data\mittelstufe.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
