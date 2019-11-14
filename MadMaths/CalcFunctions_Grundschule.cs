@@ -37,6 +37,11 @@ namespace MadMaths
             return input_a / 4;
             
         }
+        double AddierenZuZahl(double input_a, double input_b)
+        {
+            return (input_b - input_a);
+
+        }
         double timaufgabe(double input_a, double input_b) /* input_a = Anfangsgeld, input_b = Jahr */
         {
             double zaehler = 0;

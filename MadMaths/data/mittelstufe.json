@@ -1,0 +1,26 @@
+{
+  "Variablen": {
+    "Variablen1": "a+{0} = {1}",
+    "Variablen2": "a-{0} = {1}",
+    "Variablen3": "{0}*a = {1}",
+    "Variablen4": "{0}/a = {1}",
+    "Variablen5": "{0} + {2} + {1}+ {3} = _?", /* 0 und 1 selbe variable, 2 und 3 selbe */
+    "Variablen6": "{0} + {2} - {1}+ {3} = _?",
+    "Variablen7": "Wir haben y = x + {0} und setzen x = {1} ein. Wie groß ist y?",
+    "Variablen8": "Wir haben die Gleichung {0}x + {1}x. Setze x = {2} ein und berechne die Lösung"
+  },
+
+  "Gleichungen": {
+    "Gleichungen1": "x + {0} = {1}",
+    "Gleichungen2": "{0} + x = {1}",
+    "Gleichungen3": "{0} + {1} = x",
+    "Gleichungen4": "{0} + x + {1} = {2}",
+    "Gleichungen5": "{0} - {1} + {2} = x + {3}",
+    "Gleichungen6": "{0}*x={1}",
+    "Gleichungen7": "{0}*x + {1} · {2}  ={3}",
+    "Gleichungen8": "{0}x + {1} · {2} = {3}x"
+
+  },
+  ""
+
+}
