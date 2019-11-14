@@ -40,17 +40,10 @@ namespace MadMaths
             {
                 Controller.CreateUserJS();
             }
-            FileInfo fi = new FileInfo(Controller.UserSaveFile);
-            fi.Attributes = FileAttributes.Normal;
             InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 
-        ~MainWindow()
-        {
-            FileInfo fi = new FileInfo(Controller.UserSaveFile);
-            fi.Attributes = FileAttributes.ReadOnly | FileAttributes.Hidden;
-        }
 
         // Minimize Button Click
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)

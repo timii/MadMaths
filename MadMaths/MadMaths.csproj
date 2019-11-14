@@ -101,6 +101,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Aufgaben.cs" />
     <Compile Include="CalcFunctions.cs" />
     <Compile Include="CustomWindowSizing.cs" />
     <Compile Include="User.cs" />

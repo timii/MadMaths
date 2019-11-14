@@ -41,7 +41,7 @@ namespace MadMaths
         }
 
         public static BitmapImage LoadImage(byte[] imageData)
-            // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
+        // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
             if (imageData == null || imageData.Length == 0) return null;
             var image = new BitmapImage();
@@ -84,23 +84,33 @@ namespace MadMaths
 
         public static bool ReadUserJS(out string UserJson)
         {
+            FileInfo fi = new FileInfo(UserSaveFile);
+            fi.Attributes = FileAttributes.Normal;
             using (StreamReader sr = new StreamReader(UserSaveFile))
             {
                 UserJson = sr.ReadToEnd();          // liest die user.json als string ein
             }
+            fi.Attributes = FileAttributes.ReadOnly | FileAttributes.Hidden;
             if (UserJson.Length > 0) { return true; }
             else { return false; }
         }
 
+        public static void UpdateUserJson()
+        {
+            FileInfo fi = new FileInfo(UserSaveFile);
+            fi.Attributes = FileAttributes.Normal;
+            using (StreamWriter file = new StreamWriter(UserSaveFile, false))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, _user);                  // speichert das User objekt als user.json
+            }
+            fi.Attributes = FileAttributes.ReadOnly | FileAttributes.Hidden;
+        }
+
         public static void UpdateAvatarImg(in BinaryReader img, in long fileLength)
         {
-            using (StreamWriter file = new StreamWriter(UserSaveFile, false)) // öffnet die user.json
-            {
-                _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, _user);              // speichert das User objekt als user.json
-            }
-
+            _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
+            UpdateUserJson();
         }
     }
 }
