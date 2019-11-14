@@ -5,37 +5,51 @@
     "Addieren2": "{0} hat {1} {2} und holt sich noch {3} dazu. Wieviele hat {0} nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
     "Addieren3": "{0} kauft sich {1} mal ein(e) {2}. Wieviele hat {0} wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
     "Addieren4": "Du hast Zuhause {0} mal {1} Melonen. Wenn du darauf noch {2} holst, wieviele hast du dann?" /* alles zahlen */
-
-
   },
+
   "Subtrahieren": {
-    "Subtrahieren 1" : "Subtrahiere {0} mit {1}:",
+    "Subtrahieren 1": "Subtrahiere {0} mit {1}:",
     "Subtrahieren 2": "{0} hat {1} {2} und gibt {3} an {4} ab. Wieviele hat {0} wenn du nochmal {5} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
-
-
   },
+
   "Multiplizieren": {
-    "Multiplizieren 1" : "Multipliziere {0} mit {1}"
-
-
-
-  },/* darf maximal bis 100 gehen */
-
+    "Multiplizieren 1": "Multipliziere {0} mit {1}"
+  },
 
   "Dividieren": {
     "Dividieren 1": "Dividiere: {0} mit {1}"
   },
+
   "Textaufgabe": {
+    "essenaufgabe": "Felix hat {0} Äpfel und isst {1} davon. Wie viele hat er?",
     "grundschule_subtrahieren": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}",
     "standard_addieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
     "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}",
     "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
     "timaufgabe": "Tim bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Tim 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Tim zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
     "timaufgabe_insgesamt": "Tim bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Tim 3€ mehr als beim zweiten und so weiter. Wieviel hat Tim insgesamt wenn er bis zum {1}. Lebensjahr spart?"
+  },
 
+  "Größer oder Kleiner": {
+    "GroesserKleiner1": "{0} {1}", /* User muss <,> oder = eingeben */
+    "GroesserKleiner2": "Gib eine Zahl ein die kleiner als {0} ist",
+    "GroesserKleiner3": "Gib eine Zahl ein die größer als {0} ist"
+  },
 
-
-
+  "Gerade/Ungerade Zahlen": {
+    "GeradeUngerade": "Ist {0} eine gerade oder ungerade Zahl" /* Zahlenbereich bis 100 */
+  },
+  "Kettenaufgaben": {
+    "Kettenaufgabe1": "{0} - {1} - {2}",
+    "Kettenaufgabe2": "{0} + {1} + {2}",
+    "Kettenaufgabe3": "{0} + {1} - {2}",
+    "Kettenaufgabe4": "{0} - {1} + {2}",
+    "Kettenaufgabe5": "{0} * {1} + {2}",
+    "Kettenaufgabe6": "{0} * {1} - {2}",
+    "Kettenaufgabe7": "{0} + {1} - {2} + {3}"
+  },
+  "Verdoppeln und Halbieren": {
+    "VerdoppelHalbieren1": "Was ist das doppelte von {0} ?",
+    "VerdoppelHalbieren2": "Was ist die Hälfte von {0} ?"
   }
-
 }

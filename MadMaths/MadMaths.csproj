@@ -54,6 +54,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>assets\logo\WindowIcon3.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -166,6 +169,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="data\grundschule.json" />
+    <None Include="data\oberstufe.json" />
+    <None Include="data\mittelstufe.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -181,6 +186,8 @@
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="assets\logo\WindowIcon3.ico" />
+    <Resource Include="assets\logo\WindowIcon3.png" />
     <Resource Include="assets\logo\WindowIcon.png" />
     <Resource Include="assets\icons\profile-picture-icon.jpg" />
     <Resource Include="assets\icons\WindowMaximize.png" />

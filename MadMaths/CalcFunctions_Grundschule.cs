@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MadMaths
 {
-    class CalcFunctions
+    class CalcFunctions_Grundschule
     {
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
-        double standard_addieren(double input_a, double input_b) { return (input_a + input_b); }
-        double grundschule_subtrahieren(double input_a, double input_b)
+        int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
+        int grundschule_subtrahieren(int input_a, int input_b)
         {
             if (input_a > input_b)
             {
@@ -21,8 +21,8 @@ namespace MadMaths
                 return (input_b - input_a);
             }
         }
-        double standard_multiplizieren(double input_a, double input_b) { return (input_a * input_b);}
-        double grundschule_dividieren_glatt(double input_a, double input_b) /* Ohne gleitkomma */
+        int standard_multiplizieren(int input_a, int input_b) { return (input_a * input_b);}
+        int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
         {
             if (input_a % input_b == 0)
             {
@@ -33,18 +33,13 @@ namespace MadMaths
                 return input_b / input_a;
             }
         }
-        double kindersachtext(double input_a) {
+        int kindersachtext(int input_a) {
             return input_a / 4;
             
         }
-        double AddierenZuZahl(double input_a, double input_b)
+        int timaufgabe(int input_a, int input_b) /* input_a = Anfangsgeld, input_b = Jahr */
         {
-            return (input_b - input_a);
-
-        }
-        double timaufgabe(double input_a, double input_b) /* input_a = Anfangsgeld, input_b = Jahr */
-        {
-            double zaehler = 0;
+            int zaehler = 0;
             for(int i = 2;i < input_b;i++ )
             {
                 zaehler += i;
@@ -52,13 +47,13 @@ namespace MadMaths
             return zaehler + input_a;
         }
 
-        double timaufgabe_insgesamt(double input_a, double input_b) {
-            double zaehler = 0;
+        int timaufgabe_insgesamt(int input_a, int input_b) {
+            int zaehler = 0;
             for (int i = 1; i < input_b; i++) {
                 zaehler += timaufgabe(input_a, i);
             }
             return zaehler;
         }
-
+        int essenaufgabe(int input_a, int input_b) { return (input_b - input_a); }
     }
 }
