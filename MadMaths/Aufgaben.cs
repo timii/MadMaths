@@ -21,7 +21,7 @@ namespace MadMaths
     public class Grundschule : IStufe
     {
         public List<string> AufgabenListe { get; set; } = new List<string>();
-        public string aufgabenPath { get; set; } = "data/grundschule.json";
+        public string aufgabenPath { get; set; } = "../../data/grundschule.json";
         public dynamic RawJson { get; set; }
 
         public Grundschule()
@@ -52,7 +52,7 @@ namespace MadMaths
             foreach (var item in liste)
             {
                 AufgabenListe.Add(item.Key);
-                dic2 += item.Value.ToObject(typeof(Dictionary<string, string>));
+                dic2 = item.Value.ToObject(typeof(Dictionary<string, string>));
             }
         }
     }

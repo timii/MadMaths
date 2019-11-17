@@ -32,7 +32,7 @@ namespace MadMaths.pages
                 Button b = new Button();
                 b.Content = item as string;
                 b.MaxHeight = 60;
-                b.MinWidth = 200;
+                b.MinWidth = 300;
                 b.Width = double.NaN;
                 b.Margin = new Thickness(50,20,40,20);
                 b.Click += AufgabenClick;

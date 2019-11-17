@@ -106,8 +106,15 @@
     </ApplicationDefinition>
     <Compile Include="Aufgaben.cs" />
     <Compile Include="CalcFunctions_Grundschule.cs" />
+    <Compile Include="CustomMB.xaml.cs">
+      <DependentUpon>CustomMB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomWindowSizing.cs" />
     <Compile Include="User.cs" />
+    <Page Include="CustomMB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
