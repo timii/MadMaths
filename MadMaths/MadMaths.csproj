@@ -165,10 +165,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="assets\icons\backButton.png">
+    <Resource Include="assets\icons\backButton.png">
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
     <Resource Include="assets\logo\WindowIcon3.ico" />
     <Resource Include="assets\logo\WindowIcon3.png" />
     <Resource Include="assets\logo\WindowIcon.png" />
