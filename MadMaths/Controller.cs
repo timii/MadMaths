@@ -18,6 +18,12 @@ namespace MadMaths
 
         public static User _user;           // das user Objekt, welches alle Daten des  Benutzers zur Laufzeit enthält
 
+        public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
+        {
+            { "Grundschule",new Grundschule() },
+            {"Mittelstufe", new Mittelstufe() }
+        };
+
         static Controller()
         {
             // Initialisierung

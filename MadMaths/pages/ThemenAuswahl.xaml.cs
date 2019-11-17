@@ -24,13 +24,23 @@ namespace MadMaths.pages
         {
             InitializeComponent();
             StufenName.Text = Controller.currentPage;   // setzt die aktuelle Stufe als Überschrift
-            Grundschule t = new Grundschule();
-            string temp = t.AufgabenListe[0];
 
-            foreach (var item in t.AufgabenListe)
+            foreach (var item in Controller.Stufen[Controller.currentPage].ThemenListe)
             {
                 Button b = new Button();
                 b.Content = item as string;
+                if (item.Length > 12)
+                {
+                    b.FontSize = 26;
+                }
+                if (item.Length > 15)
+                {
+                    b.FontSize = 20;
+                }
+                if (item.Length > 20)
+                {
+                    b.FontSize = 17;
+                }
                 b.MaxHeight = 60;
                 b.MinWidth = 300;
                 b.Width = double.NaN;

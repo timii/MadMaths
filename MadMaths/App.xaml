@@ -25,6 +25,7 @@
             </Setter>
         </Style>
         <Style TargetType="{x:Type TextBox}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Foreground" Value="White"/>

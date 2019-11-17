@@ -6,8 +6,8 @@
     "Variablen4": "{0}/a = {1}",
     "Variablen5": "{0} + {2} + {1}+ {3} = _?", /* 0 und 1 selbe variable, 2 und 3 selbe */
     "Variablen6": "{0} + {2} - {1}+ {3} = _?",
-    "Variablen7": "Wir haben y = x + {0} und setzen x = {1} ein. Wie groß ist y?",
-    "Variablen8": "Wir haben die Gleichung {0}x + {1}x. Setze x = {2} ein und berechne die Lösung"
+    "Variablen7": "Wir haben y = x + {0} und setzen x = {1} ein. Wie groï¿½ ist y?",
+    "Variablen8": "Wir haben die Gleichung {0}x + {1}x. Setze x = {2} ein und berechne die Lï¿½sung"
   },
 
   "Gleichungen": {
@@ -16,9 +16,9 @@
     "Gleichungen3": "{0} + {1} = x",
     "Gleichungen4": "{0} + x + {1} = {2}",
     "Gleichungen5": "{0} - {1} + {2} = x + {3}",
-    "Gleichungen6": "{0}*x={1}",
-    "Gleichungen7": "{0}*x + {1} · {2} ={3}",
-    "Gleichungen8": "{0}*x + {1} · {2} ={3}x"
+    "Gleichungen6": "{0}*x = {1}",
+    "Gleichungen7": "{0}*x + {1} * {2} ={3}",
+    "Gleichungen8": "{0}*x + {1} * {2} ={3}x"
 
   },
   //ungleichungen
@@ -41,58 +41,53 @@
     "Umwandeln2": "Wandle {0}cm in m um",
     "Umwandeln3": "Wandle {0}ml in liter um",
     "Umwandeln4": "Wandle {0}liter in ml um",
-    "Umwandeln5": "Wandle {0}m² in km² um",
-    "Umwandeln6": "Wandle {0}km² in m² um",
-    "Umwandeln7": "Wandle {0}m² in cm² um"
+    "Umwandeln5": "Wandle {0}mï¿½ in kmï¿½ um",
+    "Umwandeln6": "Wandle {0}kmï¿½ in mï¿½ um",
+    "Umwandeln7": "Wandle {0}mï¿½ in cmï¿½ um"
   },
   "Stochastik": {
-    "Stochastik1": "Wie groß ist die Wahrscheinlichkeit bei einem Würfel, die Zahl {0} zu Würfeln?", //1-6 btw
-    "Stochastik2": "Wie groß ist die Wahrscheinlichkeit bei einem Würfel, entweder eine {0} oder {1} zu Würfeln",
-    "Stochastik3": "Wie groß ist die Wahrscheinlichkeit bei einem Würfel, eine gerade Zahl zu Würfeln?",
-    "Stochastik4": "Wie groß ist die Wahrscheinlichkeit bei einer Münze, dass Kopf rauskommt?",
-    "Stochastik5": "Wie groß ist die Wahrscheinlichkeit bei einer Münze, dass zweimal hintereinander Kopf rauskommt? "
+    "Stochastik1": "Wie groï¿½ ist die Wahrscheinlichkeit bei einem Wï¿½rfel, die Zahl {0} zu Wï¿½rfeln?", //1-6 btw
+    "Stochastik2": "Wie groï¿½ ist die Wahrscheinlichkeit bei einem Wï¿½rfel, entweder eine {0} oder {1} zu Wï¿½rfeln",
+    "Stochastik3": "Wie groï¿½ ist die Wahrscheinlichkeit bei einem Wï¿½rfel, eine gerade Zahl zu Wï¿½rfeln?",
+    "Stochastik4": "Wie groï¿½ ist die Wahrscheinlichkeit bei einer Mï¿½nze, dass Kopf rauskommt?",
+    "Stochastik5": "Wie groï¿½ ist die Wahrscheinlichkeit bei einer Mï¿½nze, dass zweimal hintereinander Kopf rauskommt? "
 
 
   },
 
   "Dreisatz": {
     "Dreisatz1": "{0} Lampen kosten {1} Euro. Wie viel kosten {2} Lampen?",
-    "Dreisatz2": "{0} Personen brauchen {1} Stunden für die Rodung eines Waldes. Wie lange würden {2} Personen benötigen?",
-    "Dreisatz3": "{0} Äpfel kosten {1} Euro. Was kosten {2} Äpfel?"
+    "Dreisatz2": "{0} Personen brauchen {1} Stunden fï¿½r die Rodung eines Waldes. Wie lange wï¿½rden {2} Personen benï¿½tigen?",
+    "Dreisatz3": "{0} ï¿½pfel kosten {1} Euro. Was kosten {2} ï¿½pfel?"
   },
   //Prozentrechnung
   "Prozentrechnung": {
-    "Prozentrechnung1": "Es wird Geld angelegt: {0}% Zinsen, {1} Euro für {2} Jahr angelegt. Berechne die Zinsen:",
+    "Prozentrechnung1": "Es wird Geld angelegt: {0}% Zinsen, {1} Euro fï¿½r {2} Jahr angelegt. Berechne die Zinsen:",
     "Prozentrechnung2": "Ihr legt {0} Euro zu {1}% Zinsen fest. Wie viel Zinsgeld bekommt Ihr nach einem Jahr?",
-    "Prozentrechnung3": "{0} Euro werden bei einem Zinssatz von {1} Prozent für {2} Tage angelegt. Wie viel Zinsen werden ausgezahlt?",
+    "Prozentrechnung3": "{0} Euro werden bei einem Zinssatz von {1} Prozent fï¿½r {2} Tage angelegt. Wie viel Zinsen werden ausgezahlt?",
     "Prozentrechnung4": ""
 
   },
   "BinomischeFormeln": {
-    "BinomischeFormeln1": "Faktorisiere: {0}x² + {1}x + {2}",
-    "BinomischeFormeln2": "Wende die Binomische Formeln an: ({0} + b )²",
-    "BinomischeFormeln3": "Wende die Binomische Formeln an: ({0})- b )²",
+    "BinomischeFormeln1": "Faktorisiere: {0}xï¿½ + {1}x + {2}",
+    "BinomischeFormeln2": "Wende die Binomische Formeln an: ({0} + b )ï¿½",
+    "BinomischeFormeln3": "Wende die Binomische Formeln an: ({0})- b )ï¿½",
     "BinomischeFormeln4": "Wende die Binomische Formeln an: ({0} +b) * ({0} -b))"
   },
   //KoordinatenSystem
   "Wurzeln": {
     "Wurzeln1": "Ziehe die Wurzeln aus der Zahl: {0}",
-    "Wurzeln2": "Berechne das Ergebnis: a² = {0}"
+    "Wurzeln2": "Berechne das Ergebnis: aï¿½ = {0}"
   },
 
   "QuadratischeGleichungen": {
-    "QuadratischeGleichungen1": "Wie lautet die Lösung von x?:  {0}x2 + {1}x + {2} = 0"
+    "QuadratischeGleichungen1": "Wie lautet die Lï¿½sung von x?:  {0}x2 + {1}x + {2} = 0"
   },
   //Strahlensatzl
   //Pythagoras
   "Potenzen": {
     "Potenzen1": "Berechne: {0}^({1})"
-
-  },
+  }
   //Trigonometrie
   //Logarithmen
-  ""
-
-
-
 }
