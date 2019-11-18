@@ -38,7 +38,7 @@ namespace MadMaths
 
         public string getAufgabenText(string aufgabe)
         {
-            return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
+            return string.Format(Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value, rand.Next(0,100), rand.Next(0,100),rand.Next(0,100), rand.Next(0, 100), rand.Next(0, 100), rand.Next(0, 100));
         }
 
         public void ReadAufgabenJS()
