@@ -48,6 +48,14 @@ namespace MadMaths
             {
                 RawJson = JsonConvert.DeserializeObject(sr.ReadToEnd());
             }
+            Aufgaben = RawJson.ToObject(typeof(Dictionary<string, Dictionary<string, string>>));
+
+            foreach (var item in Aufgaben)
+            {
+                ThemenListe.Add(item.Key);
+                //Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
+                //Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
+            }
         }
     }
 
