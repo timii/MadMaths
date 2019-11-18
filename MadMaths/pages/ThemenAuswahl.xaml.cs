@@ -52,6 +52,7 @@ namespace MadMaths.pages
 
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
+            Controller.currentExercise = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 
