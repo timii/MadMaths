@@ -19,6 +19,10 @@
     "HöherAbleiten2": "Leite ab so weit wie möglich: f(x) = {0}x^{1} + {2}x^{3}",
     "HöherAbleiten3": "Schreib die 2. Ableitung auf: f(x) = ({0}x^{1} +{2}x^{3}) ({4}x)"
 
+  },
+  "Wendepunkte": {
+    "Wendepunkte1": ""
+
   }
 
 

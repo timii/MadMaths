@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="Aufgaben.cs" />
     <Compile Include="CalcFunctions_Grundschule.cs" />
+    <Compile Include="CalcFunctions_Mittelstufe.cs" />
     <Compile Include="CustomMB.xaml.cs">
       <DependentUpon>CustomMB.xaml</DependentUpon>
     </Compile>
