@@ -60,7 +60,7 @@
     "Dreisatz2": "{0} Personen brauchen {1} Stunden f�r die Rodung eines Waldes. Wie lange w�rden {2} Personen ben�tigen?",
     "Dreisatz3": "{0} �pfel kosten {1} Euro. Was kosten {2} �pfel?"
   },
-  //Prozentrechnung
+
   "Prozentrechnung": {
     "Prozentrechnung1": "Es wird Geld angelegt: {0}% Zinsen, {1} Euro f�r {2} Jahr angelegt. Berechne die Zinsen:",
     "Prozentrechnung2": "Ihr legt {0} Euro zu {1}% Zinsen fest. Wie viel Zinsgeld bekommt Ihr nach einem Jahr?",
@@ -87,7 +87,24 @@
   //Pythagoras
   "Potenzen": {
     "Potenzen1": "Berechne: {0}^({1})"
-  }
+  },
   //Trigonometrie
   //Logarithmen
+  "Logarithmen": {
+    "Logarithmen1": "Berechne den folgenden Logarithmus mit der Basis {0} Log({1})",
+    "Logarithmen2": "Berechne die Basis: Der Logarithmus der Zahl {0} ist {1}."
+
+  },
+  "Fakultät": {
+    "Fakultät1": "Berechne folgende Fakultäten: {0}!",
+    "Fakultät2": "Berechne folgende Fakultäten: ({0}!/{1}!)"
+  },
+  "Urnenmodell": {
+    "Urnenmodell1": "Wir haben eine Urne mit {0}  Kugeln. Alle {0}  Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
+    "Urnenmodell2": "In einer Urne befinden sich {0} Kugeln. Es soll insgesamt {1} mal gezogen werden, wobei die Kugel stets wieder in dir Urne zurückgelegt wird. Wie viele Möglichkeiten der Entnahme gibt es ?",
+    "Urnenmodell3": "Wir haben eine Urne mit {1}  Kugeln. Alle {0}  Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
+    "Urnenmodell4": "Wir haben eine Urne mit {0} Kugeln und ziehen {1} Kugeln aus dieser ohne zurück zulegen. Wie viele Möglichkeiten gibt es?"
+  }
+
+
 }
