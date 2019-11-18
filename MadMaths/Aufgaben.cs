@@ -38,7 +38,7 @@ namespace MadMaths
 
         public string getAufgabenText(string aufgabe)
         {
-            return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
+            return string.Format(Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value, rand.Next(0,100), rand.Next(0,100),rand.Next(0,100), rand.Next(0, 100), rand.Next(0, 100), rand.Next(0, 100));
         }
 
         public void ReadAufgabenJS()
@@ -47,6 +47,14 @@ namespace MadMaths
             using (StreamReader sr = new StreamReader(streamResourceInfo.Stream))
             {
                 RawJson = JsonConvert.DeserializeObject(sr.ReadToEnd());
+            }
+            Aufgaben = RawJson.ToObject(typeof(Dictionary<string, Dictionary<string, string>>));
+
+            foreach (var item in Aufgaben)
+            {
+                ThemenListe.Add(item.Key);
+                //Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
+                //Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
             }
         }
     }
