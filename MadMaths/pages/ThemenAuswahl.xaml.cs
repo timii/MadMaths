@@ -24,10 +24,35 @@ namespace MadMaths.pages
         {
             InitializeComponent();
             StufenName.Text = Controller.currentPage;   // setzt die aktuelle Stufe als Überschrift
+
+            foreach (var item in Controller.Stufen[Controller.currentPage].ThemenListe)
+            {
+                Button b = new Button();
+                b.Content = item as string;
+                if (item.Length > 12)
+                {
+                    b.FontSize = 26;
+                }
+                if (item.Length > 15)
+                {
+                    b.FontSize = 20;
+                }
+                if (item.Length > 20)
+                {
+                    b.FontSize = 17;
+                }
+                b.MaxHeight = 60;
+                b.MinWidth = 200;
+                b.Width = double.NaN;
+                b.Margin = new Thickness(50,20,40,20);
+                b.Click += AufgabenClick;
+                AufgabenButtons.Children.Add (b);
+            }
         }
 
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
+            Controller.currentExercise = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 

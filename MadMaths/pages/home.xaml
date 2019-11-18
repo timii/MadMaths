@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MadMaths.pages"
+      xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="900"
       Title="home">
@@ -20,25 +21,33 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            <Image Source="../assets/logo/madmaths_logo1.png" MaxHeight="170" Margin="0,0,0,0" VerticalAlignment="Top"/>
-            <StackPanel Grid.Row="1" Grid.Column="0"
+            <Grid Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="logo" Grid.Row="0" Grid.Column="0" Margin="-30,-10,-30,-50" Background="Transparent">
+                    <Image Source="../assets/logo/logo_transparent4.png" Stretch="Uniform"/>
+                </Grid>
+                <StackPanel Grid.Row="1" Grid.Column="0"
                     VerticalAlignment="Center">
-                <Button x:Name="Grundschule"
+                    <Button x:Name="Grundschule"
                     Content="Grundschule" Margin="25" Click="StufenClick"/>
-                <Button x:Name="Mittelstufe"
+                    <Button x:Name="Mittelstufe"
                     Content="Mittelstufe" Margin="25" Click="StufenClick"/>
-                <Button x:Name="Oberstufe"
+                    <Button x:Name="Oberstufe"
                     Content="Oberstufe" Margin="25" Click="StufenClick"/>
-                <!-- Beispiel für Responsive Design -->
-                <!--<Button x:Name="Oberstufe" Margin="25">
+                    <!-- Beispiel für Responsive Design -->
+                    <!--<Button x:Name="Oberstufe" Margin="25">
                 <Viewbox Stretch="Uniform">
                     <TextBlock Text="Oberstufe" Width="270" TextAlignment="Center"/>
                 </Viewbox>
             </Button>-->
-            </StackPanel>
+                </StackPanel>
+            </Grid>
         </Grid>
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
@@ -49,7 +58,7 @@
         <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
                  HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5"
                  >
-            <ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
+            <!--<ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
                 <TextBlock Text="Rangliste" FontSize="15"/>
             </ListBoxItem>
             <ListBoxItem Style="{StaticResource RankingListStyle1}">
@@ -66,7 +75,12 @@
             </ListBoxItem>
             <ListBoxItem Style="{StaticResource RankingListStyle}">
                 <TextBlock Text="5. ToAst"/>
-            </ListBoxItem>
+            </ListBoxItem>-->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding UserName}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <Grid Background="Transparent">
@@ -87,8 +101,8 @@
                         </Image.Clip>
                     </Image>
                 </Button>
-                <TextBlock Name="Username" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User_Name" FontSize="25" VerticalAlignment="Center" MouseLeftButtonDown="Username_MouseLeftButtonDown"/>
-                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" Maximum="100" Value="50" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
+                <TextBlock Name="Username" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User_Name" FontSize="25" VerticalAlignment="Center" MouseLeftButtonDown="Username_MouseLeftButtonDown" Cursor="Hand"/>
+                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" Maximum="100" Value="90" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
                 <TextBlock Name="Level" Grid.Row="0" Grid.Column="2" Text="Level" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="2" Text="0/0" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>

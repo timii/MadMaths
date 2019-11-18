@@ -30,26 +30,26 @@ namespace MadMaths.pages
         private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // überprüft, ob Leerzeichen vorkommen
-            if (e.Key == Key.Space && UserPassword.IsFocused == true){e.Handled = true;}
+            if (e.Key == Key.Space && UserPassword.IsFocused == true) { e.Handled = true; }
         }
 
         private void UserName_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // überprüft, ob Leerzeichen vorkommen
-            if (e.Key == Key.Space && UserName.IsFocused == true) {e.Handled = true;}
+            if (e.Key == Key.Space && UserName.IsFocused == true) { e.Handled = true; }
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.UserName = UserName.Text;
-            user.password = UserPassword.Password;
-            using (StreamWriter file = new StreamWriter(File.Open(Controller.UserSaveFile, FileMode.Open)))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, user);
-            }
+            //User user = new User();
+            Controller._user.UserName = UserName.Text;
+            Controller._user.password = UserPassword.Password;
+            Controller.UpdateUserJson();
             NavigationService.GoBack();
+        }
+        private void ThemenBackClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack(); // geht eine Seite zurück
         }
     }
 }

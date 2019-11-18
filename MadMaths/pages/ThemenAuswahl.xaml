@@ -26,15 +26,17 @@
             <TextBlock Name="StufenName" Text="Placeholder" Grid.Column="0" Grid.Row="1"
                    TextAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
         </Grid>
-        <WrapPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <WrapPanel Name="AufgabenButtons" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
+                <!--<Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-        </WrapPanel>
+            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>-->
+            </WrapPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

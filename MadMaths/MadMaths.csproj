@@ -54,6 +54,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>assets\logo\WindowIcon3.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -65,7 +68,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -78,7 +80,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Aufgaben.cs" />
+    <Compile Include="CalcFunctions_Grundschule.cs" />
+    <Compile Include="CustomMB.xaml.cs">
+      <DependentUpon>CustomMB.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomWindowSizing.cs" />
     <Compile Include="User.cs" />
+    <Page Include="CustomMB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -139,6 +151,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="data\grundschule.json" />
+    <Resource Include="data\oberstufe.json" />
+    <Resource Include="data\mittelstufe.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,16 +163,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="assets\icons\backButton.png">
+    <Resource Include="assets\icons\backButton.png">
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
+    <Resource Include="assets\logo\WindowIcon3.ico" />
+    <Resource Include="assets\logo\WindowIcon3.png" />
     <Resource Include="assets\logo\WindowIcon.png" />
     <Resource Include="assets\icons\profile-picture-icon.jpg" />
+    <Resource Include="assets\icons\WindowMaximize.png" />
+    <Resource Include="assets\icons\WindowMinimize.png" />
+    <Resource Include="assets\logo\logo.png" />
+    <Resource Include="assets\logo\logo_transparent4.png" />
+    <Resource Include="assets\logo\logo_transparent5.png" />
     <Content Include="assets\logo\madmaths_logo1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CustomToolNamespace>MadMaths</CustomToolNamespace>

@@ -11,8 +11,14 @@ namespace MadMaths
         public string UserName { get; set; } = null;
         public string password { get; set; } = null;
         public string avatarImg { get; set; } = null;
-        public string level { get; set; } = null;
-        public string currentProgress { get; set; } = null;
+        public int? level { get; set; } = null;
+        public int? currentProgress { get; set; } = null;
         public string lastSessions { get; set; } = null;
+    }
+
+    public class UserRank
+    {
+        public string UserName { get; set; }
+        public int? progress { get; set; }
     }
 }

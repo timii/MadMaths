@@ -10,26 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MadMaths.pages
+namespace MadMaths
 {
     /// <summary>
-    /// Interaktionslogik für AufgabenFenster.xaml
+    /// Interaktionslogik für CustomMB.xaml (Custom Messagebox)
     /// </summary>
-    public partial class AufgabenFenster : Page
+    public partial class CustomMB : Window
     {
-        public AufgabenFenster()
+        public CustomMB()
         {
             InitializeComponent();
-            AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise);
         }
 
-        private void ThemenBackClick(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
-
+            this.Close();
         }
     }
 }
