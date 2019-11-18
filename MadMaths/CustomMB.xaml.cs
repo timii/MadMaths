@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace MadMaths
 {
     /// <summary>
-    /// Interaktionslogik für CustomMB.xaml
+    /// Interaktionslogik für CustomMB.xaml (Custom Messagebox)
     /// </summary>
     public partial class CustomMB : Window
     {
