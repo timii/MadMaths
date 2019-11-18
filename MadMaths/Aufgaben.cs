@@ -1,21 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using Newtonsoft.Json;
 
 namespace MadMaths
 {
     public interface IStufe
     {
         List<string> ThemenListe { get; set; }
-        Dictionary<string, string> Aufgaben { get; set; }
+        Dictionary<string, Dictionary<string, string>> Aufgaben { get; set; }
         Uri aufgabenPath { get; set; }
         dynamic RawJson { get; set; }
-        string getAufgabenText();
+        string getAufgabenText(string aufgabe);
         bool checksSolution();
         void ReadAufgabenJS();
     }
@@ -23,22 +21,24 @@ namespace MadMaths
     public class Grundschule : IStufe
     {
         public List<string> ThemenListe { get; set; } = new List<string>();
-        public Dictionary<string, string> Aufgaben { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, Dictionary<string, string>> Aufgaben { get; set; } = new Dictionary<string, Dictionary<string, string>>();
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/grundschule.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
+        Random rand;
 
         public Grundschule()
         {
             ReadAufgabenJS();
+            rand = new Random();
         }
         public bool checksSolution()
         {
             return false;
         }
 
-        public string getAufgabenText()
+        public string getAufgabenText(string aufgabe)
         {
-            return Aufgaben["Addieren1"];
+            return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
         }
 
         public void ReadAufgabenJS()
@@ -48,29 +48,22 @@ namespace MadMaths
             {
                 RawJson = JsonConvert.DeserializeObject(sr.ReadToEnd());
             }
-            Dictionary<string, dynamic> ThemenNamen = new Dictionary<string, dynamic>();
-            ThemenNamen = RawJson.ToObject(typeof(Dictionary<string, dynamic>));
-
-            foreach (var item in ThemenNamen)
-            {
-                ThemenListe.Add(item.Key);
-                Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
-                Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
-            }
         }
     }
 
     public class Mittelstufe : IStufe
     {
         public List<string> ThemenListe { get; set; } = new List<string>();
-        public Dictionary<string, string> Aufgaben { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, Dictionary<string, string>> Aufgaben { get; set; } = new Dictionary<string, Dictionary<string, string>>();
         public Dictionary<string, List<string>> Gleichungssysteme = new Dictionary<string, List<string>>();
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/mittelstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
+        Random rand;
 
         public Mittelstufe()
         {
             ReadAufgabenJS();
+            rand = new Random();
         }
 
         public bool checksSolution()
@@ -78,9 +71,17 @@ namespace MadMaths
             return false;
         }
 
-        public string getAufgabenText()
+        public string getAufgabenText(string aufgabe)
         {
-            return "hell, my old friend";
+            if (aufgabe == "Gleichungssysteme2x2")
+            {
+                int r = rand.Next(0, Gleichungssysteme.Count);
+                return Gleichungssysteme.ElementAt(r).Value[0]+Gleichungssysteme.ElementAt(r).Value[1];
+            }
+            else
+            {
+                return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
+            }
         }
 
         public void ReadAufgabenJS()
@@ -102,8 +103,9 @@ namespace MadMaths
                 }
                 else
                 {
-                    Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
-                    Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
+                    //Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
+                    //Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
+                    Aufgaben.Add(item.Key, item.Value.ToObject(typeof(Dictionary<string, string>)));
                 }
             }
         }
@@ -112,18 +114,25 @@ namespace MadMaths
     public class Oberstufe : IStufe
     {
         public List<string> ThemenListe { get; set; } = new List<string>();
-        public Dictionary<string, string> Aufgaben { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, Dictionary<string, string>> Aufgaben { get; set; } = new Dictionary<string, Dictionary<string, string>>();
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/oberstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
+        Random rand = new Random();
+
+        public Oberstufe()
+        {
+            ReadAufgabenJS();
+            rand = new Random();
+        }
 
         public bool checksSolution()
         {
             return false;
         }
 
-        public string getAufgabenText()
+        public string getAufgabenText(string aufgabe)
         {
-            throw new NotImplementedException();
+            return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
         }
 
         public void ReadAufgabenJS()
@@ -133,14 +142,13 @@ namespace MadMaths
             {
                 RawJson = JsonConvert.DeserializeObject(sr.ReadToEnd());
             }
-            Dictionary<string, dynamic> ThemenNamen = new Dictionary<string, dynamic>();
-            ThemenNamen = RawJson.ToObject(typeof(Dictionary<string, dynamic>));
+            Aufgaben = RawJson.ToObject(typeof(Dictionary<string, Dictionary<string, string>>));
 
-            foreach (var item in ThemenNamen)
+            foreach (var item in Aufgaben)
             {
                 ThemenListe.Add(item.Key);
-                Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
-                Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
+                //Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
+                //Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
             }
         }
     }

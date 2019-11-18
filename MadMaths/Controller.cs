@@ -10,6 +10,8 @@ namespace MadMaths
     {
         public static string currentPage { get; set; } = "None";  // enthält den Namen der aktuell aufgerufenen Page
 
+        public static string currentExercise { get; set; }
+
         public static bool UserIsLoggedIn = false;
 
         private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
@@ -21,7 +23,8 @@ namespace MadMaths
         public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
             { "Grundschule",new Grundschule() },
-            {"Mittelstufe", new Mittelstufe() }
+            {"Mittelstufe", new Mittelstufe() },
+            {"Oberstufe", new Oberstufe() }
         };
 
         static Controller()
