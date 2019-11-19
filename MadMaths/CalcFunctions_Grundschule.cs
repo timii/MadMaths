@@ -98,6 +98,10 @@ namespace MadMaths
                 return "ungerade";
             }
         }
+
+        int VerdoppelHalbieren1(int input_a) { return input_a * 2; }
+        int VerdoppelHalbieren2(int input_a) { return input_a / 2; }
+
         int Kettenaufgabe1(int input_a, int input_b, int input_c) { return (input_a - input_b - input_c); }
         int Kettenaufgabe2(int input_a, int input_b, int input_c) { return (input_a + input_b + input_c); }
         int Kettenaufgabe3(int input_a, int input_b, int input_c) { return (input_a + input_b - input_c); }
@@ -106,9 +110,17 @@ namespace MadMaths
         int Kettenaufgabe6(int input_a, int input_b, int input_c) { return (input_a * input_b - input_c); }
         int Kettenaufgabe7(int input_a, int input_b, int input_c, int input_d) { return (input_a + input_b - input_c + input_d); }
 
-        int VerdoppelHalbieren1(int input_a) { return input_a * 2; }
-        int VerdoppelHalbieren2(int input_a) { return input_a / 2; }
+        string Zeitaufgabe1() { return "10:15"; }
+        string Zeitaufgabe2() { return "18:45"; }
+        string Zeitaufgabe3() { return "11:00"; }
+        string Zeitaufgabe4() { return "03:30"; }
+        string Zeitaufgabe5() { return "00:15"; }
 
+        int Teilemitrest1(int input_a, int input_b) { return (input_a % input_b); }
 
+        //int Runden1(int input_a)
+        //{
+        //    //return Math.Ceiling((decimal)input_a);
+        //}
     }
 }

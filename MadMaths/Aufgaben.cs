@@ -38,7 +38,7 @@ namespace MadMaths
 
         public string getAufgabenText(string aufgabe)
         {
-            return string.Format(Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value, rand.Next(0,100), rand.Next(0,100),rand.Next(0,100), rand.Next(0, 100), rand.Next(0, 100), rand.Next(0, 100));
+            return string.Format(Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value, rand.Next(0,10), rand.Next(0,10),rand.Next(0,10), rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10));
         }
 
         public void ReadAufgabenJS()
@@ -84,11 +84,12 @@ namespace MadMaths
             if (aufgabe == "Gleichungssysteme2x2")
             {
                 int r = rand.Next(0, Gleichungssysteme.Count);
-                return Gleichungssysteme.ElementAt(r).Value[0]+Gleichungssysteme.ElementAt(r).Value[1];
+                return Gleichungssysteme.ElementAt(r).Value[0]+Environment.NewLine+Gleichungssysteme.ElementAt(r).Value[1];
             }
             else
             {
-                return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
+                //return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
+                return string.Format(Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value, rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10));
             }
         }
 
@@ -140,7 +141,8 @@ namespace MadMaths
 
         public string getAufgabenText(string aufgabe)
         {
-            return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
+            //return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
+            return string.Format(Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value, rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10), rand.Next(0, 10));
         }
 
         public void ReadAufgabenJS()
