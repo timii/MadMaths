@@ -4,10 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
+
 namespace MadMaths
 {
     public class CalcFunctions_Mittelstufe
     {
+       private double hoch(double input_a, double hochzahl)
+        {
+            double ergebnis = 1;
+            for(int i = 0; i < hochzahl; i++)
+            {
+                ergebnis *= input_a;
+            }
+            return ergebnis;
+        }
        public int Variablen1(int input_a, int input_b) { return input_b - input_a; }
        public int Variablen2(int input_a, int input_b) { return input_b + input_a; }
        public int Variablen3(int input_a, int input_b) { return input_b / input_a; }
@@ -97,6 +109,9 @@ namespace MadMaths
         public double Dreisatz1(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
         public double Dreisatz2(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
         public double Dreisatz3(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
+        
+        public double Prozentrechnung1(double input_a, double input_b, double input_c) {return Math.Round(input_b*hoch((input_a * 0.01 + 1), input_c),2);}
+        public double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a*(input_b*0.01), 2); }
 
     }
 }

@@ -42,7 +42,7 @@ namespace MadMaths
             }
             InitializeComponent();
             CalcFunctions_Mittelstufe c = new CalcFunctions_Mittelstufe();
-            MessageBox.Show(c.Gleichungssystem3(3, 2, 16, 2.5, 3, 10));
+            MessageBox.Show(c.Prozentrechnung1(7,3000,5).ToString());
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 

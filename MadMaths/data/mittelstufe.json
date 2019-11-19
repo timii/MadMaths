@@ -61,10 +61,9 @@
   },
 
   "Prozentrechnung": {
-    "Prozentrechnung1": "Es wird Geld angelegt: {0}% Zinsen, {1} Euro f�r {2} Jahr angelegt. Berechne die Zinsen:",
+    "Prozentrechnung1": "Es wird Geld angelegt: {0}% Zinsen, {1} Euro fuer {2} Jahr. Berechne die Zinsen:",
     "Prozentrechnung2": "Ihr legt {0} Euro zu {1}% Zinsen fest. Wie viel Zinsgeld bekommt Ihr nach einem Jahr?",
-    "Prozentrechnung3": "{0} Euro werden bei einem Zinssatz von {1} Prozent f�r {2} Tage angelegt. Wie viel Zinsen werden ausgezahlt?",
-    "Prozentrechnung4": ""
+    "Prozentrechnung3": "{0} Euro werden bei einem Zinssatz von {1} Prozent f�r {2} Tage angelegt. Wie viel Zinsen werden ausgezahlt?"
 
   },
   "BinomischeFormeln": {
