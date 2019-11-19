@@ -19,9 +19,10 @@ namespace MadMaths
     /// </summary>
     public partial class CustomMB : Window
     {
-        public CustomMB()
+        public CustomMB(string msg)
         {
             InitializeComponent();
+            msgBox.Text = msg;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

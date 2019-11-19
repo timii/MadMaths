@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MadMaths
+namespace MadMaths.calculations
 {
-    class CalcFunctions_Mittelstufe
+    class CalcFunctions_Oberstufe
     {
-        int Variablenrechner(string a) {
-
-
-        }
     }
 }

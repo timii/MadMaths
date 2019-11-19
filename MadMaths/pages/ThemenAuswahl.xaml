@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MadMaths.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
+      d:DesignHeight="600" d:DesignWidth="920"
       Title="ThemenAuswahl">
 
     <Grid>
@@ -27,7 +27,7 @@
                    TextAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
         </Grid>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <WrapPanel Name="AufgabenButtons" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top">
+            <WrapPanel Name="AufgabenButtons" Orientation="Horizontal" VerticalAlignment="Top">
                 <!--<Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
             <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>

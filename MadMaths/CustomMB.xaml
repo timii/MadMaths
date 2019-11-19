@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MadMaths"
         mc:Ignorable="d"
-        Title="CustomMB" Height="200" Width="300" FontFamily="Microsoft Sans Serif" 
+        Title="CustomMB" Height="150" Width="300" FontFamily="Microsoft Sans Serif" 
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True">
+        AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "False">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="10"/>
     </WindowChrome.WindowChrome>
     
-    <Border BorderBrush="Orange" BorderThickness="5,0,5,5" >
+    <!--<Border BorderBrush="DarkOrange" BorderThickness="0" >
         <Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -29,9 +29,25 @@
                     <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="70" Click="Button_Click" />
                 </StackPanel>
             </Grid>
-            <Grid VerticalAlignment="Top" Background="Orange" Grid.Row="0">
+            <Grid VerticalAlignment="Top" Background="DarkOrange" Grid.Row="0">
                 <TextBlock Text="Datei zu groß" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10"
                            Padding="3"/>
+            </Grid>
+        </Grid>
+    </Border>-->
+    <Border BorderBrush="#FFFF7800" BorderThickness="0,0,0,10">
+        <Grid>
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="msgBox" Grid.Row="1" Padding="70,30" FontFamily="Microsoft Sans Serif"
+                           FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF363636"/>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800"/>
+                </StackPanel>
             </Grid>
         </Grid>
     </Border>
