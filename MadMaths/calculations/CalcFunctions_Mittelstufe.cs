@@ -136,6 +136,10 @@ namespace MadMaths
             double x = Math.Pow(input_a, 2);
             return x + " - b^2";
         }
+        static public double Wurzeln1(double input_a) { return Math.Sqrt(input_a); }
+        static public double Wurzeln2(double input_a) { return Math.Sqrt(input_a); }
+
+
 
     }
 }
