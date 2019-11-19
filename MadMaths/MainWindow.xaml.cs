@@ -41,6 +41,8 @@ namespace MadMaths
                 Controller.CreateUserJS();
             }
             InitializeComponent();
+            CalcFunctions_Mittelstufe c = new CalcFunctions_Mittelstufe();
+            MessageBox.Show(c.Gleichungssystem3(3, 2, 16, 2.5, 3, 10));
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 
