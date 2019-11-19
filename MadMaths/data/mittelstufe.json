@@ -28,8 +28,8 @@
       "{0}x + {1}y = {2}"
     ],
     "Gleichungssystem2": [
-      "{0}x+ {1}y = {2}",
-      "{0}x- {1}y = {2}"
+      "{0}x + {1}y = {2}",
+      "{0}x - {1}y = {2}"
     ],
     "Gleichungssystem3": [
       "{0}x - {1}y = {2}",
@@ -41,9 +41,8 @@
     "Umwandeln2": "Wandle {0}cm in m um",
     "Umwandeln3": "Wandle {0}ml in liter um",
     "Umwandeln4": "Wandle {0}liter in ml um",
-    "Umwandeln5": "Wandle {0}m� in km� um",
-    "Umwandeln6": "Wandle {0}km� in m� um",
-    "Umwandeln7": "Wandle {0}m� in cm� um"
+    "Umwandeln5": "Wandle {0}km� in m� um",
+    "Umwandeln6": "Wandle {0}m� in cm� um"
   },
   "Stochastik": {
     "Stochastik1": "Wie gro� ist die Wahrscheinlichkeit bei einem W�rfel, die Zahl {0} zu W�rfeln?", //1-6 btw
@@ -57,8 +56,8 @@
 
   "Dreisatz": {
     "Dreisatz1": "{0} Lampen kosten {1} Euro. Wie viel kosten {2} Lampen?",
-    "Dreisatz2": "{0} Personen brauchen {1} Stunden f�r die Rodung eines Waldes. Wie lange w�rden {2} Personen ben�tigen?",
-    "Dreisatz3": "{0} �pfel kosten {1} Euro. Was kosten {2} �pfel?"
+    "Dreisatz2": "{0} Personen brauchen {1} Stunden um einen Reifen zu wechseln. Wie lange brauchen {2} Personen ben�tigen?",
+    "Dreisatz3": "Eine Person lauft {0} Kilometer in {1} Stunden. Wie viele Kilometer läuft die Person in {2} Stunden?"
   },
 
   "Prozentrechnung": {
