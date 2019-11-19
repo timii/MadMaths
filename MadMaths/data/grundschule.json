@@ -81,6 +81,8 @@
   "Umwandeln": {
     "Umwandeln1": "Gib {0}l in ml an",
     "Umwandeln2": "Gib {0}kg in g an",
-    "Umwandeln3": "Gib {0}km in m an"
+    "Umwandeln3": "Gib {0}km in m an",
+    "Umwandeln4": "Gib {0}cm in m an",
+    "Umwandeln5": "Gib {0}mm in m an"
   }
 }
