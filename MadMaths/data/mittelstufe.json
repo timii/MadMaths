@@ -64,14 +64,13 @@
     "Prozentrechnung1": "Es wird Geld angelegt: {0}% Zinsen, {1} Euro für {2} Jahr angelegt. Berechne die Zinsen:",
     "Prozentrechnung2": "Ihr legt {0} Euro zu {1}% Zinsen fest. Wie viel Zinsgeld bekommt Ihr nach einem Jahr?",
     "Prozentrechnung3": "{0} Euro werden bei einem Zinssatz von {1} Prozent für {2} Tage angelegt. Wie viel Zinsen werden ausgezahlt?",
-    "Prozentrechnung4": " "
 
   },
   "BinomischeFormeln": {
     "BinomischeFormeln1": "Faktorisiere: {0}x² + {1}x + {2}",
     "BinomischeFormeln2": "Wende die Binomische Formeln an: ({0} + b )²",
-    "BinomischeFormeln3": "Wende die Binomische Formeln an: ({0})- b )²",
-    "BinomischeFormeln4": "Wende die Binomische Formeln an: ({0} +b) * ({0} -b))"
+    "BinomischeFormeln3": "Wende die Binomische Formeln an: ({0} - b )²",
+    "BinomischeFormeln4": "Wende die Binomische Formeln an: ({0} + b) * ({0} - b))"
   },
   //KoordinatenSystem
   "Wurzeln": {
@@ -80,7 +79,7 @@
   },
 
   "QuadratischeGleichungen": {
-    "QuadratischeGleichungen1": "Wie lautet die Lösung von x?:  {0}x2 + {1}x + {2} = 0"
+    "QuadratischeGleichungen1": "Wie lautet die Lösung von x?:  {0}x² + {1}x + {2} = 0"
   },
   //Strahlensatzl
   //Pythagoras

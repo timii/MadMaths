@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="calculations\CalcFunctions_Grundschule.cs" />
     <Compile Include="calculations\CalcFunctions_Mittelstufe.cs" />
+    <Compile Include="calculations\CalcFunctions_Oberstufe.cs" />
     <Compile Include="calculations\Grundschule.cs" />
     <Compile Include="calculations\Mittelstufe.cs" />
     <Compile Include="calculations\Oberstufe.cs" />

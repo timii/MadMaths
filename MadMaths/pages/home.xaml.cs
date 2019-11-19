@@ -64,9 +64,7 @@ namespace MadMaths.pages
         {
             if (Controller.UserIsLoggedIn)
             {
-                CustomMB mb = new CustomMB();
-                mb.ShowActivated = true;
-                mb.ShowInTaskbar = false;
+                CustomMB mb = new CustomMB("Die Datei darf nicht über 2MB groß sein !");
                 mb.Owner = System.Windows.Application.Current.MainWindow;
 
                 OpenFileDialog op = new OpenFileDialog
