@@ -41,8 +41,6 @@ namespace MadMaths
                 Controller.CreateUserJS();
             }
             InitializeComponent();
-            CalcFunctions_Mittelstufe c = new CalcFunctions_Mittelstufe();
-            MessageBox.Show(c.Prozentrechnung1(3, 5, 3).ToString());
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 
