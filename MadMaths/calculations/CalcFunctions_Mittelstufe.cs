@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
-
-namespace MadMaths
+namespace MadMaths.calculations
 {
     public class CalcFunctions_Mittelstufe
     {

@@ -43,8 +43,9 @@ namespace MadMaths.pages
                 }
                 b.MaxHeight = 60;
                 b.MinWidth = 200;
-                b.Width = double.NaN;
-                b.Margin = new Thickness(50,20,40,20);
+                //b.Width = double.NaN;
+                b.Width = 220;
+                b.Margin = new Thickness(50,20,10,20);
                 b.Click += AufgabenClick;
                 AufgabenButtons.Children.Add (b);
             }

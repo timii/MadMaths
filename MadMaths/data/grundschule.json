@@ -1,14 +1,14 @@
 {
   "Addieren": { /* Zahlenraum bis 10 */
     "Addieren1": "Addiere {0} mit {1}",
-    "Addieren2": "Max hat {1} Bananen und holt sich noch {3} dazu. Wieviele hat Max nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
-    "Addieren3": "Max kauft sich {1} mal ein(e) Melone. Wieviele hat Max wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
+    "Addieren2": "Max hat {0} Bananen und holt sich noch {1} dazu. Wieviele hat Max nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
+    "Addieren3": "Max kauft sich {0} mal ein(e) Melone. Wieviele hat Max wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
     "Addieren4": "Du hast Zuhause {0} Melonen. Wenn du noch {1} holst, wieviele hast du dann?" /* alles zahlen */
   },
 
   "Subtrahieren": { /* Zahlenraum bis 10 */
     "Subtrahieren 1": "Subtrahiere {0} von {1}",
-    "Subtrahieren 2": "Max hat {1} Birnen und gibt {3} an Felix ab. Wieviele hat Max wenn du nochmal {5} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
+    "Subtrahieren 2": "Max hat {0} Birnen und gibt {1} an Felix ab. Wieviele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
   },
 
   "Multiplizieren": { /* Zahlenraum bis 10 */
