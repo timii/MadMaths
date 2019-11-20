@@ -18,7 +18,7 @@
 
   "Dividieren": { /* Zahlenraum bis 10 */
     "Dividieren 1": "Dividiere {0} durch {1}",
-    "Dividieren 2": "Was ergibt {0} geteilt  durch {1}"
+    "Dividieren 2": "Was ergibt {0} geteilt durch {1}"
   },
 
   "Textaufgabe": {
