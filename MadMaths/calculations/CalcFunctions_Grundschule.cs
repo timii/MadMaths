@@ -29,12 +29,6 @@ namespace MadMaths.calculations
             { "timaufgabe", new Func<int,int,int>(timaufgabe)},
             { "timaufgabe_insgesamt", new Func<int,int,int>(timaufgabe_insgesamt)},
             { "GroesserKleiner1", new Func<int,int,string>(GroesserKleiner1)},
-            { "", new Func<>()},
-            { "", new Func<>()},
-            { "", new Func<>()},
-            { "", new Func<>()},
-
-
         };
 
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
