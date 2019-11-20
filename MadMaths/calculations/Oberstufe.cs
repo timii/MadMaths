@@ -23,7 +23,7 @@ namespace MadMaths.calculations
             rand = new Random();
         }
 
-        public bool checksSolution(object lösung)
+        public bool checksSolution(in object lösung)
         {
             return false;
         }

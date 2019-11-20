@@ -50,7 +50,7 @@ namespace MadMaths
             }
         }
 
-        public static BitmapImage LoadImage(byte[] imageData)
+        public static BitmapImage LoadImage(in byte[] imageData)
         // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
             if (imageData == null || imageData.Length == 0) return null;

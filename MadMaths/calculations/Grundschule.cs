@@ -15,7 +15,7 @@ namespace MadMaths.calculations
         Uri aufgabenPath { get; set; }
         dynamic RawJson { get; set; }
         string getAufgabenText(string aufgabe);
-        bool checksSolution(object lösung);
+        bool checksSolution(in object lösung);
         void ReadAufgabenJS();
         object[] AufgabenZahlen { get; set; }
     }
@@ -35,7 +35,7 @@ namespace MadMaths.calculations
             ReadAufgabenJS();
             rand = new Random();
         }
-        public bool checksSolution(object BenutzerLösung)
+        public bool checksSolution(in object BenutzerLösung)
         {
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
             var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen); 
