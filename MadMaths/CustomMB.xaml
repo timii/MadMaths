@@ -9,7 +9,7 @@
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "False">
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="10"/>
+        <WindowChrome CaptionHeight="50"/>
     </WindowChrome.WindowChrome>
     
     <!--<Border BorderBrush="DarkOrange" BorderThickness="0" >

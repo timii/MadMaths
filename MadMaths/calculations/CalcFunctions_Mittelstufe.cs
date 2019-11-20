@@ -52,7 +52,22 @@ namespace MadMaths.calculations
             {"BinomischeFormeln3", new Func<double, string>(BinomischeFormeln3)},
             {"BinomischeFormeln4", new Func<double, double, string>(BinomischeFormeln4)},
             {"Wurzeln1", new Func<double, double>(Wurzeln1)},
-            {"Wurzeln2", new Func<double, double>(Wurzeln2)}
+            {"Wurzeln2", new Func<double, double>(Wurzeln2)},
+            {"QuadratischeGleichungen1", new Func<double, double, double, double>(QuadratischeGleichungen1)},
+            {"Potenzen1", new Func<double, double, double>(Potenzen1)},
+            {"Logarithmen1", new Func<double, double, double>(Logarithmen1)},
+            {"Logarithmen2", new Func<double, double, double>(Logarithmen2)},
+            {"Fakultät1", new Func<double, double>(Fakultät1)},
+            {"Fakultät2", new Func<double, double>(Fakultät2)},
+            {"Urnenmodell1", new Func<double, double, double>(Urnenmodell1)},
+            {"Urnenmodell2", new Func<double, double, double>(Urnenmodell2)},
+            {"Urnenmodell3", new Func<double, double>(Urnenmodell3)},
+            {"Urnenmodell4", new Func<double, double, double>(Urnenmodell4)},
+            {"Urnenmodell4", new Func<double, double, double>(Urnenmodell4)},
+            {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
+            {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
+            {"Mittelwert1", new Func<double, double, double, double, double, double>(Mittelwert1)},
+            {"Mittelwert1", new Func<double, double, double, double, double>(Mittelwert1)}
         };
 
         static private double hoch(double input_a, double hochzahl)

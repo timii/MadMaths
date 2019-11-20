@@ -98,7 +98,7 @@
   "Urnenmodell": {
     "Urnenmodell1": "Wir haben eine Urne mit {0}  Kugeln. Alle {0}  Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
     "Urnenmodell2": "In einer Urne befinden sich {0} Kugeln. Es soll insgesamt {1} mal gezogen werden, wobei die Kugel stets wieder in dir Urne zurückgelegt wird. Wie viele Möglichkeiten der Entnahme gibt es ?",
-    "Urnenmodell3": "Wir haben eine Urne mit {1}  Kugeln. Alle {0}  Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
+    "Urnenmodell3": "Wir haben eine Urne mit {0}  Kugeln. Alle {1}  Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
     "Urnenmodell4": "Wir haben eine Urne mit {0} Kugeln und ziehen {1} Kugeln aus dieser ohne zurück zulegen. Wie viele Möglichkeiten gibt es?"
   }
 
