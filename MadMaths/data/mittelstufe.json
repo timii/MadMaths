@@ -36,7 +36,7 @@
       "{0}x - {1}y = {2}"
     ]
   },
-  "Einheiten_Umwandeln": {
+  "Einheiten umwandeln": {
     "Umwandeln1": "Wandle {0}m in km um",
     "Umwandeln2": "Wandle {0}cm in m um",
     "Umwandeln3": "Wandle {0}ml in liter um",
@@ -50,8 +50,6 @@
     "Stochastik3": "Wie groß ist die Wahrscheinlichkeit bei einem Würfel, eine gerade Zahl zu Würfeln?",
     "Stochastik4": "Wie groß ist die Wahrscheinlichkeit bei einer Münze, dass Kopf rauskommt?",
     "Stochastik5": "Wie groß ist die Wahrscheinlichkeit bei einer Münze, dass zweimal hintereinander Kopf rauskommt? "
-
-
   },
 
   "Dreisatz": {
@@ -63,10 +61,10 @@
   "Prozentrechnung": {
     "Prozentrechnung1": "Es wird Geld angelegt: {0}% Zinsen, {1} Euro für {2} Jahr angelegt. Berechne die Zinsen:",
     "Prozentrechnung2": "Ihr legt {0} Euro zu {1}% Zinsen fest. Wie viel Zinsgeld bekommt Ihr nach einem Jahr?",
-    "Prozentrechnung3": "{0} Euro werden bei einem Zinssatz von {1} Prozent für {2} Tage angelegt. Wie viel Zinsen werden ausgezahlt?",
+    "Prozentrechnung3": "{0} Euro werden bei einem Zinssatz von {1} Prozent für {2} Tage angelegt. Wie viel Zinsen werden ausgezahlt?"
 
   },
-  "BinomischeFormeln": {
+  "Binomische Formeln": {
     "BinomischeFormeln1": "Faktorisiere: {0}x² + {1}x + {2}",
     "BinomischeFormeln2": "Wende die Binomische Formeln an: ({0} + b )²",
     "BinomischeFormeln3": "Wende die Binomische Formeln an: ({0} - b )²",
@@ -78,8 +76,8 @@
     "Wurzeln2": "Berechne das Ergebnis: a² = {0}"
   },
 
-  "QuadratischeGleichungen": {
-    "QuadratischeGleichungen1": "Wie lautet die Lösung von x?:  {0}x² + {1}x + {2} = 0"
+  "Quadratische Gleichungen": {
+    "QuadratischeGleichungen1": "Wie lautet die Lösung von x:  {0}x² + {1}x + {2} = 0"
   },
   //Strahlensatzl
   //Pythagoras
@@ -87,7 +85,6 @@
     "Potenzen1": "Berechne: {0}^({1})"
   },
   //Trigonometrie
-  //Logarithmen
   "Logarithmen": {
     "Logarithmen1": "Berechne den folgenden Logarithmus mit der Basis {0} Log({1})",
     "Logarithmen2": "Berechne die Basis: Der Logarithmus der Zahl {0} ist {1}."
@@ -98,11 +95,17 @@
     "Fakultät2": "Berechne folgende Fakultäten: ({0}!/{1}!)"
   },
   "Urnenmodell": {
-    "Urnenmodell1": "Wir haben eine Urne mit {0}  Kugeln. Alle {0}  Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
+    "Urnenmodell1": "Wir haben eine Urne mit {0}  Kugeln. Wir ziehen {1} mal. Alle Kugeln werden mit zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
     "Urnenmodell2": "In einer Urne befinden sich {0} Kugeln. Es soll insgesamt {1} mal gezogen werden, wobei die Kugel stets wieder in dir Urne zurückgelegt wird. Wie viele Möglichkeiten der Entnahme gibt es ?",
-    "Urnenmodell3": "Wir haben eine Urne mit {1}  Kugeln. Alle {0}  Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
-    "Urnenmodell4": "Wir haben eine Urne mit {0} Kugeln und ziehen {1} Kugeln aus dieser ohne zurück zulegen. Wie viele Möglichkeiten gibt es?"
+    "Urnenmodell3": "Wir haben eine Urne mit {0}  Kugeln. Alle Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?"
+  },
+  "Hypergeometrische Verteilung": {
+    "HypergeometrischeVerteilung1": "In einer Urne befinden sich {0} Kugeln ( N = {0} ), davon sind {1} Kugeln rot ( K = {1} ). Wir entnehmen {2} Kugeln ( n = {2} ) ohne zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass in der Stichprobe {3} rote  Kugeln ( k = {3} ) vorhanden sind?"
+  },
+  //Bedingte Wahrscheinlichkeit
+  //
+  "Mittelwert": {
+    "Mittelwert1": "Fünf Arbeitnehmer wurden gefragt, welches Gehalt sie jeden Monat erhalten. Die Arbeitnehmer gaben die Werte {0} Euro, {1} Euro, {2} Euro, {3} Euro und {4} Euro an. Welcher Mittelwert kann mit diesen Angaben errechnet werden, sprich was verdienen diese Menschen im Durchschnitt?",
+    "Mittelwert2": "Bei einem Sportfest hat ein Springer folgende Weiten beim Weitsprung erreicht: {0}m; {1}m; {2}m, {3}m. Wie weit ist der Springer im Durchschnitt gesprungen ( Mittelwert )?"
   }
-
-
 }

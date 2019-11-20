@@ -1,0 +1,42 @@
+﻿<Window x:Class="MadMaths.LevelUPWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadMaths"
+        mc:Ignorable="d"
+        Title="CustomMB" Height="300" Width="350" FontFamily="Microsoft Sans Serif" 
+        WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "False">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="50"/>
+    </WindowChrome.WindowChrome>
+
+    <Border BorderBrush="#FFFF7800" BorderThickness="0,0,0,10">
+        <Grid>
+            <Grid Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Padding="0,10" FontFamily="Microsoft Sans Serif" Text="Glückwunsch!"
+                           FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636" FontWeight="Bold"/>
+                <Separator Grid.Row="0" Background="Gray" VerticalAlignment="Bottom"/>
+                <TextBlock Grid.Row="1" Padding="70,30" FontFamily="Microsoft Sans Serif" Text="Du hast das nächste Level erreicht" FontWeight="Bold"
+                           FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636"/>
+                <Canvas Width="20" Height="80" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Rectangle Fill="Blue" Height="70" Width="70" >
+                        <Rectangle.LayoutTransform>
+                            <RotateTransform Angle="-45"/>
+                        </Rectangle.LayoutTransform>
+                    </Rectangle>
+                </Canvas>
+                <Separator Grid.Row="1" Background="Gray" VerticalAlignment="Bottom"/>
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
