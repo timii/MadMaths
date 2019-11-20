@@ -17,9 +17,9 @@ namespace MadMaths
     /// <summary>
     /// Interaktionslogik für LevelUPWindow.xaml
     /// </summary>
-    public partial class LevelUPWindow : Window
+    public partial class LevelUpWindow : Window
     {
-        public LevelUPWindow()
+        public LevelUpWindow()
         {
             InitializeComponent();
         }
