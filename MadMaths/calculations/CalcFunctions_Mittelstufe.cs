@@ -63,7 +63,6 @@ namespace MadMaths.calculations
             {"Urnenmodell2", new Func<double, double, double>(Urnenmodell2)},
             {"Urnenmodell3", new Func<double, double>(Urnenmodell3)},
             {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
-            {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
             {"Mittelwert1", new Func<double, double, double, double, double, double>(Mittelwert1)},
             {"Mittelwert2", new Func<double, double, double, double, double>(Mittelwert2)}
         };

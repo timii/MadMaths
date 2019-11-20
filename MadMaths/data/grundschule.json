@@ -2,7 +2,7 @@
   "Addieren": { /* Zahlenraum bis 10 */
     "Addieren1": "Addiere {0} mit {1}",
     "Addieren2": "Max hat {0} Bananen und holt sich noch {1} dazu. Wieviele hat Max nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
-    "Addieren3": "Max kauft sich {0} mal ein(e) Melone. Wieviele hat Max wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
+    "Addieren3": "Max kauft sich {0} mal eine Melone. Wieviele hat Max wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
     "Addieren4": "Du hast Zuhause {0} Melonen. Wenn du noch {1} holst, wieviele hast du dann?" /* alles zahlen */
   },
 
