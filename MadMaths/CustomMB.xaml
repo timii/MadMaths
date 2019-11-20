@@ -46,7 +46,7 @@
                 <TextBlock x:Name="msgBox" Grid.Row="1" Padding="70,30" FontFamily="Microsoft Sans Serif"
                            FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF363636"/>
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800"/>
+                    <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800" Cursor="Hand"/>
                 </StackPanel>
             </Grid>
         </Grid>

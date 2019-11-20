@@ -58,16 +58,14 @@ namespace MadMaths.calculations
             {"Logarithmen1", new Func<double, double, double>(Logarithmen1)},
             {"Logarithmen2", new Func<double, double, double>(Logarithmen2)},
             {"Fakultät1", new Func<double, double>(Fakultät1)},
-            {"Fakultät2", new Func<double, double>(Fakultät2)},
+            {"Fakultät2", new Func<double, double, double>(Fakultät2)},
             {"Urnenmodell1", new Func<double, double, double>(Urnenmodell1)},
             {"Urnenmodell2", new Func<double, double, double>(Urnenmodell2)},
             {"Urnenmodell3", new Func<double, double>(Urnenmodell3)},
-            {"Urnenmodell4", new Func<double, double, double>(Urnenmodell4)},
-            {"Urnenmodell4", new Func<double, double, double>(Urnenmodell4)},
             {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
             {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
             {"Mittelwert1", new Func<double, double, double, double, double, double>(Mittelwert1)},
-            {"Mittelwert1", new Func<double, double, double, double, double>(Mittelwert1)}
+            {"Mittelwert2", new Func<double, double, double, double, double>(Mittelwert2)}
         };
 
         static private double hoch(double input_a, double hochzahl)
@@ -79,7 +77,28 @@ namespace MadMaths.calculations
             }
             return ergebnis;
         }
-       static public int Variablen1(int input_a, int input_b) { return input_b - input_a; }
+        static private double Fakultät(double zahl)
+        {
+            if (zahl < 0)
+                throw new ArgumentOutOfRangeException("Zahl darf nicht kleiner 0 sein");
+
+            double fakultät = 1;
+
+            if (zahl == 0 || zahl == 1)
+                fakultät = 1;
+            else
+            {
+                for (double i = 1; i <= zahl; i++)
+                    fakultät *= i;
+            }
+
+            return fakultät;
+        }
+        static private double Binomialkoeffizient(double input_a, double input_b)
+        {
+            return (Fakultät(input_a) / Fakultät(input_b) * Fakultät(input_a - input_b));
+        }
+        static public int Variablen1(int input_a, int input_b) { return input_b - input_a; }
        static public int Variablen2(int input_a, int input_b) { return input_b + input_a; }
        static public int Variablen3(int input_a, int input_b) { return input_b / input_a; }
        static public int Variablen4(int input_a, int input_b) { return input_b * input_a; }
@@ -197,7 +216,59 @@ namespace MadMaths.calculations
         }
         static public double Wurzeln1(double input_a) { return Math.Sqrt(input_a); }
         static public double Wurzeln2(double input_a) { return Math.Sqrt(input_a); }
+        static public double QuadratischeGleichungen1(double input_a, double input_b, double input_c)
+        {
+            double ergebnis;
+            ergebnis = (input_b + Math.Sqrt(-4 * input_a * input_c)) / (input_a * 2);
+            return ergebnis;
+        }
+        static public double Potenzen1(double input_a,double input_b)
+        {
+            return hoch(input_a, input_b);
+        }
+        static public double Logarithmen1(double input_a,double input_b)
+        {
+            return Math.Log(input_a, input_b);
+        }
+        static public double Logarithmen2(double input_a,double input_b)
+        {
+            double ergebnis;
+            ergebnis = Math.Pow(input_a, 1/input_b);
+            return ergebnis;
+        }
+        static public double Fakultät1(double input_a)
+        {
+            return Fakultät(input_a); 
 
+        }
+        static public double Fakultät2(double input_a,double input_b)
+        {
+            return (Fakultät(input_a) / Fakultät(input_b));
+        }
+        static public double Urnenmodell1(double input_a,double input_b)
+        {
+            return Math.Pow(input_a,input_b);
+        }
+        static public double Urnenmodell2(double input_a, double input_b)
+        {
+            return Binomialkoeffizient(input_a, input_b);
+        }
+        static public double Urnenmodell3(double input_a)
+        {
+            return Fakultät(input_a);
+        }
+        static public double HypergeometrischeVerteilung1(double input_a, double input_b, double input_c, double input_d)
+        {
+            return (Binomialkoeffizient(input_b, input_d) * Binomialkoeffizient(input_a - input_b, input_c - input_d)) / (Binomialkoeffizient(input_a, input_c));
+        }
+        static public double Mittelwert1(double input_a, double input_b, double input_c, double input_d, double input_e)
+        {
+            return (input_a + input_b + input_c + input_d + input_e) / 5;
+        }
+        static public double Mittelwert2(double input_a, double input_b, double input_c, double input_d)
+        {
+            return (input_a + input_b + input_c + input_d) / 4;
+        }
 
 
     }
