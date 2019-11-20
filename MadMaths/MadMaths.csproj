@@ -90,15 +90,15 @@
       <DependentUpon>CustomMB.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomWindowSizing.cs" />
-    <Compile Include="LevelUPWindow.xaml.cs">
-      <DependentUpon>LevelUPWindow.xaml</DependentUpon>
+    <Compile Include="LevelUpWindow.xaml.cs">
+      <DependentUpon>LevelUpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Page Include="CustomMB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LevelUPWindow.xaml">
+    <Page Include="LevelUpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
