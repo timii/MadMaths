@@ -8,5 +8,9 @@ namespace MadMaths.calculations
 {
     class CalcFunctions_Oberstufe
     {
+        static public Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
+        {
+            //{"", new Func<>()},
+        };
     }
 }

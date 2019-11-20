@@ -23,7 +23,7 @@ namespace MadMaths
 
         public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
-            { "Grundschule",new Grundschule() },
+            {"Grundschule",new Grundschule() },
             {"Mittelstufe", new Mittelstufe() },
             {"Oberstufe", new Oberstufe() }
         };
