@@ -20,6 +20,8 @@ namespace MadMaths.pages
     /// </summary>
     public partial class AufgabenFenster : Page
     {
+        bool wasFocused = false;
+
         public AufgabenFenster()
         {
             InitializeComponent();
@@ -30,6 +32,29 @@ namespace MadMaths.pages
         {
             NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
 
+        }
+
+        private void Abgabe_Click(object sender, RoutedEventArgs e)
+        {
+            if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text))
+            {
+                Lösung.Text = "Richtig!";
+                Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
+            }
+            else
+            {
+                Lösung.Text = "You Dumbass";
+                Lösung.Foreground = new SolidColorBrush(Colors.Red);
+            }
+        }
+
+        private void Antwort_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (!wasFocused)
+            {
+                Antwort.Text = "";
+                wasFocused = true;
+            }     
         }
     }
 }

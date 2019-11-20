@@ -15,6 +15,7 @@ namespace MadMaths.calculations
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/mittelstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
         Random rand;
+        public object[] AufgabenZahlen { get; set; }
 
         public Mittelstufe()
         {
@@ -22,7 +23,7 @@ namespace MadMaths.calculations
             rand = new Random();
         }
 
-        public bool checksSolution()
+        public bool checksSolution(object lösung)
         {
             return false;
         }

@@ -32,11 +32,11 @@
         <TextBox x:Name="Antwort" Grid.Row="1" Grid.Column="0"
                  IsReadOnly="False" Background="Transparent" Text="Irgendeine Antwort"
                  TextAlignment="Center" VerticalContentAlignment="Center" Margin="50,20,50,20" 
-                 BorderBrush="AliceBlue" BorderThickness="2" FontSize="20"/>
+                 BorderBrush="AliceBlue" BorderThickness="2" FontSize="20" GotKeyboardFocus="Antwort_GotKeyboardFocus"/>
         <Button Grid.Row="2" Content="Abgabe" VerticalContentAlignment="Center"
-                MinHeight="50" MaxHeight="90" MinWidth="100" MaxWidth="250"/>
+                MinHeight="50" MaxHeight="90" MinWidth="100" MaxWidth="250" Click="Abgabe_Click"/>
         <TextBlock x:Name="Lösung" Grid.Row="3" Grid.Column="0"
-                 Background="Transparent" Text="Truen't"
-                 TextAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+                 Background="Transparent"
+                 TextAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
     </Grid>
 </Page>

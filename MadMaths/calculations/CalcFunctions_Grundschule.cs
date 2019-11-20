@@ -8,12 +8,12 @@ namespace MadMaths.calculations
 {
     static public class CalcFunctions_Grundschule
     {
-
         static public Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
         {
+            #region
             {"Addieren1", new Func<int,int,int>(standard_addieren)},
             {"Addieren2", new Func<int,int,int>(standard_addieren)},
-            {"Addieren3", new Func<int,int,int>(standard_addieren)},
+            {"Addieren3", new Func<int,int>(standard_addieren)},
             {"Addieren4", new Func<int,int,int>(standard_addieren)},
             {"Subtrahieren 1", new Func<int,int,int>(grundschule_subtrahieren)},
             {"Subtrahieren 2", new Func<int,int,int>(grundschule_subtrahieren)},
@@ -57,9 +57,11 @@ namespace MadMaths.calculations
             {"Umwandeln4", new Func<int, int>(Umwandeln4)},
             {"Umwandeln5", new Func<int, int>(Umwandeln5)}
         };
+        #endregion
 
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
         static public int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
+        static public int standard_addieren(int a) { return a + a; }
         static public int grundschule_subtrahieren(int input_a, int input_b)
         {
             if (input_a > input_b)

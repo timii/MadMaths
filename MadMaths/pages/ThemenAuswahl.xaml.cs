@@ -41,6 +41,10 @@ namespace MadMaths.pages
                 {
                     b.FontSize = 17;
                 }
+                if (item.Length > 25)
+                {
+                    b.FontSize = 16;
+                }
                 b.MaxHeight = 60;
                 b.MinWidth = 200;
                 //b.Width = double.NaN;

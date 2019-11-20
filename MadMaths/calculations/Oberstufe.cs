@@ -13,6 +13,8 @@ namespace MadMaths.calculations
         public Dictionary<string, Dictionary<string, string>> Aufgaben { get; set; } = new Dictionary<string, Dictionary<string, string>>();
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/oberstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
+        public object[] AufgabenZahlen { get; set; }
+
         Random rand = new Random();
 
         public Oberstufe()
@@ -21,7 +23,7 @@ namespace MadMaths.calculations
             rand = new Random();
         }
 
-        public bool checksSolution()
+        public bool checksSolution(object lösung)
         {
             return false;
         }

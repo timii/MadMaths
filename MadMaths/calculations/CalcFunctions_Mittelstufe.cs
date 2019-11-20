@@ -9,7 +9,7 @@ namespace MadMaths.calculations
 {
     static public class CalcFunctions_Mittelstufe
     {
-        static public Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
+        static public Dictionary<string, Delegate> ms_funcs = new Dictionary<string, Delegate>()
         {
             {"Variablen1", new Func<int,int,int>(Variablen1)},
             {"Variablen2", new Func<int,int,int>(Variablen2)},
