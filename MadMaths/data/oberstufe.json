@@ -1,23 +1,20 @@
 /* Oberstufen.json */
 {
-  "Ableiten": {
-    "Ableiten1": "Leite ab: f(x) = {0}x^{1}",
-    "Ableiten2": "Leite ab: f(x) = {0}x^{1} +{2}x^{3}",
-    "Ableiten3": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}",
-    "Ableiten4": "Leite ab: f(x) = ({0}x^{1 }+{2}x^{3}) * ({4}x)",
-    "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7})",
-    "Ableiten6": "Leite ab: f(x) = ({0}x^{1} -{2}x^{3}) * ({4}x^{5} +{6}x^{7})",
-    "Ableiten7": "Leite ab: f(x) = ({0}x^{1} -{2}x^{3}) * ({4}x^{5} -{6}x^{7})",
-    "Ableiten8": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7})",
-    "Ableiten9": "Leite ab: f(x) = ({0}x^{2} + {3})/({4}x^{5} +{6})",
-    "Ableiten10": "Leite ab: f(x) = e^({0}x + {1})",
-    "Ableiten11": "Leite ab: f(x) = ( {0}x - {1} )^{2}",
-    "Ableiten12": "Leite ab: f(x) = {0} * sin ( {1}x )"
-  },
+    "Ableiten": {
+        "Ableiten1": "Leite ab: f(x) = {0}x^{1}",
+        "Ableiten2": "Leite ab: f(x) = {0}x^{1} +{2}x^{3}",
+        "Ableiten3": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}",
+        "Ableiten4": "Leite ab: f(x) = ({0}x^{1 }+{2}x^{3}) * ({4}x)",
+        "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7})", //rodions
+        "Ableiten6": "Leite ab: f(x) = ({0}x^{2} + {3})/({4}x^{5} +{6})",
+        "Ableiten7": "Leite ab: f(x) = e^({0}x + {1})",
+        "Ableiten8": "Leite ab: f(x) = ( {0}x - {1} )^{2}",
+        "Ableiten9": "Leite ab: f(x) = {0} * sin ( {1}x )"
+    },
   "Ableiten II": {
     "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2}", //{0}. muss kleiner als {1} sein+
     "HöherAbleiten2": "Leite ab so weit wie möglich: f(x) = {0}x^{1} + {2}x^{3}",
-    "HöherAbleiten3": "Schreib die 2. Ableitung auf: f(x) = ({0}x^{1} +{2}x^{3})*({4}x)"
+    "HöherAbleiten3": "Schreib die 2. Ableitung auf: f(x) = ({0}x^{1} + {2}x^{3}) * ({4}x)"
 
   },
   "Wendepunkte": {

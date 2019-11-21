@@ -32,7 +32,7 @@
         <TextBox x:Name="Antwort" Grid.Row="1" Grid.Column="0"
                  IsReadOnly="False" Background="Transparent" Text="Gib deine Antwort ein"
                  TextAlignment="Center" VerticalContentAlignment="Center" Margin="50,20,50,20" 
-                 BorderBrush="AliceBlue" BorderThickness="2" FontSize="20" GotKeyboardFocus="Antwort_GotKeyboardFocus"/>
+                 BorderBrush="AliceBlue" BorderThickness="2" FontSize="20" GotKeyboardFocus="Antwort_GotKeyboardFocus" KeyDown="Antwort_KeyDown"/>
         <Button Grid.Row="2" Content="Abgabe" VerticalContentAlignment="Center"
                 MinHeight="50" MaxHeight="90" MinWidth="100" MaxWidth="250" Click="Abgabe_Click"/>
         <TextBlock x:Name="Lösung" Grid.Row="3" Grid.Column="0"

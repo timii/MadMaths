@@ -34,6 +34,7 @@ namespace MadMaths.pages
 
         }
 
+
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
             if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text))
@@ -61,6 +62,11 @@ namespace MadMaths.pages
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Antwort_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return) { Abgabe_Click(null,null); }
         }
     }
 }
