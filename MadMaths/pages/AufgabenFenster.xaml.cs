@@ -20,6 +20,7 @@ namespace MadMaths.pages
     /// </summary>
     public partial class AufgabenFenster : Page
     {
+        int anzRichtig = 0;
         bool wasFocused = false;
 
         public AufgabenFenster()
@@ -30,7 +31,7 @@ namespace MadMaths.pages
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
+            NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick zurück auf die Startseite;
 
         }
 
@@ -42,11 +43,13 @@ namespace MadMaths.pages
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
                 NextExerciseButton.Opacity  = 100;
+                anzRichtig++;
             }
             else
             {
                 Lösung.Text = "You Dumbass";
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
+                NextExerciseButton.Opacity = 100;
             }
         }
 
@@ -61,12 +64,21 @@ namespace MadMaths.pages
 
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 
         private void Antwort_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return) { Abgabe_Click(null,null); }
+        }
+
+        private void ChangeButton() 
+        {
+            if(anzRichtig == 4)
+            {
+                Style style = this.FindResource("NextExerciseButton") as Style;
+                NextExerciseButton.Style = style;
+            }
         }
     }
 }
