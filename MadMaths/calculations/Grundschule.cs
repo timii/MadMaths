@@ -37,6 +37,11 @@ namespace MadMaths.calculations
         }
         public bool checksSolution(in object BenutzerLösung)
         {
+            if (AufgabenKey == "Groesser"|| AufgabenKey ==  "Kleiner")
+            {
+                if (AufgabenKey == "Groesser") { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(AufgabenZahlen[0]), Convert.ToInt32(BenutzerLösung)); }
+                else { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(BenutzerLösung), Convert.ToInt32(AufgabenZahlen[0])); }
+            }
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
             var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen); 
             if (Lösung.ToString() == BenutzerLösung.ToString())
