@@ -62,15 +62,15 @@ namespace MadMaths.calculations
 
         }
 
-        static public string Ableiten5(double var1, double pot1, double var2, double pot2, double var3, double pot3, double var4, double pot4)
-        {
-            double x1, x2, x3, x4;
-            double xpot1, xpot2, xpot3, xpot4;
-            x1 = var1 * var3;
-            x2 = var1 * var4;
-            x3 = var2 * var3;
-            x4 = var2 * var4;
-        }
+        //static public string Ableiten5(double var1, double pot1, double var2, double pot2, double var3, double pot3, double var4, double pot4)
+        //{
+        //    double x1, x2, x3, x4;
+        //    double xpot1, xpot2, xpot3, xpot4;
+        //    x1 = var1 * var3;
+        //    x2 = var1 * var4;
+        //    x3 = var2 * var3;
+        //    x4 = var2 * var4;
+        //}
 
     }
 }

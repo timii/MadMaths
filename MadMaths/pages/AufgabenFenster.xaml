@@ -39,7 +39,7 @@
                  Background="Transparent"
                  TextAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Button x:Name="NextExerciseButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Transparent" 
-                 Style="{StaticResource NextExerciseButton}" Grid.Row="4"
+                Style="{StaticResource NewExerciseButton}" Grid.Row="4"
                 Height="45" Width="45" Margin="10" Click="NextExerciseButton_Click" Opacity="0"/>
     </Grid>
 </Page>

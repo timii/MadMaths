@@ -206,7 +206,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <!-- Style für den nächste Aufgabe Button -->
+        <!-- Style für den nächstes Thema Button -->
         <Style x:Key="NextExerciseButton" BasedOn="{StaticResource BackButton}">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -216,7 +216,42 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="assets/icons/nextExerciseButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
+
+        <!-- Style für den neue Aufgabe Button -->
+        <Style x:Key="NewExerciseButton" BasedOn="{StaticResource BackButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/NewExerciseButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="assets/icons/NewExerciseButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
         <!-- Style für die Ranking Liste -->     
         <Style TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="#FF01C8FF"/>
