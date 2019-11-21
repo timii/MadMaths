@@ -21,20 +21,17 @@
     "Dividieren 2": "Was ergibt {0} geteilt durch {1}"
   },
 
-  "Textaufgabe": {
+  "Textaufgaben": {
     "essenaufgabe": "Felix hat {0} Äpfel und isst {1} davon. Wie viele hat er?",
     "grundschule_subtrahieren": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}. Was ist meine Zahl ?",
     "standard_addieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
-    "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}",
-    "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
-    "timaufgabe": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Felix zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
-    "timaufgabe_insgesamt": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel hat Felix insgesamt wenn er bis zum {1}. Lebensjahr spart?"
+    "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}"
   },
 
   "Größer oder Kleiner": {
     "GroesserKleiner1": "Ist {0} größer, kleiner oder gleich {1} ?",
-    "GroesserKleiner2": "Gib eine Zahl ein die kleiner als {0} ist",
-    "GroesserKleiner3": "Gib eine Zahl ein die größer als {0} ist"
+    "Kleiner": "Gib eine Zahl ein die kleiner als {0} ist",
+    "Groesser": "Gib eine Zahl ein die größer als {0} ist"
   },
 
   "Gerade/Ungerade Zahlen": {
@@ -84,5 +81,11 @@
     "Umwandeln3": "Gib {0}km in m an",
     "Umwandeln4": "Gib {0}cm in m an",
     "Umwandeln5": "Gib {0}mm in m an"
+  },
+  "Textaufgaben II": {
+    "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
+    "timaufgabe": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Felix zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
+    "timaufgabe_insgesamt": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel hat Felix insgesamt wenn er bis zum {1}. Lebensjahr spart?"
   }
+
 }

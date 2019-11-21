@@ -94,7 +94,7 @@
             </Setter> 
         </Style>
         
-        <!-- Alternativer Style für Buttons -->
+        <!-- Style für CustomWindow Buttons -->
         <Style x:Key="WindowButton">
             <Setter Property="Control.Background" Value="DarkOrange"/>
             <Setter Property="Control.FontSize" Value="25"/>
@@ -200,6 +200,51 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Image Source="assets/icons/backButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!-- Style für den nächstes Thema Button -->
+        <Style x:Key="NextExerciseButton" BasedOn="{StaticResource BackButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/nextExerciseButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="assets/icons/nextExerciseButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style für den neue Aufgabe Button -->
+        <Style x:Key="NewExerciseButton" BasedOn="{StaticResource BackButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/NewExerciseButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="assets/icons/NewExerciseButton_active.png"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>

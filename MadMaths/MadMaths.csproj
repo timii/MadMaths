@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="assets\icons\NextExerciseButton.png" />
     <Resource Include="assets\icons\backButton.png">
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
     </Resource>
@@ -188,6 +189,9 @@
     <Resource Include="assets\logo\logo.png" />
     <Resource Include="assets\logo\logo_transparent4.png" />
     <Resource Include="assets\logo\logo_transparent5.png" />
+    <Resource Include="assets\icons\NewExerciseButton.png" />
+    <Resource Include="assets\icons\NewExerciseButton_active.png" />
+    <Resource Include="assets\icons\NextExerciseButton_active.png" />
     <Content Include="assets\logo\madmaths_logo1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
