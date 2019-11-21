@@ -12,5 +12,65 @@ namespace MadMaths.calculations
         {
             //{"", new Func<>()},
         };
+
+        static public string Ableiten1(double input_a, double input_b)
+        {
+            return (input_a * input_b) + "x^" + (input_b - 1);
+        }
+        static public string Ableiten2(double input_a, double input_b, double input_c, double input_d)
+        {
+            double vorx;
+            if(input_b == input_d)
+            {
+                vorx = input_a + input_b;
+                return (vorx * input_b) + "x^" + (input_b - 1);
+            }
+            else
+            {
+                return (input_a * input_b) + "x^" + (input_b - 1) + " + " + (input_c * input_d) + "x^" + (input_d-1);
+
+            }
+        }
+        static public string Ableiten3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
+        {
+            double vorx;
+            if (input_b == input_d && input_b == input_f)
+            {
+                vorx = input_a + input_b + input_c;
+                return (vorx * input_b) + "x^" + (input_b - 1);
+            }
+            if(input_b == input_d || input_b == input_f || input_d == input_f)
+            {
+                if (input_b == input_d) {
+                    vorx = input_a + input_c;
+                    return (vorx * input_b) + "x^" + (input_b - 1) + " + " + (input_e * input_f) + "x^" + (input_f - 1);
+
+                }
+                if (input_b == input_f)
+                {
+                    vorx = input_a + input_e;
+                    return (vorx * input_b) + "x^" + (input_b - 1) + " + " + (input_c * input_d) + "x^" + (input_d - 1);
+
+                }
+                if (input_d == input_f)
+                {
+                    vorx = input_c + input_e;
+                    return (vorx * input_d) + "x^" + (input_d - 1) + " + " + (input_a * input_b) + "x^" + (input_b - 1);
+                }
+            }
+            return (input_a * input_b) + "x^" + (input_b-1) + " + " + (input_c * input_d) + "x^" + (input_d-1) + " + " + (input_e * input_f) + "x^" + (input_f -1);
+
+        }
+
+        static public string Ableiten5(double var1, double pot1, double var2, double pot2, double var3, double pot3, double var4, double pot4)
+        {
+            double x1, x2, x3, x4;
+            double xpot1, xpot2, xpot3, xpot4;
+            x1 = var1 * var3;
+            x2 = var1 * var4;
+            x3 = var2 * var3;
+            x4 = var2 * var4;
+        }
+
     }
 }

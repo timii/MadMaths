@@ -1,11 +1,11 @@
 {
   "Variablen": {
-    "Variablen1": "a+{0} = {1}",
-    "Variablen2": "a-{0} = {1}",
+    "Variablen1": "a + {0} = {1}",
+    "Variablen2": "a - {0} = {1}",
     "Variablen3": "{0}*a = {1}",
     "Variablen4": "{0}/a = {1}",
-    "Variablen5": "{0}x + {2}y + {1}x+ {3}y = _?", /* 0 und 1 selbe variable, 2 und 3 selbe */
-    "Variablen6": "{0}x + {2}y - {1}x+ {3}y = _?",
+    "Variablen5": "{0}x + {2}y + {1}x + {3}y = _?", /* 0 und 1 selbe variable, 2 und 3 selbe */
+    "Variablen6": "{0}x + {2}y - {1}x + {3}y = _?",
     "Variablen7": "Wir haben y = x + {0} und setzen x = {1} ein. Wie groß ist y?",
     "Variablen8": "Wir haben die Gleichung {0} * x + {1} * x. Setze x = {2} ein und berechne die Lösung"
   },
@@ -16,9 +16,9 @@
     "Gleichungen3": "{0} + {1} = x",
     "Gleichungen4": "{0} + x + {1} = {2}",
     "Gleichungen5": "{0} - {1} + {2} = x + {3}",
-    "Gleichungen6": "{0}*x = {1}",
-    "Gleichungen7": "{0}*x + {1} * {2} ={3}",
-    "Gleichungen8": "{0}*x + {1} * {2} ={3}x"
+    "Gleichungen6": "{0}x = {1}",
+    "Gleichungen7": "{0}x + {1} * {2} = {3}",
+    "Gleichungen8": "{0}x + {1} * {2} = {3}x"
 
   },
   //ungleichungen
@@ -72,7 +72,7 @@
   },
   //KoordinatenSystem
   "Wurzeln": {
-    "Wurzeln1": "Ziehe die Wurzeln aus der Zahl: {0}",
+    "Wurzeln1": "Ziehe die Wurzel aus der Zahl: {0}",
     "Wurzeln2": "Berechne das Ergebnis: a² = {0}"
   },
 
@@ -91,7 +91,7 @@
 
   },
   "Fakultät": {
-    "Fakultät1": "Berechne folgende Fakultäten: {0}!",
+    "Fakultät1": "Berechne folgende Fakultät: {0}!",
     "Fakultät2": "Berechne folgende Fakultäten: ({0}!/{1}!)"
   },
   "Urnenmodell": {
@@ -106,6 +106,6 @@
   //
   "Mittelwert": {
     "Mittelwert1": "Fünf Arbeitnehmer wurden gefragt, welches Gehalt sie jeden Monat erhalten. Die Arbeitnehmer gaben die Werte {0} Euro, {1} Euro, {2} Euro, {3} Euro und {4} Euro an. Welcher Mittelwert kann mit diesen Angaben errechnet werden, sprich was verdienen diese Menschen im Durchschnitt?",
-    "Mittelwert2": "Bei einem Sportfest hat ein Springer folgende Weiten beim Weitsprung erreicht: {0}m; {1}m; {2}m, {3}m. Wie weit ist der Springer im Durchschnitt gesprungen ( Mittelwert )?"
+    "Mittelwert2": "Bei einem Sportfest hat ein Springer folgende Weiten beim Weitsprung erreicht: {0}m; {1}m; {2}m, {3}m. Wie weit ist der Springer im Durchschnitt gesprungen?"
   }
 }
