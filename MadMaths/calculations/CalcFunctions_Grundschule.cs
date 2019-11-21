@@ -10,7 +10,6 @@ namespace MadMaths.calculations
     {
         static public Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
         {
-            #region
             {"Addieren1", new Func<int,int,int>(standard_addieren)},
             {"Addieren2", new Func<int,int,int>(standard_addieren)},
             {"Addieren3", new Func<int,int>(standard_addieren)},
@@ -29,8 +28,7 @@ namespace MadMaths.calculations
             {"timaufgabe", new Func<int,int,int>(timaufgabe)},
             {"timaufgabe_insgesamt", new Func<int,int,int>(timaufgabe_insgesamt)},
             {"GroesserKleiner1", new Func<int,int,string>(GroesserKleiner1)},
-            {"GroesserKleiner2", new Func<int, int, bool>(GroesserKleiner2)},
-            {"GroesserKleiner3", new Func<int, int, bool>(GroesserKleiner3)},
+            {"GroesserKleiner2", new Func<int,int,bool>(GroesserKleiner2)},
             {"GeradeUngerade", new Func<int, string>(GeradeUngerade)},
             {"VerdoppelHalbieren1", new Func<int, int>(VerdoppelHalbieren1)},
             {"VerdoppelHalbieren2", new Func<int, int>(VerdoppelHalbieren2)},
@@ -57,7 +55,6 @@ namespace MadMaths.calculations
             {"Umwandeln4", new Func<int, float>(Umwandeln4)},
             {"Umwandeln5", new Func<int, float>(Umwandeln5)}
         };
-        #endregion
 
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
         static public int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
@@ -118,20 +115,9 @@ namespace MadMaths.calculations
             else if (input_a > input_b) { return ">"; }
             else return "<";
         }
-        static public bool GroesserKleiner2(int input_a, int input_user)
+        static public bool GroesserKleiner2(int input_a, int input_b)
         {
-            if (input_a < input_user)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        static public bool GroesserKleiner3(int input_a, int input_user)
-        {
-            if (input_a > input_user)
+            if (input_a < input_b)
             {
                 return true;
             }

@@ -91,6 +91,7 @@ namespace MadMaths.pages
                     }
                 }
             }
+            GC.Collect();
         }
 
         private void Username_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

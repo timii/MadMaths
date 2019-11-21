@@ -33,8 +33,8 @@
 
   "Größer oder Kleiner": {
     "GroesserKleiner1": "Ist {0} größer, kleiner oder gleich {1} ?",
-    "GroesserKleiner2": "Gib eine Zahl ein die kleiner als {0} ist",
-    "GroesserKleiner3": "Gib eine Zahl ein die größer als {0} ist"
+    "Kleiner": "Gib eine Zahl ein die kleiner als {0} ist",
+    "Groesser": "Gib eine Zahl ein die größer als {0} ist"
   },
 
   "Gerade/Ungerade Zahlen": {
