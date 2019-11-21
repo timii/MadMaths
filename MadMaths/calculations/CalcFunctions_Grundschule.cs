@@ -14,14 +14,14 @@ namespace MadMaths.calculations
             {"Addieren2", new Func<int,int,int>(standard_addieren)},
             {"Addieren3", new Func<int,int>(standard_addieren)},
             {"Addieren4", new Func<int,int,int>(standard_addieren)},
-            {"Subtrahieren 1", new Func<int,int,int>(grundschule_subtrahieren)},
-            {"Subtrahieren 2", new Func<int,int,int>(grundschule_subtrahieren)},
+            {"Subtrahieren 1", new Func<int,int,int>(standard_subtrahieren)},
+            {"Subtrahieren 2", new Func<int,int,int,int>(standard_subtrahieren)},
             {"Multiplizieren 1", new Func<int,int,int>(standard_multiplizieren)},
             {"Multiplizieren 2", new Func<int,int,int>(standard_multiplizieren)},
             {"Dividieren 1", new Func<int,int,int>(grundschule_dividieren_glatt)},
             {"Dividieren 2", new Func<int,int,int>(grundschule_dividieren_glatt)},
             {"essenaufgabe", new Func<int,int,int>(essenaufgabe)},
-            {"grundschule_subtrahieren", new Func<int,int,int>(grundschule_subtrahieren)},
+            {"grundschule_subtrahieren", new Func<int,int,int>(standard_subtrahieren)},
             {"standard_addieren", new Func<int,int,int>(standard_addieren)},
             {"standard_multiplizieren", new Func<int,int,int>(standard_multiplizieren)},
             {"kindersachtext", new Func<int,int>(kindersachtext)},
@@ -59,17 +59,8 @@ namespace MadMaths.calculations
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
         static public int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
         static public int standard_addieren(int a) { return a + a; }
-        static public int grundschule_subtrahieren(int input_a, int input_b)
-        {
-            if (input_a > input_b)
-            {
-                return (input_a - input_b);
-            }
-            else
-            {
-                return (input_b - input_a);
-            }
-        }
+        static public int standard_subtrahieren(int input_a, int input_b) { return input_a - input_b; }
+        static public int standard_subtrahieren(int input_a, int input_b, int input_c) { return input_a - input_b - input_c; }
 
         static public int standard_multiplizieren(int input_a, int input_b) { return (input_a * input_b); }
         static public int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
@@ -83,7 +74,7 @@ namespace MadMaths.calculations
                 return input_a / input_b;
             }
         }
-        static public int kindersachtext(int input_a)
+        static public int kindersachtext(int input_a) //darf kein nachkomma stellen haben als lösung
         {
             return input_a / 4;
 
@@ -91,7 +82,7 @@ namespace MadMaths.calculations
         static public int timaufgabe(int input_a, int input_b) /* input_a = Anfangsgeld, input_b = Jahr */
         {
             int zaehler = 0;
-            for (int i = 2; i < input_b; i++)
+            for (int i = 2; i <= input_b; i++)
             {
                 zaehler += i;
             }
@@ -101,7 +92,7 @@ namespace MadMaths.calculations
         static public int timaufgabe_insgesamt(int input_a, int input_b)
         {
             int zaehler = 0;
-            for (int i = 1; i < input_b; i++)
+            for (int i = 1; i <= input_b; i++)
             {
                 zaehler += timaufgabe(input_a, i);
             }

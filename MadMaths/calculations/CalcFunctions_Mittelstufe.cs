@@ -37,7 +37,7 @@ namespace MadMaths.calculations
             {"Umwandeln5", new Func<double, double>(Umwandeln5)},
             {"Umwandeln6", new Func<double, double>(Umwandeln6)},
             {"Stochastik1", new Func<double>(Stochastik1)},
-            {"Stochastik2", new Func<double>(Stochastik2)},
+            {"Stochastik2", new Func<int,int,double>(Stochastik2)},
             {"Stochastik3", new Func<double>(Stochastik3)},
             {"Stochastik4", new Func<double>(Stochastik4)},
             {"Stochastik5", new Func<double>(Stochastik5)},
@@ -178,7 +178,7 @@ namespace MadMaths.calculations
         static public double Umwandeln6(double input_a) { return input_a * 100; }
 
         static public double Stochastik1() { return (1 / 6); }
-        static public double Stochastik2() { return (2 / 6); }
+        static public double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return 1 / 6; } return (2 / 6); }
         static public double Stochastik3() { return (3 / 6); }
         static public double Stochastik4() { return (3 /6); }
         static public double Stochastik5() { return (1 / 4); }
@@ -201,12 +201,12 @@ namespace MadMaths.calculations
         static public string BinomischeFormeln2(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x +" "+  input_a + "b + b^2"; 
+            return x +" "+  2* input_a + "b + b^2"; 
         }
         static public string BinomischeFormeln3(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x + " -" + input_a + "b + b^2";
+            return x + " -" + 2 * input_a + "b + b^2";
         }
         static public string BinomischeFormeln4(double input_a, double input_b)
         {

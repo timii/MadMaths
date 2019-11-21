@@ -90,7 +90,7 @@ namespace MadMaths.pages
                         Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));     // liest die updatete avatarImg Property wieder aus und updatet das icon
                     }
                 }
-            }
+            }     
             GC.Collect();
         }
 

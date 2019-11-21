@@ -34,6 +34,7 @@ namespace MadMaths.pages
 
         }
 
+
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
             if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text))
