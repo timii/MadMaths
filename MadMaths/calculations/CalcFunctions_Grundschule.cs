@@ -73,6 +73,7 @@ namespace MadMaths.calculations
                 return (input_b - input_a);
             }
         }
+
         static public int standard_multiplizieren(int input_a, int input_b) { return (input_a * input_b); }
         static public int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
         {
