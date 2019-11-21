@@ -25,15 +25,15 @@
   "Gleichungssysteme2x2": {
     "Gleichungssystem1": [
       "{0}x + {1}y = {2}",
-      "{0}x + {1}y = {2}"
+      "{3}x + {4}y = {5}"
     ],
     "Gleichungssystem2": [
       "{0}x + {1}y = {2}",
-      "{0}x - {1}y = {2}"
+      "{3}x - {4}y = {5}"
     ],
     "Gleichungssystem3": [
       "{0}x - {1}y = {2}",
-      "{0}x - {1}y = {2}"
+      "{3}x - {4}y = {5}"
     ]
   },
   "Einheiten umwandeln": {

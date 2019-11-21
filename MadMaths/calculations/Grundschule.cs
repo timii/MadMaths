@@ -4,19 +4,26 @@ using System.Linq;
 using System.IO;
 using System.Windows;
 using Newtonsoft.Json;
-using System.Text.RegularExpressions;
 
 namespace MadMaths.calculations
 {
     public interface IStufe
     {
+        /// <summary>
+        /// Interface für die Schnittstellen für die Darstellung und Bearbeitung der Aufgaben.
+        /// </summary>
+
+        // hier werden die Namen der Themen gespeichert, die später zur Erzeugung der Buttons verwendet werden
         List<string> ThemenListe { get; set; }
+        // hier werden die Aufgaben als Dictionary gespeichert, Key(Themenname): Value(Key:AufgabenText)
         Dictionary<string, Dictionary<string, string>> Aufgaben { get; set; }
         Uri aufgabenPath { get; set; }
+        // speichert die Json ungeparst
         dynamic RawJson { get; set; }
         string getAufgabenText(string aufgabe);
         bool checksSolution(in object lösung);
         void ReadAufgabenJS();
+        // wird zur Speicherung der random erzeugten Zahlen verwendet
         object[] AufgabenZahlen { get; set; }
     }
 
@@ -28,6 +35,7 @@ namespace MadMaths.calculations
         public dynamic RawJson { get; set; }
         Random rand;
         public object[] AufgabenZahlen { get; set; }
+        // der spezifische Schlüssel jeder Aufgabe
         public string AufgabenKey { get; set; }
 
         public Grundschule()
@@ -37,13 +45,13 @@ namespace MadMaths.calculations
         }
         public bool checksSolution(in object BenutzerLösung)
         {
-            if (AufgabenKey == "Groesser"|| AufgabenKey ==  "Kleiner")
+            if (AufgabenKey == "Groesser" || AufgabenKey == "Kleiner")
             {
                 if (AufgabenKey == "Groesser") { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(AufgabenZahlen[0]), Convert.ToInt32(BenutzerLösung)); }
                 else { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(BenutzerLösung), Convert.ToInt32(AufgabenZahlen[0])); }
             }
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
-            var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen); 
+            var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
             if (Lösung.ToString() == BenutzerLösung.ToString())
             {
                 return true;
@@ -57,7 +65,7 @@ namespace MadMaths.calculations
             var randIndex = rand.Next(0, Aufgaben[aufgabe].Count);
             AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
             aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
-            var argsNum = Regex.Matches(aufgabe, "{").Count;
+            var argsNum = System.Text.RegularExpressions.Regex.Matches(aufgabe, "{").Count;
             AufgabenZahlen = new object[argsNum];
             for (int i = 0; i < argsNum; i++)
             {

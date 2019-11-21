@@ -56,5 +56,10 @@ namespace MadMaths.pages
                 wasFocused = true;
             }     
         }
+
+        private void Antwort_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return) { Abgabe_Click(null,null); }
+        }
     }
 }
