@@ -1,98 +1,91 @@
 {
-    "Addieren": { /* Zahlenraum bis 10 */
-        "Addieren1": "Addiere {0} mit {1}",
-        "Addieren2": "Max hat {0} Bananen und holt sich noch {1} dazu. Wieviele hat Max nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
-        "Addieren3": "Max kauft sich {0} mal eine Melone. Wieviele hat Max wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
-        "Addieren4": "Du hast Zuhause {0} Melonen. Wenn du noch {1} holst, wieviele hast du dann?" /* alles zahlen */
-    },
+  "Addieren": { /* Zahlenraum bis 10 */
+    "Addieren1": "Addiere {0} mit {1}",
+    "Addieren2": "Max hat {0} Bananen und holt sich noch {1} dazu. Wieviele hat Max nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
+    "Addieren3": "Max kauft sich {0} mal eine Melone. Wieviele hat Max wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
+    "Addieren4": "Du hast Zuhause {0} Melonen. Wenn du noch {1} holst, wieviele hast du dann?" /* alles zahlen */
+  },
 
-<<<<<<< HEAD
   "Subtrahieren": { /* Zahlenraum bis 10 */
     "Subtrahieren 1": "Subtrahiere {0} von {1}",
-    "Subtrahieren 2": "Max hat {0} Birne(n) und gibt {1} an Felix ab. Wieviele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
+    "Subtrahieren 2": "Max hat {0} Birnen und gibt {1} an Felix ab. Wieviele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
   },
-=======
-    "Subtrahieren": { /* Zahlenraum bis 10 */
-        "Subtrahieren 1": "Subtrahiere {0} von {1}",
-        "Subtrahieren 2": "Max hat {0} Birnen und gibt {1} an Felix ab. Wieviele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
-    },
->>>>>>> da67998f138fdd06178c2210d317d54aad3106c7
 
-    "Multiplizieren": { /* Zahlenraum bis 10 */
-        "Multiplizieren 1": "Multipliziere {0} mit {1}",
-        "Multiplizieren 2": "Was ergibt {0} mal {1}"
-    },
+  "Multiplizieren": { /* Zahlenraum bis 10 */
+    "Multiplizieren 1": "Multipliziere {0} mit {1}",
+    "Multiplizieren 2": "Was ergibt {0} mal {1}"
+  },
 
   "Dividieren": { /* Zahlenraum bis 10 */
     "Dividieren 1": "Dividiere {0} durch {1}",
     "Dividieren 2": "Was ergibt {0} geteilt durch {1}"
   },
 
-    "Textaufgaben": {
-        "essenaufgabe": "Felix hat {0} Äpfel und isst {1} davon. Wie viele hat er?",
-        "grundschule_subtrahieren": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}. Was ist meine Zahl ?",
-        "standard_addieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
-        "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}"
-    },
+  "Textaufgaben": {
+    "essenaufgabe": "Felix hat {0} Äpfel und isst {1} davon. Wie viele hat er?",
+    "grundschule_subtrahieren": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}. Was ist meine Zahl ?",
+    "standard_addieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
+    "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}"
+  },
 
-    "Größer oder Kleiner": {
-        "GroesserKleiner1": "Ist {0} größer, kleiner oder gleich {1} ?",
-        "Kleiner": "Gib eine Zahl ein die kleiner als {0} ist",
-        "Groesser": "Gib eine Zahl ein die größer als {0} ist"
-    },
+  "Größer oder Kleiner": {
+    "GroesserKleiner1": "Ist {0} größer, kleiner oder gleich {1} ?",
+    "Kleiner": "Gib eine Zahl ein die kleiner als {0} ist",
+    "Groesser": "Gib eine Zahl ein die größer als {0} ist"
+  },
 
-    "Gerade/Ungerade Zahlen": {
-        "GeradeUngerade": "Ist {0} eine gerade oder ungerade Zahl" /* Zahlenbereich bis 100 */
-    },
+  "Gerade/Ungerade Zahlen": {
+    "GeradeUngerade": "Ist {0} eine gerade oder ungerade Zahl" /* Zahlenbereich bis 100 */
+  },
 
-    "Verdoppeln und Halbieren": {
-        "VerdoppelHalbieren1": "Was ist das doppelte von {0} ?",
-        "VerdoppelHalbieren2": "Was ist die Hälfte von {0} ?"
-    },
+  "Verdoppeln und Halbieren": {
+    "VerdoppelHalbieren1": "Was ist das doppelte von {0} ?",
+    "VerdoppelHalbieren2": "Was ist die Hälfte von {0} ?"
+  },
 
-    "Kettenaufgaben": {
-        "Kettenaufgabe1": "{0} - {1} - {2}",
-        "Kettenaufgabe2": "{0} + {1} + {2}",
-        "Kettenaufgabe3": "{0} + {1} - {2}",
-        "Kettenaufgabe4": "{0} - {1} + {2}",
-        "Kettenaufgabe5": "{0} * {1} + {2}",
-        "Kettenaufgabe6": "{0} * {1} - {2}",
-        "Kettenaufgabe7": "{0} + {1} - {2} + {3}"
-    },
+  "Kettenaufgaben": {
+    "Kettenaufgabe1": "{0} - {1} - {2}",
+    "Kettenaufgabe2": "{0} + {1} + {2}",
+    "Kettenaufgabe3": "{0} + {1} - {2}",
+    "Kettenaufgabe4": "{0} - {1} + {2}",
+    "Kettenaufgabe5": "{0} * {1} + {2}",
+    "Kettenaufgabe6": "{0} * {1} - {2}",
+    "Kettenaufgabe7": "{0} + {1} - {2} + {3}"
+  },
 
-    "Zeitaufgaben": {
-        "Zeitaufgabe1": "Es ist 09:15 Uhr. Wie viel Uhr ist es in 1 Stunde ?",
-        "Zeitaufgabe2": "Es ist 16:45 Uhr. Wie viel Uhr ist es in 2 Stunden ?",
-        "Zeitaufgabe3": "Es ist 10:30 Uhr. Wie viel Uhr ist es in 30 Minuten ?",
-        "Zeitaufgabe4": "Es ist 02:30 Uhr. Wie viel Uhr ist es in 1 Stunde ?",
-        "Zeitaufgabe5": "Es ist 20:15 Uhr. Wie viel Uhr ist es in 4 Stunden ?"
-    },
+  "Zeitaufgaben": {
+    "Zeitaufgabe1": "Es ist 09:15 Uhr. Wie viel Uhr ist es in 1 Stunde ?",
+    "Zeitaufgabe2": "Es ist 16:45 Uhr. Wie viel Uhr ist es in 2 Stunden ?",
+    "Zeitaufgabe3": "Es ist 10:30 Uhr. Wie viel Uhr ist es in 30 Minuten ?",
+    "Zeitaufgabe4": "Es ist 02:30 Uhr. Wie viel Uhr ist es in 1 Stunde ?",
+    "Zeitaufgabe5": "Es ist 20:15 Uhr. Wie viel Uhr ist es in 4 Stunden ?"
+  },
 
-    "Teilen mit Rest": {
-        "TeilenmitRest1": "Teile {0} durch {1}. Was ist der Rest, falls es einen gibt ?"
-    },
+  "Teilen mit Rest": {
+    "TeilenmitRest1": "Teile {0} durch {1}. Was ist der Rest, falls es einen gibt ?"
+  },
 
-    "Zahlen Runden": {
-        "Runden1": "Runde {0} auf den nächsten Zehner",
-        "Runden2": "Runde {0} auf den nächsten Hunderter",
-        "Runden3": "Runde {0} auf den nächsten Tausender"
-    },
+  "Zahlen Runden": {
+    "Runden1": "Runde {0} auf den nächsten Zehner",
+    "Runden2": "Runde {0} auf den nächsten Hunderter",
+    "Runden3": "Runde {0} auf den nächsten Tausender"
+  },
 
-    "Gleichungen": {
-        "Gleichungen1": "{0} + {1} = _ + {2}"
-    },
+  "Gleichungen": {
+    "Gleichungen1": "{0} + {1} = _ + {2}"
+  },
 
-    "Umwandeln": {
-        "Umwandeln1": "Gib {0}l in ml an",
-        "Umwandeln2": "Gib {0}kg in g an",
-        "Umwandeln3": "Gib {0}km in m an",
-        "Umwandeln4": "Gib {0}cm in m an",
-        "Umwandeln5": "Gib {0}mm in m an"
-    },
-    "Textaufgaben II": {
-        "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
-        "timaufgabe": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Felix zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
-        "timaufgabe_insgesamt": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel hat Felix insgesamt wenn er bis zum {1}. Lebensjahr spart?"
-    }
+  "Umwandeln": {
+    "Umwandeln1": "Gib {0}l in ml an",
+    "Umwandeln2": "Gib {0}kg in g an",
+    "Umwandeln3": "Gib {0}km in m an",
+    "Umwandeln4": "Gib {0}cm in m an",
+    "Umwandeln5": "Gib {0}mm in m an"
+  },
+  "Textaufgaben II": {
+    "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
+    "timaufgabe": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Felix zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
+    "timaufgabe_insgesamt": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel hat Felix insgesamt wenn er bis zum {1}. Lebensjahr spart?"
+  }
 
 }
