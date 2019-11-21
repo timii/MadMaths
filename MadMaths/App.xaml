@@ -94,7 +94,7 @@
             </Setter> 
         </Style>
         
-        <!-- Alternativer Style für Buttons -->
+        <!-- Style für CustomWindow Buttons -->
         <Style x:Key="WindowButton">
             <Setter Property="Control.Background" Value="DarkOrange"/>
             <Setter Property="Control.FontSize" Value="25"/>
@@ -206,7 +206,17 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+        <!-- Style für den nächste Aufgabe Button -->
+        <Style x:Key="NextExerciseButton" BasedOn="{StaticResource BackButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/nextExerciseButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <!-- Style für die Ranking Liste -->     
         <Style TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="#FF01C8FF"/>

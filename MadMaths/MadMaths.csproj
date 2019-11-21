@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="assets\icons\NextExerciseButton.png" />
     <Resource Include="assets\icons\backButton.png">
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
     </Resource>

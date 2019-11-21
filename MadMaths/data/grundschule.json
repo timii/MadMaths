@@ -8,7 +8,7 @@
 
   "Subtrahieren": { /* Zahlenraum bis 10 */
     "Subtrahieren 1": "Subtrahiere {0} von {1}",
-    "Subtrahieren 2": "Max hat {0} Birnen und gibt {1} an Felix ab. Wieviele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
+    "Subtrahieren 2": "Max hat {0} Birne(n) und gibt {1} an Felix ab. Wieviele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
   },
 
   "Multiplizieren": { /* Zahlenraum bis 10 */
@@ -26,7 +26,7 @@
     "grundschule_subtrahieren": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}. Was ist meine Zahl ?",
     "standard_addieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
     "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}",
-    "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
+    "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. Josef, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
     "timaufgabe": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Felix zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
     "timaufgabe_insgesamt": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel hat Felix insgesamt wenn er bis zum {1}. Lebensjahr spart?"
   },

@@ -40,6 +40,7 @@ namespace MadMaths.pages
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
+                NextExerciseButton.Opacity  = 100;
             }
             else
             {
@@ -54,7 +55,12 @@ namespace MadMaths.pages
             {
                 Antwort.Text = "";
                 wasFocused = true;
-            }     
+            }
+        }
+
+        private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
