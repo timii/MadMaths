@@ -31,7 +31,7 @@ namespace MadMaths.pages
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick zurück auf die Startseite;
+            NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
 
         }
 
@@ -42,15 +42,15 @@ namespace MadMaths.pages
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
-                NextExerciseButton.Opacity  = 100;
                 anzRichtig++;
             }
             else
             {
                 Lösung.Text = "You Dumbass";
-                Lösung.Foreground = new SolidColorBrush(Colors.Red);
-                NextExerciseButton.Opacity = 100;
+                Lösung.Foreground = new SolidColorBrush(Colors.Red);      
             }
+            (sender as Button).IsEnabled = false;
+            NextExerciseButton.Opacity = 100;
         }
 
         private void Antwort_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -64,7 +64,9 @@ namespace MadMaths.pages
 
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
+            //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
+            AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
+            reset();
         }
 
         private void Antwort_KeyDown(object sender, KeyEventArgs e)
@@ -79,6 +81,13 @@ namespace MadMaths.pages
                 Style style = this.FindResource("NextExerciseButton") as Style;
                 NextExerciseButton.Style = style;
             }
+        }
+
+        private void reset()
+        {
+            Antwort.Text = "";
+            Lösung.Text = "";
+            abgabebtn.IsEnabled = true;
         }
     }
 }

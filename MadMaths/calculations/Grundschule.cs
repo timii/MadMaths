@@ -25,6 +25,7 @@ namespace MadMaths.calculations
         void ReadAufgabenJS();
         // wird zur Speicherung der random erzeugten Zahlen verwendet
         object[] AufgabenZahlen { get; set; }
+        string AufgabenKey { get; set; }
     }
 
     public class Grundschule : IStufe
@@ -52,7 +53,7 @@ namespace MadMaths.calculations
             }
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
             var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
-            if (Lösung.ToString() == BenutzerLösung.ToString())
+            if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
             {
                 return true;
             }

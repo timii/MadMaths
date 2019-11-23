@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MadMaths.calculations
 {
-    class CalcFunctions_Oberstufe
+    static public class CalcFunctions_Oberstufe
     {
         static public Dictionary<string, Delegate> os_funcs = new Dictionary<string, Delegate>()
         {
@@ -77,10 +77,11 @@ namespace MadMaths.calculations
             }
         }
 
-        static public string Ableiten5(double var1, double pot1, double var2, double pot2, double var3, double pot3, double var4, double pot4)
+        static public string Ableiten5(int var1, int pot1, int var2, int pot2, int var3, int pot3, int var4, int pot4)
         {
-            double x1, x2, x3, x4;
-            double xpot1, xpot2, xpot3, xpot4;
+            #region
+            int x1, x2, x3, x4;
+            int xpot1, xpot2, xpot3, xpot4;
             x1 = var1 * var3;
             xpot1 = pot1 + pot3;
             x2 = var1 * var4;
@@ -216,6 +217,7 @@ namespace MadMaths.calculations
                 x4 *= xpot4;
                 return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}+{6}x^{7}", x1, --xpot1, x2, --xpot2, x3, --xpot3, x4, --xpot4);
             }
+            #endregion
         }
 
 

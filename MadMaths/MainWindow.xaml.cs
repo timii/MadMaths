@@ -42,6 +42,7 @@ namespace MadMaths
                 Controller.CreateUserJS();
             }
             InitializeComponent();
+            MessageBox.Show(CalcFunctions_Oberstufe.Ableiten5(5,4,9,5,2,8,5,7));
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 
