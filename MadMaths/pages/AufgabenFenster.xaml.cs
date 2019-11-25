@@ -27,6 +27,7 @@ namespace MadMaths.pages
         {
             InitializeComponent();
             AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise);
+            NextExerciseButton.IsEnabled = false;
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
@@ -47,10 +48,12 @@ namespace MadMaths.pages
             else
             {
                 Lösung.Text = "You Dumbass";
-                Lösung.Foreground = new SolidColorBrush(Colors.Red);      
+                Lösung.Foreground = new SolidColorBrush(Colors.Red);
             }
             (sender as Button).IsEnabled = false;
             NextExerciseButton.Opacity = 100;
+            //NextExerciseButton.Click += NextExerciseButton_Click;
+            NextExerciseButton.IsEnabled = true;
         }
 
         private void Antwort_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -71,23 +74,23 @@ namespace MadMaths.pages
 
         private void Antwort_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return) { Abgabe_Click(null,null); }
+            if (e.Key == Key.Return) { Abgabe_Click(null, null); }
         }
 
-        private void ChangeButton() 
-        {
-            if(anzRichtig == 4)
-            {
-                Style style = this.FindResource("NextExerciseButton") as Style;
-                NextExerciseButton.Style = style;
-            }
-        }
+        //private void ChangeButton()
+        //{
+        //    Style style = this.FindResource("NextExerciseButton") as Style;
+        //    NextExerciseButton.Style = style;
+
+        //}
 
         private void reset()
         {
             Antwort.Text = "";
             Lösung.Text = "";
             abgabebtn.IsEnabled = true;
+            NextExerciseButton.IsEnabled = false;
+            NextExerciseButton.Opacity = 0;
         }
     }
 }

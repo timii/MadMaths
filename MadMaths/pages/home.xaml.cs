@@ -31,7 +31,7 @@ namespace MadMaths.pages
 
             if (Controller._user.UserName != null)
             {
-                Username.Text = Controller._user.UserName; 
+                Username.Text = Controller._user.UserName;
                 Username.Cursor = null;
                 Controller.UserIsLoggedIn = true;
             }
@@ -43,12 +43,9 @@ namespace MadMaths.pages
             {
                 Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));         // lädt das Avatar Bild
             }
-            if (Controller._user.level != null && Controller._user.currentProgress != null)
-                /* wenn Level und Fortschritt vorhanden sind,  werden diese angezeigt */
-            {
-                Level.Text = Controller._user.level.ToString();
-                progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 100);
-            }
+            Level.Text = Controller._user.level.ToString();
+            progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 1000);
+
             RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
             RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
             RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
