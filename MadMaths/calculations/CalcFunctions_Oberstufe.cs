@@ -81,12 +81,12 @@ namespace MadMaths.calculations
         {
             if ((input_e)  == (input_b))
             {
-                return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") + (" + (input_a*input_b*input_f-input_d*input_c*input_e) + "x^(" + (input_e-1) + "))/"
-                    + "(" + (input_d * input_d) + "e^(" + (input_e * 2) + ") + " + (input_d * 2 * input_f) + "x^(" + (input_e) + ") + " + (input_f * input_f) + ")";
+                return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") + (" + (input_a*input_b*input_f-input_d*input_c*input_e*-1) + "x^(" + (input_e-1) + "))/"
+                    + "(" + input_d + "x^(" + input_e + ") + " + input_f + ")^2";
 
             }
-            return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") - " + (input_a * input_b * input_f) + "x^(" + (input_b - 1) + ") + " + (input_d * input_c * input_e) + "x^(" + (input_e - 1) + "))/"
-                + "(" + (input_d * input_d) + "e^(" + (input_e * 2) + ") + " + (input_d * 2 * input_f) + "x^(" + (input_e) + ") + " + (input_f * input_f) + ")";
+            return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") - " + (input_a * input_b * input_f*-1) + "x^(" + (input_b - 1) + ") + " + (input_d * input_c * input_e*-1) + "x^(" + (input_e - 1) + "))/"
+                + "(" + input_d + "x^(" + input_e + ") + " + input_f + ")^2";
 
         }
 
