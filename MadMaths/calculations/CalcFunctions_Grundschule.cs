@@ -9,6 +9,7 @@ namespace MadMaths.calculations
     static public class CalcFunctions_Grundschule
     {
         static public Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
+        #region
         {
             {"Addieren1", new Func<int,int,int>(standard_addieren)},
             {"Addieren2", new Func<int,int,int>(standard_addieren)},
@@ -55,6 +56,7 @@ namespace MadMaths.calculations
             {"Umwandeln4", new Func<int, float>(Umwandeln4)},
             {"Umwandeln5", new Func<int, float>(Umwandeln5)}
         };
+        #endregion
 
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
         static public int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }

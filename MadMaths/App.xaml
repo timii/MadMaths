@@ -78,6 +78,9 @@
                 <Trigger Property="Button.IsPressed" Value="True">
                     <Setter Property="Background" Value="#FFFF4B00"/>
                 </Trigger>
+                <Trigger Property="Button.IsEnabled" Value="False">
+                    <Setter Property="Background" Value="DimGray"/>
+                </Trigger>
             </Style.Triggers>
         </Style>
         
@@ -212,7 +215,7 @@
                 <Setter.Value>
                     <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Image Source="assets/icons/nextExerciseButton.png"/>
+                        <Image Source="assets/icons/NextExerciseButton.png"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -221,7 +224,7 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type Button}">
-                                <Image Source="assets/icons/nextExerciseButton_active.png"/>
+                                <Image Source="assets/icons/NextExerciseButton_active.png"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>

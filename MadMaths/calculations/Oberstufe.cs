@@ -14,6 +14,7 @@ namespace MadMaths.calculations
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/oberstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
         public object[] AufgabenZahlen { get; set; }
+        public string AufgabenKey { get; set; }
 
         Random rand = new Random();
 
@@ -23,15 +24,30 @@ namespace MadMaths.calculations
             rand = new Random();
         }
 
-        public bool checksSolution(in object lösung)
+        public bool checksSolution(in object BenutzerLösung)
         {
+            var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
+            var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
+            if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
+            {
+                return true;
+            }
             return false;
         }
 
         public string getAufgabenText(string aufgabe)
         {
-            //return Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value;
-            return string.Format(Aufgaben[aufgabe].ElementAt(rand.Next(0, Aufgaben[aufgabe].Count)).Value, rand.Next(1, 10), rand.Next(1, 10), rand.Next(1, 10), rand.Next(1, 10), rand.Next(1, 10), rand.Next(1, 10));
+            AufgabenZahlen = null;
+            var randIndex = rand.Next(0, Aufgaben[aufgabe].Count);
+            AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
+            aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
+            var argsNum = System.Text.RegularExpressions.Regex.Matches(aufgabe, "{").Count;
+            AufgabenZahlen = new object[argsNum];
+            for (int i = 0; i < argsNum; i++)
+            {
+                AufgabenZahlen[i] = rand.Next(1, 10);
+            }
+            return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
         }
 
         public void ReadAufgabenJS()

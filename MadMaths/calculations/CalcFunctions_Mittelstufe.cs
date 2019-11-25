@@ -10,6 +10,7 @@ namespace MadMaths.calculations
     static public class CalcFunctions_Mittelstufe
     {
         static public Dictionary<string, Delegate> ms_funcs = new Dictionary<string, Delegate>()
+        #region
         {
             {"Variablen1", new Func<int,int,int>(Variablen1)},
             {"Variablen2", new Func<int,int,int>(Variablen2)},
@@ -66,6 +67,7 @@ namespace MadMaths.calculations
             {"Mittelwert1", new Func<double, double, double, double, double, double>(Mittelwert1)},
             {"Mittelwert2", new Func<double, double, double, double, double>(Mittelwert2)}
         };
+        #endregion
 
         static private double hoch(double input_a, double hochzahl)
         {
@@ -98,10 +100,10 @@ namespace MadMaths.calculations
             return (Fakultät(input_a) / Fakultät(input_b) * Fakultät(input_a - input_b));
         }
         static public int Variablen1(int input_a, int input_b) { return input_b - input_a; }
-       static public int Variablen2(int input_a, int input_b) { return input_b + input_a; }
-       static public int Variablen3(int input_a, int input_b) { return input_b / input_a; }
-       static public int Variablen4(int input_a, int input_b) { return input_b * input_a; }
-       static public string Variablen5(int input_a, int input_b, int input_c, int input_d)
+        static public int Variablen2(int input_a, int input_b) { return input_b + input_a; }
+        static public int Variablen3(int input_a, int input_b) { return input_b / input_a; }
+        static public int Variablen4(int input_a, int input_b) { return input_b * input_a; }
+        static public string Variablen5(int input_a, int input_b, int input_c, int input_d)
         {
             int ergebnis_a = input_a + input_c;
             string ergebnis = ergebnis_a + "x";
@@ -110,7 +112,7 @@ namespace MadMaths.calculations
 
             return ergebnis;
         }
-       static public string Variablen6(double input_a, double input_b, double input_c, double input_d)
+        static public string Variablen6(double input_a, double input_b, double input_c, double input_d)
         {
             double ergebnis_a = input_a - input_c;
             string ergebnis = ergebnis_a + "x";
@@ -119,16 +121,16 @@ namespace MadMaths.calculations
 
             return ergebnis;
         }
-       static public double Variablen7(double input_a, double input_b){ return input_a + input_b; }
-       static public double Variablen8(double input_a, double input_b, double input_c) { return input_a * input_c + input_b * input_c; }
-       static public double Gleichungen1(double input_a, double input_b) { return input_b - input_a; }
-       static public double Gleichungen2(double input_a, double input_b) { return input_b - input_a; }
-       static public double Gleichungen3(double input_a, double input_b) { return input_a + input_b; }
-       static public double Gleichungen4(double input_a, double input_b, double input_c) { return input_c - input_a - input_b; }
-       static public double Gleichungen5(double input_a, double input_b, double input_c, double input_d) { return input_a - input_b + input_c - input_d; }
-       static public double Gleichungen6(double input_a, double input_b) {return input_b / input_a; }
-       static public double Gleichungen7(double input_a, double input_b, double input_c, double input_d) { return (input_d - (input_b * input_c)) / input_a; }
-       static public double Gleichungen8(double input_a, double input_b, double input_c, double input_d)
+        static public double Variablen7(double input_a, double input_b) { return input_a + input_b; }
+        static public double Variablen8(double input_a, double input_b, double input_c) { return input_a * input_c + input_b * input_c; }
+        static public double Gleichungen1(double input_a, double input_b) { return input_b - input_a; }
+        static public double Gleichungen2(double input_a, double input_b) { return input_b - input_a; }
+        static public double Gleichungen3(double input_a, double input_b) { return input_a + input_b; }
+        static public double Gleichungen4(double input_a, double input_b, double input_c) { return input_c - input_a - input_b; }
+        static public double Gleichungen5(double input_a, double input_b, double input_c, double input_d) { return input_a - input_b + input_c - input_d; }
+        static public double Gleichungen6(double input_a, double input_b) { return input_b / input_a; }
+        static public double Gleichungen7(double input_a, double input_b, double input_c, double input_d) { return (input_d - (input_b * input_c)) / input_a; }
+        static public double Gleichungen8(double input_a, double input_b, double input_c, double input_d)
         {
             double variablenseite;
             double nummernseite;
@@ -180,16 +182,16 @@ namespace MadMaths.calculations
         static public double Stochastik1() { return (1 / 6); }
         static public double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return 1 / 6; } return (2 / 6); }
         static public double Stochastik3() { return (3 / 6); }
-        static public double Stochastik4() { return (3 /6); }
+        static public double Stochastik4() { return (3 / 6); }
         static public double Stochastik5() { return (1 / 4); }
 
         static public double Dreisatz1(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
         static public double Dreisatz2(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
         static public double Dreisatz3(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
-        
-        static public double Prozentrechnung1(double input_a, double input_b, double input_c) {return Math.Round(input_b*hoch((input_a * 0.01 + 1), input_c),2);}
-        static public double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a*(input_b*0.01), 2); }
-        static public double Prozentrechnung3(double input_a, double input_b, double input_c) {return Math.Round(input_a*hoch(input_b*0.01+1,input_c)-input_a, 2);}
+
+        static public double Prozentrechnung1(double input_a, double input_b, double input_c) { return Math.Round(input_b * hoch((input_a * 0.01 + 1), input_c), 2); }
+        static public double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a * (input_b * 0.01), 2); }
+        static public double Prozentrechnung3(double input_a, double input_b, double input_c) { return Math.Round(input_a * hoch(input_b * 0.01 + 1, input_c) - input_a, 2); }
 
         static public string BinomischeFormeln1(double input_a, double input_b, double input_c)
         {
@@ -201,7 +203,7 @@ namespace MadMaths.calculations
         static public string BinomischeFormeln2(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x +" "+  2* input_a + "b + b^2"; 
+            return x + " " + 2 * input_a + "b + b^2";
         }
         static public string BinomischeFormeln3(double input_a)
         {
@@ -221,32 +223,32 @@ namespace MadMaths.calculations
             ergebnis = (input_b + Math.Sqrt(-4 * input_a * input_c)) / (input_a * 2);
             return ergebnis;
         }
-        static public double Potenzen1(double input_a,double input_b)
+        static public double Potenzen1(double input_a, double input_b)
         {
             return hoch(input_a, input_b);
         }
-        static public double Logarithmen1(double input_a,double input_b)
+        static public double Logarithmen1(double input_a, double input_b)
         {
             return Math.Log(input_a, input_b);
         }
-        static public double Logarithmen2(double input_a,double input_b)
+        static public double Logarithmen2(double input_a, double input_b)
         {
             double ergebnis;
-            ergebnis = Math.Pow(input_a, 1/input_b);
+            ergebnis = Math.Pow(input_a, 1 / input_b);
             return ergebnis;
         }
         static public double Fakultät1(double input_a)
         {
-            return Fakultät(input_a); 
+            return Fakultät(input_a);
 
         }
-        static public double Fakultät2(double input_a,double input_b)
+        static public double Fakultät2(double input_a, double input_b)
         {
             return (Fakultät(input_a) / Fakultät(input_b));
         }
-        static public double Urnenmodell1(double input_a,double input_b)
+        static public double Urnenmodell1(double input_a, double input_b)
         {
-            return Math.Pow(input_a,input_b);
+            return Math.Pow(input_a, input_b);
         }
         static public double Urnenmodell2(double input_a, double input_b)
         {
