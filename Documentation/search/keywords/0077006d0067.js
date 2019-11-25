@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("wmg",["Function"],[["WmGetMinMaxInfo",,[["MadMaths.CustomWindowSizing",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.WmGetMinMaxInfo","CSharpClass:MadMaths.CustomWindowSizing:WmGetMinMaxInfo"]]]]);

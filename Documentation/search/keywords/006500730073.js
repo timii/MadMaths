@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("ess",["Function"],[["essenaufgabe",,[["MadMaths.calculations.CalcFunctions_Grundschule",,,,0,"File:MadMaths/calculations/CalcFunctions_Grundschule.cs:MadMaths.calculations.CalcFunctions_Grundschule.essenaufgabe","CSharpClass:MadMaths.calculations.CalcFunctions_Grundschule:essenaufgabe"]]]]);

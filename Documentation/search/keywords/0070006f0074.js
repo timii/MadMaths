@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("pot",["Function"],[["Potenzen1",,[["MadMaths.calculations.CalcFunctions_Mittelstufe",,,,0,"File:MadMaths/calculations/CalcFunctions_Mittelstufe.cs:MadMaths.calculations.CalcFunctions_Mittelstufe.Potenzen1","CSharpClass:MadMaths.calculations.CalcFunctions_Mittelstufe:Potenzen1"]]]]);

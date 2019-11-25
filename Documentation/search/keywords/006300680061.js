@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("cha",["Variable"],[["challenge",,[["MadMaths.pages.home",,,,0,"File:MadMaths/obj/Debug/pages/home.g.cs:MadMaths.pages.home.challenge","CSharpClass:MadMaths.pages.home:challenge"]]]]);

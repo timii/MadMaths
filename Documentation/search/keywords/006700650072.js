@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("ger",["Function"],[["GeradeUngerade",,[["MadMaths.calculations.CalcFunctions_Grundschule",,,,0,"File:MadMaths/calculations/CalcFunctions_Grundschule.cs:MadMaths.calculations.CalcFunctions_Grundschule.GeradeUngerade","CSharpClass:MadMaths.calculations.CalcFunctions_Grundschule:GeradeUngerade"]]]]);

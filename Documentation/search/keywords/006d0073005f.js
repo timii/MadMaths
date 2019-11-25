@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("ms_",["Variable"],[["ms_funcs",,[["MadMaths.calculations.CalcFunctions_Mittelstufe",,,,0,"File:MadMaths/calculations/CalcFunctions_Mittelstufe.cs:MadMaths.calculations.CalcFunctions_Mittelstufe.ms_funcs","CSharpClass:MadMaths.calculations.CalcFunctions_Mittelstufe:ms_funcs"]]]]);

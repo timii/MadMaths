@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("_us",["Variable"],[["_user",,[["MadMaths.Controller",,,,0,"File:MadMaths/Controller.cs:MadMaths.Controller._user","CSharpClass:MadMaths.Controller:_user"]]]]);

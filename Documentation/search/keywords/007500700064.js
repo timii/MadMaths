@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("upd",["Function"],[["UpdateUserJson",,[["MadMaths.Controller",,,,0,"File:MadMaths/Controller.cs:MadMaths.Controller.UpdateUserJson","CSharpClass:MadMaths.Controller:UpdateUserJson"]]]]);

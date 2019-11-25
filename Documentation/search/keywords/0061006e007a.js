@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("anz",["Variable"],[["anzRichtig",,[["MadMaths.pages.AufgabenFenster",,,,0,"File:MadMaths/pages/AufgabenFenster.xaml.cs:MadMaths.pages.AufgabenFenster.anzRichtig","CSharpClass:MadMaths.pages.AufgabenFenster:anzRichtig"]]]]);

@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("hyp",["Function"],[["HypergeometrischeVerteilung1",,[["MadMaths.calculations.CalcFunctions_Mittelstufe",,,,0,"File:MadMaths/calculations/CalcFunctions_Mittelstufe.cs:MadMaths.calculations.CalcFunctions_Mittelstufe.HypergeometrischeVerteilung1","CSharpClass:MadMaths.calculations.CalcFunctions_Mittelstufe:HypergeometrischeVerteilung1"]]]]);

@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("cus",["Class"],[["CustomMB",,[["MadMaths",,,,0,"File:MadMaths/CustomMB.xaml.cs:MadMaths.CustomMB","CSharpClass:MadMaths.CustomMB"]]],["CustomWindowSizing",,[["MadMaths",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing","CSharpClass:MadMaths.CustomWindowSizing"]]]]);

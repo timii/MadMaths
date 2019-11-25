@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("qua",["Function"],[["QuadratischeGleichungen1",,[["MadMaths.calculations.CalcFunctions_Mittelstufe",,,,0,"File:MadMaths/calculations/CalcFunctions_Mittelstufe.cs:MadMaths.calculations.CalcFunctions_Mittelstufe.QuadratischeGleichungen1","CSharpClass:MadMaths.calculations.CalcFunctions_Mittelstufe:QuadratischeGleichungen1"]]]]);

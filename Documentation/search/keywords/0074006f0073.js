@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("tos",["Function"],[["ToString",,[["MadMaths.CustomWindowSizing.RECT",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.RECT.ToString","CSharpClass:MadMaths.CustomWindowSizing.RECT:ToString"]]]]);

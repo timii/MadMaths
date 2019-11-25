@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("was",["Variable"],[["wasFocused",,[["MadMaths.pages.AufgabenFenster",,,,0,"File:MadMaths/pages/AufgabenFenster.xaml.cs:MadMaths.pages.AufgabenFenster.wasFocused","CSharpClass:MadMaths.pages.AufgabenFenster:wasFocused"]]]]);

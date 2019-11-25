@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("ptr",["Variable"],[["ptReserved",,[["MadMaths.CustomWindowSizing.MINMAXINFO",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.MINMAXINFO.ptReserved","CSharpClass:MadMaths.CustomWindowSizing.MINMAXINFO:ptReserved"]]]]);

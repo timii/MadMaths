@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("bot",["Variable"],[["bottom",,[["MadMaths.CustomWindowSizing.RECT",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.RECT.bottom","CSharpClass:MadMaths.CustomWindowSizing.RECT:bottom"]]]]);

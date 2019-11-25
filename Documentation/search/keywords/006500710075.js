@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("equ",["Function"],[["Equals",,[["MadMaths.CustomWindowSizing.RECT",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.RECT.Equals","CSharpClass:MadMaths.CustomWindowSizing.RECT:Equals"]]]]);

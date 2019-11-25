@@ -1,0 +1,1 @@
+NDMenu.OnTabsLoaded([["File","Files","File:MadMaths/","files.js"],["Class",["Classes","MadMaths"],"CSharpClass:MadMaths.","classes.js"]]);

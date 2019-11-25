@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("rig",["Variable"],[["right",,[["MadMaths.CustomWindowSizing.RECT",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.RECT.right","CSharpClass:MadMaths.CustomWindowSizing.RECT:right"]]]]);

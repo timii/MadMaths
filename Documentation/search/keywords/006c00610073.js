@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("las",["Variable","Property"],[["lastSession",,[["MadMaths.pages.home",,,,0,"File:MadMaths/obj/Debug/pages/home.g.cs:MadMaths.pages.home.lastSession","CSharpClass:MadMaths.pages.home:lastSession"]]],["lastSessions",,[["MadMaths.User",,,,1,"File:MadMaths/User.cs:MadMaths.User.lastSessions","CSharpClass:MadMaths.User:lastSessions"]]]]);

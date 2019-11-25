@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("x",["Variable"],[["x",,[["MadMaths.CustomWindowSizing.POINT",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.POINT.x","CSharpClass:MadMaths.CustomWindowSizing.POINT:x"]]]]);

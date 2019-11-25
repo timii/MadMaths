@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("tei",["Function"],[["TeilenmitRest1",,[["MadMaths.calculations.CalcFunctions_Grundschule",,,,0,"File:MadMaths/calculations/CalcFunctions_Grundschule.cs:MadMaths.calculations.CalcFunctions_Grundschule.TeilenmitRest1","CSharpClass:MadMaths.calculations.CalcFunctions_Grundschule:TeilenmitRest1"]]]]);

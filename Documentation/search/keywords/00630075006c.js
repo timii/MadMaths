@@ -1,0 +1,1 @@
+NDSearch.OnPrefixDataLoaded("cul",["Property"],[["Culture",,[["MadMaths.Properties.Resources",,,,0,"File:MadMaths/Properties/Resources.Designer.cs:MadMaths.Properties.Resources.Culture","CSharpClass:MadMaths.Properties.Resources:Culture"]]]]);
