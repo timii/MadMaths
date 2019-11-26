@@ -9,9 +9,20 @@ namespace MadMaths.calculations
     static public class CalcFunctions_Oberstufe
     {
         static public Dictionary<string, Delegate> os_funcs = new Dictionary<string, Delegate>()
+        #region
         {
-            //{"", new Func<>()},
+            {"Ableiten1", new Func<double, double, string>(Ableiten1)},
+            {"Ableiten2", new Func<double, double, double, double, string>(Ableiten2)},
+            {"Ableiten3", new Func<double, double, double, double, double, double, string>(Ableiten3)},
+            {"Ableiten4", new Func<double, double, double, double, double, string>(Ableiten4)},
+            {"Ableiten5", new Func<int, int, int, int, int, int, int, int, string>(Ableiten5)},
+            {"Ableiten6", new Func<double, double, double, double, double, double, string>(Ableiten6)},
+            {"Ableiten7", new Func<double, double, string>(Ableiten7)},
+            {"Ableiten8", new Func<double, double, double, string>(Ableiten8)},
+            {"Ableiten9", new Func<double, double, string>(Ableiten9)},
+            {"HöherAbleiten1", new Func<double, double, double, string>(HöherAbleiten1)},
         };
+        #endregion
 
         static public string Ableiten1(double input_a, double input_b)
         {
