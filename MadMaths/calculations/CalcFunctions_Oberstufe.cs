@@ -225,19 +225,35 @@ namespace MadMaths.calculations
         {
             if ((input_e) == (input_b))
             {
-<<<<<<< HEAD
                 return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") + (" + (input_a*input_b*input_f-input_d*input_c*input_e*-1) + "x^(" + (input_e-1) + "))/"
                     + "(" + input_d + "x^(" + input_e + ") + " + input_f + ")^2";
-=======
-                return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") + (" + (input_a * input_b * input_f - input_d * input_c * input_e) + "x^(" + (input_e - 1) + "))/"
-                    + "(" + (input_d * input_d) + "e^(" + (input_e * 2) + ") + " + (input_d * 2 * input_f) + "x^(" + (input_e) + ") + " + (input_f * input_f) + ")";
->>>>>>> 4781e0da55364dbced78b77e6ec309c852c6e767
+
 
             }
             return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") - " + (input_a * input_b * input_f*-1) + "x^(" + (input_b - 1) + ") + " + (input_d * input_c * input_e*-1) + "x^(" + (input_e - 1) + "))/"
                 + "(" + input_d + "x^(" + input_e + ") + " + input_f + ")^2";
 
         }
-
+        static public string Ableiten7(double input_a, double input_b)
+        {
+            return input_a + "e^(" + input_a + "x + " + input_b + ")";
+        }
+        static public string Ableiten8(double input_a, double input_b, double input_c)
+        {
+            return input_c + "(" + input_a + "x + " + input_b + ")^(" + (input_c - 1) + ") * " + input_a;
+        }
+        static public string Ableiten9(double input_a, double input_b)
+        {
+            return input_a +"* sin(" + input_b + "x) + " + input_b + "* cos(" + input_b + "x) * " + input_a + "x";
+        }
+        static public string HöherAbleiten1(double input_a, double input_b, double input_c)
+        {
+            int i;
+            for(i = 0; i < input_a; i++)
+            {
+                input_b *= (input_c - i);
+            }
+            return input_b + "x^" + (input_c - i);
+        }
     }
 }
