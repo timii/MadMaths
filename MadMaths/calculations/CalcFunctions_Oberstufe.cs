@@ -28,7 +28,7 @@ namespace MadMaths.calculations
 
         static public string Ableiten1(double input_a, double input_b)
         {
-            return (input_a * input_b) + "x^" + (input_b - 1);
+            return string.Format("{0}x^{1}", input_a*input_b, input_b-1);
         }
         static public string Ableiten2(double input_a, double input_b, double input_c, double input_d)
         {
@@ -36,11 +36,11 @@ namespace MadMaths.calculations
             if (input_b == input_d)
             {
                 vorx = input_a + input_b;
-                return (vorx * input_b) + "x^" + (input_b - 1);
+                return string.Format("{0}x^{1}", vorx*input_b, input_b-1);
             }
             else
             {
-                return (input_a * input_b) + "x^" + (input_b - 1) + " + " + (input_c * input_d) + "x^" + (input_d - 1);
+                return string.Format("{0}x^{1} +  {2}x^{3}", input_a*input_b, input_b-1,input_c*input_d,input_d-1);
 
             }
         }
@@ -50,30 +50,29 @@ namespace MadMaths.calculations
             if (input_b == input_d && input_b == input_f)
             {
                 vorx = input_a + input_b + input_c;
-                return (vorx * input_b) + "x^" + (input_b - 1);
+                return string.Format("{0}x^{1}", vorx*input_b, input_b-1);
             }
             if (input_b == input_d || input_b == input_f || input_d == input_f)
             {
                 if (input_b == input_d)
                 {
                     vorx = input_a + input_c;
-                    return (vorx * input_b) + "x^" + (input_b - 1) + " + " + (input_e * input_f) + "x^" + (input_f - 1);
+                    return string.Format("{0}x^{1} + {2}x^{3}", input_b*vorx, input_b-1,input_e*input_f,input_f-1);
 
                 }
                 if (input_b == input_f)
                 {
                     vorx = input_a + input_e;
-                    return (vorx * input_b) + "x^" + (input_b - 1) + " + " + (input_c * input_d) + "x^" + (input_d - 1);
+                    return string.Format("{0}x^{1} + {2}x^{3}", input_b * vorx, input_b - 1, input_c * input_d, input_d - 1);
 
                 }
                 if (input_d == input_f)
                 {
                     vorx = input_c + input_e;
-                    return (vorx * input_d) + "x^" + (input_d - 1) + " + " + (input_a * input_b) + "x^" + (input_b - 1);
+                    return string.Format("{0}x^{1} + {2}x^{3}", input_a * input_b, input_b - 1, vorx * input_d, input_d - 1);
                 }
             }
-            return (input_a * input_b) + "x^" + (input_b - 1) + " + " + (input_c * input_d) + "x^" + (input_d - 1) + " + " + (input_e * input_f) + "x^" + (input_f - 1);
-
+            return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", input_a * input_a, input_b - 1, input_c * input_d, input_d - 1,input_e*input_f,input_f-1);
         }
         static public string Ableiten4(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
@@ -81,11 +80,11 @@ namespace MadMaths.calculations
             if (input_b == input_d)
             {
                 vorx = (input_a + input_b) * input_e;
-                return (vorx * (input_b + 1)) + "x^" + (input_b);
+                return string.Format("{0}x^{1}", vorx * (input_b-1), input_b);
             }
             else
             {
-                return ((input_a * input_e) * input_b) + "x^" + (input_b) + " + " + (input_c * input_e * input_d) + "x^" + (input_d);
+                return string.Format("{0}x^{1} + {2}x^{3}", input_a * input_e*input_b, input_b, input_c * input_e * input_d, input_d);
 
             }
         }
@@ -238,35 +237,38 @@ namespace MadMaths.calculations
         {
             if ((input_e) == (input_b))
             {
-                return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") + (" + (input_a*input_b*input_f-input_d*input_c*input_e*-1) + "x^(" + (input_e-1) + "))/"
-                    + "(" + input_d + "x^(" + input_e + ") + " + input_f + ")^2";
+                return string.Format("({0}x^{1} + {2}x^{3})/({4}x^{5} + {6})^2", (input_a*input_b*input_d-input_d*input_e*input_a), (input_b - 1 + input_e), (input_a*input_b*input_f-input_d*input_c*input_e * -1 ), (input_e - 1),(input_d), (input_e), (input_f));
 
 
             }
-            return "(" + (input_a * input_b * input_d - input_d * input_e * input_a) + "x^(" + (input_b + input_e - 1) + ") - " + (input_a * input_b * input_f*-1) + "x^(" + (input_b - 1) + ") + " + (input_d * input_c * input_e*-1) + "x^(" + (input_e - 1) + "))/"
-                + "(" + input_d + "x^(" + input_e + ") + " + input_f + ")^2";
+            return string.Format("({0}x^{1} + {2}x^{3} + {4}x^{5})/({6}x^{7} + {8})^2", (input_a * input_b * input_d - input_d * input_e * input_a), (input_b - 1 + input_e),(input_a*input_b*input_f*-1),(input_b-1) , (input_d * input_c * input_e * -1), (input_e - 1), (input_d), (input_e), (input_f));
 
         }
         static public string Ableiten7(double input_a, double input_b)
         {
-            return input_a + "e^(" + input_a + "x + " + input_b + ")";
+            return string.Format("{0}e^({1}x+{2}", (input_a),  (input_a), (input_b));
         }
         static public string Ableiten8(double input_a, double input_b, double input_c)
         {
-            return input_c + "(" + input_a + "x + " + input_b + ")^(" + (input_c - 1) + ") * " + input_a;
+            return string.Format("{0} * ({1}x - {2})^({3})", (input_a*input_c),(input_a),(input_b),(input_c-1));
         }
         static public string Ableiten9(double input_a, double input_b)
         {
-            return input_a +"* sin(" + input_b + "x) + " + input_b + "* cos(" + input_b + "x) * " + input_a + "x";
+            return string.Format("{0} * sin({1}x) + {2} * cos({3}x) * {4}x", input_a,input_b,input_b,input_b,input_a);
         }
         static public string HöherAbleiten1(double input_a, double input_b, double input_c)
         {
             int i;
             for(i = 0; i < input_a; i++)
             {
+
                 input_b *= (input_c - i);
             }
-            return input_b + "x^" + (input_c - i);
+            return string.Format("{0}x^{1}", input_b, input_c - 1);
+        }
+        static public string HöherAbleiten2(double input_a, double input_b, double input_c, double input_d)
+        {
+            return "";
         }
         static public string Intergralregel1() 
         {
@@ -294,4 +296,3 @@ namespace MadMaths.calculations
         }
     }
 }
-
