@@ -21,6 +21,8 @@ namespace MadMaths.calculations
             {"Ableiten8", new Func<double, double, double, string>(Ableiten8)},
             {"Ableiten9", new Func<double, double, string>(Ableiten9)},
             {"HöherAbleiten1", new Func<double, double, double, string>(HöherAbleiten1)},
+            {"Integral1", new Func<double>(Integral1)},
+            {"Integral2", new Func<double>(Integral2)},
         };
         #endregion
 
@@ -266,5 +268,30 @@ namespace MadMaths.calculations
             }
             return input_b + "x^" + (input_c - i);
         }
+        static public string Intergralregel1() 
+        {
+            return "-cos(x)+c";
+        }
+        static public string Intergralregel2()
+        {
+            return "sin(x)+c";
+        }
+        static public string Intergralregel3()
+        {
+            return "x*ln(x)-x+c";
+        }
+        static public double Integral1() 
+        {
+            return 6.5;
+        }
+        static public double Integral2()
+        {
+            return 1/3;
+        }
+        static public double SchwerAbleiten1() 
+        {
+            return 4.5;
+        }
     }
 }
+
