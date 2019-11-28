@@ -122,5 +122,19 @@ namespace MadMaths
             _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
         }
+
+        public static void UpdateLevel() 
+        {
+            _user.currentProgress += 50;
+            var maxEXP = _user.level * 100;
+            if (_user.currentProgress == maxEXP)
+            {
+                _user.level++;
+                _user.currentProgress = 0;
+                LevelUpWindow lvlup = new LevelUpWindow(_user.level.ToString());
+                lvlup.Owner = System.Windows.Application.Current.MainWindow;
+                lvlup.ShowDialog();
+            }
+        }
     }
 }

@@ -9,10 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 namespace MadMaths.pages
 {
     /// <summary>
@@ -44,16 +41,15 @@ namespace MadMaths.pages
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
                 anzRichtig++;
-                Controller._user.currentProgress += 10;
+                Controller.UpdateLevel();
             }
             else
             {
                 Lösung.Text = "You Dumbass";
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
             }
-            (sender as Button).IsEnabled = false;
+            abgabebtn.IsEnabled = false;
             NextExerciseButton.Opacity = 100;
-            //NextExerciseButton.Click += NextExerciseButton_Click;
             NextExerciseButton.IsEnabled = true;
         }
 
@@ -78,12 +74,6 @@ namespace MadMaths.pages
             if (e.Key == Key.Return) { Abgabe_Click(null, null); }
         }
 
-        //private void ChangeButton()
-        //{
-        //    Style style = this.FindResource("NextExerciseButton") as Style;
-        //    NextExerciseButton.Style = style;
-
-        //}
 
         private void reset()
         {

@@ -19,9 +19,10 @@ namespace MadMaths
     /// </summary>
     public partial class LevelUpWindow : Window
     {
-        public LevelUpWindow()
+        public LevelUpWindow(string lvl)
         {
             InitializeComponent();
+            LevelPopUp.Text = lvl;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -15,7 +15,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Newtonsoft.Json;
-using System.ComponentModel;
 
 
 namespace MadMaths.pages
@@ -53,6 +52,7 @@ namespace MadMaths.pages
             RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
             RankingList.ItemsSource = RankList;
             progress.Value = Controller._user.currentProgress;
+            progress.Maximum = Controller._user.level * 100;
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
@@ -101,61 +101,5 @@ namespace MadMaths.pages
                 NavigationService.Navigate(new login());
             }
         }
-
-        //private void UpdateProgressBar()
-        //{
-        //    while (true)
-        //    {
-        //        progress.Value = Controller._user.currentProgress;
-        //    }
-        //}
-
-        //public delegate void UpdateIntCallback(int progress);
-        //    #region INotifyPropertyChanged
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //protected void NotifyPropertyChange(string propertyName)
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        //    }
-        //}
-
-        //#endregion
-
-        //private int percent = 0;
-        //public int Percent
-        //{
-        //    get { return this.percent; }
-        //    set 
-        //    {
-        //        this.percent = Controller._user.currentProgress;
-        //        NotifyPropertyChange("Percent");
-        //    }
-        //}
-        //private void Window_ContentRendered(object sender, EventArgs e)
-        //{
-        //    BackgroundWorker worker = new BackgroundWorker();
-        //    worker.WorkerReportsProgress = true;
-        //    worker.DoWork += worker_DoWork;
-        //    worker.ProgressChanged += worker_ProgressChanged;
-
-        //    worker.RunWorkerAsync();
-        //}
-
-        //void worker_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    for (int i = 0; i < 100; i++)
-        //    {
-        //        (sender as BackgroundWorker).ReportProgress(i);
-        //        Thread.Sleep(1);
-        //    }
-        //}
-
-        //void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        //{
-        //    progress.Value = Controller._user.currentProgress;
-        //}
     }
 }
