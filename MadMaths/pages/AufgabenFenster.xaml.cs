@@ -44,6 +44,7 @@ namespace MadMaths.pages
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
                 anzRichtig++;
+                Controller._user.currentProgress += 10;
             }
             else
             {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Newtonsoft.Json;
+using System.ComponentModel;
+
 
 namespace MadMaths.pages
 {
@@ -44,12 +46,13 @@ namespace MadMaths.pages
                 Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));         // lädt das Avatar Bild
             }
             Level.Text = Controller._user.level.ToString();
-            progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 1000);
+            progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 100);
 
             RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
             RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
             RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
             RankingList.ItemsSource = RankList;
+            progress.Value = Controller._user.currentProgress;
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
@@ -98,5 +101,61 @@ namespace MadMaths.pages
                 NavigationService.Navigate(new login());
             }
         }
+
+        //private void UpdateProgressBar()
+        //{
+        //    while (true)
+        //    {
+        //        progress.Value = Controller._user.currentProgress;
+        //    }
+        //}
+
+        //public delegate void UpdateIntCallback(int progress);
+        //    #region INotifyPropertyChanged
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //protected void NotifyPropertyChange(string propertyName)
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //    }
+        //}
+
+        //#endregion
+
+        //private int percent = 0;
+        //public int Percent
+        //{
+        //    get { return this.percent; }
+        //    set 
+        //    {
+        //        this.percent = Controller._user.currentProgress;
+        //        NotifyPropertyChange("Percent");
+        //    }
+        //}
+        //private void Window_ContentRendered(object sender, EventArgs e)
+        //{
+        //    BackgroundWorker worker = new BackgroundWorker();
+        //    worker.WorkerReportsProgress = true;
+        //    worker.DoWork += worker_DoWork;
+        //    worker.ProgressChanged += worker_ProgressChanged;
+
+        //    worker.RunWorkerAsync();
+        //}
+
+        //void worker_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    for (int i = 0; i < 100; i++)
+        //    {
+        //        (sender as BackgroundWorker).ReportProgress(i);
+        //        Thread.Sleep(1);
+        //    }
+        //}
+
+        //void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        //{
+        //    progress.Value = Controller._user.currentProgress;
+        //}
     }
 }
