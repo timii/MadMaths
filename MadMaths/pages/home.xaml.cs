@@ -53,6 +53,13 @@ namespace MadMaths.pages
             RankingList.ItemsSource = RankList;
             progress.Value = Controller._user.currentProgress;
             progress.Maximum = Controller._user.level * 100;
+
+            // Zum Laden der letzten Übungen
+            if (Controller._user.lastSessions != null)
+            {
+                ShowLastSessions();
+            }
+            
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
@@ -100,6 +107,25 @@ namespace MadMaths.pages
             {
                 NavigationService.Navigate(new login());
             }
+        }
+
+        private void ShowLastSessions() 
+        {
+            foreach (var item in Controller._user.lastSessions.Split(',').Take(3))
+            {
+                Button b = new Button();
+                b.Content = item;
+                b.MaxHeight = 40;
+                b.MinWidth = 180;
+                b.Margin = new Thickness(10);
+                b.Click += AufgabenClick;
+                lastSessionsPanel.Children.Add(b);
+            }
+        }
+        private void AufgabenClick(object sender, RoutedEventArgs e)
+        {
+            Controller.currentExercise = (sender as Button).Content as string;
+            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
     }
 }

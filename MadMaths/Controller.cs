@@ -123,7 +123,7 @@ namespace MadMaths
             UpdateUserJson();
         }
 
-        public static void UpdateLevel() 
+        public static void UpdateLevel()
         {
             _user.currentProgress += 50;
             var maxEXP = _user.level * 100;
@@ -135,6 +135,15 @@ namespace MadMaths
                 lvlup.Owner = System.Windows.Application.Current.MainWindow;
                 lvlup.ShowDialog();
             }
+        }
+        public static void FillLastSessions()
+        {
+            if (_user.lastSessions != null)
+            {
+                _user.lastSessions += ',';
+            }
+            _user.lastSessions += currentPage + ':' + currentExercise;
+            UpdateUserJson();
         }
     }
 }

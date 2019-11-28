@@ -25,6 +25,7 @@ namespace MadMaths.pages
             InitializeComponent();
             AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise);
             NextExerciseButton.IsEnabled = false;
+            Controller.FillLastSessions();
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
