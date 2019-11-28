@@ -9,7 +9,7 @@
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "False">
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="50"/>
+        <WindowChrome CaptionHeight="45"/>
     </WindowChrome.WindowChrome>
 
     <Grid>
@@ -19,24 +19,24 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Padding="0,10" FontFamily="Microsoft Sans Serif" Text="Glückwunsch!"
+            <TextBlock Grid.Row="0" Padding="0,10" Text="Glückwunsch!"
                            FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636" FontWeight="Bold"/>
             
             <Separator Grid.Row="0" Background="Gray" VerticalAlignment="Bottom" Height="2"/>
             
-            <TextBlock Grid.Row="1" Padding="60,15" FontFamily="Microsoft Sans Serif" Text="Du hast das nächste Level erreicht" FontWeight="Bold"
-                           FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636"/>
+            <TextBlock Grid.Row="1" Padding="60,15" Text="Du hast das nächste Level erreicht" FontWeight="Bold"
+                           FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636"/>
             <Rectangle Fill="#FFFF7800" Margin="118,46,118,10" Grid.Row="1">
                 <Rectangle.LayoutTransform>
                     <RotateTransform Angle="-45"/>
                 </Rectangle.LayoutTransform>
             </Rectangle>
-            <TextBlock x:Name="LevelPopUp" Grid.Row="1" Text="1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60" Margin="0,55,0,20"/>
+            <TextBlock x:Name="LevelPopUp" Grid.Row="1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60" Margin="0,55,0,20"/>
             
             <Separator Grid.Row="1" Background="Gray" VerticalAlignment="Bottom" Height="2"/>
             
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800"/>
+                <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800" FontWeight="Bold"/>
             </StackPanel>
         </Grid>
     </Grid>

@@ -52,7 +52,9 @@
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
                 <Button x:Name="challenge" Content="Herausforderung" Margin="5"/>
-                <Button x:Name="lastSession" Content="letzte Übung" Margin="5"/>
+                <Button x:Name="lastSession" Content="letzte Übungen" Margin="5"/>
+                <StackPanel Name="lastSessionsPanel" Orientation="Vertical">
+                </StackPanel>
             </StackPanel>
         </Border>
         <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
@@ -87,6 +89,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -102,8 +105,9 @@
                     </Image>
                 </Button>
                 <TextBlock Name="Username" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User_Name" FontSize="25" VerticalAlignment="Center" MouseLeftButtonDown="Username_MouseLeftButtonDown" Cursor="Hand"/>
-                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" Maximum="100" Value="90" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
-                <TextBlock Name="Level" Grid.Row="0" Grid.Column="2" Text="Level" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
+                <TextBlock Name="Level" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"  FontSize="70" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,15"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Level: " FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="2" Text="0/0" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>
         </Border>

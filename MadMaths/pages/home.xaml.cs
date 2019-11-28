@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Newtonsoft.Json;
+
 
 namespace MadMaths.pages
 {
@@ -44,12 +45,21 @@ namespace MadMaths.pages
                 Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));         // lädt das Avatar Bild
             }
             Level.Text = Controller._user.level.ToString();
-            progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 1000);
+            progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 100);
 
             RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
             RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
             RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
             RankingList.ItemsSource = RankList;
+            progress.Value = Controller._user.currentProgress;
+            progress.Maximum = Controller._user.level * 100;
+
+            // Zum Laden der letzten Übungen
+            if (Controller._user.lastSessions != null)
+            {
+                ShowLastSessions();
+            }
+            
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
@@ -98,6 +108,25 @@ namespace MadMaths.pages
             {
                 NavigationService.Navigate(new login());
             }
+        }
+
+        private void ShowLastSessions() 
+        {
+            foreach (var item in Controller._user.lastSessions.Split(',').Take(3))
+            {
+                Button b = new Button();
+                b.Content = item;
+                b.MaxHeight = 40;
+                b.MinWidth = 180;
+                b.Margin = new Thickness(10);
+                b.Click += AufgabenClick;
+                lastSessionsPanel.Children.Add(b);
+            }
+        }
+        private void AufgabenClick(object sender, RoutedEventArgs e)
+        {
+            Controller.currentExercise = (sender as Button).Content as string;
+            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
     }
 }
