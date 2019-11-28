@@ -266,10 +266,112 @@ namespace MadMaths.calculations
             }
             return string.Format("{0}x^{1}", input_b, input_c - 1);
         }
-        static public string HöherAbleiten2(double input_a, double input_b, double input_c, double input_d)
+        static public string HöherAbleiten2(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
-            return "";
+            double vorx1 = input_a * (input_b+1) * input_e * input_b;
+            double vorx2 = input_c * (input_d + 1) * input_e * input_d;
+            if (input_b == input_d)
+            {
+                double zusammenx = vorx1 + vorx2;
+                return string.Format("{0}x^{1}", zusammenx, input_d - 1);
+            }
+            return string.Format("{0}x^{1} + {2}x^{3}",vorx1,input_b-1,vorx2,,input_d-1);
         }
+
+        static public string Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
+        {
+            double vorx1;
+            double x1;
+            double vorx2;
+            double x2;
+            double wurzel;
+            if (input_b < 3 && input_d < 3)
+            {
+                return "NaN";
+            }
+            if (input_b == input_d) {
+                if(input_b % 2 == 0)
+                {
+                    return "NaN";
+                }
+                else
+                {
+                    return "(0,0)";
+                }
+            }
+            else
+            {
+                vorx1 = input_a * input_b * (input_b - 1);
+                x1 = input_b - 2;
+                vorx2 = input_c * input_d * (input_d - 1);
+                x2 = input_d - 2;
+                if (x2 < 0 || x1 < 0)
+                {
+                    //kann wendepunkt nur bei 0 0 sein
+                    if (x2 < 0)
+                    {
+                        if (vorx1 * (input_b - 2) != 0)
+                        {
+                            return "(0,0)";
+                        }
+                        else { 
+                            return "NaN";
+                        }
+                    }
+                    if (x1 < 0)
+                    {
+                        if (vorx2* (input_d-2) != 0)
+                        {
+                            return "(0,0)";
+                        }
+                        else
+                        {
+                            return "NaN";
+                        }
+                    }
+                }
+                if (x2 == 0 || x1 == 0)
+                {
+                    return "NaN";
+                }
+
+
+                if (input_b - 2 > input_d - 2)
+                {
+                    vorx2 *= -1;
+                    x1 -= x2;
+                    if (vorx2/vorx1 < 0)
+                    {
+                        return "NaN";
+                    }
+                    wurzel = Math.Pow(vorx2 / vorx1, x1);
+                }
+                else
+                {
+                    vorx1 *= -1;
+                    x2 -= x1;
+                    if (vorx1/vorx2 < 0)
+                    {
+                        return "NaN";
+                    }
+                    wurzel = Math.Pow(vorx1 / vorx2, x2);
+                }
+                vorx1 *= (input_b - 2);
+                vorx2 *= (input_d - 2);
+                double y = vorx1 * Math.Pow(wurzel, input_b - 3) + vorx2 * Math.Pow(wurzel, input_d - 3;
+                if (y != 0)
+                {
+                    return string.Format("({0},{1})", wurzel, y);
+                }
+                else
+                {
+                    return "NaN";
+                }
+
+
+
+            }
+        } 
         static public string Intergralregel1() 
         {
             return "-cos(x) + c";
@@ -319,5 +421,7 @@ namespace MadMaths.calculations
 
             return Flaeche1 - Flaeche2;
         }
+
+
     }
 }
