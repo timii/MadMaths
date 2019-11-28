@@ -50,7 +50,8 @@ namespace MadMaths.pages
                 Lösung.Text = "You Dumbass";
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
             }
-            (sender as Button).IsEnabled = false;
+            abgabebtn.IsEnabled = false;
+            Antwort.IsReadOnly = true;
             NextExerciseButton.Opacity = 100;
             //NextExerciseButton.Click += NextExerciseButton_Click;
             NextExerciseButton.IsEnabled = true;
@@ -91,6 +92,7 @@ namespace MadMaths.pages
             abgabebtn.IsEnabled = true;
             NextExerciseButton.IsEnabled = false;
             NextExerciseButton.Opacity = 0;
+            Antwort.IsReadOnly = false;
         }
     }
 }

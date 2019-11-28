@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Media.Imaging;
 using MadMaths.calculations;
+using System.Net.Sockets;
+using System.Net;
+using System.Text;
 
 namespace MadMaths
 {
@@ -14,6 +17,8 @@ namespace MadMaths
         public static string currentExercise { get; set; }
 
         public static bool UserIsLoggedIn = false;
+
+        public static bool UserIsOnline = false;
 
         private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
 
@@ -121,6 +126,49 @@ namespace MadMaths
         {
             _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
+        }
+    }
+
+    internal static class Client
+    {
+        static private UdpClient client;
+        static private IPEndPoint ep;
+        static Client()
+        {
+            client = new UdpClient();
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 6969);
+            try
+            {
+                client.Connect(ep);
+                Controller.UserIsOnline = true;
+            }
+            catch (SocketException)
+            { 
+                Controller.UserIsOnline = false;
+            }
+        }
+
+        static public string RegisterUser(in string username, in string usrpwd)
+        {
+            string msg = string.Format("REGISTERUSER_{0}_{1}", username, usrpwd);
+            client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
+            return client.Receive(ref ep).ToString();
+        }
+        
+        static public bool CheckUsername(in string username)
+        {
+            string msg = string.Format("CHECKUSERNAME_{0}", username);
+            client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
+            if (Encoding.UTF8.GetString(client.Receive(ref ep)) == "success")
+            { return true; }
+            return false;
+        }
+
+        static public void UpdateAvatarImg()
+        {
+            string msg = string.Format("UPDATEUSERDATA_{0}_AVATARIMG_{1}", Controller._user.UserName, Controller._user.avatarImg);
+            client.Client.SendBufferSize = msg.Length;
+            client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
         }
     }
 }

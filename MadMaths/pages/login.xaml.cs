@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,15 +42,42 @@ namespace MadMaths.pages
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            //User user = new User();
-            Controller._user.UserName = UserName.Text;
-            Controller._user.password = UserPassword.Password;
-            Controller.UpdateUserJson();
-            NavigationService.GoBack();
+            UsernameFeedback.Text = "";
+            PasswordFeedback.Text = "";
+            if (Client.CheckUsername(UserName.Text))
+            {
+                Controller._user.UserName = UserName.Text;
+                if (UserPassword.Password.Length < 8) 
+                {
+                    PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
+                    return;
+                }
+                Controller._user.password = GetHashString(UserPassword.Password);
+                Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
+                Controller.UpdateUserJson();
+                NavigationService.GoBack();
+            }
+            else
+            {
+                UsernameFeedback.Text = "Benutzername existiert bereits";
+            }
         }
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack(); // geht eine Seite zurück
+        }
+        private byte[] GetHash(string inputString)
+        {
+            HashAlgorithm algorithm = SHA256.Create();
+            return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+
+        private string GetHashString(string inputString)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in GetHash(inputString))
+                sb.Append(b.ToString("X2"));
+            return sb.ToString();
         }
     }
 }

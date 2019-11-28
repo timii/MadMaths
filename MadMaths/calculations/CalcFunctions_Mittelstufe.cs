@@ -80,9 +80,6 @@ namespace MadMaths.calculations
         }
         static private double Fakultät(double zahl)
         {
-            if (zahl < 0)
-                throw new ArgumentOutOfRangeException("Zahl darf nicht kleiner 0 sein");
-
             double fakultät = 1;
 
             if (zahl == 0 || zahl == 1)
