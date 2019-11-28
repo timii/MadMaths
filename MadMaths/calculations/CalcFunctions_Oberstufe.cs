@@ -275,7 +275,7 @@ namespace MadMaths.calculations
                 double zusammenx = vorx1 + vorx2;
                 return string.Format("{0}x^{1}", zusammenx, input_d - 1);
             }
-            return string.Format("{0}x^{1} + {2}x^{3}",vorx1,input_b-1,vorx2,,input_d-1);
+            return string.Format("{0}x^{1} + {2}x^{3}",vorx1,input_b-1,vorx2,input_d-1);
         }
 
         static public string Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
@@ -358,7 +358,7 @@ namespace MadMaths.calculations
                 }
                 vorx1 *= (input_b - 2);
                 vorx2 *= (input_d - 2);
-                double y = vorx1 * Math.Pow(wurzel, input_b - 3) + vorx2 * Math.Pow(wurzel, input_d - 3;
+                double y = vorx1 * Math.Pow(wurzel, input_b - 3) + vorx2 * Math.Pow(wurzel, input_d - 3);
                 if (y != 0)
                 {
                     return string.Format("({0},{1})", wurzel, y);
