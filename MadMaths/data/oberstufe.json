@@ -28,12 +28,12 @@
   },
 
   "Integral": {
-    "Integral1": "Berechne das Integral 3x+2 für die Untergrenze 1 und die Obergrenze 2",
+    "Integral1": "Berechne das Integral {0}x+{1} für die Untergrenze {2} und die Obergrenze {3}",
     "Integral2": "Berechne das Integral x² für die Untergrenze 0 und die Obergrenze 1"
   },
 
   "Integral II": {
-    "SchwerAbleiten1": "Berechne die Fläche zwischen den Funktionen f(x) = x2 - 8x + 17 und g(x) = -x + 7"
+    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(2) = x + {3}"
   }
 
 }
