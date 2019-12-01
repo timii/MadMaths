@@ -13,7 +13,6 @@ namespace MadMaths
     static public class Controller
     {
         public static string currentPage { get; set; } = "None";  // enthält den Namen der aktuell aufgerufenen Page
-
         public static string currentExercise { get; set; }
 
         public static bool UserIsLoggedIn = false;
@@ -126,6 +125,7 @@ namespace MadMaths
         {
             _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
+            Client_UDP.UpdateAvatar();
         }
 
         public static void UpdateLevel()
@@ -152,21 +152,23 @@ namespace MadMaths
         }
     }
 
-    internal static class Client
+    internal static class Client_UDP
     {
         static private UdpClient client;
         static private IPEndPoint ep;
-        static Client()
+        static Client_UDP()
         {
             client = new UdpClient();
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 6969);
+            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 6969); // TODO: port change to 7777
             try
             {
                 client.Connect(ep);
+                client.Client.SendBufferSize = 65000;
+                client.Client.ReceiveBufferSize = 65000;
                 Controller.UserIsOnline = true;
             }
-            catch (SocketException)
-            { 
+            catch (Exception)
+            {
                 Controller.UserIsOnline = false;
             }
         }
@@ -177,7 +179,7 @@ namespace MadMaths
             client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
             return client.Receive(ref ep).ToString();
         }
-        
+
         static public bool CheckUsername(in string username)
         {
             string msg = string.Format("CHECKUSERNAME_{0}", username);
@@ -187,11 +189,86 @@ namespace MadMaths
             return false;
         }
 
-        static public void UpdateAvatarImg()
+        static public void UpdateAvatar()
         {
-            string msg = string.Format("UPDATEUSERDATA_{0}_AVATARIMG_{1}", Controller._user.UserName, Controller._user.avatarImg);
-            client.Client.SendBufferSize = msg.Length;
-            client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
+            List<string> splittedAvatarImg = SplitImg();
+            string cmd = string.Format("UPDATEAVATARIMG_{0}_{1}", Controller._user.UserName,splittedAvatarImg.Count);
+            client.Send(Encoding.UTF8.GetBytes(cmd), cmd.Length);
+            if (Encoding.UTF8.GetString(client.Receive(ref ep)) == "success")
+            {
+                foreach (var item in splittedAvatarImg)
+                {
+                    client.Send(Encoding.UTF8.GetBytes(item), item.Length);
+                }
+            }
+        }
+
+        static private List<string> SplitImg()
+        {
+            List<string> splittedImg = new List<string>();
+            string temp = Controller._user.avatarImg;
+            int buffSize = 512;
+            while (temp.Length >= buffSize)
+            {
+                splittedImg.Add(temp.Substring(0, buffSize));
+                temp = temp.Remove(0, buffSize);
+            }
+            if (temp.Length > 0)
+            {
+                splittedImg.Add(temp.Substring(0, temp.Length));
+            }
+            return splittedImg;
+        }
+    }
+
+    internal static class Client
+    {
+        static TcpClient client;
+        static NetworkStream stream;
+        static byte[] buffer;
+        static Client()
+        {
+            try
+            {
+                client = new TcpClient("127.0.0.1", 6969);
+                stream = client.GetStream();
+                Controller.UserIsOnline = true;
+            }
+            catch (SocketException)
+            {
+                new CustomMB("Verbindung zum Server fehlgeschlagen").ShowDialog();
+            }
+            buffer = new byte[1024];
+        }
+        static public string RegisterUser(in string username, in string usrpwd)
+        {
+            string msg = string.Format("REGISTERUSER_{0}_{1}", username, usrpwd);
+            send(msg);
+            return recv();
+        }
+
+        static private void send(in string msg)
+        {
+            stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
+        }
+        static public bool CheckUsername(in string username)
+        {
+            string msg = string.Format("CHECKUSERNAME_{0}", username);
+            send(msg);
+            if (recv() == "success")
+            { return true; }
+            return false;
+        }
+
+        static private string recv()
+        {
+            int rawresponse = stream.Read(buffer, 0, buffer.Length);
+            return Encoding.UTF8.GetString(buffer, 0, rawresponse);
+        }
+
+        static public void login()
+        {
+            return; // muss noch implementiert werden
         }
     }
 }

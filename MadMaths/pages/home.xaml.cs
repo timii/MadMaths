@@ -95,7 +95,6 @@ namespace MadMaths.pages
                         using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open))) // liest das Bild ein in bytes
                         { Controller.UpdateAvatarImg(br, fi.Length); }       // updatet die User Daten
                         Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));     // liest die updatete avatarImg Property wieder aus und updatet das icon
-                        Client.UpdateAvatarImg();
                     }
                 }
             }

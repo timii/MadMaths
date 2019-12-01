@@ -41,6 +41,7 @@ namespace MadMaths
             {
                 Controller.CreateUserJS();
             }
+            Client.login();
             InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
