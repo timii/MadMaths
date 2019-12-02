@@ -33,6 +33,15 @@
 
   "Integral II": {
     "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(2) = x + {3}"
-  }
+  },
 
+  "Symmetrie":{
+	"SymmetrieI":"Ist die Funktion Symmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5}"
+  },
+  "Extrempunkte":{
+	"ExtrempunktI":"Berechne :die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}"
+  },
+  "Nullstellen":{
+	"NullstellenI":"Berechne :die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}"
+  }
 }

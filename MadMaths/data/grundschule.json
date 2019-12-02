@@ -83,7 +83,7 @@
     "Umwandeln5": "Gib {0}mm in m an"
   },
   "Textaufgaben II": {
-    "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. {1}, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
+    "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. Vuong, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",
     "timaufgabe": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel bekommt Felix zum {1}. Geburtstag?", /* Maximal bis 20 gehen, sonst ist es glaub nicht für grundschüler*/
     "timaufgabe_insgesamt": "Felix bekommt von seinem Opa zum ersten Geburtstag {0}€, zum zweiten Geburstag bekommt er 2€ mehr als beim ersten. Beim dritten Geburtstag bekommt Felix 3€ mehr als beim zweiten und so weiter. Wieviel hat Felix insgesamt wenn er bis zum {1}. Lebensjahr spart?"
   }
