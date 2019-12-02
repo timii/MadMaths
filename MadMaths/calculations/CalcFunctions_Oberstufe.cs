@@ -21,8 +21,14 @@ namespace MadMaths.calculations
             {"Ableiten8", new Func<double, double, double, string>(Ableiten8)},
             {"Ableiten9", new Func<double, double, string>(Ableiten9)},
             {"HöherAbleiten1", new Func<double, double, double, string>(HöherAbleiten1)},
-            //{"Integral1", new Func<double>(Integral1)},
+            {"HöherAbleiten2", new Func<double, double, double, double, double, string>(HöherAbleiten2)},
+            {"Wendepunkte1", new Func<double, double, double, double, string>(Wendepunkte1)},
+            {"Integralregel1", new Func<string>(Intergralregel1)},
+            {"Integralregel2", new Func<string>(Intergralregel2)},
+            {"Integralregel3", new Func<string>(Intergralregel3)},
+            {"Integral1", new Func<double, double, double, double, double>(Integral1)},
             {"Integral2", new Func<double>(Integral2)},
+            {"SchwerIntegrieren1", new Func<double, double, double, double, double>(SchwerIntegrieren1)},
         };
         #endregion
 

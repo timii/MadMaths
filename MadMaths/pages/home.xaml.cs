@@ -59,6 +59,10 @@ namespace MadMaths.pages
             {
                 ShowLastSessions();
             }
+            //if(Button.NameProperty.Name == "lastSession") 
+            //{
+            //    Button.IsPressedProperty = false;
+            //}
             
         }
 
