@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("msg",["Variable"],[["msgBox",,[["MadMaths.CustomMB",,,,0,"File:MadMaths/obj/Debug/CustomMB.g.cs:MadMaths.CustomMB.msgBox","CSharpClass:MadMaths.CustomMB:msgBox"]]]]);

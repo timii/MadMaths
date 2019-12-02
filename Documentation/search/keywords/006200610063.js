@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("bac",["Property"],[["backButton",,[["MadMaths.Properties.Resources",,,,0,"File:MadMaths/Properties/Resources.Designer.cs:MadMaths.Properties.Resources.backButton","CSharpClass:MadMaths.Properties.Resources:backButton"]]]]);

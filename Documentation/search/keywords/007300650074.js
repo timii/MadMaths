@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("set",["Class"],[["Settings",,[["MadMaths.Properties",,,,0,"File:MadMaths/Properties/Settings.Designer.cs:MadMaths.Properties.Settings","CSharpClass:MadMaths.Properties.Settings"]]]]);

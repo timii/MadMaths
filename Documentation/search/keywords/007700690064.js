@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("wid",["Property"],[["Width",,[["MadMaths.CustomWindowSizing.RECT",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.RECT.Width","CSharpClass:MadMaths.CustomWindowSizing.RECT:Width"]]]]);

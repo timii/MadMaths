@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("ise",["Property"],[["IsEmpty",,[["MadMaths.CustomWindowSizing.RECT",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.RECT.IsEmpty","CSharpClass:MadMaths.CustomWindowSizing.RECT:IsEmpty"]]]]);

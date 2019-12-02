@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("rec",["Struct"],[["RECT",,[["MadMaths.CustomWindowSizing",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.RECT","CSharpClass:MadMaths.CustomWindowSizing.RECT"]]]]);

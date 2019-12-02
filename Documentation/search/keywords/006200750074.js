@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("but",["Function"],[["Button_Click",,[["MadMaths.CustomMB",,,,0,"File:MadMaths/CustomMB.xaml.cs:MadMaths.CustomMB.Button_Click","CSharpClass:MadMaths.CustomMB:Button_Click"],["MadMaths.LevelUpWindow",,,,0,"File:MadMaths/LevelUPWindow.xaml.cs:MadMaths.LevelUpWindow.Button_Click","CSharpClass:MadMaths.LevelUpWindow:Button_Click"]]]]);

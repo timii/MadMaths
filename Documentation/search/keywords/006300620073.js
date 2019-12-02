@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("cbs",["Variable"],[["cbSize",,[["MadMaths.CustomWindowSizing.MONITORINFO",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.MONITORINFO.cbSize","CSharpClass:MadMaths.CustomWindowSizing.MONITORINFO:cbSize"]]]]);

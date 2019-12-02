@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("gs_",["Variable"],[["gs_funcs",,[["MadMaths.calculations.CalcFunctions_Grundschule",,,,0,"File:MadMaths/calculations/CalcFunctions_Grundschule.cs:MadMaths.calculations.CalcFunctions_Grundschule.gs_funcs","CSharpClass:MadMaths.calculations.CalcFunctions_Grundschule:gs_funcs"]]]]);

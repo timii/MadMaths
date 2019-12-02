@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("rcw",["Variable"],[["rcWork",,[["MadMaths.CustomWindowSizing.MONITORINFO",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.MONITORINFO.rcWork","CSharpClass:MadMaths.CustomWindowSizing.MONITORINFO:rcWork"]]]]);

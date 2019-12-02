@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("cre",["Function"],[["CreateSaveDir",,[["MadMaths.Controller",,,,0,"File:MadMaths/Controller.cs:MadMaths.Controller.CreateSaveDir","CSharpClass:MadMaths.Controller:CreateSaveDir"]]],["CreateUserJS",,[["MadMaths.Controller",,,,0,"File:MadMaths/Controller.cs:MadMaths.Controller.CreateUserJS","CSharpClass:MadMaths.Controller:CreateUserJS"]]]]);

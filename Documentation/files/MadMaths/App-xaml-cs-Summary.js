@@ -1,1 +1,0 @@
-NDFramePage.OnPageTitleLoaded("File:MadMaths/App.xaml.cs","App.xaml.cs");NDSummary.OnSummaryLoaded("File:MadMaths/App.xaml.cs",[["C#","CSharp"]],[["Classes","Class"]],[[457,0,0,"<span class=\"Qualifier\">MadMaths.</span>&#8203;App","MadMaths.App"]]);

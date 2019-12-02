@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("hom",["Class"],[["home",,[["MadMaths.pages",,,,0,"File:MadMaths/obj/Debug/pages/home.g.cs:MadMaths.pages.home","CSharpClass:MadMaths.pages.home"]]]]);

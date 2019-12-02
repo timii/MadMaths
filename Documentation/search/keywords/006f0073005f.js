@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("os_",["Variable"],[["os_funcs",,[["MadMaths.calculations.CalcFunctions_Oberstufe",,,,0,"File:MadMaths/calculations/CalcFunctions_Oberstufe.cs:MadMaths.calculations.CalcFunctions_Oberstufe.os_funcs","CSharpClass:MadMaths.calculations.CalcFunctions_Oberstufe:os_funcs"]]]]);

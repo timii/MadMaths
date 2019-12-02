@@ -1,1 +1,0 @@
-NDSearch.OnPrefixDataLoaded("dwf",["Variable"],[["dwFlags",,[["MadMaths.CustomWindowSizing.MONITORINFO",,,,0,"File:MadMaths/CustomWindowSizing.cs:MadMaths.CustomWindowSizing.MONITORINFO.dwFlags","CSharpClass:MadMaths.CustomWindowSizing.MONITORINFO:dwFlags"]]]]);
