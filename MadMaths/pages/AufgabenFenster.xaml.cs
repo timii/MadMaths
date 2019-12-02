@@ -37,7 +37,7 @@ namespace MadMaths.pages
 
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
-            if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text))
+            if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text, out string _lösung))
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
@@ -46,7 +46,7 @@ namespace MadMaths.pages
             }
             else
             {
-                Lösung.Text = "You Dumbass";
+                Lösung.Text = "You fucking donkey"+ Environment.NewLine + _lösung;
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
             }
             abgabebtn.IsEnabled = false;

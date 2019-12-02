@@ -21,7 +21,7 @@ namespace MadMaths.calculations
         // speichert die Json ungeparst
         dynamic RawJson { get; set; }
         string getAufgabenText(string aufgabe);
-        bool checksSolution(in object lösung);
+        bool checksSolution(in object Benutzerlösung, out string Lösung);
         void ReadAufgabenJS();
         // wird zur Speicherung der random erzeugten Zahlen verwendet
         object[] AufgabenZahlen { get; set; }
@@ -44,16 +44,18 @@ namespace MadMaths.calculations
             ReadAufgabenJS();
             rand = new Random();
         }
-        public bool checksSolution(in object BenutzerLösung)
+        public bool checksSolution(in object BenutzerLösung, out string Lösung)
         {
             if (AufgabenKey == "Groesser" || AufgabenKey == "Kleiner")
             {
+                Lösung = null;
                 if (AufgabenKey == "Groesser") { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(AufgabenZahlen[0]), Convert.ToInt32(BenutzerLösung)); }
                 else { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(BenutzerLösung), Convert.ToInt32(AufgabenZahlen[0])); }
             }
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
-            var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
-            if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
+            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
+
+            if (Lösung == BenutzerLösung.ToString().Replace(" ", string.Empty))
             {
                 return true;
             }

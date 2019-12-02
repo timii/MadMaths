@@ -24,10 +24,10 @@ namespace MadMaths.calculations
             rand = new Random();
         }
 
-        public bool checksSolution(in object BenutzerLösung)
+        public bool checksSolution(in object BenutzerLösung, out string Lösung)
         {
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
-            var Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
+            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
             if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
             {
                 return true;

@@ -111,9 +111,10 @@ namespace MadMaths.pages
 
         private void ShowLastSessions() 
         {
-            var lastSessions = Controller._user.lastSessions.Split(',');
-            Array.Reverse(lastSessions);
-            lastSessions = lastSessions.Where((value, index) => index % 2 == 1).ToArray(); 
+            var temp = Controller._user.lastSessions.Split(',');
+            List<string> lastSessions = new List<string>();
+            Array.Reverse(temp);
+            Array.ForEach(temp, x => lastSessions.Add(x.Split(':')[1]));
             foreach (var item in lastSessions
                 .Take(3))
             {

@@ -44,27 +44,7 @@ namespace MadMaths.pages
         {
             UsernameFeedback.Text = "";
             PasswordFeedback.Text = "";
-            if (Controller.UserIsOnline)
-            {
-                if (Client.CheckUsername(UserName.Text))
-                {
-                    Controller._user.UserName = UserName.Text;
-                    if (UserPassword.Password.Length < 8)
-                    {
-                        PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
-                        return;
-                    }
-                    Controller._user.password = GetHashString(UserPassword.Password);
-                    Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
-                    Controller.UpdateUserJson();
-                    NavigationService.GoBack();
-                }
-                else
-                {
-                    UsernameFeedback.Text = "Benutzername existiert bereits";
-                }
-            }
-            else
+            if (Client.CheckUsername(UserName.Text))
             {
                 Controller._user.UserName = UserName.Text;
                 if (UserPassword.Password.Length < 8)
@@ -73,8 +53,13 @@ namespace MadMaths.pages
                     return;
                 }
                 Controller._user.password = GetHashString(UserPassword.Password);
+                Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
                 Controller.UpdateUserJson();
                 NavigationService.GoBack();
+            }
+            else
+            {
+                UsernameFeedback.Text = "Benutzername existiert bereits";
             }
         }
         private void ThemenBackClick(object sender, RoutedEventArgs e)

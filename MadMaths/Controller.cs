@@ -125,7 +125,7 @@ namespace MadMaths
         {
             _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
-            Client_UDP.UpdateAvatar();
+           // Client.UpdateAvatar();
         }
 
         public static void UpdateLevel()
@@ -242,9 +242,13 @@ namespace MadMaths
         }
         static public string RegisterUser(in string username, in string usrpwd)
         {
-            string msg = string.Format("REGISTERUSER_{0}_{1}", username, usrpwd);
-            send(msg);
-            return recv();
+            if (Controller.UserIsOnline)
+            {
+                string msg = string.Format("REGISTERUSER_{0}_{1}", username, usrpwd);
+                send(msg);
+                return recv();
+            }
+            return null;
         }
 
         static private void send(in string msg)
@@ -253,11 +257,15 @@ namespace MadMaths
         }
         static public bool CheckUsername(in string username)
         {
-            string msg = string.Format("CHECKUSERNAME_{0}", username);
-            send(msg);
-            if (recv() == "success")
-            { return true; }
-            return false;
+            if (Controller.UserIsOnline)
+            {
+                string msg = string.Format("CHECKUSERNAME_{0}", username);
+                send(msg);
+                if (recv() == "success")
+                { return true; }
+                return false;
+            }
+            return true;
         }
 
         static private string recv()
