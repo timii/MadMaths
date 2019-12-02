@@ -116,15 +116,16 @@ namespace MadMaths.pages
         private void ShowLastSessions() 
         {
             var temp = Controller._user.lastSessions.Split(',');
-            List<string> lastSessions = new List<string>();
+            List<string[]> lastSessions = new List<string[]>();
             Array.Reverse(temp);
-            Array.ForEach(temp, x => lastSessions.Add(x.Split(':')[1]));
+            Array.ForEach(temp, x => lastSessions.Add(x.Split(':')));
             foreach (var item in lastSessions
                 .Take(3))
             {
                 //lastSessionsPanel.Children.Add(new Separator());
                 Button b = new Button();
-                b.Content = item;
+                b.Tag = item[0];
+                b.Content = item[1];
                 b.MaxHeight = 40;
                 b.MinWidth = 180;
                 b.Margin = new Thickness(10, 0, 10, 0);
@@ -137,6 +138,7 @@ namespace MadMaths.pages
         }
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
+            Controller.currentPage = (sender as Button).Tag as string;
             Controller.currentExercise = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }

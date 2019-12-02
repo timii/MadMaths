@@ -41,7 +41,13 @@ namespace MadMaths
             {
                 Controller.CreateUserJS();
             }
-            Client.login();
+            else 
+            {
+                if (!Client.LoginUser())
+                {
+                    new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
+                }
+            }
             InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
