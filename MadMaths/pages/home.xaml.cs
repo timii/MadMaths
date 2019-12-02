@@ -122,11 +122,15 @@ namespace MadMaths.pages
             foreach (var item in lastSessions
                 .Take(3))
             {
+                //lastSessionsPanel.Children.Add(new Separator());
                 Button b = new Button();
                 b.Content = item;
                 b.MaxHeight = 40;
                 b.MinWidth = 180;
-                b.Margin = new Thickness(10);
+                b.Margin = new Thickness(10, 0, 10, 0);
+                b.BorderBrush = Brushes.Black;
+                b.BorderThickness = new Thickness(20);
+                b.Background = new SolidColorBrush(Color.FromRgb(213, 117, 0));
                 b.Click += AufgabenClick;
                 lastSessionsPanel.Children.Add(b);
             }
