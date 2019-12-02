@@ -26,7 +26,7 @@ namespace MadMaths.calculations
 
         public bool checksSolution(in object BenutzerLösung, out string Lösung)
         {
-            var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
+            var AufgabenFunc = CalcFunctions_Oberstufe.os_funcs[AufgabenKey];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
             if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
             {

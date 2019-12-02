@@ -251,10 +251,27 @@ namespace MadMaths
             return null;
         }
 
-        static private void send(in string msg)
+        static public bool LoginUser(in string username, in string pw)
         {
-            stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
+            if (Controller.UserIsOnline)
+            {
+                string msg = string.Format("LOGINUSER_{0}_{1}", username, pw);
+                send(msg);
+                if (recv() == "success")
+                {
+                    Controller.UserIsLoggedIn = true;
+                    return true;
+                }
+                return false;
+            }
+            return true;
         }
+
+        static public bool LoginUser()
+        {
+            return LoginUser(Controller._user.UserName, Controller._user.password);
+        }
+
         static public bool CheckUsername(in string username)
         {
             if (Controller.UserIsOnline)
@@ -268,15 +285,24 @@ namespace MadMaths
             return true;
         }
 
+        static public void UpdateAvatar()
+        {
+            string msg = string.Format("UPDATEAVATARIMG");
+            send(msg);
+            if (recv() == "success")
+            {
+                send(Controller._user.avatarImg);
+            }
+        }
+
         static private string recv()
         {
             int rawresponse = stream.Read(buffer, 0, buffer.Length);
             return Encoding.UTF8.GetString(buffer, 0, rawresponse);
         }
-
-        static public void login()
+        static private void send(in string msg)
         {
-            return; // muss noch implementiert werden
+            stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
         }
     }
 }
