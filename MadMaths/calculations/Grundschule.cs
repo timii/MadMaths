@@ -71,10 +71,10 @@ namespace MadMaths.calculations
             var argsNum = System.Text.RegularExpressions.Regex.Matches(aufgabe, "{").Count;
             //AufgabenZahlen = new object[argsNum];
             AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe, AufgabenKey);
-            for (int i = 0; i < argsNum; i++)
-            {
-                AufgabenZahlen[i] = rand.Next(1, 10);
-            }
+            //for (int i = 0; i < argsNum; i++)
+            //{
+            //    AufgabenZahlen[i] = rand.Next(1, 10);
+            //}
             return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
         }
 

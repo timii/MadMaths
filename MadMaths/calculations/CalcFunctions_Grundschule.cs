@@ -61,7 +61,7 @@ namespace MadMaths.calculations
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
         static public int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
         static public int standard_addieren(int a) { return a + a; }
-        static public int standard_subtrahieren(int input_a, int input_b) { return input_a - input_b; }
+        static public int standard_subtrahieren(int input_a, int input_b) { return input_b - input_a; }
         static public int standard_subtrahieren(int input_a, int input_b, int input_c) { return input_a - input_b - input_c; }
 
         static public int standard_multiplizieren(int input_a, int input_b) { return (input_a * input_b); }
