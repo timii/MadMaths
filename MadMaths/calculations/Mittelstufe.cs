@@ -37,6 +37,7 @@ namespace MadMaths.calculations
 
         public string getAufgabenText(string aufgabe)
         {
+            var aufgabe_real = aufgabe;
             AufgabenZahlen = null;
             if (aufgabe == "Gleichungssysteme2x2")
             {
@@ -44,11 +45,7 @@ namespace MadMaths.calculations
                 AufgabenKey = Gleichungssysteme.ElementAt(randIndex).Key;
                 aufgabe = Gleichungssysteme.ElementAt(randIndex).Value[0] + Environment.NewLine + Gleichungssysteme.ElementAt(randIndex).Value[1];
                 var argsNum = System.Text.RegularExpressions.Regex.Matches(aufgabe, "{").Count;
-                AufgabenZahlen = new object[argsNum];
-                for (int i = 0; i < argsNum; i++)
-                {
-                    AufgabenZahlen[i] = (double)rand.Next(1, 100);
-                }
+                AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, AufgabenKey);
                 return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
             }
             else
@@ -57,11 +54,7 @@ namespace MadMaths.calculations
                 AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
                 aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
                 var argsNum = System.Text.RegularExpressions.Regex.Matches(aufgabe, "{").Count;
-                AufgabenZahlen = new object[argsNum];
-                for (int i = 0; i < argsNum; i++)
-                {
-                    AufgabenZahlen[i] = rand.Next(1, 100);
-                }
+                AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, AufgabenKey);
                 return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
             }
         }
