@@ -9,6 +9,17 @@ namespace MadMaths
 {
     static class randnumbers
     {
+        static private bool isPrim(int Zahl)
+        {
+            for (int i = 2; i < Zahl; i++)
+            {
+                if (Zahl % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         static public object[] Zahlen(int argnum, string Thema, string Aufgabe)
         {
             Random rand = new Random();
@@ -60,11 +71,15 @@ namespace MadMaths
 
             if (Thema == "Dividieren")
             {
-                Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                minValue = 2;
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                } while (isPrim(Int32.Parse(Zahl_Rückgabe[0].ToString())));
                 do
                 {
                     Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
-                } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) % Int32.Parse(Zahl_Rückgabe[1].ToString()) == 0);
+                } while (Double.Parse(Zahl_Rückgabe[0].ToString()) % Double.Parse(Zahl_Rückgabe[1].ToString()) != 0 || Double.Parse(Zahl_Rückgabe[0].ToString()) == Double.Parse(Zahl_Rückgabe[1].ToString()) || Double.Parse(Zahl_Rückgabe[1].ToString()) == 1);
                 return Zahl_Rückgabe;
             }
             if (Aufgabe == "essenaufgabe" || Aufgabe == "grundschule_subtrahieren")

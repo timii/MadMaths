@@ -400,6 +400,11 @@ namespace MadMaths.calculations
         {
             return 1/3;
         }
+
+
+
+
+        /// DAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         static public double SchwerIntegrieren1(double input_a, double input_b, double input_c, double input_d) 
         {
             double tmp;
