@@ -129,7 +129,46 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
+        <!-- Style für Letzte Aufgaben Panel Button -->
+        <Style x:Key="LetzteAufgabenPanelButton" TargetType="Button">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontFamily" Value="Microsoft Sans Serif"/>
+            <Setter Property="MinHeight" Value="70"/>
+            <Setter Property="MinWidth" Value="180"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Background" Value="#d57500"/>
+            <Setter Property="Control.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Hover Effekt -->
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#e66b00"/>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Background" Value="#cc5f00"/>
+                </Trigger>
+                <Trigger Property="Button.IsEnabled" Value="False">
+                    <Setter Property="Background" Value="DimGray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Style für den MainBackground -->
         <Style TargetType="{x:Type Grid}">
             <Setter Property="Background">
@@ -367,25 +406,6 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ProgressBar}">
                         <Grid x:Name="TemplateRoot" Background="Transparent">
-                            <!--<VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Determinate"/>
-                                    <VisualState x:Name="Indeterminate">
-                                        <Storyboard RepeatBehavior="Forever">
-                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Animation">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
-                                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
-                                                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
-                                            </DoubleAnimationUsingKeyFrames>
-                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
-                                                <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
-                                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
-                                                <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
-                                            </PointAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>-->
                             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="12"/>
                             <Rectangle x:Name="PART_Track"/>
                             <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left" Background="Transparent">
