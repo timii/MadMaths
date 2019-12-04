@@ -54,8 +54,8 @@
 
   "Dreisatz": {
     "Dreisatz1": "{0} Lampen kosten {1} Euro. Wie viel kosten {2} Lampen?",
-    "Dreisatz2": "{0} Personen brauchen {1} Stunden um einen Reifen zu wechseln. Wie lange brauchen {2} Personen benötigen?",
-    "Dreisatz3": "Eine Person lauft {0} Kilometer in {1} Stunden. Wie viele Kilometer läuft die Person in {2} Stunden?"
+    "Dreisatz2": "{0} Personen brauchen {1} Stunden um einen Reifen zu wechseln. Wie lange benötigen {2} Personen?",
+    "Dreisatz3": "Eine Person laeuft {0} Kilometer in {1} Stunden. Wie viele Kilometer läuft die Person in {2} Stunden?"
   },
 
   "Prozentrechnung": {
@@ -100,7 +100,7 @@
     "Urnenmodell3": "Wir haben eine Urne mit {0}  Kugeln. Alle Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?"
   },
   "Hypergeometrische Verteilung": {
-    "HypergeometrischeVerteilung1": "In einer Urne befinden sich {0} Kugeln ( N = {0} ), davon sind {1} Kugeln rot ( K = {1} ). Wir entnehmen {2} Kugeln ( n = {2} ) ohne zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass in der Stichprobe {3} rote  Kugeln ( k = {3} ) vorhanden sind?"
+    "HypergeometrischeVerteilung1": "In einer Urne befinden sich {0} Kugeln ( N = {0} ), davon sind {1} Kugeln rot ( K = {1} ). Wir entnehmen {2} Kugeln ( n = {2} ) ohne zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass in der Stichprobe genau {3} rote  Kugeln ( k = {3} ) vorhanden sind?"
   },
   //Bedingte Wahrscheinlichkeit
   //

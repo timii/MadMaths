@@ -32,7 +32,7 @@
   },
 
   "Integral II": {
-    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(2) = x + {3}"
+    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(x) = x + {2}"
   },
 
   "Symmetrie":{
