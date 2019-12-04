@@ -95,6 +95,7 @@
     <Compile Include="LevelUpWindow.xaml.cs">
       <DependentUpon>LevelUpWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="randnumbers.cs" />
     <Compile Include="User.cs" />
     <Page Include="CustomMB.xaml">
       <SubType>Designer</SubType>
