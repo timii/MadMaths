@@ -63,7 +63,7 @@ namespace MadMaths.calculations
             {"Urnenmodell1", new Func<double, double, double>(Urnenmodell1)},
             {"Urnenmodell2", new Func<double, double, double>(Urnenmodell2)},
             {"Urnenmodell3", new Func<double, double>(Urnenmodell3)},
-            {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
+            {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double,double,double,double,double>(HypergeometrischeVerteilung1)},
             {"Mittelwert1", new Func<double, double, double, double, double, double>(Mittelwert1)},
             {"Mittelwert2", new Func<double, double, double, double, double>(Mittelwert2)}
         };
@@ -92,9 +92,15 @@ namespace MadMaths.calculations
 
             return fakultät;
         }
-        static private double Binomialkoeffizient(double input_a, double input_b)
+        static private double Binomialkoeffizient(double N, double K)
         {
-            return (Fakultät(input_a) / Fakultät(input_b) * Fakultät(input_a - input_b));
+            double result = 1;
+            for (int i = 1; i <= K; i++)
+            {
+                result *= N - (K - i);
+                result /= i;
+            }
+            return result;
         }
         static public int Variablen1(int input_a, int input_b) { return input_b - input_a; }
         static public int Variablen2(int input_a, int input_b) { return input_b + input_a; }
@@ -222,17 +228,17 @@ namespace MadMaths.calculations
         }
         static public double Potenzen1(double input_a, double input_b)
         {
-            return hoch(input_a, input_b);
+            return Math.Round(hoch(input_a, input_b), 2, MidpointRounding.AwayFromZero);
         }
         static public double Logarithmen1(double input_a, double input_b)
         {
-            return Math.Log(input_a, input_b);
+            return Math.Round(Math.Log(input_a, input_b), 2, MidpointRounding.AwayFromZero);
         }
         static public double Logarithmen2(double input_a, double input_b)
         {
             double ergebnis;
             ergebnis = Math.Pow(input_a, 1 / input_b);
-            return ergebnis;
+            return Math.Round(ergebnis,3, MidpointRounding.AwayFromZero);
         }
         static public double Fakultät1(double input_a)
         {
@@ -255,9 +261,9 @@ namespace MadMaths.calculations
         {
             return Fakultät(input_a);
         }
-        static public double HypergeometrischeVerteilung1(double input_a, double input_b, double input_c, double input_d)
+        static public double HypergeometrischeVerteilung1(double input_a, double input_b, double input_c, double input_d, double useless1, double useless2, double useless3, double useless4)
         {
-            return (Binomialkoeffizient(input_b, input_d) * Binomialkoeffizient(input_a - input_b, input_c - input_d)) / (Binomialkoeffizient(input_a, input_c));
+            return Math.Round((Binomialkoeffizient(input_b, input_d) * Binomialkoeffizient(input_a - input_b, input_c - input_d)) / (Binomialkoeffizient(input_a, input_c)), 2, MidpointRounding.AwayFromZero);
         }
         static public double Mittelwert1(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
