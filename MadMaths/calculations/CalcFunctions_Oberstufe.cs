@@ -28,7 +28,7 @@ namespace MadMaths.calculations
             {"Integralregel3", new Func<string>(Intergralregel3)},
             {"Integral1", new Func<double, double, double, double, double>(Integral1)},
             {"Integral2", new Func<double>(Integral2)},
-            {"SchwerIntegrieren1", new Func<double, double, double, double, double>(SchwerIntegrieren1)},
+            {"SchwerIntegrieren1", new Func<double, double, double, double>(SchwerIntegrieren1)},
         };
         #endregion
 
@@ -270,7 +270,11 @@ namespace MadMaths.calculations
 
                 input_b *= (input_c - i);
             }
-            return string.Format("{0}x^{1}", input_b, input_c - 1);
+            if (input_b == 0)
+            {
+                return "0";
+            }
+            return string.Format("{0}x^{1}", input_b, input_c - i);
         }
         static public string HöherAbleiten2(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
@@ -405,23 +409,23 @@ namespace MadMaths.calculations
 
 
         /// DAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        static public double SchwerIntegrieren1(double input_a, double input_b, double input_c, double input_d) 
+        static public double SchwerIntegrieren1(double input_a, double input_b, double input_c) 
         {
             double tmp;
-            double x1 = (-(input_b - 1) + Math.Sqrt(Math.Pow((input_b - 1), 2) - 4 * (input_c * input_d))) / 2;
-            double x2 = (-(input_b - 1) - Math.Sqrt(Math.Pow((input_b - 1), 2) - 4 * (input_c * input_d))) / 2;
+            double x1 = (-(input_a - 1) + Math.Sqrt(Math.Pow((input_a - 1), 2) - 4 * (input_b * input_c))) / 2;
+            double x2 = (-(input_a - 1) - Math.Sqrt(Math.Pow((input_a - 1), 2) - 4 * (input_b * input_c))) / 2;
             if (x1 > x2)
             {
                 tmp = x1;
                 x1 = x2;
                 x2 = tmp;
             }
-            double Flaeche_Hilfe1 = (1 / (input_a + 1)) * Math.Pow(x2, input_a + 1) + (input_b / 2) * Math.Pow(x2, 2) + input_c * x2;
-            double Flaeche_Hilfe2 = (1 / (input_a + 1)) * Math.Pow(x1, input_a + 1) + (input_b / 2) * Math.Pow(x1, 2) + input_c * x1;
+            double Flaeche_Hilfe1 = (1 / 3) * Math.Pow(x2, 3) + (input_a / 2) * Math.Pow(x2, 2) + input_b * x2;
+            double Flaeche_Hilfe2 = (1 / 3) * Math.Pow(x1, 3) + (input_a / 2) * Math.Pow(x1, 2) + input_b * x1;
             double Flaeche1 = Flaeche_Hilfe1 - Flaeche_Hilfe2;
 
-            Flaeche_Hilfe1 = (1 / 2) * Math.Pow(x2, 2) + input_d * x2;
-            Flaeche_Hilfe2 = (1 / 2) * Math.Pow(x1, 2) + input_d * x1;
+            Flaeche_Hilfe1 = (1 / 2) * Math.Pow(x2, 2) + input_c * x2;
+            Flaeche_Hilfe2 = (1 / 2) * Math.Pow(x1, 2) + input_c * x1;
             double Flaeche2 = Flaeche_Hilfe1 - Flaeche_Hilfe2;
             if (Flaeche1 < Flaeche2)
             {
