@@ -48,6 +48,7 @@ namespace MadMaths
                     new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
                 }
             }
+            Client.GetRanklist();
             InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }

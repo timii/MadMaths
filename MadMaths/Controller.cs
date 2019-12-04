@@ -125,7 +125,7 @@ namespace MadMaths
         {
             _user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
-           // Client.UpdateAvatar();
+            // Client.UpdateAvatar();
         }
 
         public static void UpdateLevel()
@@ -152,74 +152,74 @@ namespace MadMaths
         }
     }
 
-    internal static class Client_UDP
-    {
-        static private UdpClient client;
-        static private IPEndPoint ep;
-        static Client_UDP()
-        {
-            client = new UdpClient();
-            ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 6969); // TODO: port change to 7777
-            try
-            {
-                client.Connect(ep);
-                client.Client.SendBufferSize = 65000;
-                client.Client.ReceiveBufferSize = 65000;
-                Controller.UserIsOnline = true;
-            }
-            catch (Exception)
-            {
-                Controller.UserIsOnline = false;
-            }
-        }
+    //internal static class Client_UDP
+    //{
+    //    static private UdpClient client;
+    //    static private IPEndPoint ep;
+    //    static Client_UDP()
+    //    {
+    //        client = new UdpClient();
+    //        ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 6969); // TODO: port change to 7777
+    //        try
+    //        {
+    //            client.Connect(ep);
+    //            client.Client.SendBufferSize = 65000;
+    //            client.Client.ReceiveBufferSize = 65000;
+    //            Controller.UserIsOnline = true;
+    //        }
+    //        catch (Exception)
+    //        {
+    //            Controller.UserIsOnline = false;
+    //        }
+    //    }
 
-        static public string RegisterUser(in string username, in string usrpwd)
-        {
-            string msg = string.Format("REGISTERUSER_{0}_{1}", username, usrpwd);
-            client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
-            return client.Receive(ref ep).ToString();
-        }
+    //    static public string RegisterUser(in string username, in string usrpwd)
+    //    {
+    //        string msg = string.Format("REGISTERUSER_{0}_{1}", username, usrpwd);
+    //        client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
+    //        return client.Receive(ref ep).ToString();
+    //    }
 
-        static public bool CheckUsername(in string username)
-        {
-            string msg = string.Format("CHECKUSERNAME_{0}", username);
-            client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
-            if (Encoding.UTF8.GetString(client.Receive(ref ep)) == "success")
-            { return true; }
-            return false;
-        }
+    //    static public bool CheckUsername(in string username)
+    //    {
+    //        string msg = string.Format("CHECKUSERNAME_{0}", username);
+    //        client.Send(Encoding.UTF8.GetBytes(msg), msg.Length);
+    //        if (Encoding.UTF8.GetString(client.Receive(ref ep)) == "success")
+    //        { return true; }
+    //        return false;
+    //    }
 
-        static public void UpdateAvatar()
-        {
-            List<string> splittedAvatarImg = SplitImg();
-            string cmd = string.Format("UPDATEAVATARIMG_{0}_{1}", Controller._user.UserName,splittedAvatarImg.Count);
-            client.Send(Encoding.UTF8.GetBytes(cmd), cmd.Length);
-            if (Encoding.UTF8.GetString(client.Receive(ref ep)) == "success")
-            {
-                foreach (var item in splittedAvatarImg)
-                {
-                    client.Send(Encoding.UTF8.GetBytes(item), item.Length);
-                }
-            }
-        }
+    //    static public void UpdateAvatar()
+    //    {
+    //        List<string> splittedAvatarImg = SplitImg();
+    //        string cmd = string.Format("UPDATEAVATARIMG_{0}_{1}", Controller._user.UserName,splittedAvatarImg.Count);
+    //        client.Send(Encoding.UTF8.GetBytes(cmd), cmd.Length);
+    //        if (Encoding.UTF8.GetString(client.Receive(ref ep)) == "success")
+    //        {
+    //            foreach (var item in splittedAvatarImg)
+    //            {
+    //                client.Send(Encoding.UTF8.GetBytes(item), item.Length);
+    //            }
+    //        }
+    //    }
 
-        static private List<string> SplitImg()
-        {
-            List<string> splittedImg = new List<string>();
-            string temp = Controller._user.avatarImg;
-            int buffSize = 512;
-            while (temp.Length >= buffSize)
-            {
-                splittedImg.Add(temp.Substring(0, buffSize));
-                temp = temp.Remove(0, buffSize);
-            }
-            if (temp.Length > 0)
-            {
-                splittedImg.Add(temp.Substring(0, temp.Length));
-            }
-            return splittedImg;
-        }
-    }
+    //    static private List<string> SplitImg()
+    //    {
+    //        List<string> splittedImg = new List<string>();
+    //        string temp = Controller._user.avatarImg;
+    //        int buffSize = 512;
+    //        while (temp.Length >= buffSize)
+    //        {
+    //            splittedImg.Add(temp.Substring(0, buffSize));
+    //            temp = temp.Remove(0, buffSize);
+    //        }
+    //        if (temp.Length > 0)
+    //        {
+    //            splittedImg.Add(temp.Substring(0, temp.Length));
+    //        }
+    //        return splittedImg;
+    //    }
+    //}
 
     internal static class Client
     {
@@ -230,7 +230,8 @@ namespace MadMaths
         {
             try
             {
-                client = new TcpClient("127.0.0.1", 6969);
+                //client = new TcpClient("127.0.0.1", 7777);
+                client = new TcpClient("45.88.108.218", 7777);
                 stream = client.GetStream();
                 Controller.UserIsOnline = true;
             }
@@ -262,6 +263,7 @@ namespace MadMaths
                     Controller.UserIsLoggedIn = true;
                     return true;
                 }
+                Controller._user.UserName = null;
                 return false;
             }
             return true;
@@ -287,12 +289,23 @@ namespace MadMaths
 
         static public void UpdateAvatar()
         {
-            string msg = string.Format("UPDATEAVATARIMG");
-            send(msg);
-            if (recv() == "success")
+            //string msg = "UPDATEAVATARIMG";
+            //send(msg);
+            //if (recv() == "success")
+            //{
+            //    send(Controller._user.avatarImg);
+            //}
+        }
+
+        static public string GetRanklist()
+        {
+            if (Controller.UserIsOnline)
             {
-                send(Controller._user.avatarImg);
+                string msg = "GETRANKLIST";
+                send(msg);
+                return recv();
             }
+            return null;
         }
 
         static private string recv()
