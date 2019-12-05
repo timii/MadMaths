@@ -138,5 +138,11 @@ namespace MadMaths.pages
             Controller.currentExercise = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
+
+        private void SettingClick(object sender, RoutedEventArgs e)
+        {
+            new SettingsWindow().ShowDialog();
+            Username.Text = "Einloggen";
+        }
     }
 }

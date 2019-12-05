@@ -96,6 +96,9 @@
       <DependentUpon>LevelUpWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="randnumbers.cs" />
+    <Compile Include="SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Page Include="CustomMB.xaml">
       <SubType>Designer</SubType>
@@ -131,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\ThemenAuswahl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,6 +202,8 @@
     <Resource Include="assets\icons\NewExerciseButton.png" />
     <Resource Include="assets\icons\NewExerciseButton_active.png" />
     <Resource Include="assets\icons\NextExerciseButton_active.png" />
+    <Resource Include="assets\icons\settingsButton.png" />
+    <Resource Include="assets\icons\settingsButton2.png" />
     <Content Include="assets\logo\madmaths_logo1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CustomToolNamespace>MadMaths</CustomToolNamespace>

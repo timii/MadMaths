@@ -230,8 +230,8 @@ namespace MadMaths
         {
             try
             {
-                //client = new TcpClient("127.0.0.1", 7777);
-                client = new TcpClient("45.88.108.218", 7777);
+                client = new TcpClient("127.0.0.1", 7777);
+                //client = new TcpClient("45.88.108.218", 7777);
                 stream = client.GetStream();
                 Controller.UserIsOnline = true;
             }

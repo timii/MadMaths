@@ -263,6 +263,8 @@
         <!-- Style für die Window Close Button -->
         <Style x:Key="WindowButtonClose" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
+            <Setter Property="Control.MinHeight" Value="0"/>
+            <!--<Setter Property="Control.Background" Value="Transparent"/>-->
         </Style>
         
         <!-- Style für den Back Button -->
