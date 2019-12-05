@@ -29,6 +29,7 @@ namespace MadMaths.calculations
             {"Integral1", new Func<double, double, double, double, double>(Integral1)},
             {"Integral2", new Func<double>(Integral2)},
             {"SchwerIntegrieren1", new Func<double, double, double, double>(SchwerIntegrieren1)},
+            {"SymmetrieI", new Func<double, double, double, double,double,double,string>(SymmetrieI) }
         };
         #endregion
 
@@ -405,10 +406,6 @@ namespace MadMaths.calculations
             return 1/3;
         }
 
-
-
-
-        /// DAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         static public double SchwerIntegrieren1(double input_a, double input_b, double input_c) 
         {
             double tmp;
@@ -436,7 +433,39 @@ namespace MadMaths.calculations
 
             return Flaeche1 - Flaeche2;
         }
+        
+        static public string SymmetrieI(double a, double b, double c,double d, double e, double f)
+        {
+            int Zaehler = 0;
+            for (int i = 0; i < 50; i++)
+            {
+                if ((a * Math.Pow(-i,b)+c*Math.Pow(-i,d)+e*Math.Pow(-i,f) == (a * Math.Pow(i, b) + c * Math.Pow(i, d) + e * Math.Pow(i, f)))) 
+                {
+                    Zaehler++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (Zaehler == 50)
+            {
+                return "Achsensymmetrisch";
+            }
+            if (b % 2 != 0 && d % 2 != 0 && f % 2 != 0)
+            {
+                return "Punktsymmetrisch";
+            }
+
+            
+            return "Asymmetrisch";
+        }
+
+        static public string ExtrempunktI(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
+        {
 
 
+            return "";
+        }
     }
 }
