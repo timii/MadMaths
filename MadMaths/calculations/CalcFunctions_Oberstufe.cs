@@ -463,10 +463,37 @@ namespace MadMaths.calculations
             return "Asymmetrisch";
         }
 
-        static public string ExtrempunktI(double input_a, double input_b, double input_c, double input_d)
+        static public string[] ExtrempunktI(double input_a, double input_b, double input_c, double input_d)
         {
+            string[] Lösung = new string[2];
+            int i = 0; //zählt mit an welcher Stelle wir sind
 
-            return "";
+            double vorx1 = input_a * input_b;
+            double vorx2 = input_c * input_d;
+            double extr; //extremstelle
+            double LoesHilf;
+            //Keine EP wenn 2. ABleitung 0
+            if (input_b-2 < 0 && input_d-2 < 0)
+            {
+                Lösung[i] = "NaN";
+                return Lösung;
+            }
+
+            if ((vorx1 * (input_b-1) + vorx2 * (input_d-1)*Math.Pow(0,input_d-2)) != 0 )
+            {
+                Lösung[i] = "(0,0)";
+                i++;
+            }
+
+            extr = Math.Pow(((-1 * vorx1) / vorx2), (input_d - 1) - (input_b - 1));
+            if ((vorx1 * (input_b - 1) + vorx2 * (input_d - 1) * Math.Pow(extr, input_d - 2)) != 0)
+            {
+                LoesHilf = (input_a * Math.Pow(extr, input_b) + input_c * Math.Pow(extr, input_d);
+                Lösung[i] = string.Format("({0},{1})", extr, LoesHilf);
+            }
+            return Lösung;
+
+
         }
 
         static public string[] NullstellenI(double input_a, double input_b, double input_c, double input_d)

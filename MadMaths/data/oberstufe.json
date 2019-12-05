@@ -39,7 +39,7 @@
 	"SymmetrieI":"Ist die Funktion Punktsymmetrisch, Achsensymmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5}"
   },
   "Extrempunkte":{
-	"ExtrempunktI":"Berechne :die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
+	"ExtrempunktI":"Berechne :die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} "
   },
   "Nullstellen":{
 	"NullstellenI":"Berechne :die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
