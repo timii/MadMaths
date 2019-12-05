@@ -42,6 +42,6 @@
 	"ExtrempunktI":"Berechne :die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}"
   },
   "Nullstellen":{
-	"NullstellenI":"Berechne :die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}"
+	"NullstellenI":"Berechne :die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
   }
 }
