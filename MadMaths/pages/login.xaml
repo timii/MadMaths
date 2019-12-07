@@ -47,7 +47,7 @@
             <TextBlock Name="PasswordFeedback" VerticalAlignment="Center" Grid.Column="2" FontSize="16" Foreground="Red"/>
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30">
-            <Button x:Name="Login" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" MinHeight="40" MinWidth="120" FontSize="20"/>
+            <Button x:Name="Login" Content="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" MinHeight="40" MinWidth="120" FontSize="20" Click="Login_Click"/>
             <Button x:Name="Register" Content="Register" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30" MinHeight="40" MinWidth="120" FontSize="20" Click="Register_Click"/>
         </StackPanel>
     </Grid>

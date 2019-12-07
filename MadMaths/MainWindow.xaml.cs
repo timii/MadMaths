@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -39,12 +38,6 @@ namespace MadMaths
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 
-        ~MainWindow()
-        {
-            Client.UpdateUserData("LEVEL");
-        }
-
-
         // Minimize Button Click
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         { this.WindowState = WindowState.Minimized; }
@@ -55,6 +48,9 @@ namespace MadMaths
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            Controller.UpdateUserJson();
+            Client.UpdateUserData("LEVEL");
+            Client.client.Close();
             Application.Current.Shutdown();
         }
         private void AdjustWindowSize()

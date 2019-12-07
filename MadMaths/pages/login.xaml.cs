@@ -69,5 +69,21 @@ namespace MadMaths.pages
                 sb.Append(b.ToString("X2"));
             return sb.ToString();
         }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            string pw = GetHashString(UserPassword.Password);
+            if (Client.LoginUser(UserName.Text, pw))
+            {
+                Controller.user.UserName = UserName.Text;
+                Controller.user.password = pw;
+                Client.GetUserData();
+                NavigationService.Navigate(new home());
+            }
+            else
+            {
+                UsernameFeedback.Text = "Benutzername oder Passwort ist falsch";
+            }
+        }
     }
 }

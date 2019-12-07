@@ -6,6 +6,7 @@ using System.Windows.Media.Imaging;
 using MadMaths.calculations;
 using System.Net.Sockets;
 using System.Text;
+using Newtonsoft.Json.Linq;
 
 namespace MadMaths
 {
@@ -158,16 +159,16 @@ namespace MadMaths
 
     internal static class Client
     {
-        static TcpClient client;
+        internal static TcpClient client;
         static NetworkStream stream;
         static byte[] buffer;
         static Client()
         {
             try
             {
-                //client = new TcpClient("127.0.0.1", 7777);
+                client = new TcpClient("127.0.0.1", 7777);
                 //client = new TcpClient("45.88.108.218", 7777);
-                client = new TcpClient("uselesscode.works", 7777);
+                //client = new TcpClient("uselesscode.works", 7777);
                 stream = client.GetStream();
                 buffer = new byte[1024];
                 if (CheckConnection())
@@ -197,8 +198,8 @@ namespace MadMaths
                 {
                     try
                     {
-                        client.Connect("uselesscode.works", 7777);
-                        //client.Connect("127.0.0.1", 7777);
+                        //client.Connect("uselesscode.works", 7777);
+                        client.Connect("127.0.0.1", 7777);
                         stream = client.GetStream();
                         if (recv() == "connected") { return true; }
                     }
@@ -221,7 +222,7 @@ namespace MadMaths
 
         static public bool LoginUser(in string username, in string pw)
         {
-            if (Controller.UserIsOnline)
+            if (Controller.UserIsOnline && username != null && pw != null)
             {
                 string msg = string.Format("LOGINUSER_{0}_{1}", username, pw);
                 send(msg);
@@ -264,8 +265,11 @@ namespace MadMaths
 
         static public void UpdateUserData(in string cmd)
         {
-            string msg = string.Format("UPDATEUSERDATA_{0}_{1}_{2}", cmd, Controller.user.level, Controller.user.currentProgress);
-            send(msg);
+            if (Controller.UserIsLoggedIn)
+            {
+                string msg = string.Format("UPDATEUSERDATA_{0}_{1}_{2}", cmd, Controller.user.level, Controller.user.currentProgress);
+                send(msg);
+            }
         }
 
         static public string GetRanklist()
@@ -277,6 +281,21 @@ namespace MadMaths
                 return recv();
             }
             return null;
+        }
+
+        static public void GetUserData()
+        {
+            send("GETUSERDATA");
+            var rawdata = recv();
+            var userdata = JObject.Parse(rawdata);
+            Controller.user.level = (int)userdata["level"].ToObject(typeof(int));
+            Controller.user.currentProgress = (int)userdata["currentProgress"].ToObject(typeof(int));
+            var rawAvatarImg = userdata["avatarImg"].ToString();
+            if (rawAvatarImg.Length > 0)
+            {
+                Controller.user.avatarImg = rawAvatarImg;
+            }
+            Controller.UpdateUserJson();
         }
 
         static private string recv()

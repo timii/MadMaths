@@ -49,12 +49,7 @@ namespace MadMaths.pages
             if (Controller.user.lastSessions != null)
             {
                 ShowLastSessions();
-            }
-            //if(Button.NameProperty.Name == "lastSession") 
-            //{
-            //    Button.IsPressedProperty = false;
-            //}
-            
+            }      
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
