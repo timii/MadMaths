@@ -1,22 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using MadMaths.calculations;
-using Newtonsoft.Json.Linq;
 
 namespace MadMaths
 {
@@ -48,9 +34,14 @@ namespace MadMaths
                     new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
                 }
             }
-            Client.GetRanklist();
+            //Client.GetRanklist();
             InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
+        }
+
+        ~MainWindow()
+        {
+            Client.UpdateUserData("LEVEL");
         }
 
 
@@ -80,15 +71,13 @@ namespace MadMaths
             }
         }
 
-        /// TitleBar_MouseDown - Drag if single-click, resize if double-click
+        /// TitleBar_MouseDown - Drag if single-click
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-                if (e.ClickCount == 2)
-                {
-                    AdjustWindowSize();
-                }
-                else { Application.Current.MainWindow.DragMove(); }
+            {
+                Application.Current.MainWindow.DragMove();
+            }
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

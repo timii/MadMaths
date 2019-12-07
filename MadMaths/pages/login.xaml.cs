@@ -1,20 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MadMaths.pages
 {
@@ -26,6 +15,7 @@ namespace MadMaths.pages
         public login()
         {
             InitializeComponent();
+            if (!Controller.UserIsOnline) { Login.IsEnabled = false; }
         }
 
         private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -46,13 +36,13 @@ namespace MadMaths.pages
             PasswordFeedback.Text = "";
             if (Client.CheckUsername(UserName.Text))
             {
-                Controller._user.UserName = UserName.Text;
+                Controller.user.UserName = UserName.Text;
                 if (UserPassword.Password.Length < 8)
                 {
                     PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
                     return;
                 }
-                Controller._user.password = GetHashString(UserPassword.Password);
+                Controller.user.password = GetHashString(UserPassword.Password);
                 Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
                 Controller.UpdateUserJson();
                 NavigationService.GoBack();

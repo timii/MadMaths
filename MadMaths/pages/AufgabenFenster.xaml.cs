@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Navigation;
+
 namespace MadMaths.pages
 {
     /// <summary>
@@ -34,7 +29,6 @@ namespace MadMaths.pages
 
         }
 
-
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
             if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text, out string _lösung))
@@ -42,7 +36,7 @@ namespace MadMaths.pages
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
                 anzRichtig++;
-                Controller.UpdateLevel();
+                Controller.UpdateLevel(50);
             }
             else
             {
@@ -75,7 +69,6 @@ namespace MadMaths.pages
         {
             if (e.Key == Key.Return) { Abgabe_Click(null, null); }
         }
-
 
         private void reset()
         {

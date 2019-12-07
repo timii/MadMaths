@@ -2,20 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
-using Newtonsoft.Json;
-
 
 namespace MadMaths.pages
 {
@@ -30,9 +21,9 @@ namespace MadMaths.pages
         {
             InitializeComponent();
 
-            if (Controller._user.UserName != null)
+            if (Controller.user.UserName != null)
             {
-                Username.Text = Controller._user.UserName;
+                Username.Text = Controller.user.UserName;
                 Username.Cursor = null;
                 Controller.UserIsLoggedIn = true;
             }
@@ -40,22 +31,22 @@ namespace MadMaths.pages
             {
                 Username.Text = "Einloggen";
             }
-            if (Controller._user.avatarImg != null)
+            if (Controller.user.avatarImg != null)
             {
-                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));         // lädt das Avatar Bild
+                Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller.user.avatarImg));         // lädt das Avatar Bild
             }
-            Level.Text = Controller._user.level.ToString();
-            progressInNumbers.Text = string.Format("{0}/{1}", Controller._user.currentProgress, Controller._user.level * 100);
+            Level.Text = Controller.user.level.ToString();
+            progressInNumbers.Text = string.Format("{0}/{1}", Controller.user.currentProgress, Controller.user.level * 100);
 
             RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
             RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
             RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
             RankingList.ItemsSource = RankList;
-            progress.Value = Controller._user.currentProgress;
-            progress.Maximum = Controller._user.level * 100;
+            progress.Value = Controller.user.currentProgress;
+            progress.Maximum = Controller.user.level * 100;
 
             // Zum Laden der letzten Übungen
-            if (Controller._user.lastSessions != null)
+            if (Controller.user.lastSessions != null)
             {
                 ShowLastSessions();
             }
@@ -98,7 +89,7 @@ namespace MadMaths.pages
                     {
                         using (BinaryReader br = new BinaryReader(File.Open(op.FileName, FileMode.Open))) // liest das Bild ein in bytes
                         { Controller.UpdateAvatarImg(br, fi.Length); }       // updatet die User Daten
-                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller._user.avatarImg));     // liest die updatete avatarImg Property wieder aus und updatet das icon
+                        Avatar.Source = Controller.LoadImage(Convert.FromBase64String(Controller.user.avatarImg));     // liest die updatete avatarImg Property wieder aus und updatet das icon
                     }
                 }
             }
@@ -115,7 +106,7 @@ namespace MadMaths.pages
 
         private void ShowLastSessions() 
         {
-            var temp = Controller._user.lastSessions.Split(',');
+            var temp = Controller.user.lastSessions.Split(',');
             List<string[]> lastSessions = new List<string[]>();
             Array.Reverse(temp);
             Array.ForEach(temp, x => lastSessions.Add(x.Split(':')));

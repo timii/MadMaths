@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MadMaths.calculations
 {
@@ -488,7 +485,7 @@ namespace MadMaths.calculations
             extr = Math.Pow(((-1 * vorx1) / vorx2), (input_d - 1) - (input_b - 1));
             if ((vorx1 * (input_b - 1) + vorx2 * (input_d - 1) * Math.Pow(extr, input_d - 2)) != 0)
             {
-                LoesHilf = (input_a * Math.Pow(extr, input_b) + input_c * Math.Pow(extr, input_d);
+                LoesHilf = (input_a * Math.Pow(extr, input_b) + input_c * Math.Pow(extr, input_d));
                 Lösung[i] = string.Format("({0},{1})", extr, LoesHilf);
             }
             return Lösung;

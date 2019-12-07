@@ -204,10 +204,9 @@
     <Resource Include="assets\icons\NextExerciseButton_active.png" />
     <Resource Include="assets\icons\settingsButton.png" />
     <Resource Include="assets\icons\settingsButton2.png" />
-    <Content Include="assets\logo\madmaths_logo1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Resource Include="assets\logo\madmaths_logo1.png">
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
-    </Content>
+    </Resource>
     <Resource Include="assets\icons\backButton_active.png" />
     <Resource Include="assets\icons\home1.png" />
     <Resource Include="assets\icons\home2.png" />
