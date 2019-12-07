@@ -45,6 +45,7 @@ namespace MadMaths.pages
             }
             abgabebtn.IsEnabled = false;
             Antwort.IsReadOnly = true;
+            Antwort.Focusable = false;
             NextExerciseButton.Opacity = 100;
             NextExerciseButton.IsEnabled = true;
         }
@@ -78,6 +79,7 @@ namespace MadMaths.pages
             NextExerciseButton.IsEnabled = false;
             NextExerciseButton.Opacity = 0;
             Antwort.IsReadOnly = false;
+            Antwort.Focusable = true;
         }
     }
 }
