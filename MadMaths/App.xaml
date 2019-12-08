@@ -264,7 +264,30 @@
         <Style x:Key="WindowButtonClose" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
             <Setter Property="Control.MinHeight" Value="0"/>
-            <!--<Setter Property="Control.Background" Value="Transparent"/>-->
+            <Setter Property="Control.Background" Value="Transparent"/>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid Background="Transparent">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <ContentPresenter.Content>
+                                        <TextBlock Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"/>
+                                    </ContentPresenter.Content>
+                                </ContentPresenter>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Control.Foreground" Value="Orange"/>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Foreground" Value="#e27803"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         
         <!-- Style für den Back Button -->
