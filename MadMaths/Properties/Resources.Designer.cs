@@ -59,14 +59,5 @@ namespace MadMaths.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die C:\Users\chrod\Desktop\Hochschule\gui\Projekt\MadMaths\MadMaths\assets\icons\backButton.png ähnelt.
-        /// </summary>
-        internal static string backButton {
-            get {
-                return ResourceManager.GetString("backButton", resourceCulture);
-            }
-        }
     }
 }

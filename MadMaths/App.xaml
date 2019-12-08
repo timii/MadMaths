@@ -39,7 +39,6 @@
         <!-- Style für die Buttons -->
         <Style TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="28"/>
-            <!--<Setter Property="Control.FontFamily" Value="Arial Rounded MT"/>-->
             <Setter Property="FontFamily" Value="Microsoft Sans Serif"/>
             <Setter Property="MinHeight" Value="70"/>
             <Setter Property="Height" Value="auto"/>
@@ -78,10 +77,99 @@
                 <Trigger Property="Button.IsPressed" Value="True">
                     <Setter Property="Background" Value="#FFFF4B00"/>
                 </Trigger>
+                <Trigger Property="Button.IsEnabled" Value="False">
+                    <Setter Property="Background" Value="DimGray"/>
+                </Trigger>
             </Style.Triggers>
         </Style>
         
-         <!-- Style für den MainBackground -->
+        <!-- Style für Letzte Aufgaben Button -->
+        <Style x:Key="LetzteAufgabenButton" TargetType="Button">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontFamily" Value="Microsoft Sans Serif"/>
+            <Setter Property="MinHeight" Value="70"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Control.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="3">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Background">
+                <!-- Standard Background -->
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
+                        <GradientStop Offset="0.0" Color="Orange"/>
+                        <GradientStop Offset="0.5" Color="DarkOrange"/>
+                        <GradientStop Offset="1.0" Color="OrangeRed"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Hover Effekt -->
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#ff7600"/>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Background" Value="#ff7600"/>
+                </Trigger>
+                <Trigger Property="Button.IsEnabled" Value="False">
+                    <Setter Property="Background" Value="DimGray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style für Letzte Aufgaben Panel Button -->
+        <Style x:Key="LetzteAufgabenPanelButton" TargetType="Button">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontFamily" Value="Microsoft Sans Serif"/>
+            <Setter Property="MinHeight" Value="70"/>
+            <Setter Property="MinWidth" Value="180"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Foreground" Value="Beige"/>
+            <Setter Property="Background" Value="#d57500"/>
+            <Setter Property="Control.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                              TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!-- Hover Effekt -->
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="#e66b00"/>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Background" Value="#cc5f00"/>
+                </Trigger>
+                <Trigger Property="Button.IsEnabled" Value="False">
+                    <Setter Property="Background" Value="DimGray"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style für den MainBackground -->
         <Style TargetType="{x:Type Grid}">
             <Setter Property="Background">
                 <Setter.Value>
@@ -94,7 +182,7 @@
             </Setter> 
         </Style>
         
-        <!-- Alternativer Style für Buttons -->
+        <!-- Style für CustomWindow Buttons -->
         <Style x:Key="WindowButton">
             <Setter Property="Control.Background" Value="DarkOrange"/>
             <Setter Property="Control.FontSize" Value="25"/>
@@ -175,6 +263,8 @@
         <!-- Style für die Window Close Button -->
         <Style x:Key="WindowButtonClose" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
+            <Setter Property="Control.MinHeight" Value="0"/>
+            <!--<Setter Property="Control.Background" Value="Transparent"/>-->
         </Style>
         
         <!-- Style für den Back Button -->
@@ -206,6 +296,51 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <!-- Style für den nächstes Thema Button -->
+        <Style x:Key="NextExerciseButton" BasedOn="{StaticResource BackButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <!-- Überschreibe das Standard Template, um das Aussehen zu ändern -->
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/NextExerciseButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="assets/icons/NextExerciseButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Style für den neue Aufgabe Button -->
+        <!--<Style x:Key="NewExerciseButton" BasedOn="{StaticResource BackButton}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    --><!-- Überschreibe das Standard Template, um das Aussehen zu ändern --><!--
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Source="assets/icons/NewExerciseButton.png"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsPressed" Value="True">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Image Source="assets/icons/NewExerciseButton_active.png"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
         
         <!-- Style für die Ranking Liste -->     
         <Style TargetType="{x:Type ListBoxItem}">
@@ -273,25 +408,6 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ProgressBar}">
                         <Grid x:Name="TemplateRoot" Background="Transparent">
-                            <!--<VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Determinate"/>
-                                    <VisualState x:Name="Indeterminate">
-                                        <Storyboard RepeatBehavior="Forever">
-                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Animation">
-                                                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
-                                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
-                                                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
-                                            </DoubleAnimationUsingKeyFrames>
-                                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
-                                                <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
-                                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
-                                                <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
-                                            </PointAnimationUsingKeyFrames>
-                                        </Storyboard>
-                                    </VisualState>
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>-->
                             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="12"/>
                             <Rectangle x:Name="PART_Track"/>
                             <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left" Background="Transparent">

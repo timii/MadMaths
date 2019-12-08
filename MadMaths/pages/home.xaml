@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:MadMaths.pages"
       xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
+      d:DesignHeight="600" d:DesignWidth="920"
       Title="home">
 
     <Grid>
@@ -52,7 +52,9 @@
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
                 <Button x:Name="challenge" Content="Herausforderung" Margin="5"/>
-                <Button x:Name="lastSession" Content="letzte Übung" Margin="5"/>
+                <Button x:Name="lastSession" Content="letzte Übungen" Margin="5, 5, 5, 0" Style="{StaticResource LetzteAufgabenButton}"/>
+                <StackPanel Name="lastSessionsPanel" Orientation="Vertical">
+                </StackPanel>
             </StackPanel>
         </Border>
         <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
@@ -87,7 +89,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -101,10 +105,14 @@
                         </Image.Clip>
                     </Image>
                 </Button>
-                <TextBlock Name="Username" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User_Name" FontSize="25" VerticalAlignment="Center" MouseLeftButtonDown="Username_MouseLeftButtonDown" Cursor="Hand"/>
-                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" Maximum="100" Value="90" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
-                <TextBlock Name="Level" Grid.Row="0" Grid.Column="2" Text="Level" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock x:Name="Username" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User_Name" FontSize="25" VerticalAlignment="Center" MouseLeftButtonDown="Username_MouseLeftButtonDown" Cursor="Hand"/>
+                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
+                <TextBlock Name="Level" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" FontSize="70" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,15"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Level: " FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="2" Text="0/0" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button  Width="30" HorizontalAlignment="Left" Background="Transparent" Cursor="Hand" Grid.Column="4" Grid.Row="0" Click="SettingClick">
+                    <Image Source="../assets/icons/settingsButton.png" x:Name="Settings" Width="auto" Height="20" Margin="0,0,0,40"/>
+                </Button>
             </Grid>
         </Border>
     </Grid>

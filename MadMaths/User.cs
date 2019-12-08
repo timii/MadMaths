@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MadMaths
 {
     public class User
@@ -11,8 +6,8 @@ namespace MadMaths
         public string UserName { get; set; } = null;
         public string password { get; set; } = null;
         public string avatarImg { get; set; } = null;
-        public int? level { get; set; } = null;
-        public int? currentProgress { get; set; } = null;
+        public int level { get; set; } = 1;
+        public int currentProgress { get; set; } = 0;
         public string lastSessions { get; set; } = null;
     }
 

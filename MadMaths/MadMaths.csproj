@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -80,14 +82,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Aufgaben.cs" />
-    <Compile Include="CalcFunctions_Grundschule.cs" />
+    <Compile Include="calculations\CalcFunctions_Grundschule.cs" />
+    <Compile Include="calculations\CalcFunctions_Mittelstufe.cs" />
+    <Compile Include="calculations\CalcFunctions_Oberstufe.cs" />
+    <Compile Include="calculations\Grundschule.cs" />
+    <Compile Include="calculations\Mittelstufe.cs" />
+    <Compile Include="calculations\Oberstufe.cs" />
     <Compile Include="CustomMB.xaml.cs">
       <DependentUpon>CustomMB.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomWindowSizing.cs" />
+    <Compile Include="LevelUpWindow.xaml.cs">
+      <DependentUpon>LevelUpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="randnumbers.cs" />
+    <Compile Include="SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Page Include="CustomMB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LevelUpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\ThemenAuswahl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,6 +186,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="assets\icons\NextExerciseButton.png" />
     <Resource Include="assets\icons\backButton.png">
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
     </Resource>
@@ -177,10 +199,14 @@
     <Resource Include="assets\logo\logo.png" />
     <Resource Include="assets\logo\logo_transparent4.png" />
     <Resource Include="assets\logo\logo_transparent5.png" />
-    <Content Include="assets\logo\madmaths_logo1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Resource Include="assets\icons\NewExerciseButton.png" />
+    <Resource Include="assets\icons\NewExerciseButton_active.png" />
+    <Resource Include="assets\icons\NextExerciseButton_active.png" />
+    <Resource Include="assets\icons\settingsButton.png" />
+    <Resource Include="assets\icons\settingsButton2.png" />
+    <Resource Include="assets\logo\madmaths_logo1.png">
       <CustomToolNamespace>MadMaths</CustomToolNamespace>
-    </Content>
+    </Resource>
     <Resource Include="assets\icons\backButton_active.png" />
     <Resource Include="assets\icons\home1.png" />
     <Resource Include="assets\icons\home2.png" />

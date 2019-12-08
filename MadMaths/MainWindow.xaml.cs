@@ -1,21 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Newtonsoft.Json.Linq;
 
 namespace MadMaths
 {
@@ -40,10 +26,17 @@ namespace MadMaths
             {
                 Controller.CreateUserJS();
             }
+            else 
+            {
+                if (!Client.LoginUser())
+                {
+                    new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
+                }
+            }
+            //Client.GetRanklist();
             InitializeComponent();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
-
 
         // Minimize Button Click
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
@@ -55,6 +48,12 @@ namespace MadMaths
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            Controller.UpdateUserJson();
+            if (Client.client != null)
+            {
+                Client.UpdateUserData("LEVEL");
+                Client.client.Close();
+            }
             Application.Current.Shutdown();
         }
         private void AdjustWindowSize()
@@ -71,15 +70,13 @@ namespace MadMaths
             }
         }
 
-        /// TitleBar_MouseDown - Drag if single-click, resize if double-click
+        /// TitleBar_MouseDown - Drag if single-click
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
-                if (e.ClickCount == 2)
-                {
-                    AdjustWindowSize();
-                }
-                else { Application.Current.MainWindow.DragMove(); }
+            {
+                Application.Current.MainWindow.DragMove();
+            }
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

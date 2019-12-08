@@ -4,22 +4,44 @@
     "Ableiten1": "Leite ab: f(x) = {0}x^{1}",
     "Ableiten2": "Leite ab: f(x) = {0}x^{1} +{2}x^{3}",
     "Ableiten3": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}",
-    "Ableiten4": "Leite ab: f(x) = ({0}x^{1 }+{2}x^{3}) * ({4}x)",
-    "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7})",
-    "Ableiten6": "Leite ab: f(x) = ({0}x^{1} -{2}x^{3}) * ({4}x^{5} +{6}x^{7})",
-    "Ableiten7": "Leite ab: f(x) = ({0}x^{1} -{2}x^{3}) * ({4}x^{5} -{6}x^{7})",
-    "Ableiten8": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7})",
-    "Ableiten9": "Leite ab: f(x) = ({0}x^{2} + {3})/({4}x^{5} +{6})",
-    "Ableiten10": "Leite ab: f(x) = e^({0}x + {1})",
-    "Ableiten11": "Leite ab: f(x) = ( {0}x - {1} )^{2}",
-    "Ableiten12": "Leite ab: f(x) = {0} · sin ( {1}x )"
+    "Ableiten4": "Leite ab: f(x) = ({0}x^{1}+{2}x^{3}) * ({4}x)",
+    "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7})", //rodions
+    "Ableiten6": "Leite ab: f(x) = ({0}x^{1} + {2})/({3}x^{4} +{5})",
+    "Ableiten7": "Leite ab: f(x) = e^({0}x + {1})",
+    "Ableiten8": "Leite ab: f(x) = ( {0}x - {1} )^{2}",
+    "Ableiten9": "Leite ab: f(x) = {0}x * sin ( {1}x )"
   },
-  "HöherAbleiten": {
-    "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2}", //{0}. muss kleiner als {1} sein+
-    "HöherAbleiten2": "Leite ab so weit wie möglich: f(x) = {0}x^{1} + {2}x^{3}",
-    "HöherAbleiten3": "Schreib die 2. Ableitung auf: f(x) = ({0}x^{1} +{2}x^{3}) ({4}x)"
 
+  "Ableiten II": {
+    "HÃ¶herAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2}", //{0}. muss kleiner als {1} sein+
+    "HÃ¶herAbleiten2": "Schreib, die 2. Ableitung auf: f(x) = ({0}x^{1} + {2}x^{3}) * ({4}x)"
+  },
+
+  "Wendepunkte": {
+    "Wendepunkte1": "Berechne den Wendepunkt der Funktion : f(x) = {0}x^{1} + {2}x^{3}"
+  },
+  "Integralregeln": {
+    "Integralregel1": "Was ist die Stammfunktion von sin(x) ?",
+    "Integralregel2": "Was ist die Stammfunktion von cos(x) ?",
+    "Integralregel3": "Was ist die Stammfunktion von ln(x) ?"
+  },
+
+  "Integral": {
+    "Integral1": "Berechne das Integral {0}x+{1} fÃ¼r die Untergrenze {2} und die Obergrenze {3}",
+    "Integral2": "Berechne das Integral xÂ² fÃ¼r die Untergrenze 0 und die Obergrenze 1"
+  },
+
+  "Integral II": {
+    "SchwerIntegrieren1": "Berechne die FlÃ¤che zwischen den Funktionen f(x) = xÂ² + {0}x + {1} und g(x) = x + {2}"
+  },
+
+  "Symmetrie":{
+	"SymmetrieI":"Ist die Funktion Punktsymmetrisch, Achsensymmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5}"
+  },
+  "Extrempunkte":{
+	"ExtrempunktI":"Berechne :die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} "
+  },
+  "Nullstellen":{
+	"NullstellenI":"Berechne :die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
   }
-
-
 }

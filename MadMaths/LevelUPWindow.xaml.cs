@@ -3,14 +3,14 @@
 namespace MadMaths
 {
     /// <summary>
-    /// Interaktionslogik für CustomMB.xaml (Custom Messagebox)
+    /// Interaktionslogik für LevelUPWindow.xaml
     /// </summary>
-    public partial class CustomMB : Window
+    public partial class LevelUpWindow : Window
     {
-        public CustomMB(string msg)
+        public LevelUpWindow(string lvl)
         {
             InitializeComponent();
-            msgBox.Text = msg;
+            LevelPopUp.Text = lvl;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -19,3 +19,18 @@ Hauptfarbton Orange mit verschiedenen Akzenten.
 
 ## Aufgabensammlung
 Die Aufgaben werden in einer .json Datei gespeichert und von dort aus herausgelesen.
+
+
+## Systemvoraussetzungen
+
+### Zum Ausführen:
+ - Bildschirm mit einer Auflösung von mind. 800x600
+ - RAM 2GB
+ - 64MB Festplattenspeicher
+ - mind. Windows 7
+ - Internetverbindung empfohlen
+
+### Zum Bauen:
+ - Microsoft Visual Studio (s. Voraussetzungen auf der offizellen Seite)
+ - .NET Framework 4.7.2
+ - Newtonsoft.Json
