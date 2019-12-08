@@ -49,8 +49,11 @@ namespace MadMaths
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Controller.UpdateUserJson();
-            Client.UpdateUserData("LEVEL");
-            Client.client.Close();
+            if (Client.client != null)
+            {
+                Client.UpdateUserData("LEVEL");
+                Client.client.Close();
+            }
             Application.Current.Shutdown();
         }
         private void AdjustWindowSize()

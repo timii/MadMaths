@@ -29,13 +29,17 @@ namespace MadMaths
         private void Logoutclick(object sender, RoutedEventArgs e)
         {
             Controller.UserIsLoggedIn = false;
+            Controller.user = new User();
+            Client.UpdateUserData("LEVEL");
+            Client.LogoutUser();
             DialogResult = true;
-            this.Close();
+            Close();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e) // FIXME Close Button funktioniert nicht
         {
-            this.Close();
+            DialogResult = false;
+            Close();
         }
     }
 }

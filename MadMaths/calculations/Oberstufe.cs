@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using System.Windows;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace MadMaths.calculations
 {
@@ -41,7 +42,7 @@ namespace MadMaths.calculations
             var randIndex = rand.Next(0, Aufgaben[aufgabe].Count);
             AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
             aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
-            var argsNum = System.Text.RegularExpressions.Regex.Matches(aufgabe, "{").Count;
+            var argsNum = Regex.Matches(aufgabe, @"{[0-9]+}").OfType<Match>().Select(m => m.Value).Distinct().Count();
             AufgabenZahlen = new object[argsNum];
             for (int i = 0; i < argsNum; i++)
             {
@@ -62,8 +63,6 @@ namespace MadMaths.calculations
             foreach (var item in Aufgaben)
             {
                 ThemenListe.Add(item.Key);
-                //Dictionary<string, string> temp = item.Value.ToObject(typeof(Dictionary<string, string>));
-                //Aufgaben = Aufgaben.Union(temp).ToDictionary(pair => pair.Key, pair => pair.Value);     // fügt die Aufgaben aus der json hinzu
             }
         }
     }

@@ -242,6 +242,11 @@ namespace MadMaths
             return LoginUser(Controller.user.UserName, Controller.user.password);
         }
 
+        static public void LogoutUser()
+        {
+            send("LOGOUTUSER");
+        }
+
         static public bool CheckUsername(in string username)
         {
             if (Controller.UserIsOnline)
@@ -318,6 +323,7 @@ namespace MadMaths
             try
             {
                 stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
+                System.Threading.Thread.Sleep(100);      // gibt dem Server Zeit, die Befehle zu verarbeiten
             }
             catch (Exception) { Controller.UserIsOnline = false; }
         }

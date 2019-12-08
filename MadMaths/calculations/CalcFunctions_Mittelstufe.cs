@@ -59,7 +59,7 @@ namespace MadMaths.calculations
             {"Urnenmodell1", new Func<double, double, double>(Urnenmodell1)},
             {"Urnenmodell2", new Func<double, double, double>(Urnenmodell2)},
             {"Urnenmodell3", new Func<double, double>(Urnenmodell3)},
-            {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double,double,double,double,double>(HypergeometrischeVerteilung1)},
+            {"HypergeometrischeVerteilung1", new Func<double, double, double, double, double>(HypergeometrischeVerteilung1)},
             {"Mittelwert1", new Func<double, double, double, double, double, double>(Mittelwert1)},
             {"Mittelwert2", new Func<double, double, double, double, double>(Mittelwert2)}
         };
@@ -257,7 +257,7 @@ namespace MadMaths.calculations
         {
             return Fakultät(input_a);
         }
-        static public double HypergeometrischeVerteilung1(double input_a, double input_b, double input_c, double input_d, double useless1, double useless2, double useless3, double useless4)
+        static public double HypergeometrischeVerteilung1(double input_a, double input_b, double input_c, double input_d)
         {
             return Math.Round((Binomialkoeffizient(input_b, input_d) * Binomialkoeffizient(input_a - input_b, input_c - input_d)) / (Binomialkoeffizient(input_a, input_c)), 2, MidpointRounding.AwayFromZero);
         }

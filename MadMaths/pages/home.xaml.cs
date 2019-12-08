@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace MadMaths.pages
 {
@@ -127,8 +128,12 @@ namespace MadMaths.pages
 
         private void SettingClick(object sender, RoutedEventArgs e)
         {
-            new SettingsWindow().ShowDialog();
-            Username.Text = "Einloggen";
+            if ((bool)new SettingsWindow().ShowDialog())
+            {
+                Username.Text = "Einloggen";
+                Avatar.Source = new BitmapImage(new Uri("MadMaths;component/assets/icons/profile-picture-icon.jpg", UriKind.Relative));
+                Username.Cursor = Cursors.Hand;
+            }
         }
     }
 }
