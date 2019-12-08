@@ -29,9 +29,10 @@ namespace MadMaths
         private void Logoutclick(object sender, RoutedEventArgs e)
         {
             Controller.UserIsLoggedIn = false;
-            Controller.user = new User();
             Client.UpdateUserData("LEVEL");
             Client.LogoutUser();
+            Controller.user = new User();
+            Controller.UpdateUserJson();
             DialogResult = true;
             Close();
         }
