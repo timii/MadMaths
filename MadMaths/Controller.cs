@@ -323,7 +323,7 @@ namespace MadMaths
             try
             {
                 stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
-                System.Threading.Thread.Sleep(100);      // gibt dem Server Zeit, die Befehle zu verarbeiten
+                System.Threading.Thread.Sleep(500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
             }
             catch (Exception) { Controller.UserIsOnline = false; }
         }
