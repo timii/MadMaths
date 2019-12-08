@@ -7,6 +7,7 @@ using MadMaths.calculations;
 using System.Net.Sockets;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 namespace MadMaths
 {
@@ -129,7 +130,7 @@ namespace MadMaths
         {
             user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
-            Client.UpdateAvatar();
+            Task.Run(() => Client.UpdateAvatar());
         }
 
         public static void UpdateLevel(in int exp)
@@ -288,10 +289,10 @@ namespace MadMaths
             return null;
         }
 
-        static public void GetUserData()
+        static public async Task GetUserData()
         {
             send("GETUSERDATA");
-            var rawdata = recv();
+            var rawdata = await Task.Run(() => recv());
             var userdata = JObject.Parse(rawdata);
             Controller.user.level = (int)userdata["level"].ToObject(typeof(int));
             Controller.user.currentProgress = (int)userdata["currentProgress"].ToObject(typeof(int));

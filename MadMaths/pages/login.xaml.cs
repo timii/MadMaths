@@ -70,14 +70,16 @@ namespace MadMaths.pages
             return sb.ToString();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private async void Login_Click(object sender, RoutedEventArgs e)
         {
+            Login.IsEnabled = false; Register.IsEnabled = false;
+            BackButton.IsEnabled = false;
             string pw = GetHashString(UserPassword.Password);
             if (Client.LoginUser(UserName.Text, pw))
             {
                 Controller.user.UserName = UserName.Text;
                 Controller.user.password = pw;
-                Client.GetUserData();
+                await Client.GetUserData();
                 NavigationService.Navigate(new home());
             }
             else

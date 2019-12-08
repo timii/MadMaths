@@ -20,7 +20,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
+        <Button Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"
                 MaxHeight="50" />
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Login/Register" Margin="20" FontSize="30"
