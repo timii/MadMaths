@@ -62,7 +62,7 @@ namespace MadMaths.pages
         {
             if (Controller.UserIsLoggedIn)
             {
-                CustomMB mb = new CustomMB("Die Datei darf nicht über 2MB groß sein !");
+                CustomMB mb = new CustomMB("Die Datei darf nicht über 1MB groß sein !");
                 mb.Owner = System.Windows.Application.Current.MainWindow;
 
                 OpenFileDialog op = new OpenFileDialog
@@ -76,7 +76,7 @@ namespace MadMaths.pages
                 if (op.ShowDialog() == true)
                 {
                     FileInfo fi = new FileInfo(op.FileName);
-                    if (fi.Length > 2000000)
+                    if (fi.Length > 1000000)
                     {
                         mb.ShowDialog();
                         AvatarClick(sender, e);

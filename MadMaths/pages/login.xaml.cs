@@ -74,6 +74,7 @@ namespace MadMaths.pages
         {
             Login.IsEnabled = false; Register.IsEnabled = false;
             BackButton.IsEnabled = false;
+            Cursor = Cursors.Wait;
             string pw = GetHashString(UserPassword.Password);
             if (Client.LoginUser(UserName.Text, pw))
             {
@@ -85,6 +86,9 @@ namespace MadMaths.pages
             else
             {
                 UsernameFeedback.Text = "Benutzername oder Passwort ist falsch";
+                Login.IsEnabled = true; Register.IsEnabled = true;
+                BackButton.IsEnabled = true;
+                Cursor = Cursors.Arrow;
             }
         }
     }
