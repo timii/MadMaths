@@ -25,7 +25,7 @@
             </Grid.RowDefinitions>
             <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"/>
-            <TextBox x:Name="AufgabenStellung" Grid.Row="1" Grid.Column="0"
+            <TextBox x:Name="AufgabenStellung" Grid.Row="1" Grid.Column="0" Margin="20,0" TextWrapping="Wrap"
                  IsReadOnly="True" Background="Transparent" Text="Irgendeine Aufgabe"
                  TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="30"/>
         </Grid>
