@@ -265,6 +265,7 @@
             <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
             <Setter Property="Control.MinHeight" Value="0"/>
             <Setter Property="Control.Background" Value="Transparent"/>
+            <Setter Property="Control.Foreground" Value="#ffa500"/>
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -282,10 +283,10 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Control.Foreground" Value="Orange"/>
+                    <Setter Property="Control.Foreground" Value="White"/>
                 </Trigger>
                 <Trigger Property="Button.IsPressed" Value="True">
-                    <Setter Property="Control.Foreground" Value="#e27803"/>
+                    <Setter Property="Control.Foreground" Value="White"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
