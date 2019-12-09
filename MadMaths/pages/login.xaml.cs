@@ -44,7 +44,7 @@ namespace MadMaths.pages
                     return;
                 }
                 Controller.user.password = GetHashString(UserPassword.Password);
-                Task.Run(() => Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password)));
+                Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
                 Controller.UpdateUserJson();
                 NavigationService.GoBack();
             }
