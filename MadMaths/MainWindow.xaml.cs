@@ -35,6 +35,7 @@ namespace MadMaths
             }
             //Client.GetRanklist();
             InitializeComponent();
+            //Client.GetRanklist();
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 

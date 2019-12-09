@@ -32,6 +32,7 @@ namespace MadMaths
                 case "Potenzen": maxValue = 10; break;
                 case "Urnenmodell": maxValue = 15; break;
                 case "Hypergeometrische Verteilung": maxValue = 40; break;
+                case "Fakultät": maxValue = 10; break;
 
                 default: minValue = 1; maxValue = 100; break;
             }
@@ -140,6 +141,16 @@ namespace MadMaths
                 }
                 return Zahl_Rückgabe;
 
+            }
+            if (Aufgabe == "QuadratischeGleichungen1")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
+                } while (Math.Pow(Int32.Parse(Zahl_Rückgabe[1].ToString()),2) < (Int32.Parse(Zahl_Rückgabe[2].ToString()) * Int32.Parse(Zahl_Rückgabe[0].ToString()) * 4));
+                return Zahl_Rückgabe;
             }
 
             for (int i = 0; i < argnum; i++) {

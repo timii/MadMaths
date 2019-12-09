@@ -284,7 +284,12 @@ namespace MadMaths
             {
                 string msg = "GETRANKLIST";
                 send(msg);
-                return recv();
+                var temp = recv();
+                using (StreamWriter sw = new StreamWriter(File.OpenWrite("testranklist.txt")))
+                {
+                    sw.Write(temp);
+                }
+                return temp;
             }
             return null;
         }
@@ -324,7 +329,7 @@ namespace MadMaths
             try
             {
                 stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
-                System.Threading.Thread.Sleep(500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
+                System.Threading.Thread.Sleep(3500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
             }
             catch (Exception) { Controller.UserIsOnline = false; }
         }
