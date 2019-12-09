@@ -131,7 +131,7 @@ namespace MadMaths.calculations
         static public double Gleichungen4(double input_a, double input_b, double input_c) { return input_c - input_a - input_b; }
         static public double Gleichungen5(double input_a, double input_b, double input_c, double input_d) { return input_a - input_b + input_c - input_d; }
         static public double Gleichungen6(double input_a, double input_b) { return runden(input_b / input_a); }
-        static public double Gleichungen7(double input_a, double input_b, double input_c, double input_d) { return (input_d - (input_b * input_c)) / input_a; }
+        static public double Gleichungen7(double input_a, double input_b, double input_c, double input_d) { return runden((input_d - (input_b * input_c)) / input_a); }
         static public double Gleichungen8(double input_a, double input_b, double input_c, double input_d)
         {
             double variablenseite;
@@ -154,8 +154,8 @@ namespace MadMaths.calculations
         {
             double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d)),2,MidpointRounding.AwayFromZero);
             double x = Math.Round((input_c - input_b * y) / input_a,2);
-
-            return "x = " + x + " \ny = " + y;
+            return string.Format("x = {0}, y = {1}", x, y);
+            //return "x = " + x + ", y = " + y;
 
         }
         static public string Gleichungssystem2(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
@@ -163,16 +163,15 @@ namespace MadMaths.calculations
             double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) + (input_e / input_d)),2, MidpointRounding.AwayFromZero);
             double x = Math.Round((input_c - input_b * y) / input_a,2, MidpointRounding.AwayFromZero);
 
-
-            return "x = " + x + " \ny = " + y;
+            return string.Format("x = {0}, y = {1}", x, y);
         }
         static public string Gleichungssystem3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
             double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / (-(input_b / input_a) + (input_e / input_d)),2, MidpointRounding.AwayFromZero);
             double x = Math.Round((input_c + input_b * y) / input_a,2,MidpointRounding.AwayFromZero);
 
-
-            return "x = " + x + " \ny = " + y;
+            return string.Format("x = {0}, y = {1}", x, y);
+            //return "x = " + x + ", y = " + y;
         }
         static public double Umwandeln1(double input_a) { return input_a / 1000; }
         static public double Umwandeln2(double input_a) { return input_a / 100; }

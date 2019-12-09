@@ -122,7 +122,7 @@ namespace MadMaths.calculations
                     {
                         x1 *= xpot1;
                         x4 *= xpot4;
-                        return string.Format("{0}x^{1}+{2}x^{3}", x1, --xpot1, x4, --xpot4);
+                        return string.Format("{0}x^{1} + {2}x^{3}", x1, --xpot1, x4, --xpot4);
                     }
                 }
                 else if (xpot1 == xpot4)
@@ -130,21 +130,21 @@ namespace MadMaths.calculations
                     x1 += x4;
                     x1 *= xpot1;
                     x3 *= xpot3;
-                    return string.Format("{0}x^{1}+{2}x^{3}", x1, --xpot1, x3, --xpot3);
+                    return string.Format("{0}x^{1} + {2}x^{3}", x1, --xpot1, x3, --xpot3);
                 }
                 else if (xpot3 == xpot4)
                 {
                     x2 = x3 + x4;
                     x2 *= xpot3;
                     x1 *= xpot1;
-                    return string.Format("{0}x^{1}+{2}x^{3}", x1, --xpot1, x2, --xpot3);
+                    return string.Format("{0}x^{1} + {2}x^{3}", x1, --xpot1, x2, --xpot3);
                 }
                 else
                 {
                     x1 *= xpot1;
                     x3 *= xpot3;
                     x4 *= xpot4;
-                    return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}", x1, --xpot1, x3, --xpot3, x4, --xpot4);
+                    return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", x1, --xpot1, x3, --xpot3, x4, --xpot4);
                 }
             }
             else if (xpot1 == xpot3)
@@ -155,7 +155,7 @@ namespace MadMaths.calculations
                     x1 += x4;
                     x1 *= xpot1;
                     x2 *= xpot2;
-                    return string.Format("{0}x^{1}+{2}x^{3}", x1, --xpot1, x2, --xpot2);
+                    return string.Format("{0}x^{1} + {2}x^{3}", x1, --xpot1, x2, --xpot2);
                 }
                 else if (xpot2 == xpot4)
                 {
@@ -163,14 +163,14 @@ namespace MadMaths.calculations
                     x2 += x4;
                     x1 *= xpot1;
                     x2 *= xpot2;
-                    return string.Format("{0}x^{1}+{2}x^{3}", x1, --xpot1, x2, --xpot2);
+                    return string.Format("{0}x^{1} + {2}x^{3}", x1, --xpot1, x2, --xpot2);
                 }
                 else
                 {
                     x1 *= xpot1;
                     x2 *= xpot2;
                     x4 *= xpot4;
-                    return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}", x1, --xpot1, x2, --xpot2, x4, --xpot4);
+                    return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", x1, --xpot1, x2, --xpot2, x4, --xpot4);
                 }
             }
             else if (xpot1 == xpot4)
@@ -181,14 +181,14 @@ namespace MadMaths.calculations
                     x2 += x3;
                     x1 *= xpot1;
                     x2 *= xpot2;
-                    return string.Format("{0}x^{1}+{2}x^{3}", x1, --xpot1, x2, --xpot2);
+                    return string.Format("{0}x^{1} + {2}x^{3}", x1, --xpot1, x2, --xpot2);
                 }
                 else
                 {
                     x1 *= xpot1;
                     x2 *= xpot2;
                     x3 *= xpot3;
-                    return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}", x1, --xpot1, x2, --xpot2, x3, --xpot3);
+                    return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", x1, --xpot1, x2, --xpot2, x3, --xpot3);
                 }
             }
             else if (xpot2 == xpot3)
@@ -199,14 +199,14 @@ namespace MadMaths.calculations
                     x2 += x4;
                     x1 *= xpot1;
                     x2 *= xpot2;
-                    return string.Format("{0}x^{1}+{2}x^{3}", x1, --xpot1, x2, --xpot2);
+                    return string.Format("{0}x^{1} + {2}x^{3}", x1, --xpot1, x2, --xpot2);
                 }
                 else
                 {
                     x1 *= xpot1;
                     x2 *= xpot2;
                     x4 *= xpot4;
-                    return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}", x1, --xpot1, x2, --xpot2, x4, --xpot4);
+                    return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", x1, --xpot1, x2, --xpot2, x4, --xpot4);
                 }
             }
             else if (xpot2 == xpot4)
@@ -215,7 +215,7 @@ namespace MadMaths.calculations
                 x1 *= xpot1;
                 x2 *= xpot2;
                 x3 *= xpot3;
-                return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}", x1, --xpot1, x2, --xpot2, x3, --xpot3);
+                return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", x1, --xpot1, x2, --xpot2, x3, --xpot3);
             }
             else if (xpot3 == xpot4)
             {
@@ -223,7 +223,7 @@ namespace MadMaths.calculations
                 x1 *= xpot1;
                 x2 *= xpot2;
                 x3 *= xpot3;
-                return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}", x1, --xpot1, x2, --xpot2, x3, --xpot3);
+                return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", x1, --xpot1, x2, --xpot2, x3, --xpot3);
             }
             else
             {
@@ -231,7 +231,7 @@ namespace MadMaths.calculations
                 x2 *= xpot2;
                 x3 *= xpot3;
                 x4 *= xpot4;
-                return string.Format("{0}x^{1}+{2}x^{3}+{4}x^{5}+{6}x^{7}", x1, --xpot1, x2, --xpot2, x3, --xpot3, x4, --xpot4);
+                return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5} + {6}x^{7}", x1, --xpot1, x2, --xpot2, x3, --xpot3, x4, --xpot4);
             }
             #endregion
         }
@@ -250,11 +250,11 @@ namespace MadMaths.calculations
         }
         static public string Ableiten7(double input_a, double input_b)
         {
-            return string.Format("{0}e^({1}x+{2}", (input_a), (input_a), (input_b));
+            return string.Format("{0}e^({1}x + {2}", (input_a), (input_a), (input_b));
         }
         static public string Ableiten8(double input_a, double input_b, double input_c)
         {
-            return string.Format("{0} * ({1}x - {2})^({3})", (input_a * input_c), (input_a), (input_b), (input_c - 1));
+            return string.Format("{0} * ({1}x - {2})^{3}", (input_a * input_c), (input_a), (input_b), (input_c - 1));
         }
         static public string Ableiten9(double input_a, double input_b)
         {
@@ -288,99 +288,8 @@ namespace MadMaths.calculations
 
         static public string Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
         {
-            double vorx1;
-            double x1;
-            double vorx2;
-            double x2;
-            double wurzel;
-            if (input_b < 3 && input_d < 3)
-            {
-                return "NaN";
-            }
-            if (input_b == input_d)
-            {
-                if (input_b % 2 == 0)
-                {
-                    return "NaN";
-                }
-                else
-                {
-                    return "(0,0)";
-                }
-            }
-            else
-            {
-                vorx1 = input_a * input_b * (input_b - 1);
-                x1 = input_b - 2;
-                vorx2 = input_c * input_d * (input_d - 1);
-                x2 = input_d - 2;
-                if (x2 < 0 || x1 < 0)
-                {
-                    //kann wendepunkt nur bei 0 0 sein
-                    if (x2 < 0)
-                    {
-                        if (vorx1 * (input_b - 2) != 0)
-                        {
-                            return "(0,0)";
-                        }
-                        else
-                        {
-                            return "NaN";
-                        }
-                    }
-                    if (x1 < 0)
-                    {
-                        if (vorx2 * (input_d - 2) != 0)
-                        {
-                            return "(0,0)";
-                        }
-                        else
-                        {
-                            return "NaN";
-                        }
-                    }
-                }
-                if (x2 == 0 || x1 == 0)
-                {
-                    return "NaN";
-                }
 
-
-                if (input_b - 2 > input_d - 2)
-                {
-                    vorx2 *= -1;
-                    x1 -= x2;
-                    if (vorx2 / vorx1 < 0)
-                    {
-                        return "NaN";
-                    }
-                    wurzel = Math.Pow(vorx2 / vorx1, x1);
-                }
-                else
-                {
-                    vorx1 *= -1;
-                    x2 -= x1;
-                    if (vorx1 / vorx2 < 0)
-                    {
-                        return "NaN";
-                    }
-                    wurzel = Math.Pow(vorx1 / vorx2, x2);
-                }
-                vorx1 *= (input_b - 2);
-                vorx2 *= (input_d - 2);
-                double y = vorx1 * Math.Pow(wurzel, input_b - 3) + vorx2 * Math.Pow(wurzel, input_d - 3);
-                if (y != 0)
-                {
-                    return string.Format("({0},{1})", wurzel, y);
-                }
-                else
-                {
-                    return "NaN";
-                }
-
-
-
-            }
+            return "noch komplett neumachen";
         }
         static public string Intergralregel1()
         {
@@ -392,7 +301,7 @@ namespace MadMaths.calculations
         }
         static public string Intergralregel3()
         {
-            return "x*ln(x) - x + c";
+            return "x * ln(x) - x + c";
         }
         static public double Integral1(double input_a, double input_b, double input_c, double input_d)
         {
