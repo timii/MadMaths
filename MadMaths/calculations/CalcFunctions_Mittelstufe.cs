@@ -178,19 +178,19 @@ namespace MadMaths.calculations
         static public double Umwandeln5(double input_a) { return input_a * 1000; }
         static public double Umwandeln6(double input_a) { return input_a * 100; }
 
-        static public double Stochastik1(int _) { return (1 / 6); }
-        static public double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return 1 / 6; } return (2 / 6); }
-        static public double Stochastik3() { return (3 / 6); }
-        static public double Stochastik4() { return (3 / 6); }
-        static public double Stochastik5() { return (1 / 4); }
+        static public double Stochastik1(int _) { return Math.Round(1.0 / 6.0,2, MidpointRounding.AwayFromZero); }
+        static public double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return Math.Round(1.0 / 6.0,2, MidpointRounding.AwayFromZero); } return Math.Round((2.0 / 6.0),2, MidpointRounding.AwayFromZero); }
+        static public double Stochastik3() { return (3.0 / 6.0); }
+        static public double Stochastik4() { return (3.0 / 6.0); }
+        static public double Stochastik5() { return (1.0 / 4.0); }
 
         static public double Dreisatz1(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
         static public double Dreisatz2(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
         static public double Dreisatz3(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
 
-        static public double Prozentrechnung1(double input_a, double input_b, double input_c) { return Math.Round(input_b * hoch((input_a * 0.01 + 1), input_c), 2); }
-        static public double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a * (input_b * 0.01), 2); }
-        static public double Prozentrechnung3(double input_a, double input_b, double input_c) { return Math.Round(input_a * hoch(input_b * 0.01 + 1, input_c) - input_a, 2); }
+        static public double Prozentrechnung1(double input_a, double input_b, double input_c) { return Math.Round(input_b * hoch((input_a * 0.01 + 1), input_c), 2, MidpointRounding.AwayFromZero); }
+        static public double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a * (input_b * 0.01), 2, MidpointRounding.AwayFromZero); }
+        static public double Prozentrechnung3(double input_a, double input_b, double input_c) { return Math.Round(input_a * hoch(input_b * 0.01 + 1, input_c) - input_a, 2, MidpointRounding.AwayFromZero); }
 
         static public string BinomischeFormeln1(double input_a, double input_b, double input_c)
         {
