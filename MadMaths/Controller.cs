@@ -29,6 +29,7 @@ namespace MadMaths
         public static string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
 
         public static User user;           // das user Objekt, welches alle Daten des  Benutzers zur Laufzeit enthält
+        public static List<UserRank> ranklist = new List<UserRank>();
 
         public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
@@ -155,6 +156,16 @@ namespace MadMaths
             }
             user.lastSessions += currentPage + ':' + currentExercise;
             UpdateUserJson();
+        }
+
+        public static void CreateRankList()
+        {
+            var stringjson = Client.GetRanklist();
+            var rawjson = JObject.Parse(stringjson);
+            foreach (var item in rawjson)
+            {
+                ranklist.Add(new UserRank() { UserName = item.Key, Points = Int32.Parse(item.Value["Points"].ToString()), avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())) });
+            }
         }
     }
 
@@ -284,12 +295,7 @@ namespace MadMaths
             {
                 string msg = "GETRANKLIST";
                 send(msg);
-                var temp = recv();
-                using (StreamWriter sw = new StreamWriter(File.OpenWrite("testranklist.txt")))
-                {
-                    sw.Write(temp);
-                }
-                return temp;
+                return recv();
             }
             return null;
         }
@@ -329,7 +335,7 @@ namespace MadMaths
             try
             {
                 stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
-                System.Threading.Thread.Sleep(3500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
+                System.Threading.Thread.Sleep(500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
             }
             catch (Exception) { Controller.UserIsOnline = false; }
         }

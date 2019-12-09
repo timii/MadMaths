@@ -38,11 +38,12 @@ namespace MadMaths.pages
             }
             Level.Text = Controller.user.level.ToString();
             progressInNumbers.Text = string.Format("{0}/{1}", Controller.user.currentProgress, Controller.user.level * 100);
-
-            RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
-            RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
-            RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
-            RankingList.ItemsSource = RankList;
+            Controller.CreateRankList();
+            RankList.Add(new UserRank() { UserName = "Daniel", Points = 1337 });
+            RankList.Add(new UserRank() { UserName = "Rodion", Points = 69 });
+            RankList.Add(new UserRank() { UserName = "Tim", Points = 420 });
+            //RankingList.ItemsSource = RankList;
+            RankingList.ItemsSource = Controller.ranklist;
             progress.Value = Controller.user.currentProgress;
             progress.Maximum = Controller.user.level * 100;
 

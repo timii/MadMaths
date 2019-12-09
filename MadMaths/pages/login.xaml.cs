@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -43,7 +44,7 @@ namespace MadMaths.pages
                     return;
                 }
                 Controller.user.password = GetHashString(UserPassword.Password);
-                Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
+                Task.Run(() => Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password)));
                 Controller.UpdateUserJson();
                 NavigationService.GoBack();
             }

@@ -58,7 +58,7 @@
             </StackPanel>
         </Border>
         <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
-                 HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5"
+                 Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5"
                  >
             <!--<ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
                 <TextBlock Text="Rangliste" FontSize="15"/>
@@ -80,7 +80,15 @@
             </ListBoxItem>-->
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding UserName}"/>
+                    <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <Image Source="{Binding avatarImg}" Stretch="UniformToFill" Margin="0,0,-40,0">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="20" RadiusY="20" Center="25,20"/>
+                            </Image.Clip>
+                        </Image>
+                        <Label Content="{Binding UserName}" HorizontalAlignment="Left"/>
+                        <Label Content="{Binding Points}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

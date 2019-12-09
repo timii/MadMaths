@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Media.Imaging;
+
 namespace MadMaths
 {
     public class User
@@ -14,6 +16,7 @@ namespace MadMaths
     public class UserRank
     {
         public string UserName { get; set; }
-        public int? progress { get; set; }
+        public int Points { get; set; }
+        public BitmapImage avatarImg { get; set; }
     }
 }
