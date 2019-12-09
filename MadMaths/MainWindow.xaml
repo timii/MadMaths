@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MadMaths" Height="635" Width="920" MinHeight="550" MinWidth="720"
         Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial" ResizeMode="NoResize"
-        Icon="assets/logo/WindowIcon3.png"
+        Icon="assets/logo/WindowIcon3.png" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" SizeChanged="Window_SizeChanged">
     <!-- WindowStyle=None Entfernt Standard Windows Border-->
     

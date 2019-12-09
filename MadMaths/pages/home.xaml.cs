@@ -135,5 +135,10 @@ namespace MadMaths.pages
                 Username.Cursor = Cursors.Hand;
             }
         }
+        private void ChallengeClick(object sender, RoutedEventArgs e)
+        {
+            Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
+            NavigationService.Navigate(new challengeAuswahl()); // Bei Klick Änderung der Page auf die challengeAuswahl
+        }
     }
 }

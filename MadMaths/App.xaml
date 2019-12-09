@@ -83,6 +83,13 @@
             </Style.Triggers>
         </Style>
         
+         <!--Style für challengeAuswahl Buttons 
+        <Style x:Key="challengeButtons" TargetType="Button">
+            <Setter Property="MaxHeight" Value="100"/>
+            <Setter Property="MaxWidth" Value="300"/>
+
+        </Style>-->
+        
         <!-- Style für Letzte Aufgaben Button -->
         <Style x:Key="LetzteAufgabenButton" TargetType="Button">
             <Setter Property="FontSize" Value="28"/>
@@ -116,18 +123,6 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-            <Style.Triggers>
-                <!-- Hover Effekt -->
-                <Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background" Value="#ff7600"/>
-                </Trigger>
-                <Trigger Property="Button.IsPressed" Value="True">
-                    <Setter Property="Background" Value="#ff7600"/>
-                </Trigger>
-                <Trigger Property="Button.IsEnabled" Value="False">
-                    <Setter Property="Background" Value="DimGray"/>
-                </Trigger>
-            </Style.Triggers>
         </Style>
 
         <!-- Style für Letzte Aufgaben Panel Button -->
