@@ -149,8 +149,8 @@ namespace MadMaths.calculations
 
         static public string Gleichungssystem1(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = ((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d));
-            double x = (input_c - input_b * y) / input_a;
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d)),2);
+            double x = Math.Round((input_c - input_b * y) / input_a,2);
 
             return "x = " + x + " \ny = " + y;
 
