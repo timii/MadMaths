@@ -398,7 +398,7 @@ namespace MadMaths.calculations
         {
             double stamm_a = input_a / 2;
             double stamm_b = input_b;
-            return (input_d * input_d * stamm_a + input_d * input_b) - (input_c * input_c * stamm_a + input_d * input_b);
+            return Math.Round((input_d * input_d * stamm_a + input_d * input_b) - (input_c * input_c * stamm_a + input_d * input_b),2);
         }
         static public double Integral2()
         {
@@ -430,7 +430,7 @@ namespace MadMaths.calculations
                 Flaeche1 = tmp;
             }
 
-            return Flaeche1 - Flaeche2;
+            return Math.Round(Flaeche1 - Flaeche2,2);
         }
 
         static public string SymmetrieI(double a, double b, double c, double d, double e, double f)

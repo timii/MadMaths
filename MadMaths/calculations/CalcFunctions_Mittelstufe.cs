@@ -33,7 +33,7 @@ namespace MadMaths.calculations
             {"Umwandeln4", new Func<double, double>(Umwandeln4)},
             {"Umwandeln5", new Func<double, double>(Umwandeln5)},
             {"Umwandeln6", new Func<double, double>(Umwandeln6)},
-            {"Stochastik1", new Func<double>(Stochastik1)},
+            {"Stochastik1", new Func<int,double>(Stochastik1)},
             {"Stochastik2", new Func<int,int,double>(Stochastik2)},
             {"Stochastik3", new Func<double>(Stochastik3)},
             {"Stochastik4", new Func<double>(Stochastik4)},
@@ -149,8 +149,8 @@ namespace MadMaths.calculations
 
         static public string Gleichungssystem1(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = ((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d));
-            double x = (input_c - input_b * y) / input_a;
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d)),2);
+            double x = Math.Round((input_c - input_b * y) / input_a,2);
 
             return "x = " + x + " \ny = " + y;
 
@@ -178,7 +178,7 @@ namespace MadMaths.calculations
         static public double Umwandeln5(double input_a) { return input_a * 1000; }
         static public double Umwandeln6(double input_a) { return input_a * 100; }
 
-        static public double Stochastik1() { return (1 / 6); }
+        static public double Stochastik1(int _) { return (1 / 6); }
         static public double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return 1 / 6; } return (2 / 6); }
         static public double Stochastik3() { return (3 / 6); }
         static public double Stochastik4() { return (3 / 6); }

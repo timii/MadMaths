@@ -195,7 +195,7 @@ namespace MadMaths
             }
             catch (Exception)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     try
                     {
