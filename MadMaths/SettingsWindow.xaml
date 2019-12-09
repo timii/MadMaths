@@ -18,7 +18,7 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button Click="CloseButton_Click" Content="✖" Width="20" Height="20" Foreground="#FFA500"
+                <Button Click="CloseButton_Click" Content="✖" Width="20" Height="20"
                         Style="{StaticResource WindowButtonClose}" FontSize="10" Margin="-2,0,0,0" HorizontalAlignment="Right"/>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button Content="Ausloggen" FontSize="20" MinHeight="40" MinWidth="120" Background="#FFFF7800" Cursor="Hand" Click="Logoutclick" Margin="0,0,0,20"/>
