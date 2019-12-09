@@ -11,7 +11,7 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="45"/>
     </WindowChrome.WindowChrome>
-
+    
     <Grid>
         <Grid Background="White">
             <Grid.RowDefinitions>
