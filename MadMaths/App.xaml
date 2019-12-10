@@ -366,16 +366,17 @@
             <Setter Property="Background" Value="#FF01C8FF"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Focusable" Value="False" />
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Margin" Value="3"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="Beige" BorderThickness="0" CornerRadius="15">
-                            <ContentPresenter VerticalAlignment="Center" Margin="5"/>
+                            <ContentPresenter VerticalAlignment="Center" Margin="3"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Margin" Value="2"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#FF01C8FF"/>
@@ -387,7 +388,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
         <!--Ranglistenstyle für den ersten Platz-->
         <Style x:Key="RankingListStyle1" BasedOn="{StaticResource RankingListStyle}">
             <Setter Property="Control.Background" Value="Orange" />

@@ -19,16 +19,28 @@ namespace MadMaths.pages
             if (!Controller.UserIsOnline) { Login.IsEnabled = false; }
         }
 
-        private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            // überprüft, ob Leerzeichen vorkommen
-            if (e.Key == Key.Space && UserPassword.IsFocused == true) { e.Handled = true; }
-        }
-
         private void UserName_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // überprüft, ob Leerzeichen vorkommen
             if (e.Key == Key.Space && UserName.IsFocused == true) { e.Handled = true; }
+            if (UserName.Text.Length >= 12 && e.Key != Key.Back)
+            {
+                e.Handled = true;
+                UsernameFeedback.Text = "Name zu lang (maximal 12 Zeichen)";
+            }
+            else { UsernameFeedback.Text = ""; }
+        }
+
+        private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            // überprüft, ob Leerzeichen vorkommen
+            if (e.Key == Key.Space && UserPassword.IsFocused == true) { e.Handled = true; }
+            if (UserPassword.Password.Length >= 16 && e.Key != Key.Back)
+            {
+                e.Handled = true;
+                PasswordFeedback.Text = "Passwort zu lang (maximal 16 Zeichen)";
+            }
+            else { PasswordFeedback.Text = ""; }
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
