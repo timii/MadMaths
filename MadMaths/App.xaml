@@ -364,8 +364,8 @@
         <!-- Style für die Ranking Liste -->     
         <Style TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="#FF01C8FF"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Focusable" Value="False" />
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Width" Value="auto"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -431,16 +431,16 @@
                             <Rectangle x:Name="PART_Track"/>
                             <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left" Background="Transparent">
                                 <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}" RadiusX="12" RadiusY="12"/>
-                                <Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" RadiusX="12" RadiusY="12">
-                                    <Rectangle.RenderTransform>
+                                <!--<Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" RadiusX="12" RadiusY="12">
+                                    --><!--<Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
                                             <SkewTransform/>
                                             <RotateTransform/>
                                             <TranslateTransform/>
                                         </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
+                                    </Rectangle.RenderTransform>--><!--
+                                </Rectangle>-->
                             </Grid>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -462,15 +462,13 @@
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStop Color="#FFFEB329" Offset="0.0"/>
-                        <!--<GradientStop Color="Orange" Offset="0.3"/>
-                        <GradientStop Color="DarkOrange" Offset="0.6"/>-->
                         <GradientStop Color="#FFFF5014" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
         </Style>
         
-        <!--Custom Scrollbar Style-->
+        <!--Style für die Custom Scrollbar -->
         <SolidColorBrush x:Key="HoverBorderBrush" Color="#DDD" />
         <SolidColorBrush x:Key="HorizontalNormalBrush" Color="#FFA500" />
         <SolidColorBrush x:Key="HorizontalNormalBorderBrush" Color="#888" />
@@ -506,8 +504,9 @@
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
             <Style.Triggers>
                 <Trigger Property="Orientation" Value="Vertical">
-                    <Setter Property="Width" Value="25"/>
+                    <Setter Property="Width" Value="15"/>
                     <Setter Property="Height" Value="Auto" />
+                    <Setter Property="Margin" Value="-5,0,5,0" />
                     <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
                 </Trigger>
             </Style.Triggers>
