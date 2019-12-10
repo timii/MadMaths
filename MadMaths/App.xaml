@@ -35,7 +35,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <!-- Style für die Buttons -->
         <Style TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="28"/>
@@ -53,7 +53,7 @@
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="3">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
                                               TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
                         </Border>
                     </ControlTemplate>
@@ -82,14 +82,14 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
-         <!--Style für challengeAuswahl Buttons 
+
+         <!--Style für challengeAuswahl Buttons
         <Style x:Key="challengeButtons" TargetType="Button">
             <Setter Property="MaxHeight" Value="100"/>
             <Setter Property="MaxWidth" Value="300"/>
 
         </Style>-->
-        
+
         <!-- Style für Letzte Aufgaben Button -->
         <Style x:Key="LetzteAufgabenButton" TargetType="Button">
             <Setter Property="FontSize" Value="28"/>
@@ -107,7 +107,7 @@
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="3">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
                                               TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
                         </Border>
                     </ControlTemplate>
@@ -144,7 +144,7 @@
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="1">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" 
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
                                               TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
                         </Border>
                     </ControlTemplate>
@@ -174,9 +174,9 @@
                         <!--<GradientStop Color="#FF6464FF" Offset="1.0"/>-->
                     </LinearGradientBrush>
                 </Setter.Value>
-            </Setter> 
+            </Setter>
         </Style>
-        
+
         <!-- Style für CustomWindow Buttons -->
         <Style x:Key="WindowButton">
             <Setter Property="Control.Background" Value="DarkOrange"/>
@@ -254,7 +254,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
         <!-- Style für die Window Close Button -->
         <Style x:Key="WindowButtonClose" BasedOn="{StaticResource WindowButton}">
             <Setter Property="Control.FontFamily" Value="Lucida Sana Unicode"/>
@@ -285,7 +285,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
         <!-- Style für den Back Button -->
         <Style x:Key="BackButton">
             <Setter Property="Control.Template">
@@ -360,8 +360,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>-->
-        
-        <!-- Style für die Ranking Liste -->     
+
+        <!-- Style für die Ranking Liste -->
         <Style TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="#FF01C8FF"/>
             <Setter Property="FontSize" Value="20"/>
@@ -407,7 +407,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
         <!--Ranglistenstyle für den dritten Platz-->
         <Style x:Key="RankingListStyle3" BasedOn="{StaticResource RankingListStyle}">
             <Setter Property="Control.Background" Value="#FFFDC560" />
@@ -417,7 +417,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
         <!-- Style für ProgressBar -->
         <Style x:Key="ProgressBarStyle1" TargetType="{x:Type ProgressBar}">
             <Setter Property="Foreground" Value="Orange"/>
@@ -432,16 +432,16 @@
                             <Rectangle x:Name="PART_Track"/>
                             <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left" Background="Transparent">
                                 <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}" RadiusX="12" RadiusY="12"/>
-                                <Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" RadiusX="12" RadiusY="12">
-                                    <Rectangle.RenderTransform>
+                                <!--<Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" RadiusX="12" RadiusY="12">
+                                    --><!--<Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform/>
                                             <SkewTransform/>
                                             <RotateTransform/>
                                             <TranslateTransform/>
                                         </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
+                                    </Rectangle.RenderTransform>--><!--
+                                </Rectangle>-->
                             </Grid>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -463,15 +463,13 @@
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStop Color="#FFFEB329" Offset="0.0"/>
-                        <!--<GradientStop Color="Orange" Offset="0.3"/>
-                        <GradientStop Color="DarkOrange" Offset="0.6"/>-->
                         <GradientStop Color="#FFFF5014" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
         </Style>
-        
-        <!--Custom Scrollbar Style-->
+
+        <!--Style für die Custom Scrollbar -->
         <SolidColorBrush x:Key="HoverBorderBrush" Color="#DDD" />
         <SolidColorBrush x:Key="HorizontalNormalBrush" Color="#FFA500" />
         <SolidColorBrush x:Key="HorizontalNormalBorderBrush" Color="#888" />
@@ -507,8 +505,9 @@
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
             <Style.Triggers>
                 <Trigger Property="Orientation" Value="Vertical">
-                    <Setter Property="Width" Value="25"/>
+                    <Setter Property="Width" Value="15"/>
                     <Setter Property="Height" Value="Auto" />
+                    <Setter Property="Margin" Value="-5,0,5,0" />
                     <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
                 </Trigger>
             </Style.Triggers>
