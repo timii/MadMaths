@@ -29,6 +29,7 @@ namespace MadMaths.pages
                 UsernameFeedback.Text = "Name zu lang (maximal 12 Zeichen)";
             }
             else { UsernameFeedback.Text = ""; }
+            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }
         }
 
         private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -41,6 +42,7 @@ namespace MadMaths.pages
                 PasswordFeedback.Text = "Passwort zu lang (maximal 16 Zeichen)";
             }
             else { PasswordFeedback.Text = ""; }
+            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
