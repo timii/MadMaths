@@ -19,16 +19,18 @@ namespace MadMaths.calculations
             {"Ableiten9", new Func<double, double, string>(Ableiten9)},
             {"HöherAbleiten1", new Func<double, double, double, string>(HöherAbleiten1)},
             {"HöherAbleiten2", new Func<double, double, double, double, double, string>(HöherAbleiten2)},
-            {"Wendepunkte1", new Func<double, double, double, double, string>(Wendepunkte1)},
+            {"Wendepunkte1", new Func<double, double, double, double, string[]>(Wendepunkte1)},
             {"Integralregel1", new Func<string>(Intergralregel1)},
             {"Integralregel2", new Func<string>(Intergralregel2)},
             {"Integralregel3", new Func<string>(Intergralregel3)},
             {"Integral1", new Func<double, double, double, double, double>(Integral1)},
             {"Integral2", new Func<double>(Integral2)},
             {"SchwerIntegrieren1", new Func<double, double, double, double>(SchwerIntegrieren1)},
-            {"SymmetrieI", new Func<double, double, double, double,double,double,string>(SymmetrieI) }
+            {"SymmetrieI", new Func<double, double, double, double,double,double,string>(SymmetrieI) },
+            {"ExtrempunktI", new Func<double, double, double, double, string[]>(ExtrempunktI)},
+            {"NullstellenI", new Func<double, double, double, double, string[]>(NullstellenI)},
         };
-        #endregion
+        #endregion 
 
         static public string Ableiten1(double input_a, double input_b)
         {
@@ -286,10 +288,44 @@ namespace MadMaths.calculations
             return string.Format("{0}x^{1} + {2}x^{3}", vorx1, input_b - 1, vorx2, input_d - 1);
         }
 
-        static public string Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
+        static public string[] Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
         {
+            string[] Lösung = new string[2];
+            int i = 0; //zählt mit an welcher Stelle wir sind
 
-            return "noch komplett neumachen";
+            double vorx1 = input_a * input_b * (input_b-1);
+            double vorx2 = input_c * input_d * (input_d-1);
+            double wendep; //extremstelle
+            double LoesHilf;
+            //Keine WP wenn 3. ABleitung 0
+            if (input_b - 3 < 0 && input_d - 3 < 0)
+            {
+                Lösung[i] = "NaN";
+                return Lösung;
+            }
+            //Bei 0 0 WP wenn 3. Ableitung bei (x = 0) != 0
+            if ((vorx1 * (input_b - 2) + vorx2 * (input_d - 2)) != 0)
+            {
+                Lösung[i] = "(0,0)";
+                i++;
+            }
+            //Rechnung
+            wendep = Math.Pow(((-1 * vorx1) / vorx2), 1/((input_d - 2) - (input_b - 2)));
+            if ((vorx1 * (input_b - 2) * Math.Pow(wendep,input_b-3) + vorx2 * (input_d - 2) * Math.Pow(wendep, input_d - 3)) != 0)
+            {
+                LoesHilf = (input_a * Math.Pow(wendep, input_b) + input_c * Math.Pow(wendep, input_d));
+                Lösung[i] = string.Format("({0},{1})", wendep, LoesHilf);
+            }
+            return Lösung;
+
+
+
+
+
+
+
+
+
         }
         static public string Intergralregel1()
         {
