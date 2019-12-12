@@ -102,6 +102,16 @@ namespace MadMaths
                 } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) % 4 != 0);
                 return Zahl_Rückgabe;
             }
+            if (Thema == "Gleichungen")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
+                } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) + Int32.Parse(Zahl_Rückgabe[1].ToString()) - Int32.Parse(Zahl_Rückgabe[2].ToString()) < 0);
+                return Zahl_Rückgabe;
+            }
             if (Thema == "Wurzeln")
             {
                 Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);

@@ -29,6 +29,9 @@ namespace MadMaths.calculations
         {
             var AufgabenFunc = CalcFunctions_Oberstufe.os_funcs[AufgabenKey];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
+            //var ArrayToString = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
+            
+
             if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
             {
                 return true;

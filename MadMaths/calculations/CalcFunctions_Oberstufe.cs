@@ -27,10 +27,14 @@ namespace MadMaths.calculations
             {"Integral2", new Func<double>(Integral2)},
             {"SchwerIntegrieren1", new Func<double, double, double, double>(SchwerIntegrieren1)},
             {"SymmetrieI", new Func<double, double, double, double,double,double,string>(SymmetrieI) },
-            {"ExtrempunktI", new Func<double, double, double, double, string[]>(ExtrempunktI)},
+            {"ExtrempunktI", new Func<double, double, double, double, string>(ExtrempunktI)},
             {"NullstellenI", new Func<double, double, double, double, string[]>(NullstellenI)},
         };
-        #endregion 
+        #endregion
+        static private double runden(double input)
+        {
+            return Math.Round(input, 2, MidpointRounding.AwayFromZero);
+        }
 
         static public string Ableiten1(double input_a, double input_b)
         {
@@ -405,33 +409,44 @@ namespace MadMaths.calculations
             return "Asymmetrisch";
         }
 
-        static public string[] ExtrempunktI(double input_a, double input_b, double input_c, double input_d)
+        static public string ExtrempunktI(double input_a, double input_b, double input_c, double input_d)
         {
-            string[] Lösung = new string[2];
-            int i = 0; //zählt mit an welcher Stelle wir sind
+            string Lösung = "";
 
             double vorx1 = input_a * input_b;
-            double vorx2 = input_c * input_d;
+            double vorx2 = input_c * input_d;   
             double extr; //extremstelle
             double LoesHilf;
             //Keine EP wenn 2. ABleitung 0
             if (input_b-2 < 0 && input_d-2 < 0)
             {
-                Lösung[i] = "NaN";
+                Lösung += "NaN";
                 return Lösung;
             }
-
-            if ((vorx1 * (input_b-1) + vorx2 * (input_d-1)*Math.Pow(0,input_d-2)) != 0 )
+            if (((vorx1 * (input_b-1) * Math.Pow(0,input_b-2)+ vorx2 * (input_d-1)*Math.Pow(0,input_d-2)) != 0))
             {
-                Lösung[i] = "(0,0)";
-                i++;
+                Lösung+=  "(0;0),";
             }
+            if (input_b == input_d) { return Lösung; }
 
-            extr = Math.Pow(((-1 * vorx1) / vorx2), (input_d - 1) - (input_b - 1));
+            if (input_d > input_b)
+            {
+                extr = Math.Pow(((-1 * vorx1) / vorx2), 1/((input_d - 1) - (input_b - 1)));
+            }   
+
+            else
+            {
+                extr = Math.Pow(((-1 * vorx2) / vorx1), 1/((input_b - 1) - (input_d - 1)));
+            }
+            
             if ((vorx1 * (input_b - 1) + vorx2 * (input_d - 1) * Math.Pow(extr, input_d - 2)) != 0)
             {
                 LoesHilf = (input_a * Math.Pow(extr, input_b) + input_c * Math.Pow(extr, input_d));
-                Lösung[i] = string.Format("({0},{1})", extr, LoesHilf);
+                if (string.Format("({0};{1})", runden(extr), runden(LoesHilf))+"," == Lösung)
+                {
+                    return Lösung;
+                }
+                Lösung+=  string.Format("({0};{1})", runden(extr), runden(LoesHilf));
             }
             return Lösung;
 
