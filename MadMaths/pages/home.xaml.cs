@@ -105,7 +105,6 @@ namespace MadMaths.pages
             foreach (var item in lastSessions
                 .Take(3))
             {
-                //lastSessionsPanel.Children.Add(new Separator());
                 Button b = new Button();
                 b.Tag = item[0];
                 b.Content = item[1];

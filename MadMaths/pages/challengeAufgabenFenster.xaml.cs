@@ -1,20 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace MadMaths.pages
 {
     /// <summary>
-    /// Interaktionslogik für AufgabenFenster.xaml
+    /// Interaktionslogik für challengeAufgabenFenster.xaml
     /// </summary>
-    public partial class AufgabenFenster : Page
+    public partial class challengeAufgabenFenster : Page
     {
+        static int GSanzRichtig = 0;
+        static int MSanzRichtig = 0;
+        static int OSanzRichtig = 0;
         bool wasFocused = false;
 
-        public AufgabenFenster()
+        public challengeAufgabenFenster()
         {
             InitializeComponent();
             AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise);
@@ -25,23 +36,33 @@ namespace MadMaths.pages
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
+            NavigationService.Navigate(new challengeAuswahl()); // Bei Klick zurück auf die Startseite;
 
         }
 
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
-
-
             if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text, out string _lösung))
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
+                if (Controller.currentPage == "Grundschule")
+                {
+                    GSanzRichtig++;
+                }
+                else if (Controller.currentPage == "Mittelstufe") 
+                {
+                    MSanzRichtig++;
+                }
+                else
+                {
+                    OSanzRichtig++;
+                }
                 Controller.UpdateLevel(50);
             }
             else
             {
-                Lösung.Text = "Falsch!"+ Environment.NewLine + _lösung;
+                Lösung.Text = "You fucking donkey" + Environment.NewLine + _lösung;
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
             }
             abgabebtn.IsEnabled = false;
@@ -63,8 +84,13 @@ namespace MadMaths.pages
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
-            AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
-            reset();
+            //AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
+            //reset();
+            List<string> myList = Controller.Stufen[Controller.currentPage].ThemenListe;
+            Random rand = new Random();
+            int index = rand.Next(myList.Count);
+            Controller.currentExercise = myList[index];
+            NavigationService.Navigate(new challengeAufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 
         private void Antwort_KeyDown(object sender, KeyEventArgs e)
@@ -81,6 +107,18 @@ namespace MadMaths.pages
             NextExerciseButton.Opacity = 0;
             Antwort.IsReadOnly = false;
             Antwort.Focusable = true;
+        }
+        public static int getGSAnzRichtig() 
+        {
+            return GSanzRichtig;
+        }
+        public static int getMSAnzRichtig()
+        {
+            return MSanzRichtig;
+        }
+        public static int getOSAnzRichtig()
+        {
+            return OSanzRichtig;
         }
     }
 }
