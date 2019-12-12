@@ -51,8 +51,8 @@
         </Grid>
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
-                <Button x:Name="challenge" Content="Herausforderung" Margin="5,5,5,25" Click="ChallengeClick"/>
-                <Button x:Name="lastSession" Content="letzte Übungen" Margin="5, 5, 5, 0" Style="{StaticResource LetzteAufgabenButton}"/>
+                <Button x:Name="challenge" Content="Herausforderung" Margin="5,25,5,25" Click="ChallengeClick"/>
+                <Button x:Name="lastSession" Content="letzte Übungen" Margin="5, 18, 5, 0" Style="{StaticResource LetzteAufgabenButton}"/>
                 <StackPanel Name="lastSessionsPanel" Orientation="Vertical">
                 </StackPanel>
             </StackPanel>
