@@ -19,4 +19,14 @@ namespace MadMaths
         public int Points { get; set; }
         public BitmapImage avatarImg { get; set; }
     }
+    /// <summary>
+    /// Hier wird die Anzahl richtig beantworteter Aufgaben der letzten Sitzung
+    /// gespeichert
+    /// </summary>
+    public struct Challenge
+    {
+        public int grundschule { get; set; }
+        public int mittelstufe { get; set; }
+        public int oberstufe { get; set; }
+    }
 }

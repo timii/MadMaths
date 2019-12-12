@@ -24,18 +24,26 @@ namespace MadMaths
 
         public static bool UserIsOnline = false;
 
-        private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
+        private static readonly string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
 
-        public static string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
+        public static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
 
-        public static User user;           // das user Objekt, welches alle Daten des  Benutzers zur Laufzeit enthält
+        public static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
         public static List<UserRank> ranklist = new List<UserRank>();
+        public static Challenge _challenge = new Challenge();
 
         public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
             {"Grundschule",new Grundschule() },
             {"Mittelstufe", new Mittelstufe() },
             {"Oberstufe", new Oberstufe() }
+        };
+
+        public static Dictionary<string, int> challenge = new Dictionary<string, int>()
+        {
+            {"Grundschule", _challenge.grundschule },
+            {"Mittelstufe", _challenge.mittelstufe },
+            {"Oberstufe", _challenge.oberstufe }
         };
 
         static Controller()
@@ -59,8 +67,8 @@ namespace MadMaths
                 user = JsonConvert.DeserializeObject<User>(userjson); // die daten werden im User Objekt gespeichert
             }
         }
-
-        public static BitmapImage LoadImage(in byte[] imageData)
+        
+        public static BitmapImage LoadImage(in byte[] imageData)    // Code von https://bit.ly/2YFCn3E
         // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
             if (imageData == null || imageData.Length == 0) return null;

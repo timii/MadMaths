@@ -95,9 +95,6 @@
     <Compile Include="LevelUpWindow.xaml.cs">
       <DependentUpon>LevelUpWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\challengeAufgabenFenster.xaml.cs">
-      <DependentUpon>challengeAufgabenFenster.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pages\challengeAuswahl.xaml.cs">
       <DependentUpon>challengeAuswahl.xaml</DependentUpon>
     </Compile>
@@ -128,10 +125,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="pages\AufgabenFenster.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="pages\challengeAufgabenFenster.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

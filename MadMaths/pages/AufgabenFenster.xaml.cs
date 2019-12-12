@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ namespace MadMaths.pages
     public partial class AufgabenFenster : Page
     {
         bool wasFocused = false;
+        public static bool ChallengeMode = false;
 
         public AufgabenFenster()
         {
@@ -21,12 +23,17 @@ namespace MadMaths.pages
             NextExerciseButton.IsEnabled = false;
             Controller.FillLastSessions();
             ThemenName.Text = Controller.currentExercise;
+            if (ChallengeMode)
+            {
+                BackButton.Visibility = Visibility.Hidden;
+                NextExerciseButton.Click -= NextExerciseButton_Click;
+                NextExerciseButton.Click += NextChallengeButton_Click;
+            }
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
-
         }
 
         private void Abgabe_Click(object sender, RoutedEventArgs e)
@@ -38,12 +45,15 @@ namespace MadMaths.pages
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
                 Controller.UpdateLevel(50);
+                if (ChallengeMode) { ++Controller.challenge[Controller.currentPage]; }
             }
             else
             {
-                Lösung.Text = "Falsch!"+ Environment.NewLine + _lösung;
+                Lösung.Text = "Falsch!" + Environment.NewLine + _lösung;
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
             }
+            --challengeAuswahl.Versuche[Controller.currentPage];
+            if (challengeAuswahl.Versuche[Controller.currentPage] == 0) { NavigationService.Navigate(new challengeAuswahl()); }
             abgabebtn.IsEnabled = false;
             Antwort.IsReadOnly = true;
             Antwort.Focusable = false;
@@ -81,6 +91,18 @@ namespace MadMaths.pages
             NextExerciseButton.Opacity = 0;
             Antwort.IsReadOnly = false;
             Antwort.Focusable = true;
+        }
+
+        private void NextChallengeButton_Click(object sender, RoutedEventArgs e)
+        {
+            //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
+            //AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
+            //reset();
+            List<string> myList = Controller.Stufen[Controller.currentPage].ThemenListe;
+            Random rand = new Random();
+            int index = rand.Next(myList.Count);
+            Controller.currentExercise = myList[index];
+            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
     }
 }

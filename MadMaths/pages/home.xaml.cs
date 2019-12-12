@@ -46,7 +46,7 @@ namespace MadMaths.pages
             if (Controller.user.lastSessions != null)
             {
                 ShowLastSessions();
-            }      
+            }
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
