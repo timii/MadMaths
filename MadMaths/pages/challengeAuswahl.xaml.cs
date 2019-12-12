@@ -28,10 +28,15 @@ namespace MadMaths.pages
         {
             NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
         }
-        private void StufenClick(object sender, RoutedEventArgs e)
-        {
-            Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
-            NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenauswahl
+        private void AufgabenClick(object sender, RoutedEventArgs e)
+        {   
+            Controller.currentPage = (sender as Button).Content as string;
+            List<string> myList = Controller.Stufen[Controller.currentPage].ThemenListe;
+            Random rand = new Random();
+            int index = rand.Next(myList.Count);
+            Controller.currentExercise = myList[index];
+            NavigationService.Navigate(new challengeAufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
+
     }
 }
