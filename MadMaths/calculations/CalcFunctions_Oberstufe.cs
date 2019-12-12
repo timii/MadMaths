@@ -35,7 +35,8 @@ namespace MadMaths.calculations
         {
             return Math.Round(input, 2, MidpointRounding.AwayFromZero);
         }
-
+        //Ableiten
+        #region
         static public string Ableiten1(double input_a, double input_b)
         {
             return string.Format("{0}x^{1}", input_a * input_b, input_b - 1);
@@ -291,7 +292,7 @@ namespace MadMaths.calculations
             }
             return string.Format("{0}x^{1} + {2}x^{3}", vorx1, input_b - 1, vorx2, input_d - 1);
         }
-
+        #endregion
         static public string[] Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
         {
             string[] Lösung = new string[2];
@@ -321,16 +322,9 @@ namespace MadMaths.calculations
                 Lösung[i] = string.Format("({0},{1})", wendep, LoesHilf);
             }
             return Lösung;
-
-
-
-
-
-
-
-
-
         }
+        //Integral
+        #region
         static public string Intergralregel1()
         {
             return "-cos(x) + c";
@@ -381,7 +375,7 @@ namespace MadMaths.calculations
 
             return Math.Round(Flaeche1 - Flaeche2,2, MidpointRounding.AwayFromZero);
         }
-
+        #endregion
         static public string SymmetrieI(double a, double b, double c, double d, double e, double f)
         {
             int Zaehler = 0;
@@ -423,11 +417,11 @@ namespace MadMaths.calculations
                 Lösung += "NaN";
                 return Lösung;
             }
-            if (((vorx1 * (input_b-1) * Math.Pow(0,input_b-2)+ vorx2 * (input_d-1)*Math.Pow(0,input_d-2)) != 0))
+
+            if (((vorx1 * Math.Pow(0,input_b-1)+ vorx2 * Math.Pow(0,input_d-1)) == 0) && ((vorx1 * (input_b-1) * Math.Pow(0,input_b-2)+ vorx2 * (input_d-1)*Math.Pow(0,input_d-2)) != 0))
             {
                 Lösung+=  "(0;0),";
             }
-            if (input_b == input_d) { return Lösung; }
 
             if (input_d > input_b)
             {
@@ -447,6 +441,10 @@ namespace MadMaths.calculations
                     return Lösung;
                 }
                 Lösung+=  string.Format("({0};{1})", runden(extr), runden(LoesHilf));
+            }
+            if (Lösung == "")
+            {
+                Lösung += "NaN";
             }
             return Lösung;
 

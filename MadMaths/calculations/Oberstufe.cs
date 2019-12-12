@@ -41,16 +41,17 @@ namespace MadMaths.calculations
 
         public string getAufgabenText(string aufgabe)
         {
+            var aufgabe_real = aufgabe;
             AufgabenZahlen = null;
             var randIndex = rand.Next(0, Aufgaben[aufgabe].Count);
             AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
             aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
             var argsNum = Regex.Matches(aufgabe, @"{[0-9]+}").OfType<Match>().Select(m => m.Value).Distinct().Count();
-            AufgabenZahlen = new object[argsNum];
-            for (int i = 0; i < argsNum; i++)
+            AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, AufgabenKey);
+           /* for (int i = 0; i < argsNum; i++)
             {
                 AufgabenZahlen[i] = rand.Next(1, 10);
-            }
+            }*/
             return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
         }
 
