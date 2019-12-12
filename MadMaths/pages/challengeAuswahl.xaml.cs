@@ -23,10 +23,13 @@ namespace MadMaths.pages
         public challengeAuswahl()
         {
             InitializeComponent();
+            GrundschuleFortschritt.Text = string.Format("{0}/{1}", challengeAufgabenFenster.getGSAnzRichtig(), 10);
+            MittelstufeFortschritt.Text = string.Format("{0}/{1}", challengeAufgabenFenster.getMSAnzRichtig(), 10);
+            OberstufeFortschritt.Text = string.Format("{0}/{1}", challengeAufgabenFenster.getOSAnzRichtig(), 10);
         }
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
+            NavigationService.Navigate(new home()); // Bei Klick zurück auf die Startseite;
         }
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {   

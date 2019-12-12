@@ -12,7 +12,6 @@ namespace MadMaths.pages
     /// </summary>
     public partial class AufgabenFenster : Page
     {
-        int anzRichtig = 0;
         bool wasFocused = false;
 
         public AufgabenFenster()
@@ -36,7 +35,6 @@ namespace MadMaths.pages
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
-                anzRichtig++;
                 Controller.UpdateLevel(50);
             }
             else

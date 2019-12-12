@@ -20,7 +20,9 @@ namespace MadMaths.pages
     /// </summary>
     public partial class challengeAufgabenFenster : Page
     {
-        int anzRichtig = 0;
+        static int GSanzRichtig = 0;
+        static int MSanzRichtig = 0;
+        static int OSanzRichtig = 0;
         bool wasFocused = false;
 
         public challengeAufgabenFenster()
@@ -34,7 +36,7 @@ namespace MadMaths.pages
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack(); // Bei Klick zurück auf die Startseite;
+            NavigationService.Navigate(new challengeAuswahl()); // Bei Klick zurück auf die Startseite;
 
         }
 
@@ -44,7 +46,18 @@ namespace MadMaths.pages
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
-                anzRichtig++;
+                if (Controller.currentPage == "Grundschule")
+                {
+                    GSanzRichtig++;
+                }
+                else if (Controller.currentPage == "Mittelstufe") 
+                {
+                    MSanzRichtig++;
+                }
+                else
+                {
+                    OSanzRichtig++;
+                }
                 Controller.UpdateLevel(50);
             }
             else
@@ -71,8 +84,13 @@ namespace MadMaths.pages
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
-            AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
-            reset();
+            //AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
+            //reset();
+            List<string> myList = Controller.Stufen[Controller.currentPage].ThemenListe;
+            Random rand = new Random();
+            int index = rand.Next(myList.Count);
+            Controller.currentExercise = myList[index];
+            NavigationService.Navigate(new challengeAufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 
         private void Antwort_KeyDown(object sender, KeyEventArgs e)
@@ -89,6 +107,18 @@ namespace MadMaths.pages
             NextExerciseButton.Opacity = 0;
             Antwort.IsReadOnly = false;
             Antwort.Focusable = true;
+        }
+        public static int getGSAnzRichtig() 
+        {
+            return GSanzRichtig;
+        }
+        public static int getMSAnzRichtig()
+        {
+            return MSanzRichtig;
+        }
+        public static int getOSAnzRichtig()
+        {
+            return OSanzRichtig;
         }
     }
 }
