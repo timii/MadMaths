@@ -70,12 +70,12 @@
                         <Label Content="{Binding UserName}" HorizontalAlignment="Left"/>
                         <Label Content="{Binding Points}"/>
                     </StackPanel>-->
-                    <Grid Background="Transparent" Height="45" VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <Grid Background="Transparent" Height="45" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="110"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="15"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="{Binding avatarImg}" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,0,-10">
                             <Image.Clip>
@@ -83,7 +83,7 @@
                             </Image.Clip>
                         </Image>
                         <Label Content="{Binding UserName}" HorizontalAlignment="Left" Grid.Column="1" FontSize="15" VerticalAlignment="Center"/>
-                        <Label Grid.Column="2" Grid.ColumnSpan="2" Content="{Binding Points}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
+                        <Label Grid.Column="2" Content="{Binding Points}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="13"/>
                         </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

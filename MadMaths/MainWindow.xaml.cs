@@ -35,6 +35,8 @@ namespace MadMaths
             }
             Controller.CreateRankList();
             InitializeComponent();
+            if (Controller.UserIsOnline) { onlineStatus.Content = "online"; }
+            else { onlineStatus.Content = "offline"; }
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 
@@ -89,6 +91,12 @@ namespace MadMaths
             {
                 MaximizeButton.Style = Application.Current.FindResource("WindowButtonMaximize") as Style;
             }
+        }
+
+        public static void updateStatus(in string status)
+        {
+            MainWindow mainwin = Application.Current.MainWindow as MainWindow;
+            mainwin.onlineStatus.Content = status;
         }
     }
 }
