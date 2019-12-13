@@ -144,11 +144,13 @@ namespace MadMaths
 
         public static void UpdateLevel(in int exp)
         {
-            user.currentProgress += exp;
             var maxEXP = user.level * 100;
-            if (user.currentProgress >= maxEXP)
+            if (user.currentProgress+exp <= maxEXP){ user.currentProgress += exp; }
+            else { user.currentProgress = maxEXP; }
+            
+            if (user.currentProgress >= maxEXP && user.level < 99)
             {
-                user.level++;
+                ++user.level;
                 user.currentProgress = 0;
                 LevelUpWindow lvlup = new LevelUpWindow(user.level.ToString());
                 lvlup.Owner = System.Windows.Application.Current.MainWindow;
@@ -172,7 +174,8 @@ namespace MadMaths
             var rawjson = JObject.Parse(stringjson);
             foreach (var item in rawjson)
             {
-                ranklist.Add(new UserRank() { UserName = item.Key, Points = Int32.Parse(item.Value["Points"].ToString()), avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())) });
+                ranklist.Add(new UserRank() { UserName = item.Key, Points = Int32.Parse(item.Value["Points"].ToString()),
+                                              avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())) });
             }
         }
     }

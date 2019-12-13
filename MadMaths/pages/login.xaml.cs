@@ -17,6 +17,7 @@ namespace MadMaths.pages
         {
             InitializeComponent();
             if (!Controller.UserIsOnline) { Login.IsEnabled = false; }
+            UserName.ContextMenu = UserPassword.ContextMenu = null;     // deaktiviert das Context Menü, um das Einfügen von invaliden Benutzernamen und Passwörtern zu unterbinden
         }
 
         private void UserName_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -49,24 +50,21 @@ namespace MadMaths.pages
         {
             UsernameFeedback.Text = "";
             PasswordFeedback.Text = "";
-            if (Client.CheckUsername(UserName.Text))
+            if (UserPassword.Password.Length >= 8)
             {
-                Controller.user.UserName = UserName.Text;
-                if (UserPassword.Password.Length < 8)
+                if (Client.CheckUsername(UserName.Text))
                 {
-                    PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
-                    return;
+                    Controller.user.UserName = UserName.Text;
+                    Controller.user.password = GetHashString(UserPassword.Password);
+                    Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
+                    Controller.UpdateUserJson();
+                    NavigationService.Navigate(new home());
                 }
-                Controller.user.password = GetHashString(UserPassword.Password);
-                Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
-                Controller.UpdateUserJson();
-                NavigationService.GoBack();
+                else { UsernameFeedback.Text = "Benutzername existiert bereits"; }
             }
-            else
-            {
-                UsernameFeedback.Text = "Benutzername existiert bereits";
-            }
+            else { PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)"; }
         }
+
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack(); // geht eine Seite zurück
@@ -87,24 +85,28 @@ namespace MadMaths.pages
 
         private async void Login_Click(object sender, RoutedEventArgs e)
         {
-            Login.IsEnabled = false; Register.IsEnabled = false;
-            BackButton.IsEnabled = false;
-            Cursor = Cursors.Wait;
-            string pw = GetHashString(UserPassword.Password);
-            if (Client.LoginUser(UserName.Text, pw))
+            if (UserPassword.Password.Length >= 8)
             {
-                Controller.user.UserName = UserName.Text;
-                Controller.user.password = pw;
-                await Client.GetUserData();
-                NavigationService.Navigate(new home());
+                Login.IsEnabled = false; Register.IsEnabled = false;
+                BackButton.IsEnabled = false;
+                Cursor = Cursors.Wait;
+                string pw = GetHashString(UserPassword.Password);
+                if (Client.LoginUser(UserName.Text, pw))
+                {
+                    Controller.user.UserName = UserName.Text;
+                    Controller.user.password = pw;
+                    await Client.GetUserData();
+                    NavigationService.Navigate(new home());
+                }
+                else
+                {
+                    UsernameFeedback.Text = "Benutzername oder Passwort ist falsch";
+                    Login.IsEnabled = true; Register.IsEnabled = true;
+                    BackButton.IsEnabled = true;
+                    Cursor = Cursors.Arrow;
+                }
             }
-            else
-            {
-                UsernameFeedback.Text = "Benutzername oder Passwort ist falsch";
-                Login.IsEnabled = true; Register.IsEnabled = true;
-                BackButton.IsEnabled = true;
-                Cursor = Cursors.Arrow;
-            }
+            else { PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)"; }
         }
     }
 }
