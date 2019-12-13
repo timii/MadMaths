@@ -96,7 +96,7 @@ namespace MadMaths.pages
             }
         }
 
-        private void ShowLastSessions() 
+        private void ShowLastSessions()
         {
             var temp = Controller.user.lastSessions.Split(',');
             List<string[]> lastSessions = new List<string[]>();
@@ -123,11 +123,13 @@ namespace MadMaths.pages
 
         private void SettingClick(object sender, RoutedEventArgs e)
         {
-            if ((bool)new SettingsWindow().ShowDialog())
+            if (Controller.UserIsLoggedIn)
             {
-                Username.Text = "Einloggen";
-                Avatar.Source = new BitmapImage(new Uri("MadMaths;component/assets/icons/profile-picture-icon.jpg", UriKind.Relative));
-                Username.Cursor = Cursors.Hand;
+                if ((bool)new SettingsWindow().ShowDialog())
+                {
+                    Controller.UserIsLoggedIn = false;
+                    NavigationService.Navigate(new home());
+                }
             }
         }
         private void ChallengeClick(object sender, RoutedEventArgs e)
