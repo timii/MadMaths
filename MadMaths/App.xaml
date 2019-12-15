@@ -152,60 +152,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="MouseEnter">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="Transparent"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="MouseLeave">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="Transparent"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="Transparent"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="PreviewMouseLeftButtonUp">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="Transparent"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-            </Style.Triggers>
         </Style>
         
         <!-- Style für Letzte Aufgaben Button -->
