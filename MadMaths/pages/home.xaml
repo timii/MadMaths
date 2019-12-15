@@ -51,7 +51,7 @@
         </Grid>
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
-                <Button x:Name="challenge" Content="Herausforderung" Margin="5,25,5,25" Click="ChallengeClick"/>
+                <Button x:Name="challenge" Content="Herausforderung" Margin="5,36,5,25" Click="ChallengeClick"/>
                 <Button x:Name="lastSession" Content="letzte Übungen" Margin="5, 18, 5, 0" Style="{StaticResource LetzteAufgabenButton}"/>
                 <StackPanel Name="lastSessionsPanel" Orientation="Vertical" Margin="0,-1,0,0">
                 </StackPanel>
@@ -102,8 +102,8 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Button  Width="70" Height="70" HorizontalAlignment="Left" Margin="10,0,0,0" Click="AvatarClick"
-                         Background="Transparent" Cursor="Hand" Grid.RowSpan="2">
-                    <Image Source="../assets/icons/profile-picture-icon.jpg" x:Name="Avatar" Stretch="UniformToFill">
+                         Background="Transparent" Cursor="Hand" Grid.RowSpan="2" Style="{StaticResource AvatarSettingButton}">
+                    <Image Source="../assets/icons/profile-picture-icon.jpg" x:Name="Avatar" Stretch="UniformToFill" >
                         <Image.Clip>
                             <EllipseGeometry RadiusX="35" RadiusY="35" Center="35,35"/>
                         </Image.Clip>
@@ -116,7 +116,7 @@
                     <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
                     <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="1" Text="0/0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF363535"/>
                 </Grid>
-                <Button  Width="30" HorizontalAlignment="Left" Background="Transparent" Cursor="Hand" Grid.Column="4" Grid.Row="0" Click="SettingClick">
+                <Button  Width="30" HorizontalAlignment="Left" Background="Transparent" Cursor="Hand" Grid.Column="4" Grid.Row="0" Click="SettingClick" Style="{StaticResource AvatarSettingButton}">
                     <Image Source="../assets/icons/settingsButton.png" x:Name="Settings" Width="auto" Height="20" Margin="0,0,0,40"/>
                 </Button>
             </Grid>
