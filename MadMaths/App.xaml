@@ -73,7 +73,7 @@
                 </Setter.Value>
             </Setter>-->
             <Style.Triggers>
-                <!-- Hover Effekt -->
+                <!-- Hover Effekt (mit ease-in-out) -->
                 <EventTrigger RoutedEvent="MouseEnter">
                     <EventTrigger.Actions>
                         <BeginStoryboard>
@@ -126,12 +126,6 @@
                         </BeginStoryboard>
                     </EventTrigger.Actions>
                 </EventTrigger>
-                <!--<Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background" Value="#ff7600"/>
-                </Trigger>-->
-                <!--<Trigger Property="Button.IsPressed" Value="True">
-                    <Setter Property="Background" Value="#FF4B00"/>
-                </Trigger>-->
                 <Trigger Property="Button.IsEnabled" Value="False">
                     <Setter Property="Background" Value="DimGray"/>
                 </Trigger>
@@ -276,7 +270,7 @@
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <!-- Hover Effekt -->
+                <!-- Hover Effekt (mit ease-in-out) -->
                 <EventTrigger RoutedEvent="MouseEnter">
                     <EventTrigger.Actions>
                         <BeginStoryboard>
@@ -329,12 +323,6 @@
                         </BeginStoryboard>
                     </EventTrigger.Actions>
                 </EventTrigger>
-                <!--<Trigger Property="Button.IsMouseOver" Value="True">
-                    <Setter Property="Control.Background" Value="#e66b00"/>
-                </Trigger>
-                <Trigger Property="Button.IsPressed" Value="True">
-                    <Setter Property="Background" Value="#cc5f00"/>
-                </Trigger>-->
                 <Trigger Property="Button.IsEnabled" Value="False">
                     <Setter Property="Background" Value="DimGray"/>
                 </Trigger>
@@ -515,29 +503,6 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Style für den neue Aufgabe Button -->
-        <!--<Style x:Key="NewExerciseButton" BasedOn="{StaticResource BackButton}">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    --><!-- Überschreibe das Standard Template, um das Aussehen zu ändern --><!--
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Image Source="assets/icons/NewExerciseButton.png"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="Button.IsPressed" Value="True">
-                    <Setter Property="Control.Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Image Source="assets/icons/NewExerciseButton_active.png"/>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
-
         <!-- Style für die Ranking Liste -->
         <Style TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="#FF01C8FF"/>
@@ -609,16 +574,6 @@
                             <Rectangle x:Name="PART_Track"/>
                             <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left" Background="Transparent">
                                 <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}" RadiusX="12" RadiusY="12"/>
-                                <!--<Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" RadiusX="12" RadiusY="12">
-                                    --><!--<Rectangle.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform/>
-                                            <SkewTransform/>
-                                            <RotateTransform/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Rectangle.RenderTransform>--><!--
-                                </Rectangle>-->
                             </Grid>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -670,15 +625,6 @@
                 </Track>
             </Grid>
         </ControlTemplate>
-        <!--<ControlTemplate x:Key="HorizontalScrollBar" TargetType="{x:Type ScrollBar}">
-            <Grid Background="Transparent">
-                <Track Name="PART_Track" Grid.Column="1" IsDirectionReversed="False">
-                    <Track.Thumb>
-                        <Thumb Style="{StaticResource ScrollBarThumb}" Margin="0,1,0,1" Background="{StaticResource NormalBrush}" BorderBrush="{StaticResource NormalBorderBrush}" />
-                    </Track.Thumb>
-                </Track>
-            </Grid>
-        </ControlTemplate>-->
         <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
             <Style.Triggers>
                 <Trigger Property="Orientation" Value="Vertical">
