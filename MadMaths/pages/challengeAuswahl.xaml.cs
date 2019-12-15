@@ -34,9 +34,9 @@ namespace MadMaths.pages
             GrundschuleFortschritt.Text = string.Format("{0}/{1}", Controller.challenge["Grundschule"], versucheAnzahl);
             MittelstufeFortschritt.Text = string.Format("{0}/{1}", Controller.challenge["Mittelstufe"], versucheAnzahl);
             OberstufeFortschritt.Text = string.Format("{0}/{1}", Controller.challenge["Oberstufe"], versucheAnzahl);
-            if (Versuche["Grundschule"] == 0) { Grundschule.IsEnabled = false; }
-            if (Versuche["Mittelstufe"] == 0) { Mittelstufe.IsEnabled = false; }
-            if (Versuche["Oberstufe"] == 0) { Oberstufe.IsEnabled = false; }
+            if (Versuche["Grundschule"] <= 0) { Grundschule.IsEnabled = false; }
+            if (Versuche["Mittelstufe"] <= 0) { Mittelstufe.IsEnabled = false; }
+            if (Versuche["Oberstufe"] <= 0) { Oberstufe.IsEnabled = false; }
         }
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
