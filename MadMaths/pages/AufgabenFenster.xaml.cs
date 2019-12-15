@@ -21,7 +21,7 @@ namespace MadMaths.pages
             InitializeComponent();
             AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise);
             NextExerciseButton.IsEnabled = false;
-            Controller.FillLastSessions();
+            if (!ChallengeMode) Controller.FillLastSessions();
             ThemenName.Text = Controller.currentExercise;
             if (ChallengeMode)
             {
@@ -52,8 +52,15 @@ namespace MadMaths.pages
                 Lösung.Text = "Falsch!" + Environment.NewLine + _lösung;
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
             }
-            --challengeAuswahl.Versuche[Controller.currentPage];
-            if (challengeAuswahl.Versuche[Controller.currentPage] == 0) { NavigationService.Navigate(new challengeAuswahl()); }
+            if (ChallengeMode)
+            {
+                --challengeAuswahl.Versuche[Controller.currentPage];
+                if (challengeAuswahl.Versuche[Controller.currentPage] <= 0)
+                {
+                    ChallengeMode = false;
+                    NavigationService.Navigate(new challengeAuswahl());
+                }
+            }
             abgabebtn.IsEnabled = false;
             Antwort.IsReadOnly = true;
             Antwort.Focusable = false;

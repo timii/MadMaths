@@ -75,9 +75,9 @@
                             <ColumnDefinition Width="50"/>
                             <ColumnDefinition Width="110"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="10"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="{Binding avatarImg}" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,0,-10">
+                        <Image Source="{Binding avatarImg}" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,0,-10" Height="50">
                             <Image.Clip>
                                 <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,18"/>
                             </Image.Clip>

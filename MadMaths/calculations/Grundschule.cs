@@ -50,8 +50,13 @@ namespace MadMaths.calculations
             if (AufgabenKey == "Groesser" || AufgabenKey == "Kleiner")
             {
                 Lösung = null;
-                if (AufgabenKey == "Groesser") { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(AufgabenZahlen[0]), Convert.ToInt32(BenutzerLösung)); }
-                else { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(BenutzerLösung), Convert.ToInt32(AufgabenZahlen[0])); }
+                bool LösungAngegeben = Int32.TryParse(BenutzerLösung as string,out int benutzerlösung);
+                if (LösungAngegeben)
+                {
+                    if (AufgabenKey == "Groesser") { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(AufgabenZahlen[0]), benutzerlösung); }
+                    else { return CalcFunctions_Grundschule.GroesserKleiner2(benutzerlösung, Convert.ToInt32(AufgabenZahlen[0])); }
+                }
+                else { return false; }
             }
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
