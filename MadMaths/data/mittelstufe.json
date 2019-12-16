@@ -10,7 +10,7 @@
     "Variablen8": "Wir haben die Gleichung {0} * x + {1} * x. Setze x = {2} ein und berechne die Lösung"
   },
 
-  "Gleichungen": {
+  "Gleichungen_M": {
     "Gleichungen1": "x + {0} = {1}",
     "Gleichungen2": "{0} + x = {1}",
     "Gleichungen3": "{0} + {1} = x",
