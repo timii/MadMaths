@@ -160,11 +160,14 @@ namespace MadMaths
 
         public static void CreateRankList()
         {
-            var stringjson = Client.GetRanklist();
-            var rawjson = JObject.Parse(stringjson);
-            foreach (var item in rawjson)
+            if (UserIsOnline)
             {
-                ranklist.Add(new UserRank() { UserName = item.Key, Points = Int32.Parse(item.Value["Points"].ToString()), avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())) });
+                var stringjson = Client.GetRanklist();
+                var rawjson = JObject.Parse(stringjson);
+                foreach (var item in rawjson)
+                {
+                    ranklist.Add(new UserRank() { UserName = item.Key, Points = Int32.Parse(item.Value["Points"].ToString()), avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())) });
+                }
             }
         }
     }
@@ -206,7 +209,7 @@ namespace MadMaths
             }
             catch (Exception)
             {
-                for (int i = 0; i < 50; i++)
+                for (int i = 0; i < 200; i++)
                 {
                     try
                     {
