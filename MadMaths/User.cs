@@ -12,6 +12,9 @@ namespace MadMaths
         public int level { get; set; } = 1;
         public int currentProgress { get; set; } = 0;
         public string lastSessions { get; set; } = null;
+        public int grundschule { get; set; }
+        public int mittelstufe { get; set; }
+        public int oberstufe { get; set; }
     }
 
     public class UserRank
@@ -30,15 +33,6 @@ namespace MadMaths
                 }
             }
         }
-    }
-    /// <summary>
-    /// Hier wird die Anzahl richtig beantworteter Aufgaben der letzten Sitzung
-    /// gespeichert
-    /// </summary>
-    public struct Challenge
-    {
-        public int grundschule { get; set; }
-        public int mittelstufe { get; set; }
-        public int oberstufe { get; set; }
+        public string RankColor { get; set; } = "#FF01C8FF";
     }
 }

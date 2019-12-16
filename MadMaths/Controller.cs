@@ -28,22 +28,16 @@ namespace MadMaths
 
         public static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
 
+        public static readonly string ChallengeSaveFile = Path.Combine(UserSaveDir, "challenge.json");
+
         public static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
         public static List<UserRank> ranklist = new List<UserRank>();
-        public static Challenge _challenge = new Challenge();
 
         public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
             {"Grundschule",new Grundschule() },
             {"Mittelstufe", new Mittelstufe() },
             {"Oberstufe", new Oberstufe() }
-        };
-
-        public static Dictionary<string, int> challenge = new Dictionary<string, int>()
-        {
-            {"Grundschule", _challenge.grundschule },
-            {"Mittelstufe", _challenge.mittelstufe },
-            {"Oberstufe", _challenge.oberstufe }
         };
 
         static Controller()
@@ -183,6 +177,25 @@ namespace MadMaths
                         avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString()))
                     });
                 }
+                for (int i = 0; i < 3; i++)
+                {
+                    switch (i)
+                    {
+                        case 0: ranklist[i].RankColor = "Orange"; break;
+                        case 1: ranklist[i].RankColor = "#FFFDB83B"; break;
+                        case 2: ranklist[i].RankColor = "#FFFDC560"; break;
+                    }
+                }
+            }
+        }
+
+        public static void UpdateChallengeData()
+        {
+            switch (currentPage)
+            {
+                case "Grundschule": ++user.grundschule; break;
+                case "Mittelstufe": ++user.mittelstufe; break;
+                case "Oberstufe": ++user.oberstufe; break;
             }
         }
     }

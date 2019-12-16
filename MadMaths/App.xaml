@@ -436,7 +436,7 @@
 
         <!-- Style für die Ranking Liste -->
         <Style TargetType="{x:Type ListBoxItem}">
-            <Setter Property="Background" Value="#FF01C8FF"/>
+            <Setter Property="Background" Value="{Binding RankColor}"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Focusable" Value="False" />
             <Setter Property="Padding" Value="2"/>
@@ -452,7 +452,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FF01C8FF"/>
+                    <!--<Setter Property="Background" Value="#FF01C8FF"/>-->
                     <Setter Property="Effect">
                         <Setter.Value>
                             <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.35" BlurRadius="10.5"/>

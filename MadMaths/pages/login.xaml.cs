@@ -50,7 +50,7 @@ namespace MadMaths.pages
         {
             UsernameFeedback.Text = "";
             PasswordFeedback.Text = "";
-            if (UserPassword.Password.Length >= 8)
+            if (UserPassword.Password.Length >= 8 && UserName.Text.Length >= 2)
             {
                 if (Client.CheckUsername(UserName.Text))
                 {
@@ -62,7 +62,11 @@ namespace MadMaths.pages
                 }
                 else { UsernameFeedback.Text = "Benutzername existiert bereits"; }
             }
-            else { PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)"; }
+            else
+            {
+                if (UserPassword.Password.Length < 8) PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
+                if (UserName.Text.Length < 2) UsernameFeedback.Text = "Benutzername zu kurz (mind. 2 Zeichen)";
+            }
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
@@ -85,7 +89,7 @@ namespace MadMaths.pages
 
         private async void Login_Click(object sender, RoutedEventArgs e)
         {
-            if (UserPassword.Password.Length >= 8)
+            if (UserPassword.Password.Length >= 8 && UserName.Text.Length >= 2)
             {
                 Login.IsEnabled = false; Register.IsEnabled = false;
                 BackButton.IsEnabled = false;
@@ -106,7 +110,11 @@ namespace MadMaths.pages
                     Cursor = Cursors.Arrow;
                 }
             }
-            else { PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)"; }
+            else
+            {
+                if (UserPassword.Password.Length < 8) PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
+                if (UserName.Text.Length < 2) UsernameFeedback.Text = "Benutzername zu kurz (mind. 2 Zeichen)";
+            }
         }
     }
 }

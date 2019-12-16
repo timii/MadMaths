@@ -45,7 +45,7 @@ namespace MadMaths.pages
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
                 Controller.UpdateLevel(50);
-                if (ChallengeMode) { ++Controller.challenge[Controller.currentPage]; }
+                if (ChallengeMode) Controller.UpdateChallengeData();
             }
             else
             {
