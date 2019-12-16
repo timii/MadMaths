@@ -56,6 +56,48 @@
                         <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="3">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
                                               TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
+                            
+                            <!-- Hover Effekt (mit ease-in-out) -->
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal">
+                                        <Storyboard>
+                                            <ColorAnimation To="DarkOrange"
+                                                Duration="0:0:0.3"
+                                                AutoReverse="False"
+                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                FillBehavior="HoldEnd"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimation To="#ff7600"
+                                                Duration="0:0:0.3"
+                                                AutoReverse="False"
+                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                FillBehavior="HoldEnd"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimation To="#FF4B00"
+                                                Duration="0:0:0.3"
+                                                AutoReverse="False"
+                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                FillBehavior="HoldEnd"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState Name="Disabled">
+                                        <Storyboard>
+                                            <ColorAnimation To="DimGray"
+                                                Duration="0:0:0.3"
+                                                AutoReverse="False"
+                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                FillBehavior="HoldEnd"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -72,64 +114,7 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>-->
-            <Style.Triggers>
-                <!-- Hover Effekt (mit ease-in-out) -->
-                <EventTrigger RoutedEvent="MouseEnter">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="#ff7600"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="MouseLeave">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="DarkOrange"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="#FF4B00"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="PreviewMouseLeftButtonUp">
-                    <EventTrigger.Actions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="DarkOrange"
-                                                Duration="0:0:0.3"
-                                                AutoReverse="False"
-                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                                FillBehavior="HoldEnd"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </EventTrigger.Actions>
-                </EventTrigger>
-                <Trigger Property="Button.IsEnabled" Value="False">
-                    <Setter Property="Background" Value="DimGray"/>
-                </Trigger>
-            </Style.Triggers>
+            
         </Style>
 
         <!-- Style für den Avatar und den Settings Button, damit der Orange Hintergrund nicht auftaucht -->
