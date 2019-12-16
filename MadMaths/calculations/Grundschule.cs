@@ -59,9 +59,9 @@ namespace MadMaths.calculations
                 else { return false; }
             }
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
-            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
+            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString();
 
-            if (Lösung == BenutzerLösung.ToString().Replace(" ", string.Empty))
+            if (Lösung.Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
             {
                 return true;
             }
