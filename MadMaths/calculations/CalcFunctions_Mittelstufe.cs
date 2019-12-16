@@ -50,7 +50,7 @@ namespace MadMaths.calculations
             {"BinomischeFormeln4", new Func<double, string>(BinomischeFormeln4)},
             {"Wurzeln1", new Func<double, double>(Wurzeln1)},
             {"Wurzeln2", new Func<double, double>(Wurzeln2)},
-            {"QuadratischeGleichungen1", new Func<double, double, double, double>(QuadratischeGleichungen1)},
+            {"QuadratischeGleichungen1", new Func<double, double, double, string>(QuadratischeGleichungen1)},
             {"Potenzen1", new Func<double, double, double>(Potenzen1)},
             {"Logarithmen1", new Func<double, double, double>(Logarithmen1)},
             {"Logarithmen2", new Func<double, double, double>(Logarithmen2)},
@@ -212,11 +212,15 @@ namespace MadMaths.calculations
         }
         static public double Wurzeln1(double input_a) { return runden(Math.Sqrt(input_a)); }
         static public double Wurzeln2(double input_a) { return runden(Math.Sqrt(input_a)); }
-        static public double QuadratischeGleichungen1(double input_a, double input_b, double input_c)
+        static public string QuadratischeGleichungen1(double input_a, double input_b, double input_c)
         {
-            double ergebnis;
-            ergebnis = (-input_b + Math.Sqrt(Math.Pow(input_b,2)- 4 * input_a * input_c)) / (input_a * 2);
-            return runden(ergebnis);
+            double ergebnis1;
+            double ergebnis2;
+            ergebnis1 = (-input_b + Math.Sqrt(Math.Pow(input_b,2)- 4 * input_a * input_c)) / (input_a * 2);
+            ergebnis2 = (-input_b - Math.Sqrt(Math.Pow(input_b,2)- 4 * input_a * input_c)) / (input_a * 2);
+
+
+            return string.Format("{0} , {1}",runden(ergebnis1),runden(ergebnis2));
         }
         static public double Potenzen1(double input_a, double input_b)
         {
@@ -230,7 +234,7 @@ namespace MadMaths.calculations
         {
             double ergebnis;
             ergebnis = Math.Pow(input_a, 1 / input_b);
-            return Math.Round(ergebnis,3, MidpointRounding.AwayFromZero);
+            return Math.Round(ergebnis,2, MidpointRounding.AwayFromZero);
         }
         static public double Fakultät1(double input_a)
         {

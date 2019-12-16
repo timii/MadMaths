@@ -33,14 +33,15 @@ namespace MadMaths
                 case "Urnenmodell": maxValue = 15; break;
                 case "Hypergeometrische Verteilung": maxValue = 40; break;
                 case "Fakultät": maxValue = 10; break;
-
-                default: minValue = 1; maxValue = 100; break;
+                case "Prozentrechnung": maxValue = 10; break;
+                default: minValue = 1; maxValue = 50; break;
             }
             switch (Aufgabe)
             {
                 case "Mittelwert1": maxValue = 1000;break;
                 case "Mittelwert2": maxValue = 5;break;
                 case "ExtrempunktI": maxValue = 10;break;
+                case "Urnenmodell1": maxValue = 10;break;
                 default: break;
             }
 
@@ -65,7 +66,60 @@ namespace MadMaths
                 } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) < (Int32.Parse(Zahl_Rückgabe[1].ToString()) + Int32.Parse(Zahl_Rückgabe[2].ToString())));
                 return Zahl_Rückgabe;
             }
-
+            //Kettenaufgaben
+            #region
+            if (Aufgabe == "Kettenaufgabe1")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
+                } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) < (Int32.Parse(Zahl_Rückgabe[1].ToString()) + Int32.Parse(Zahl_Rückgabe[2].ToString())));
+                return Zahl_Rückgabe;
+            }
+            if (Aufgabe == "Kettenaufgabe3")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
+                } while (Int32.Parse(Zahl_Rückgabe[2].ToString()) > (Int32.Parse(Zahl_Rückgabe[1].ToString()) + Int32.Parse(Zahl_Rückgabe[0].ToString())));
+                return Zahl_Rückgabe;
+            }
+            if (Aufgabe == "Kettenaufgabe4")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
+                } while (Int32.Parse(Zahl_Rückgabe[1].ToString()) > (Int32.Parse(Zahl_Rückgabe[0].ToString()) - Int32.Parse(Zahl_Rückgabe[2].ToString())));
+                return Zahl_Rückgabe;
+            }
+            if (Aufgabe == "Kettenaufgabe6")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
+                } while (Int32.Parse(Zahl_Rückgabe[2].ToString()) > (Int32.Parse(Zahl_Rückgabe[0].ToString()) * Int32.Parse(Zahl_Rückgabe[1].ToString())));
+                return Zahl_Rückgabe;
+            }
+            if (Aufgabe == "Kettenaufgabe7")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
+                    Zahl_Rückgabe[3] = rand.Next(minValue, maxValue);
+                } while (Int32.Parse(Zahl_Rückgabe[2].ToString()) > (Int32.Parse(Zahl_Rückgabe[1].ToString()) + Int32.Parse(Zahl_Rückgabe[0].ToString()) + Int32.Parse(Zahl_Rückgabe[3].ToString())));
+                return Zahl_Rückgabe;
+            }
+            #endregion
             if (Thema == "Dividieren")
             {
                 minValue = 2;
