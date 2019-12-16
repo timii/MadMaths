@@ -29,7 +29,7 @@
   },
 
   "Größer oder Kleiner": {
-    "GroesserKleiner1": "Ist {0} größer, kleiner oder gleich {1} ?",
+    "GroesserKleiner1": "Ist {0} größer, kleiner oder gleich {1}? \n Gib <, > oder = ein",
     "Kleiner": "Gib eine Zahl ein die kleiner als {0} ist",
     "Groesser": "Gib eine Zahl ein die größer als {0} ist"
   },

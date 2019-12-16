@@ -1,42 +1,42 @@
 /* Oberstufen.json */
 {
   "Ableiten": {
-    "Ableiten1": "Leite ab: f(x) = {0}x^{1} (Lösung im Stil: ax^b)",
-    "Ableiten2": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} (Lösung im Stil: ax^b + cx^d bzw. ax^b) ",
-    "Ableiten3": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5} (Lösung im Stil: ax^b + cx^d bzw. ax^b oder ax^b + cx^d + ex^f)",
-    "Ableiten4": "Leite ab: f(x) = ({0}x^{1}+{2}x^{3}) * ({4}x) (Lösung im Stil: ax^b bzw. ax^b + cx^d)",
-    "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7}) (Lösung im Stil: ax^b bzw ax^b + cx^d + ... )",
-    "Ableiten6": "Leite ab: f(x) = ({0}x^{1} + {2})/({3}x^{4} +{5}) (Lösung im Stil: ax^b + cx^d)/(ex^f + g)^2 )",
-    "Ableiten7": "Leite ab: f(x) = e^({0}x + {1}) (Lösung im Stil: ae^(bx + c)",
-    "Ableiten8": "Leite ab: f(x) = ( {0}x - {1} )^{2} (Lösung im Stil: a * (bx - c)^d)",
-    "Ableiten9": "Leite ab: f(x) = {0}x * sin ({1}x)  (Lösung im Stil: a * sin(bx) + c * cos(dx) * ex)"
+    "Ableiten1": "Leite ab: f(x) = {0}x^{1} \n(Lösung im Stil: ax^b)",
+    "Ableiten2": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} \n(Lösung im Stil: ax^b + cx^d bzw. ax^b) ",
+    "Ableiten3": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5} \n(Lösung im Stil: ax^b + cx^d bzw. ax^b oder ax^b + cx^d + ex^f)",
+    "Ableiten4": "Leite ab: f(x) = ({0}x^{1}+{2}x^{3}) * ({4}x) \n(Lösung im Stil: ax^b bzw. ax^b + cx^d)",
+    "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7}) \n(Lösung im Stil: ax^b bzw ax^b + cx^d + ... )",
+    "Ableiten6": "Leite ab: f(x) = ({0}x^{1} + {2})/({3}x^{4} +{5}) \n(Lösung im Stil: ax^b + cx^d)/(ex^f + g)^2 )",
+    "Ableiten7": "Leite ab: f(x) = e^({0}x + {1}) \n(Lösung im Stil: ae^(bx + c)",
+    "Ableiten8": "Leite ab: f(x) = ( {0}x - {1} )^{2} \n(Lösung im Stil: a * (bx - c)^d)",
+    "Ableiten9": "Leite ab: f(x) = {0}x * sin ({1}x)  \n(Lösung im Stil: a * sin(bx) + c * cos(dx) * ex)"
   },
 
   "Ableiten II": {
-    "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2} (Lösung im Stil: ax^b)", //{0}. muss kleiner als {1} sein+
-    "HöherAbleiten2": "Schreib, die 2. Ableitung auf: f(x) = ({0}x^{1} + {2}x^{3}) * ({4}x) (Lösung im Stil: ax^b + cx^d bzw. ax^b)"
+    "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2} \n(Lösung im Stil: ax^b)", //{0}. muss kleiner als {1} sein+
+    "HöherAbleiten2": "Schreib, die 2. Ableitung auf: f(x) = ({0}x^{1} + {2}x^{3}) * ({4}x) \n(Lösung im Stil: ax^b + cx^d bzw. ax^b)"
   },
 
   "Wendepunkte": {
     "Wendepunkte1": "Berechne den Wendepunkt der Funktion : f(x) = {0}x^{1} + {2}x^{3}"
   },
   "Integralregeln": {
-    "Integralregel1": "Was ist die Stammfunktion von sin(x) ? (Lösung im Stil: sin(x) + a)",
-    "Integralregel2": "Was ist die Stammfunktion von cos(x) ? (Lösung im Stil: sin(x) + a)",
-    "Integralregel3": "Was ist die Stammfunktion von ln(x) ? (Lösung im Stil: x * ln(x) + a + b)"
+    "Integralregel1": "Was ist die Stammfunktion von sin(x) ? \n(Lösung im Stil: sin(x) + a)",
+    "Integralregel2": "Was ist die Stammfunktion von cos(x) ? \n(Lösung im Stil: sin(x) + a)",
+    "Integralregel3": "Was ist die Stammfunktion von ln(x) ? \n(Lösung im Stil: x * ln(x) + a + b)"
   },
 
   "Integral": {
-    "Integral1": "Berechne das Integral {0}x+{1} für die Untergrenze {2} und die Obergrenze {3} (Lösung auf 2 Nachkommastellen runden)",
-    "Integral2": "Berechne das Integral x² für die Untergrenze 0 und die Obergrenze 1 (Lösung auf 2 Nachkommastellen runden)"
+    "Integral1": "Berechne das Integral {0}x+{1} für die Untergrenze {2} und die Obergrenze {3} \n(Lösung auf 2 Nachkommastellen runden)",
+    "Integral2": "Berechne das Integral x² für die Untergrenze 0 und die Obergrenze 1 \n(Lösung auf 2 Nachkommastellen runden)"
   },
 
   "Integral II": {
-    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(x) = x + {2} (Lösung auf 2 Nachkommastellen runden)"
+    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(x) = x + {2} \n(Lösung auf 2 Nachkommastellen runden)"
   },
 
-  "Symmetrie":{
-	"SymmetrieI":"Ist die Funktion Punktsymmetrisch, Achsensymmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5} (Das gefragte Wort als Lösung angeben)"
+  "Symmetrie": {
+    "SymmetrieI": "Ist die Funktion Punktsymmetrisch, Achsensymmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5} \n(Das gefragte Wort als Lösung angeben)"
   },
   "Extrempunkte":{
 	"ExtrempunktI":"Berechne die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} "

@@ -28,8 +28,8 @@ namespace MadMaths.calculations
         public bool checksSolution(in object BenutzerLösung, out string Lösung)
         {
             var AufgabenFunc = CalcFunctions_Mittelstufe.ms_funcs[AufgabenKey];
-            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
-            if (Lösung.ToString() == BenutzerLösung.ToString())
+            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString();
+            if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString())
             {
                 return true;
             }

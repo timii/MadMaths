@@ -32,8 +32,9 @@
                 <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="UserName" Grid.Column="1" Margin="5" FontSize="18"
-                 MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF2B2B2B" PreviewKeyDown="UserName_PreviewKeyDown"/>
+            
+            <TextBox x:Name="UserName" Grid.Column="1" Margin="5" FontSize="18" Style="{StaticResource BorderAnimationTextBox}" 
+                 MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#2B2B2B" PreviewKeyDown="UserName_PreviewKeyDown"/>
             <TextBlock Name="UsernameFeedback" VerticalAlignment="Center" Grid.Column="2" FontSize="16" Foreground="Red"/>
         </Grid>
         <TextBlock Grid.Row="3" Text="Password" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -43,7 +44,7 @@
                 <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <PasswordBox x:Name="UserPassword"  Grid.Column="1" MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" PreviewKeyDown="UserPassword_PreviewKeyDown"/>
+            <PasswordBox x:Name="UserPassword"  Grid.Column="1" MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" PreviewKeyDown="UserPassword_PreviewKeyDown" Style="{StaticResource BorderAnimationPasswordBox}"/>
             <TextBlock Name="PasswordFeedback" VerticalAlignment="Center" Grid.Column="2" FontSize="16" Foreground="Red"/>
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30">

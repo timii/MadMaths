@@ -50,8 +50,8 @@ namespace MadMaths.calculations
             {"Umwandeln1", new Func<int, float>(Umwandeln1)},
             {"Umwandeln2", new Func<int, float>(Umwandeln2)},
             {"Umwandeln3", new Func<int, float>(Umwandeln3)},
-            {"Umwandeln4", new Func<int, float>(Umwandeln4)},
-            {"Umwandeln5", new Func<int, float>(Umwandeln5)}
+            {"Umwandeln4", new Func<float, float>(Umwandeln4)},
+            {"Umwandeln5", new Func<float, float>(Umwandeln5)}
         };
         #endregion
 
@@ -176,7 +176,7 @@ namespace MadMaths.calculations
         static public float Umwandeln1(int input_a) { return (input_a * 1000); }
         static public float Umwandeln2(int input_a) { return (input_a * 1000); }
         static public float Umwandeln3(int input_a) { return (input_a * 1000); }
-        static public float Umwandeln4(int input_a) { return (input_a / 100); }
-        static public float Umwandeln5(int input_a) { return (input_a / 1000); }
+        static public float Umwandeln4(float input_a) { return (input_a / 100); }
+        static public float Umwandeln5(float input_a) { return (input_a / 1000); }
     }
 }
