@@ -205,6 +205,7 @@ namespace MadMaths
                 return Zahl_Rückgabe;
 
             }
+            
             if (Aufgabe == "QuadratischeGleichungen1")
             {
                 do

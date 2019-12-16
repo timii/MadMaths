@@ -47,7 +47,7 @@ namespace MadMaths.calculations
             {"BinomischeFormeln1", new Func<double, double, double, string>(BinomischeFormeln1)},
             {"BinomischeFormeln2", new Func<double, string>(BinomischeFormeln2)},
             {"BinomischeFormeln3", new Func<double, string>(BinomischeFormeln3)},
-            {"BinomischeFormeln4", new Func<double, double, string>(BinomischeFormeln4)},
+            {"BinomischeFormeln4", new Func<double, string>(BinomischeFormeln4)},
             {"Wurzeln1", new Func<double, double>(Wurzeln1)},
             {"Wurzeln2", new Func<double, double>(Wurzeln2)},
             {"QuadratischeGleichungen1", new Func<double, double, double, double>(QuadratischeGleichungen1)},
@@ -108,20 +108,14 @@ namespace MadMaths.calculations
         static public string Variablen5(int input_a, int input_b, int input_c, int input_d)
         {
             int ergebnis_a = input_a + input_c;
-            string ergebnis = ergebnis_a + "x";
             int ergebnis_b = input_b + input_d;
-            ergebnis = ergebnis + " + " + ergebnis_b + "y";
-
-            return ergebnis;
+            return string.Format("{0}x + {1}y",ergebnis_a,ergebnis_b);
         }
         static public string Variablen6(double input_a, double input_b, double input_c, double input_d)
         {
             double ergebnis_a = input_a - input_c;
-            string ergebnis = ergebnis_a + "x";
             double ergebnis_b = input_b + input_d;
-            ergebnis = ergebnis + " + " + ergebnis_b + "y";
-
-            return ergebnis;
+            return string.Format("{0}x + {1}y", ergebnis_a, ergebnis_b);
         }
         static public double Variablen7(double input_a, double input_b) { return input_a + input_b; }
         static public double Variablen8(double input_a, double input_b, double input_c) { return input_a * input_c + input_b * input_c; }
@@ -198,23 +192,23 @@ namespace MadMaths.calculations
         {
             double x = runden(Math.Sqrt(input_a));
             double y = runden(Math.Sqrt(input_c));
-            return "(" + x + "^2 + " + y + "^2)";
+            return string.Format("({0}x + {1})^2", x,y);
 
         }
         static public string BinomischeFormeln2(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x + " " + 2 * input_a + "b + b^2";
+            return string.Format("{0} + {1}b + b^2", x, input_a*2);
         }
         static public string BinomischeFormeln3(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x + " -" + 2 * input_a + "b + b^2";
+            return string.Format("{0} - {1}b + b^2", x, input_a * 2);
         }
-        static public string BinomischeFormeln4(double input_a, double input_b)
+        static public string BinomischeFormeln4(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x + " - b^2";
+            return string.Format("{0} - b^2", x);
         }
         static public double Wurzeln1(double input_a) { return runden(Math.Sqrt(input_a)); }
         static public double Wurzeln2(double input_a) { return runden(Math.Sqrt(input_a)); }

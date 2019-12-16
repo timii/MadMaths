@@ -24,18 +24,26 @@ namespace MadMaths
 
         public static bool UserIsOnline = false;
 
-        private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
+        private static readonly string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
 
-        public static string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
+        public static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
 
-        public static User user;           // das user Objekt, welches alle Daten des  Benutzers zur Laufzeit enthält
+        public static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
         public static List<UserRank> ranklist = new List<UserRank>();
+        public static Challenge _challenge = new Challenge();
 
         public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
             {"Grundschule",new Grundschule() },
             {"Mittelstufe", new Mittelstufe() },
             {"Oberstufe", new Oberstufe() }
+        };
+
+        public static Dictionary<string, int> challenge = new Dictionary<string, int>()
+        {
+            {"Grundschule", _challenge.grundschule },
+            {"Mittelstufe", _challenge.mittelstufe },
+            {"Oberstufe", _challenge.oberstufe }
         };
 
         static Controller()
@@ -60,7 +68,7 @@ namespace MadMaths
             }
         }
 
-        public static BitmapImage LoadImage(in byte[] imageData)
+        public static BitmapImage LoadImage(in byte[] imageData)    // Code von https://bit.ly/2YFCn3E
         // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
             if (imageData == null || imageData.Length == 0) return null;
@@ -136,11 +144,13 @@ namespace MadMaths
 
         public static void UpdateLevel(in int exp)
         {
-            user.currentProgress += exp;
             var maxEXP = user.level * 100;
-            if (user.currentProgress >= maxEXP)
+            if (user.currentProgress + exp <= maxEXP) { user.currentProgress += exp; }
+            else { user.currentProgress = maxEXP; }
+
+            if (user.currentProgress >= maxEXP && user.level < 99)
             {
-                user.level++;
+                ++user.level;
                 user.currentProgress = 0;
                 LevelUpWindow lvlup = new LevelUpWindow(user.level.ToString());
                 lvlup.Owner = System.Windows.Application.Current.MainWindow;
@@ -166,7 +176,12 @@ namespace MadMaths
                 var rawjson = JObject.Parse(stringjson);
                 foreach (var item in rawjson)
                 {
-                    ranklist.Add(new UserRank() { UserName = item.Key, Points = Int32.Parse(item.Value["Points"].ToString()), avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())) });
+                    ranklist.Add(new UserRank()
+                    {
+                        UserName = item.Key,
+                        Points = Int32.Parse(item.Value["Points"].ToString()),
+                        avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString()))
+                    });
                 }
             }
         }
@@ -181,7 +196,7 @@ namespace MadMaths
         {
             try
             {
-                //client = new TcpClient("127.0.0.1", 7777);
+                // client = new TcpClient("127.0.0.1", 7777);
                 //client = new TcpClient("45.88.108.218", 7777);
                 client = new TcpClient("uselesscode.works", 7777);
                 stream = client.GetStream();
@@ -194,7 +209,7 @@ namespace MadMaths
             }
             catch (SocketException)
             {
-                new CustomMB("Verbindung zum Server fehlgeschlagen").ShowDialog();
+                //new CustomMB("Verbindung zum Server fehlgeschlagen").ShowDialog();
             }
         }
         /// <summary>
@@ -214,7 +229,7 @@ namespace MadMaths
                     try
                     {
                         client.Connect("uselesscode.works", 7777);
-                        //client.Connect("127.0.0.1", 7777);
+                        // client.Connect("127.0.0.1", 7777);
                         stream = client.GetStream();
                         if (recv() == "connected") { return true; }
                     }
@@ -340,7 +355,7 @@ namespace MadMaths
                 stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
                 System.Threading.Thread.Sleep(500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
             }
-            catch (Exception) { Controller.UserIsOnline = false; }
+            catch (Exception) { Controller.UserIsOnline = false; MainWindow.updateStatus("offline"); }
         }
     }
 }

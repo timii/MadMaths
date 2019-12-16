@@ -46,6 +46,7 @@ namespace MadMaths.calculations
                 AufgabenKey = Gleichungssysteme.ElementAt(randIndex).Key;
                 aufgabe = Gleichungssysteme.ElementAt(randIndex).Value[0] + Environment.NewLine + Gleichungssysteme.ElementAt(randIndex).Value[1];
                 var argsNum = Regex.Matches(aufgabe, @"{[0-9]+}").OfType<Match>().Select(m => m.Value).Distinct().Count();
+                if (argsNum == 0) return aufgabe;
                 AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, AufgabenKey);
                 return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
             }

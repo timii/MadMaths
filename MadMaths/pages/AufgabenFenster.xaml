@@ -23,7 +23,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
+            <Button Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"/>
             <TextBox Name="ThemenName" Background="Transparent" Text="Thema" HorizontalAlignment="Center" VerticalAlignment="Center"
                      IsReadOnly="True" FontSize="20" BorderThickness="0"/>

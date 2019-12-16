@@ -50,8 +50,13 @@ namespace MadMaths.calculations
             if (AufgabenKey == "Groesser" || AufgabenKey == "Kleiner")
             {
                 Lösung = null;
-                if (AufgabenKey == "Groesser") { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(AufgabenZahlen[0]), Convert.ToInt32(BenutzerLösung)); }
-                else { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(BenutzerLösung), Convert.ToInt32(AufgabenZahlen[0])); }
+                bool LösungAngegeben = Int32.TryParse(BenutzerLösung as string,out int benutzerlösung);
+                if (LösungAngegeben)
+                {
+                    if (AufgabenKey == "Groesser") { return CalcFunctions_Grundschule.GroesserKleiner2(Convert.ToInt32(AufgabenZahlen[0]), benutzerlösung); }
+                    else { return CalcFunctions_Grundschule.GroesserKleiner2(benutzerlösung, Convert.ToInt32(AufgabenZahlen[0])); }
+                }
+                else { return false; }
             }
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
@@ -71,6 +76,7 @@ namespace MadMaths.calculations
             AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
             aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
             var argsNum = Regex.Matches(aufgabe, @"{[0-9]+}").OfType<Match>().Select(m => m.Value).Distinct().Count();      // gibt einzigartige Übereinstimmungen zurück 
+            if (argsNum == 0)  return aufgabe; 
             AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, AufgabenKey);
             return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
         }
