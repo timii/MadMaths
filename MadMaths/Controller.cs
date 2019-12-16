@@ -355,7 +355,7 @@ namespace MadMaths
                 stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
                 System.Threading.Thread.Sleep(500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
             }
-            catch (Exception) { Controller.UserIsOnline = false; MainWindow.updateStatus("offline"); }
+            catch (Exception) { Controller.UserIsOnline = false; MainWindow.updateStatus("nicht verbunden"); }
         }
     }
 }

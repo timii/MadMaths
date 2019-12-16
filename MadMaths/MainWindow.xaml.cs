@@ -35,8 +35,8 @@ namespace MadMaths
             }
             Controller.CreateRankList();
             InitializeComponent();
-            if (Controller.UserIsOnline) { onlineStatus.Content = "online"; }
-            else { onlineStatus.Content = "offline"; }
+            if (Controller.UserIsOnline) { onlineStatus.Content = "verbunden"; }
+            else { onlineStatus.Content = "nicht verbunden"; }
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
         }
 
