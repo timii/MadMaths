@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MadMaths"
         mc:Ignorable="d"
-        Title="MadMaths" Height="650" Width="950" MinHeight="550" MinWidth="720"
+        Title="MadMaths" Height="660" Width="1000" MinHeight="550" MinWidth="720"
         Background="Aqua" FontFamily="Axion,Arial Rounded MT,Arial" ResizeMode="NoResize"
         Icon="assets/logo/WindowIcon3.png" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" SizeChanged="Window_SizeChanged">

@@ -20,7 +20,7 @@ namespace MadMaths.pages
     /// </summary>
     public partial class challengeAuswahl : Page
     {
-        static public int versucheAnzahl = 2;
+        static public int versucheAnzahl = 10;
 
         static public Dictionary<string, int> Versuche = new Dictionary<string, int>()
         {

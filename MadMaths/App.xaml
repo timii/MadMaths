@@ -57,7 +57,7 @@
                                     </VisualState>
                                     <VisualState Name="Focused">
                                         <Storyboard>
-                                            <ColorAnimation To="Green"
+                                            <ColorAnimation To="LimeGreen"
                                                 Duration="0:0:0.3"
                                                 AutoReverse="False"
                                                 Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
@@ -93,7 +93,7 @@
                                     </VisualState>
                                     <VisualState Name="Focused">
                                         <Storyboard>
-                                            <ColorAnimation To="Green"
+                                            <ColorAnimation To="LimeGreen"
                                                 Duration="0:0:0.3"
                                                 AutoReverse="False"
                                                 Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"

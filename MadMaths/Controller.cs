@@ -167,6 +167,7 @@ namespace MadMaths
             if (UserIsOnline)
             {
                 var stringjson = Client.GetRanklist();
+                int rank = 1;
                 var rawjson = JObject.Parse(stringjson);
                 foreach (var item in rawjson)
                 {
@@ -174,8 +175,9 @@ namespace MadMaths
                     {
                         UserName = item.Key,
                         Points = Int32.Parse(item.Value["Points"].ToString()),
-                        avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString()))
-                    });
+                        avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())),
+                        rank = rank++
+                    }); 
                 }
                 for (int i = 0; i < 3; i++)
                 {

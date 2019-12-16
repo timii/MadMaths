@@ -72,18 +72,20 @@
                     </StackPanel>-->
                     <Grid Background="Transparent" Height="45" VerticalAlignment="Center" HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
                             <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="110"/>
+                            <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="5"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="{Binding avatarImg}" Stretch="UniformToFill" Grid.Column="0" VerticalAlignment="Center" Margin="0,5,0,-10" Height="50">
+                        <Label Grid.Column="0" Content="{Binding rank}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+                        <Image Source="{Binding avatarImg}" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center" Margin="0,5,0,-10" Height="50">
                             <Image.Clip>
                                 <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,18"/>
                             </Image.Clip>
                         </Image>
-                        <Label Content="{Binding UserName}" HorizontalAlignment="Left" Grid.Column="1" FontSize="15" VerticalAlignment="Center"/>
-                        <Label Grid.Column="2" Content="{Binding Points}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="13"/>
+                        <Label Content="{Binding UserName}" HorizontalAlignment="Left" Grid.Column="2" FontSize="15" VerticalAlignment="Center"/>
+                        <Label Grid.Column="3" Content="{Binding Points}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
                         </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

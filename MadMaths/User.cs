@@ -33,6 +33,7 @@ namespace MadMaths
                 }
             }
         }
+        public int rank { get; set; }
         public string RankColor { get; set; } = "#FF01C8FF";
     }
 }
