@@ -15,25 +15,18 @@ namespace MadMaths
     /// Diese Klasse sorgt für den Datenaustausch zwischen den einzelnen Pages sowie
     /// zwischen den Komponenten innerhalb der Pages
     /// </summary>
-    static public class Controller
+    static internal class Controller
     {
-        public static string currentPage { get; set; } = "None";  // enthält den Namen der aktuell aufgerufenen Page
-        public static string currentExercise { get; set; }
-
-        public static bool UserIsLoggedIn = false;
-
-        public static bool UserIsOnline = false;
-
+        internal static string currentPage; // enthält den Namen der aktuell aufgerufenen Page
+        internal static string currentExercise;
+        internal static bool UserIsLoggedIn = false;
+        internal static bool UserIsOnline = false;
         private static readonly string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
+        private static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
+        internal static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
+        internal static List<UserRank> ranklist = new List<UserRank>();
 
-        public static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
-
-        public static readonly string ChallengeSaveFile = Path.Combine(UserSaveDir, "challenge.json");
-
-        public static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
-        public static List<UserRank> ranklist = new List<UserRank>();
-
-        public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
+        internal static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
             {"Grundschule",new Grundschule() },
             {"Mittelstufe", new Mittelstufe() },
@@ -43,26 +36,24 @@ namespace MadMaths
         static Controller()
         {
             // Initialisierung
-            if (!CheckSaveDir())
-            {
-                CreateSaveDir();
-            }
-            if (!CheckSaveFile())
-            {
-                CreateUserJS();
-            }
-            FileInfo fi = new FileInfo(UserSaveFile);
-            fi.Attributes = FileAttributes.Normal;
+            if (!CheckSaveDir()) CreateSaveDir();
+            if (!CheckSaveFile()) CreateUserJS();
 
             user = new User();
-
             if (ReadUserJS(out string userjson))
             {
                 user = JsonConvert.DeserializeObject<User>(userjson); // die daten werden im User Objekt gespeichert
             }
+            if (!Client.LoginUser())
+            {
+                new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
+            }
         }
-
-        public static BitmapImage LoadImage(in byte[] imageData)    // Code von https://bit.ly/2YFCn3E
+        /// <summary>
+        /// dient zum Initialisieren des Controller Konstruktors
+        /// </summary>
+        internal static void start() {}
+        internal static BitmapImage LoadImage(in byte[] imageData)    // Code von https://bit.ly/2YFCn3E
         // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
             if (imageData == null || imageData.Length == 0) return null;
@@ -81,17 +72,17 @@ namespace MadMaths
             return image;
         }
 
-        public static bool CheckSaveDir()           // überprüft, ob der .madmaths Ordner vorhanden ist
+        private static bool CheckSaveDir()           // überprüft, ob der .madmaths Ordner vorhanden ist
         {
             return Directory.Exists(UserSaveDir);
         }
 
-        public static bool CheckSaveFile()          // überprüft, ob die user.json vorhanden ist
+        private static bool CheckSaveFile()          // überprüft, ob die user.json vorhanden ist
         {
             return File.Exists(UserSaveFile);
         }
 
-        public static void CreateSaveDir()
+        private static void CreateSaveDir()
         {
             DirectoryInfo di = Directory.CreateDirectory(UserSaveDir);
             di.Attributes = FileAttributes.Directory | FileAttributes.Hidden; // erstellt einen versteckten Ordner
@@ -99,12 +90,12 @@ namespace MadMaths
             CreateUserJS();
         }
 
-        public static void CreateUserJS()           // erstellt die user.json
+        private static void CreateUserJS()           // erstellt die user.json
         {
             using (File.Create(UserSaveFile)) { };
         }
 
-        public static bool ReadUserJS(out string UserJson)
+        private static bool ReadUserJS(out string UserJson)
         {
             FileInfo fi = new FileInfo(UserSaveFile);
             fi.Attributes = FileAttributes.Normal;
@@ -117,7 +108,7 @@ namespace MadMaths
             else { return false; }
         }
 
-        public static void UpdateUserJson()
+        internal static void UpdateUserJson()
         {
             FileInfo fi = new FileInfo(UserSaveFile);
             fi.Attributes = FileAttributes.Normal;
@@ -129,14 +120,14 @@ namespace MadMaths
             fi.Attributes = FileAttributes.ReadOnly | FileAttributes.Hidden;
         }
 
-        public static void UpdateAvatarImg(in BinaryReader img, in long fileLength)
+        internal static void UpdateAvatarImg(in BinaryReader img, in long fileLength)
         {
             user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
             Task.Run(() => Client.UpdateAvatar());
         }
 
-        public static void UpdateLevel(in int exp)
+        internal static void UpdateLevel(in int exp)
         {
             var maxEXP = user.level * 100;
             if (user.currentProgress + exp <= maxEXP) { user.currentProgress += exp; }
@@ -152,17 +143,14 @@ namespace MadMaths
             }
         }
 
-        public static void FillLastSessions()
+        internal static void FillLastSessions()
         {
-            if (user.lastSessions != null)
-            {
-                user.lastSessions += ',';
-            }
-            user.lastSessions += currentPage + ':' + currentExercise;
+            if (user.lastSessions.Count == 5) user.lastSessions.Dequeue();
+            user.lastSessions.Enqueue(currentPage + ':' + currentExercise);
             UpdateUserJson();
         }
 
-        public static void CreateRankList()
+        internal static void CreateRankList()
         {
             if (UserIsOnline)
             {
@@ -177,7 +165,7 @@ namespace MadMaths
                         Points = Int32.Parse(item.Value["Points"].ToString()),
                         avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())),
                         rank = rank++
-                    }); 
+                    });
                 }
                 for (int i = 0; i < 3; i++)
                 {
@@ -191,7 +179,7 @@ namespace MadMaths
             }
         }
 
-        public static void UpdateChallengeData()
+        internal static void UpdateChallengeData()
         {
             switch (currentPage)
             {
@@ -254,7 +242,7 @@ namespace MadMaths
             return false;
         }
 
-        static public string RegisterUser(in string username, in string usrpwd)
+        static internal string RegisterUser(in string username, in string usrpwd)
         {
             if (Controller.UserIsOnline)
             {
@@ -265,7 +253,7 @@ namespace MadMaths
             return null;
         }
 
-        static public bool LoginUser(in string username, in string pw)
+        static internal bool LoginUser(in string username, in string pw)
         {
             if (Controller.UserIsOnline && username != null && pw != null)
             {
@@ -282,17 +270,17 @@ namespace MadMaths
             return true;
         }
 
-        static public bool LoginUser()
+        static internal bool LoginUser()
         {
             return LoginUser(Controller.user.UserName, Controller.user.password);
         }
 
-        static public void LogoutUser()
+        static internal void LogoutUser()
         {
             send("LOGOUTUSER");
         }
 
-        static public bool CheckUsername(in string username)
+        static internal bool CheckUsername(in string username)
         {
             if (Controller.UserIsOnline)
             {
@@ -305,7 +293,7 @@ namespace MadMaths
             return true;
         }
 
-        static public void UpdateAvatar()
+        static internal void UpdateAvatar()
         {
             string msg = "UPDATEAVATARIMG";
             send(msg);
@@ -313,7 +301,7 @@ namespace MadMaths
             send("ENDIMGSTREAM");
         }
 
-        static public void UpdateUserData(in string cmd)
+        static internal void UpdateUserData(in string cmd)
         {
             if (Controller.UserIsLoggedIn)
             {
@@ -322,7 +310,7 @@ namespace MadMaths
             }
         }
 
-        static public string GetRanklist()
+        static internal string GetRanklist()
         {
             if (Controller.UserIsOnline)
             {
@@ -333,7 +321,7 @@ namespace MadMaths
             return null;
         }
 
-        static public async Task GetUserData()
+        static internal async Task GetUserData()
         {
             send("GETUSERDATA");
             var rawdata = await Task.Run(() => recv());

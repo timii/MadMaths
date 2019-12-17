@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 
 namespace MadMaths
@@ -11,7 +11,7 @@ namespace MadMaths
         public string avatarImg { get; set; } = null;
         public int level { get; set; } = 1;
         public int currentProgress { get; set; } = 0;
-        public string lastSessions { get; set; } = null;
+        public Queue<string> lastSessions { get; set; } = new Queue<string>();
         public int grundschule { get; set; }
         public int mittelstufe { get; set; }
         public int oberstufe { get; set; }

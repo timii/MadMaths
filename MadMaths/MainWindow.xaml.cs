@@ -18,21 +18,7 @@ namespace MadMaths
                 HwndSource.FromHwnd(handle).AddHook(new HwndSourceHook(CustomWindowSizing.WindowProc));
             };
 
-            if (!Controller.CheckSaveDir())
-            {
-                Controller.CreateSaveDir();
-            }
-            if (!Controller.CheckSaveFile())
-            {
-                Controller.CreateUserJS();
-            }
-            else 
-            {
-                if (!Client.LoginUser())
-                {
-                    new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
-                }
-            }
+            Controller.start();
             Controller.CreateRankList();
             InitializeComponent();
             if (Controller.UserIsOnline) { onlineStatus.Content = "verbunden"; }

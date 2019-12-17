@@ -7,7 +7,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.IO;
-using System.Windows.Media.Imaging;
 
 namespace MadMaths.pages
 {
@@ -98,22 +97,21 @@ namespace MadMaths.pages
 
         private void ShowLastSessions()
         {
-            var temp = Controller.user.lastSessions.Split(',');
-            List<string[]> lastSessions = new List<string[]>();
-            Array.Reverse(temp);
-            Array.ForEach(temp, x => lastSessions.Add(x.Split(':')));
-            foreach (var item in lastSessions
-                .Take(3))
+            foreach (var item in Controller.user.lastSessions.Reverse().ToArray().Take(3))
             {
-                Button b = new Button();
-                b.Tag = item[0];
-                b.Content = item[1];
-                Style style = this.FindResource("LetzteAufgabenPanelButton") as Style;
-                b.Style = style;
+                var LastSession = item.Split(':');
+                Style style = FindResource("LetzteAufgabenPanelButton") as Style;
+                Button b = new Button
+                {
+                    Tag = LastSession[0],
+                    Content = LastSession[1],
+                    Style = style
+                };
                 b.Click += AufgabenClick;
                 lastSessionsPanel.Children.Add(b);
             }
         }
+
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
             Controller.currentPage = (sender as Button).Tag as string;
@@ -132,6 +130,7 @@ namespace MadMaths.pages
                 }
             }
         }
+
         private void ChallengeClick(object sender, RoutedEventArgs e)
         {
             Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
