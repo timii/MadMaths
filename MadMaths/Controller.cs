@@ -23,6 +23,7 @@ namespace MadMaths
         internal static bool UserIsOnline = false;
         private static readonly string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
         private static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
+        private static readonly string LocalRanklist = Path.Combine(UserSaveDir, "ranklist.json");
         internal static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
         internal static List<UserRank> ranklist = new List<UserRank>();
 
@@ -49,10 +50,7 @@ namespace MadMaths
                 new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
             }
         }
-        /// <summary>
-        /// dient zum Initialisieren des Controller Konstruktors
-        /// </summary>
-        internal static void start() {}
+
         internal static BitmapImage LoadImage(in byte[] imageData)    // Code von https://bit.ly/2YFCn3E
         // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
@@ -152,9 +150,18 @@ namespace MadMaths
 
         internal static void CreateRankList()
         {
+            string stringjson;
             if (UserIsOnline)
             {
-                var stringjson = Client.GetRanklist();
+                stringjson = Client.GetRanklist();
+                Task.Run(() => SaveRanklistLocal(stringjson));
+            }
+            else
+            {
+                stringjson = LoadRanklistLocal();
+            }
+            if (stringjson.Length > 0)
+            {
                 int rank = 1;
                 var rawjson = JObject.Parse(stringjson);
                 foreach (var item in rawjson)
@@ -179,6 +186,23 @@ namespace MadMaths
             }
         }
 
+        private static void SaveRanklistLocal(in string RanklistString)
+        {
+            using (StreamWriter file = new StreamWriter(LocalRanklist, false))
+            {
+                file.Write(RanklistString);
+            }
+        }
+        private static string LoadRanklistLocal()
+        {
+            string RanklistString;
+            using (StreamReader file = new StreamReader(LocalRanklist))
+            {
+                RanklistString = file.ReadToEnd();
+            }
+            return RanklistString;
+        }
+
         internal static void UpdateChallengeData()
         {
             switch (currentPage)
@@ -200,7 +224,7 @@ namespace MadMaths
             try
             {
                 // client = new TcpClient("127.0.0.1", 7777);
-                //client = new TcpClient("45.88.108.218", 7777);
+                // client = new TcpClient("45.88.108.218", 7777);
                 client = new TcpClient("uselesscode.works", 7777);
                 stream = client.GetStream();
                 buffer = new byte[1024];
@@ -210,10 +234,7 @@ namespace MadMaths
                 }
                 else { throw new SocketException(); }
             }
-            catch (SocketException)
-            {
-                //new CustomMB("Verbindung zum Server fehlgeschlagen").ShowDialog();
-            }
+            catch (SocketException) {} 
         }
         /// <summary>
         /// Ein Workaround für ein Verbindungsproblem, welches während des Testens aufgetreten ist

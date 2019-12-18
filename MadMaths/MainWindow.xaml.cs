@@ -18,7 +18,6 @@ namespace MadMaths
                 HwndSource.FromHwnd(handle).AddHook(new HwndSourceHook(CustomWindowSizing.WindowProc));
             };
 
-            Controller.start();
             Controller.CreateRankList();
             InitializeComponent();
             if (Controller.UserIsOnline) { onlineStatus.Content = "verbunden"; }

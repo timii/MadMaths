@@ -17,7 +17,7 @@ namespace MadMaths.pages
         {
             InitializeComponent();
             if (!Controller.UserIsOnline) { Login.IsEnabled = false; }
-            UserName.ContextMenu = UserPassword.ContextMenu = null;     // deaktiviert das Context Menü, um das Einfügen von invaliden Benutzernamen und Passwörtern zu unterbinden
+            UserName.ContextMenu = UserPassword.ContextMenu = null;     // deaktiviert das Context Menü, um das Einfügen von ungültigen Benutzernamen und Passwörtern zu unterbinden
         }
 
         private void UserName_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -30,7 +30,7 @@ namespace MadMaths.pages
                 UsernameFeedback.Text = "Name zu lang (maximal 12 Zeichen)";
             }
             else { UsernameFeedback.Text = ""; }
-            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }
+            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }    // unterbindet das Copy&Paste von ungültigen Passwörtern
         }
 
         private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -56,7 +56,7 @@ namespace MadMaths.pages
                 {
                     Controller.user.UserName = UserName.Text;
                     Controller.user.password = GetHashString(UserPassword.Password);
-                    Client.RegisterUser(UserName.Text, GetHashString(UserPassword.Password));
+                    Task.Run(() => Client.RegisterUser(Controller.user.UserName, Controller.user.password));
                     Controller.UpdateUserJson();
                     NavigationService.Navigate(new home());
                 }
@@ -71,14 +71,15 @@ namespace MadMaths.pages
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack(); // geht eine Seite zurück
+            NavigationService.GoBack();
         }
         private byte[] GetHash(string inputString)
         {
             HashAlgorithm algorithm = SHA256.Create();
-            return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+            var hashedpw = algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+            algorithm.Dispose(); algorithm.Clear();
+            return hashedpw;
         }
-
         private string GetHashString(string inputString)
         {
             StringBuilder sb = new StringBuilder();
@@ -91,8 +92,7 @@ namespace MadMaths.pages
         {
             if (UserPassword.Password.Length >= 8 && UserName.Text.Length >= 2)
             {
-                Login.IsEnabled = false; Register.IsEnabled = false;
-                BackButton.IsEnabled = false;
+                Login.IsEnabled = Register.IsEnabled = BackButton.IsEnabled = false;
                 Cursor = Cursors.Wait;
                 string pw = GetHashString(UserPassword.Password);
                 if (Client.LoginUser(UserName.Text, pw))
@@ -105,8 +105,7 @@ namespace MadMaths.pages
                 else
                 {
                     UsernameFeedback.Text = "Benutzername oder Passwort ist falsch";
-                    Login.IsEnabled = true; Register.IsEnabled = true;
-                    BackButton.IsEnabled = true;
+                    Login.IsEnabled = Register.IsEnabled = BackButton.IsEnabled = true;
                     Cursor = Cursors.Arrow;
                 }
             }
