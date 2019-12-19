@@ -61,7 +61,7 @@ namespace MadMaths.calculations
             var AufgabenFunc = CalcFunctions_Grundschule.gs_funcs[AufgabenKey];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString();
 
-            if (Lösung.Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
+            if (Lösung.Replace(" ", string.Empty).ToLower() == BenutzerLösung.ToString().Replace(" ", string.Empty).ToLower())
             {
                 return true;
             }

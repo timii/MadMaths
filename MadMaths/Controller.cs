@@ -124,8 +124,9 @@ namespace MadMaths
             Task.Run(() => Client.UpdateAvatar());
         }
 
-        internal static void UpdateLevel(in int exp)
+        internal static void UpdateLevel()
         {
+            int exp = CalcLevel();
             var maxEXP = user.level * 100;
             if (user.currentProgress + exp <= maxEXP) { user.currentProgress += exp; }
             else { user.currentProgress = maxEXP; }
@@ -137,6 +138,26 @@ namespace MadMaths
                 LevelUpWindow lvlup = new LevelUpWindow(user.level.ToString());
                 lvlup.Owner = System.Windows.Application.Current.MainWindow;
                 lvlup.ShowDialog();
+            }
+        }
+
+        private static int CalcLevel()
+        {
+            switch (currentExercise)
+            {
+                case "Zeitaufgaben" : return 5;
+                case "Textaufgaben II": 
+                case "Gleichungssysteme2x2": 
+                case "Quadratische Gleichungen": 
+                case "Logarithmen": 
+                case "Integralregeln":
+                case "Symmetrie":
+                case "Extrempunkte":
+                case "Nullstellen":
+                case "Wendepunkte": return 15;
+                case "Hypergeometrische Verteilung": case "Ableiten": case "Integral": return 20;
+                case "Ableiten II": case "Integral II":  return 25;
+                default: return 10;
             }
         }
 
