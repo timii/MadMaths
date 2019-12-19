@@ -24,7 +24,7 @@
   "Textaufgaben": {
     "essenaufgabe": "Felix hat {0} Äpfel und isst {1} davon. Wie viele hat er?",
     "grundschule_subtrahieren": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}. Was ist meine Zahl ?",
-    "standard_addieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
+    "standard_subtrahieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
     "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}"
   },
 

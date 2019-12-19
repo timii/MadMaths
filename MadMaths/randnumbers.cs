@@ -41,6 +41,8 @@ namespace MadMaths
                 case "Mittelwert1": maxValue = 1000;break;
                 case "Mittelwert2": maxValue = 5;break;
                 case "ExtrempunktI": maxValue = 10;break;
+                case "NullstellenI": maxValue = 10;break;
+                case "WendepunkteI": maxValue = 10;break;
                 case "Urnenmodell1": maxValue = 10;break;
                 default: break;
             }
@@ -268,6 +270,53 @@ namespace MadMaths
                     Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
                     Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
                 } while (Math.Pow(Int32.Parse(Zahl_Rückgabe[1].ToString()),2) < (Int32.Parse(Zahl_Rückgabe[2].ToString()) * Int32.Parse(Zahl_Rückgabe[0].ToString()) * 4));
+                return Zahl_Rückgabe;
+            }
+            if (Aufgabe == "NullstellenI")
+            {
+                double rand_vorzeichen = 1;
+                for (int i = 0; i < rand.Next(1, 10); i++)
+                {
+                    rand_vorzeichen *= -1;
+                }
+
+                double input_a;
+                double input_b;
+                double input_c;
+                double input_d;
+                do
+                {
+                    for (int i = 0; i < rand.Next(1, 10); i++)
+                    {
+                        rand_vorzeichen *= -1;
+                    }
+                    input_a = rand.Next(minValue, maxValue) * rand_vorzeichen;
+                    input_b = rand.Next(minValue + 2, maxValue);
+                    for (int i = 0; i < rand.Next(1, 10); i++)
+                    {
+                        rand_vorzeichen *= -1;
+                    }
+                    input_c = rand.Next(minValue, maxValue) * rand_vorzeichen;
+                    input_d = rand.Next(minValue + 2, maxValue);
+                    if (input_d > input_b)
+                    {
+                        if ((-input_a / input_c) > 0)
+                        {
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if ((-input_c / input_a) > 0)
+                        {
+                            break;
+                        }
+                    }
+                } while (true);
+                Zahl_Rückgabe[0] = input_a;
+                Zahl_Rückgabe[1] = input_b;
+                Zahl_Rückgabe[2] = input_c;
+                Zahl_Rückgabe[3] = input_d;
                 return Zahl_Rückgabe;
             }
 

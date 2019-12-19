@@ -20,7 +20,7 @@ namespace MadMaths.calculations
             {"Dividieren 2", new Func<int,int,int>(grundschule_dividieren_glatt)},
             {"essenaufgabe", new Func<int,int,int>(essenaufgabe)},
             {"grundschule_subtrahieren", new Func<int,int,int>(standard_subtrahieren)},
-            {"standard_addieren", new Func<int,int,int>(standard_addieren)},
+            {"standard_subtrahieren", new Func<int,int,int>(standard_subtrahieren)},
             {"standard_multiplizieren", new Func<int,int,int>(standard_multiplizieren)},
             {"kindersachtext", new Func<int,int>(kindersachtext)},
             {"timaufgabe", new Func<int,int,int>(timaufgabe)},
@@ -97,7 +97,7 @@ namespace MadMaths.calculations
             }
             return zaehler;
         }
-        static public int essenaufgabe(int input_a, int input_b) { return (input_b - input_a); }
+        static public int essenaufgabe(int input_a, int input_b) { return (input_a - input_b); }
 
         static public string GroesserKleiner1(int input_a, int input_b)
         {

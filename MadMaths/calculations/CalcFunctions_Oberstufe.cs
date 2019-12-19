@@ -19,7 +19,7 @@ namespace MadMaths.calculations
             {"Ableiten9", new Func<double, double, string>(Ableiten9)},
             {"HöherAbleiten1", new Func<double, double, double, string>(HöherAbleiten1)},
             {"HöherAbleiten2", new Func<double, double, double, double, double, string>(HöherAbleiten2)},
-            {"Wendepunkte1", new Func<double, double, double, double, string[]>(Wendepunkte1)},
+            {"Wendepunkte1", new Func<double, double, double, double, string>(Wendepunkte1)},
             {"Integralregel1", new Func<string>(Intergralregel1)},
             {"Integralregel2", new Func<string>(Intergralregel2)},
             {"Integralregel3", new Func<string>(Intergralregel3)},
@@ -28,7 +28,7 @@ namespace MadMaths.calculations
             {"SchwerIntegrieren1", new Func<double, double, double, double>(SchwerIntegrieren1)},
             {"SymmetrieI", new Func<double, double, double, double,double,double,string>(SymmetrieI) },
             {"ExtrempunktI", new Func<double, double, double, double, string>(ExtrempunktI)},
-            {"NullstellenI", new Func<double, double, double, double, string[]>(NullstellenI)},
+            {"NullstellenI", new Func<double, double, double, double, string>(NullstellenI)},
         };
         #endregion
         static private double runden(double input)
@@ -293,35 +293,52 @@ namespace MadMaths.calculations
             return string.Format("{0}x^{1} + {2}x^{3}", vorx1, input_b - 1, vorx2, input_d - 1);
         }
         #endregion
-        static public string[] Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
+        static public string Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
         {
-            string[] Lösung = new string[2];
-            int i = 0; //zählt mit an welcher Stelle wir sind
+            string Lösung = "";
 
             double vorx1 = input_a * input_b * (input_b-1);
             double vorx2 = input_c * input_d * (input_d-1);
-            double wendep; //extremstelle
+            double extr; //extremstelle
             double LoesHilf;
-            //Keine WP wenn 3. ABleitung 0
+            //Keine EP wenn 2. ABleitung 0
             if (input_b - 3 < 0 && input_d - 3 < 0)
             {
-                Lösung[i] = "NaN";
+                Lösung += "NaN";
                 return Lösung;
             }
-            //Bei 0 0 WP wenn 3. Ableitung bei (x = 0) != 0
-            if ((vorx1 * (input_b - 2) + vorx2 * (input_d - 2)) != 0)
+
+            if (((vorx1 * Math.Pow(0, input_b - 2) + vorx2 * Math.Pow(0, input_d - 2)) == 0) && ((vorx1 * (input_b - 2) * Math.Pow(0, input_b - 3) + vorx2 * (input_d - 2) * Math.Pow(0, input_d - 3)) != 0))
             {
-                Lösung[i] = "(0,0)";
-                i++;
+                Lösung += "(0;0),";
             }
-            //Rechnung
-            wendep = Math.Pow(((-1 * vorx1) / vorx2), 1/((input_d - 2) - (input_b - 2)));
-            if ((vorx1 * (input_b - 2) * Math.Pow(wendep,input_b-3) + vorx2 * (input_d - 2) * Math.Pow(wendep, input_d - 3)) != 0)
+
+            if (input_d > input_b)
             {
-                LoesHilf = (input_a * Math.Pow(wendep, input_b) + input_c * Math.Pow(wendep, input_d));
-                Lösung[i] = string.Format("({0},{1})", wendep, LoesHilf);
+                extr = Math.Pow(((-1 * vorx1) / vorx2), 1 / ((input_d - 2) - (input_b - 2)));
+            }
+
+            else
+            {
+                extr = Math.Pow(((-1 * vorx2) / vorx1), 1 / ((input_b - 2) - (input_d - 2)));
+            }
+
+            if ((vorx1 * (input_b - 2) + vorx2 * (input_d - 2) * Math.Pow(extr, input_d - 3)) != 0)
+            {
+                LoesHilf = (input_a * Math.Pow(extr, input_b) + input_c * Math.Pow(extr, input_d));
+                if (string.Format("({0};{1})", runden(extr), runden(LoesHilf)) + "," == Lösung)
+                {
+                    return Lösung;
+                }
+                Lösung += string.Format("({0};{1})", runden(extr), runden(LoesHilf));
+            }
+            if (Lösung == "")
+            {
+                Lösung += "NaN";
             }
             return Lösung;
+
+
         }
         //Integral
         #region
@@ -402,7 +419,32 @@ namespace MadMaths.calculations
 
             return "Asymmetrisch";
         }
+        static public string SymmetrieII(double a, double b, double c, double d)
+        {
+            int Zaehler = 0;
+            for (int i = 0; i < 50; i++)
+            {
+                if ((a * Math.Pow(-i, b) + c * Math.Pow(-i, d) == (a * Math.Pow(i, b) + c * Math.Pow(i, d))))
+                {
+                    Zaehler++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (Zaehler == 50)
+            {
+                return "Achsensymmetrisch";
+            }
+            if (b % 2 != 0 && d % 2 != 0)
+            {
+                return "Punktsymmetrisch";
+            }
 
+
+            return "Asymmetrisch";
+        }
         static public string ExtrempunktI(double input_a, double input_b, double input_c, double input_d)
         {
             string Lösung = "";
@@ -414,8 +456,12 @@ namespace MadMaths.calculations
             //Keine EP wenn 2. ABleitung 0
             if (input_b-2 < 0 && input_d-2 < 0)
             {
-                Lösung += "NaN";
-                return Lösung;
+                double vorx = vorx1 + vorx2;
+                if (vorx == 0)
+                {
+                    Lösung += "NaN";
+                    return Lösung;
+                }
             }
 
             if (((vorx1 * Math.Pow(0,input_b-1)+ vorx2 * Math.Pow(0,input_d-1)) == 0) && ((vorx1 * (input_b-1) * Math.Pow(0,input_b-2)+ vorx2 * (input_d-1)*Math.Pow(0,input_d-2)) != 0))
@@ -451,19 +497,39 @@ namespace MadMaths.calculations
 
         }
 
-        static public string[] NullstellenI(double input_a, double input_b, double input_c, double input_d)
+        static public string NullstellenI(double input_a, double input_b, double input_c, double input_d)
         {
-            string[] Loesung = new string[2];
-            Loesung[0] = "0,0";
+            double vorx;
+            double pot;
+            string Loesung = "(0;0)";
             if (input_b == input_d)
             {
+
+                vorx = input_a + input_c;
+                if (vorx == 0)
+                {
+                    return "NaN";
+                }
+
                 return Loesung;
             }
-            double vorx = (-1 * input_a) / input_c;
-            double pot = input_d - input_b;
-            double NS;
-            NS= Math.Pow(vorx, pot);
-            Loesung[1] = string.Format("{0},0",NS);
+            else if (input_b > input_d)
+            {
+                vorx = (-1 * input_c) / input_a;
+                pot = 1/(input_b - input_d);
+            } 
+            else
+            {
+                vorx = (-1 * input_a) / input_c;
+                pot = 1/(input_d - input_b);
+            }
+            
+            double NS= Math.Pow(vorx, pot);
+            Loesung += string.Format(" ({0};0)",runden(NS));
+            if (SymmetrieII(input_a,input_b,input_c,input_d) == "Punktsymmetrisch")
+            {
+                Loesung += string.Format(" ({0};0)", runden(-NS));
+            }
             return Loesung;
         }
 

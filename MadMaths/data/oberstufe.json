@@ -18,7 +18,7 @@
   },
 
   "Wendepunkte": {
-    "Wendepunkte1": "Berechne den Wendepunkt der Funktion : f(x) = {0}x^{1} + {2}x^{3}"
+    "Wendepunkte1": "Berechne den Wendepunkt der Funktion : f(x) = {0}x^{1} + {2}x^{3} \n(Lösung im Stil: (x1;y1) (x2;y2))\n(Lösung auf 2 Nachkommastellen runden)"
   },
   "Integralregeln": {
     "Integralregel1": "Was ist die Stammfunktion von sin(x) ? \n(Lösung im Stil: sin(x) + a)",
@@ -39,9 +39,9 @@
     "SymmetrieI": "Ist die Funktion Punktsymmetrisch, Achsensymmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5} \n(Das gefragte Wort als Lösung angeben)"
   },
   "Extrempunkte":{
-	"ExtrempunktI":"Berechne die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} "
+	"ExtrempunktI":"Berechne die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} \n(Lösung im Stil: (x1;y1) (x2;y2))\n(Lösung auf 2 Nachkommastellen runden)"
   },
   "Nullstellen":{
-	"NullstellenI":"Berechne die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
+	"NullstellenI":"Berechne die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} \n(Lösung im Stil: (x1;y1) (x2;y2))\n(Lösung auf 2 Nachkommastellen runden)"
   }
 }
