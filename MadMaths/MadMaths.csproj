@@ -195,7 +195,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="assets\icons\NextExerciseButton.png" />
     <Resource Include="assets\icons\backButton.png">
@@ -222,6 +221,9 @@
     <Resource Include="assets\icons\home1.png" />
     <Resource Include="assets\icons\home2.png" />
     <Resource Include="assets\icons\home3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\InfoIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
