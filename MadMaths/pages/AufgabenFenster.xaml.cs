@@ -19,31 +19,36 @@ namespace MadMaths.pages
         private readonly Uri RightAnswer = new Uri("MadMaths;component/assets/sound/correct.wav", UriKind.Relative);
         private readonly Uri WrongAnswer = new Uri("MadMaths;component/assets/sound/wrong.wav", UriKind.Relative);
         private readonly Uri helperSound = new Uri("MadMaths;component/assets/sound/empty.wav", UriKind.Relative);
-        private SoundPlayer Right, Wrong;
+        private readonly SoundPlayer Right, Wrong;
 
         public AufgabenFenster()
         {
             Right = new SoundPlayer(Application.GetResourceStream(RightAnswer).Stream);
             Wrong = new SoundPlayer(Application.GetResourceStream(WrongAnswer).Stream);
-            new SoundPlayer(Application.GetResourceStream(helperSound).Stream).Play();
+            var helper = new SoundPlayer(Application.GetResourceStream(helperSound).Stream);
+            helper.Play(); helper.Dispose();
             InitializeComponent();
-            AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise);
+            AufgabenStellung.Text = Controller.Stufen[Controller.currentGrade].getAufgabenText(Controller.currentTheme);
             NextExerciseButton.IsEnabled = false;
             if (!ChallengeMode) Controller.FillLastSessions();
-            ThemenName.Text = Controller.currentExercise;
+            ThemenName.Text = Controller.currentTheme;
             if (ChallengeMode)
             {
                 BackButton.Visibility = Visibility.Hidden;
                 NextExerciseButton.Click -= NextExerciseButton_Click;
                 NextExerciseButton.Click += NextChallengeButton_Click;
             }
-
-             
-            switch (Controller.currentExercise)
+  
+            switch (Controller.currentTheme)
             {
                 case "Addieren": InfoText.Text += "\n"; break; 
                 default:InfoText.Text += "\n"; break;
             }
+        }
+
+        ~AufgabenFenster()
+        {
+            Right.Dispose();Wrong.Dispose();
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
@@ -54,13 +59,18 @@ namespace MadMaths.pages
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
 
-
-            if (Controller.Stufen[Controller.currentPage].checksSolution(Antwort.Text, out string _lösung))
+            if (Controller.Stufen[Controller.currentGrade].checksSolution(Antwort.Text, out string _lösung))
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
                 Right.Play();
-                Controller.UpdateLevel();
+                switch (Controller.currentGrade)
+                {
+                    case "Grundschule": Controller.UpdateLevel(1.3f);break;
+                    case "Mittelstufe": Controller.UpdateLevel(1.5f);break;
+                    case "Oberstufe": Controller.UpdateLevel(2f);break;
+                    default: Controller.UpdateLevel();break;
+                }
                 if (ChallengeMode) Controller.UpdateChallengeData();
             }
             else
@@ -71,8 +81,8 @@ namespace MadMaths.pages
             }
             if (ChallengeMode)
             {
-                --challengeAuswahl.Versuche[Controller.currentPage];
-                if (challengeAuswahl.Versuche[Controller.currentPage] <= 0)
+                --challengeAuswahl.Versuche[Controller.currentGrade];
+                if (challengeAuswahl.Versuche[Controller.currentGrade] <= 0)
                 {
                     ChallengeMode = false;
                     NavigationService.Navigate(new challengeAuswahl());
@@ -97,7 +107,7 @@ namespace MadMaths.pages
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
             //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
-            AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
+            AufgabenStellung.Text = Controller.Stufen[Controller.currentGrade].getAufgabenText(Controller.currentTheme); // Speichereffizienter
             reset();
         }
 
@@ -122,10 +132,10 @@ namespace MadMaths.pages
             //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
             //AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
             //reset();
-            List<string> myList = Controller.Stufen[Controller.currentPage].ThemenListe;
+            List<string> myList = Controller.Stufen[Controller.currentGrade].ThemenListe;
             Random rand = new Random();
             int index = rand.Next(myList.Count);
-            Controller.currentExercise = myList[index];
+            Controller.currentTheme = myList[index];
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 

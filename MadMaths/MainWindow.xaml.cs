@@ -23,6 +23,7 @@ namespace MadMaths
             if (Controller.UserIsOnline) { onlineStatus.Content = "verbunden"; }
             else { onlineStatus.Content = "nicht verbunden"; }
             MainFrame.Source = new Uri("pages/home.xaml", UriKind.Relative); // lädt Homescreen
+
         }
 
         // Minimize Button Click

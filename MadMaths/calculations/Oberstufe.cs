@@ -15,8 +15,6 @@ namespace MadMaths.calculations
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/oberstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
         public object[] AufgabenZahlen { get; set; }
-        public string AufgabenKey { get; set; }
-
         Random rand = new Random();
 
         public Oberstufe()
@@ -27,7 +25,7 @@ namespace MadMaths.calculations
 
         public bool checksSolution(in object BenutzerLösung, out string Lösung)
         {
-            var AufgabenFunc = CalcFunctions_Oberstufe.os_funcs[AufgabenKey];
+            var AufgabenFunc = CalcFunctions_Oberstufe.os_funcs[Controller.currentExercise];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString();
             //var ArrayToString = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
             string[] Loesungs_seperator = Lösung.Split(' ');
@@ -38,7 +36,6 @@ namespace MadMaths.calculations
             {
                 return true;
             }
-
 
             //if (Lösung.Replace(" ", string.Empty).ToLower() == BenutzerLösung.ToString().Replace(" ", string.Empty).ToLower())
             //{
@@ -53,11 +50,11 @@ namespace MadMaths.calculations
 
             AufgabenZahlen = null;
             var randIndex = rand.Next(0, Aufgaben[aufgabe].Count);
-            AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
+            Controller.currentExercise = Aufgaben[aufgabe].ElementAt(randIndex).Key;
             aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
             var argsNum = Regex.Matches(aufgabe, @"{[0-9]+}").OfType<Match>().Select(m => m.Value).Distinct().Count();
             if (argsNum == 0) return aufgabe;
-            AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, AufgabenKey);
+            AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, Controller.currentExercise);
             return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
         }
 

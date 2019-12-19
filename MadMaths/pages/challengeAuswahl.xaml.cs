@@ -34,9 +34,6 @@ namespace MadMaths.pages
             GrundschuleFortschritt.Text = string.Format("{0}/{1}", Controller.user.grundschule, versucheAnzahl);
             MittelstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.mittelstufe, versucheAnzahl);
             OberstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.oberstufe, versucheAnzahl);
-            //if (Versuche["Grundschule"] <= 0) { Grundschule.IsEnabled = false; }
-            //if (Versuche["Mittelstufe"] <= 0) { Mittelstufe.IsEnabled = false; }
-            //if (Versuche["Oberstufe"] <= 0) { Oberstufe.IsEnabled = false; }
         }
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
@@ -44,11 +41,11 @@ namespace MadMaths.pages
         }
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentPage = (sender as Button).Content as string;
-            List<string> myList = Controller.Stufen[Controller.currentPage].ThemenListe;
+            Controller.currentGrade = (sender as Button).Content as string;
+            List<string> myList = Controller.Stufen[Controller.currentGrade].ThemenListe;
             Random rand = new Random();
             int index = rand.Next(myList.Count);
-            Controller.currentExercise = myList[index];
+            Controller.currentTheme = myList[index];
             AufgabenFenster.ChallengeMode = true;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
