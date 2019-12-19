@@ -84,7 +84,6 @@ namespace MadMaths
         {
             DirectoryInfo di = Directory.CreateDirectory(UserSaveDir);
             di.Attributes = FileAttributes.Directory | FileAttributes.Hidden; // erstellt einen versteckten Ordner
-
             CreateUserJS();
         }
 
@@ -195,12 +194,16 @@ namespace MadMaths
         }
         private static string LoadRanklistLocal()
         {
-            string RanklistString;
-            using (StreamReader file = new StreamReader(LocalRanklist))
+            if (File.Exists(LocalRanklist))
             {
-                RanklistString = file.ReadToEnd();
+                string RanklistString;
+                using (StreamReader file = new StreamReader(LocalRanklist))
+                {
+                    RanklistString = file.ReadToEnd();
+                }
+                return RanklistString;
             }
-            return RanklistString;
+            return "";
         }
 
         internal static void UpdateChallengeData()
