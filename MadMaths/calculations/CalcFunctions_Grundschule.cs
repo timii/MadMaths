@@ -101,7 +101,7 @@ namespace MadMaths.calculations
 
         static public string GroesserKleiner1(int input_a, int input_b)
         {
-            if (input_a == input_b) { return "gleich || ="; }
+            if (input_a == input_b) { return "gleich"; }
             else if (input_a > input_b) { return ">"; }
             else return "<";
         }

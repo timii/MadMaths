@@ -42,6 +42,7 @@ namespace MadMaths.calculations
         public string getAufgabenText(string aufgabe)
         {
             var aufgabe_real = aufgabe;
+
             AufgabenZahlen = null;
             var randIndex = rand.Next(0, Aufgaben[aufgabe].Count);
             AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;

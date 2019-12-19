@@ -451,8 +451,8 @@ namespace MadMaths.calculations
 
             double vorx1 = input_a * input_b;
             double vorx2 = input_c * input_d;   
-            double extr; //extremstelle
-            double LoesHilf;
+            double xextr = 0; //extremstelle
+            double yextr = 0; //y Wert der ES
             //Keine EP wenn 2. ABleitung 0
             if (input_b-2 < 0 && input_d-2 < 0)
             {
@@ -464,29 +464,38 @@ namespace MadMaths.calculations
                 }
             }
 
-            if (((vorx1 * Math.Pow(0,input_b-1)+ vorx2 * Math.Pow(0,input_d-1)) == 0) && ((vorx1 * (input_b-1) * Math.Pow(0,input_b-2)+ vorx2 * (input_d-1)*Math.Pow(0,input_d-2)) != 0))
+            if (((vorx1 * Math.Pow(0,input_b-1)+ vorx2 * Math.Pow(0,input_d-1)) == 0))
             {
                 Lösung+=  "(0;0),";
             }
 
             if (input_d > input_b)
             {
-                extr = Math.Pow(((-1 * vorx1) / vorx2), 1/((input_d - 1) - (input_b - 1)));
+                xextr = Math.Pow(((-1 * vorx1) / vorx2), 1/((input_d - 1) - (input_b - 1)));
             }   
 
             else
             {
-                extr = Math.Pow(((-1 * vorx2) / vorx1), 1/((input_b - 1) - (input_d - 1)));
+                xextr = Math.Pow(((-1 * vorx2) / vorx1), 1/((input_b - 1) - (input_d - 1)));
             }
             
-            if ((vorx1 * (input_b - 1) + vorx2 * (input_d - 1) * Math.Pow(extr, input_d - 2)) != 0)
+            if ((vorx1 * (input_b - 1) + vorx2 * (input_d - 1) * Math.Pow(xextr, input_d - 2)) != 0)
             {
-                LoesHilf = (input_a * Math.Pow(extr, input_b) + input_c * Math.Pow(extr, input_d));
-                if (string.Format("({0};{1})", runden(extr), runden(LoesHilf))+"," == Lösung)
+                yextr = (input_a * Math.Pow(xextr, input_b) + input_c * Math.Pow(xextr, input_d));
+                if (string.Format("({0};{1})", runden(xextr), runden(yextr))+"," == Lösung)
                 {
                     return Lösung;
                 }
-                Lösung+=  string.Format("({0};{1})", runden(extr), runden(LoesHilf));
+                Lösung+=  string.Format("({0};{1})", runden(xextr), runden(yextr));
+            }
+
+            if (SymmetrieII(input_a,input_b,input_c,input_d) == "Punktsymmetrisch")
+            {
+                Lösung+= string.Format("({0};{1})", runden(-xextr), runden(-yextr));
+            }
+            if (SymmetrieII(input_a, input_b, input_c, input_d) == "Achsensymmetrisch")
+            {
+                Lösung += string.Format("({0};{1})", runden(-xextr), runden(yextr));
             }
             if (Lösung == "")
             {
@@ -527,6 +536,10 @@ namespace MadMaths.calculations
             double NS= Math.Pow(vorx, pot);
             Loesung += string.Format(" ({0};0)",runden(NS));
             if (SymmetrieII(input_a,input_b,input_c,input_d) == "Punktsymmetrisch")
+            {
+                Loesung += string.Format(" ({0};0)", runden(-NS));
+            }
+            if (SymmetrieII(input_a, input_b, input_c, input_d) == "Achsensymmetrisch")
             {
                 Loesung += string.Format(" ({0};0)", runden(-NS));
             }
