@@ -29,7 +29,7 @@ namespace MadMaths.calculations
         {
             var AufgabenFunc = CalcFunctions_Mittelstufe.ms_funcs[AufgabenKey];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString();
-            if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString())
+            if (Lösung.Replace(" ", string.Empty).ToLower() == BenutzerLösung.ToString().Replace(" ", string.Empty).ToLower())
             {
                 return true;
             }

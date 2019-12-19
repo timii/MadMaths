@@ -32,7 +32,7 @@ namespace MadMaths.calculations
             //var ArrayToString = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
             
 
-            if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
+            if (Lösung.Replace(" ", string.Empty).ToLower() == BenutzerLösung.ToString().Replace(" ", string.Empty).ToLower())
             {
                 return true;
             }
