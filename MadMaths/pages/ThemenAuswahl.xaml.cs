@@ -12,9 +12,9 @@ namespace MadMaths.pages
         public ThemenAuswahl()
         {
             InitializeComponent();
-            StufenName.Text = Controller.currentPage;   // setzt die aktuelle Stufe als Überschrift
+            StufenName.Text = Controller.currentGrade;   // setzt die aktuelle Stufe als Überschrift
 
-            foreach (var item in Controller.Stufen[Controller.currentPage].ThemenListe)
+            foreach (var item in Controller.Stufen[Controller.currentGrade].ThemenListe)
             {
                 Button b = new Button();
                 b.Content = item as string;
@@ -45,7 +45,7 @@ namespace MadMaths.pages
 
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentExercise = (sender as Button).Content as string;
+            Controller.currentTheme = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 

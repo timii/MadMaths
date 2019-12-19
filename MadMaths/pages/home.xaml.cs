@@ -51,7 +51,7 @@ namespace MadMaths.pages
 
         private void StufenClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
+            Controller.currentGrade = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
             NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenauswahl
         }
         private void AvatarClick(object sender, RoutedEventArgs e)
@@ -115,8 +115,8 @@ namespace MadMaths.pages
 
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentPage = (sender as Button).Tag as string;
-            Controller.currentExercise = (sender as Button).Content as string;
+            Controller.currentGrade = (sender as Button).Tag as string;
+            Controller.currentTheme = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 
@@ -134,7 +134,7 @@ namespace MadMaths.pages
 
         private void ChallengeClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
+            Controller.currentGrade = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
             NavigationService.Navigate(new challengeAuswahl()); // Bei Klick Änderung der Page auf die challengeAuswahl
         }
     }

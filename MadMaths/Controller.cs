@@ -17,8 +17,9 @@ namespace MadMaths
     /// </summary>
     static internal class Controller
     {
-        internal static string currentPage; // enthält den Namen der aktuell aufgerufenen Page
-        internal static string currentExercise;
+        internal static string currentGrade; // enthält den Namen der aktuell ausgewählten Stufe (z.B. Grundschule)
+        internal static string currentTheme; // enthält den Namen des aktuellen Themas (z.B. Addieren)
+        internal static string currentExercise; // enthält den genauen Namen der aktuellen Aufgabe (z.B. Addieren I)
         internal static bool UserIsLoggedIn = false;
         internal static bool UserIsOnline = false;
         private static readonly string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
@@ -124,9 +125,9 @@ namespace MadMaths
             Task.Run(() => Client.UpdateAvatar());
         }
 
-        internal static void UpdateLevel()
+        internal static void UpdateLevel(in float multiplier=1)
         {
-            int exp = CalcLevel();
+            int exp = Convert.ToInt32(CalcLevel() * multiplier);
             var maxEXP = user.level * 100;
             if (user.currentProgress + exp <= maxEXP) { user.currentProgress += exp; }
             else { user.currentProgress = maxEXP; }
@@ -143,7 +144,7 @@ namespace MadMaths
 
         private static int CalcLevel()
         {
-            switch (currentExercise)
+            switch (currentTheme)
             {
                 case "Zeitaufgaben" : return 5;
                 case "Textaufgaben II": 
@@ -164,7 +165,7 @@ namespace MadMaths
         internal static void FillLastSessions()
         {
             if (user.lastSessions.Count == 5) user.lastSessions.Dequeue();
-            user.lastSessions.Enqueue(currentPage + ':' + currentExercise);
+            user.lastSessions.Enqueue(currentGrade + ':' + currentTheme);
             UpdateUserJson();
         }
 
@@ -229,7 +230,7 @@ namespace MadMaths
 
         internal static void UpdateChallengeData()
         {
-            switch (currentPage)
+            switch (currentGrade)
             {
                 case "Grundschule": ++user.grundschule; break;
                 case "Mittelstufe": ++user.mittelstufe; break;
