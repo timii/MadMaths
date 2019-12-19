@@ -5,7 +5,7 @@ namespace MadMaths.calculations
 {
     static public class CalcFunctions_Oberstufe
     {
-        static public Dictionary<string, Delegate> os_funcs = new Dictionary<string, Delegate>()
+        public static Dictionary<string, Delegate> os_funcs = new Dictionary<string, Delegate>()
         #region
         {
             {"Ableiten1", new Func<double, double, string>(Ableiten1)},
@@ -31,17 +31,17 @@ namespace MadMaths.calculations
             {"NullstellenI", new Func<double, double, double, double, string>(NullstellenI)},
         };
         #endregion
-        static private double runden(double input)
+        private static double runden(double input)
         {
             return Math.Round(input, 2, MidpointRounding.ToEven);
         }
         //Ableiten
         #region
-        static public string Ableiten1(double input_a, double input_b)
+        public static string Ableiten1(double input_a, double input_b)
         {
             return string.Format("{0}x^{1}", input_a * input_b, input_b - 1);
         }
-        static public string Ableiten2(double input_a, double input_b, double input_c, double input_d)
+        public static string Ableiten2(double input_a, double input_b, double input_c, double input_d)
         {
             double vorx;
             if (input_b == input_d)
@@ -55,7 +55,7 @@ namespace MadMaths.calculations
 
             }
         }
-        static public string Ableiten3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
+        public static string Ableiten3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
             double vorx;
             if (input_b == input_d && input_b == input_f)
@@ -85,7 +85,7 @@ namespace MadMaths.calculations
             }
             return string.Format("{0}x^{1} + {2}x^{3} + {4}x^{5}", input_a * input_a, input_b - 1, input_c * input_d, input_d - 1, input_e * input_f, input_f - 1);
         }
-        static public string Ableiten4(double input_a, double input_b, double input_c, double input_d, double input_e)
+        public static string Ableiten4(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
             double vorx;
             if (input_b == input_d)
@@ -100,7 +100,7 @@ namespace MadMaths.calculations
             }
         }
 
-        static public string Ableiten5(int var1, int pot1, int var2, int pot2, int var3, int pot3, int var4, int pot4)
+        public static string Ableiten5(int var1, int pot1, int var2, int pot2, int var3, int pot3, int var4, int pot4)
         {
             #region
             int x1, x2, x3, x4;
@@ -244,7 +244,7 @@ namespace MadMaths.calculations
         }
 
 
-        static public string Ableiten6(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
+        public static string Ableiten6(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
             if ((input_e) == (input_b))
             {
@@ -255,19 +255,19 @@ namespace MadMaths.calculations
             return string.Format("({0}x^{1} + {2}x^{3} + {4}x^{5})/({6}x^{7} + {8})^2", (input_a * input_b * input_d - input_d * input_e * input_a), (input_b - 1 + input_e), (input_a * input_b * input_f * -1), (input_b - 1), (input_d * input_c * input_e * -1), (input_e - 1), (input_d), (input_e), (input_f));
 
         }
-        static public string Ableiten7(double input_a, double input_b)
+        public static string Ableiten7(double input_a, double input_b)
         {
             return string.Format("{0}e^({1}x + {2}", (input_a), (input_a), (input_b));
         }
-        static public string Ableiten8(double input_a, double input_b, double input_c)
+        public static string Ableiten8(double input_a, double input_b, double input_c)
         {
             return string.Format("{0} * ({1}x - {2})^{3}", (input_a * input_c), (input_a), (input_b), (input_c - 1));
         }
-        static public string Ableiten9(double input_a, double input_b)
+        public static string Ableiten9(double input_a, double input_b)
         {
             return string.Format("{0} * sin({1}x) + {2} * cos({3}x) * {4}x", input_a, input_b, input_b, input_b, input_a);
         }
-        static public string HöherAbleiten1(double input_a, double input_b, double input_c)
+        public static string HöherAbleiten1(double input_a, double input_b, double input_c)
         {
             int i;
             for (i = 0; i < input_a; i++)
@@ -281,7 +281,7 @@ namespace MadMaths.calculations
             }
             return string.Format("{0}x^{1}", input_b, input_c - i);
         }
-        static public string HöherAbleiten2(double input_a, double input_b, double input_c, double input_d, double input_e)
+        public static string HöherAbleiten2(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
             double vorx1 = input_a * (input_b + 1) * input_e * input_b;
             double vorx2 = input_c * (input_d + 1) * input_e * input_d;
@@ -293,7 +293,7 @@ namespace MadMaths.calculations
             return string.Format("{0}x^{1} + {2}x^{3}", vorx1, input_b - 1, vorx2, input_d - 1);
         }
         #endregion
-        static public string Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
+        public static string Wendepunkte1(double input_a, double input_b, double input_c, double input_d)
         {
             string Lösung = "";
 
@@ -342,30 +342,30 @@ namespace MadMaths.calculations
         }
         //Integral
         #region
-        static public string Intergralregel1()
+        public static string Intergralregel1()
         {
             return "-cos(x) + c";
         }
-        static public string Intergralregel2()
+        public static string Intergralregel2()
         {
             return "sin(x) + c";
         }
-        static public string Intergralregel3()
+        public static string Intergralregel3()
         {
             return "x * ln(x) - x + c";
         }
-        static public double Integral1(double input_a, double input_b, double input_c, double input_d)
+        public static double Integral1(double input_a, double input_b, double input_c, double input_d)
         {
             double stamm_a = input_a / 2;
             double stamm_b = input_b;
             return Math.Round((input_d * input_d * stamm_a + input_d * input_b) - (input_c * input_c * stamm_a + input_d * input_b),2, MidpointRounding.AwayFromZero);
         }
-        static public double Integral2()
+        public static double Integral2()
         {
             return 1 / 3;
         }
 
-        static public double SchwerIntegrieren1(double input_a, double input_b, double input_c)
+        public static double SchwerIntegrieren1(double input_a, double input_b, double input_c)
         {
             double tmp;
             double x1 = (-(input_a - 1) + Math.Sqrt(Math.Pow((input_a - 1), 2) - 4 * (input_b * input_c))) / 2;
@@ -393,7 +393,7 @@ namespace MadMaths.calculations
             return Math.Round(Flaeche1 - Flaeche2,2, MidpointRounding.AwayFromZero);
         }
         #endregion
-        static public string SymmetrieI(double a, double b, double c, double d, double e, double f)
+        public static string SymmetrieI(double a, double b, double c, double d, double e, double f)
         {
             int Zaehler = 0;
             for (int i = 0; i < 50; i++)
@@ -419,7 +419,7 @@ namespace MadMaths.calculations
 
             return "Asymmetrisch";
         }
-        static public string SymmetrieII(double a, double b, double c, double d)
+        public static string SymmetrieII(double a, double b, double c, double d)
         {
             int Zaehler = 0;
             for (int i = 0; i < 50; i++)
@@ -445,7 +445,7 @@ namespace MadMaths.calculations
 
             return "Asymmetrisch";
         }
-        static public string ExtrempunktI(double input_a, double input_b, double input_c, double input_d)
+        public static string ExtrempunktI(double input_a, double input_b, double input_c, double input_d)
         {
             string Lösung = "";
 
@@ -506,7 +506,7 @@ namespace MadMaths.calculations
 
         }
 
-        static public string NullstellenI(double input_a, double input_b, double input_c, double input_d)
+        public static string NullstellenI(double input_a, double input_b, double input_c, double input_d)
         {
             double vorx;
             double pot;
