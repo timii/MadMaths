@@ -41,11 +41,12 @@
         <Button Background="Transparent" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,320,0" Cursor="Hand" Width="50" Style="{StaticResource InfoButton}" >
             <Image Name="InfoButton" Source="../assets/icons/InfoIcon.png" Width="30" Height="40" />
         </Button>
-        <Popup Name="InfoPopup" PopupAnimation="Fade" AllowsTransparency="True" PlacementTarget="{Binding ElementName=InfoButton}" Placement="Right" VerticalOffset="-15" HorizontalOffset="5">
-            <Border BorderBrush="#ffa500" BorderThickness="0" CornerRadius="5">
-                <TextBlock Name="InfoText" FontSize="14" Background="#ffa500" FontFamily="Microsoft Sans Serif"
-                           Text="Tipps: &#x0a;Auf 2 nach Nachkommastellen Runden." TextWrapping="Wrap" MaxWidth="300" MaxHeight="600" Padding="5"/>
-            </Border>
+        <Popup Name="InfoPopup" PopupAnimation="Fade" AllowsTransparency="True" PlacementTarget="{Binding ElementName=InfoButton}" Placement="Right" VerticalOffset="-18" HorizontalOffset="5">
+            <StackPanel Orientation="Vertical" Background="#ffa500">
+                <TextBlock Text="Tipps: &#x0a;Auf 2 nach Nachkommastellen Runden." FontSize="14" Padding="5,5,5,0" FontWeight="SemiBold"/>
+                <TextBlock Name="InfoText" FontSize="14" Padding="5,0,5,5" FontWeight="SemiBold"
+                           Text="" TextWrapping="Wrap" MaxWidth="300" MaxHeight="600"/>
+            </StackPanel>
         </Popup>
         <TextBlock x:Name="Lösung" Grid.Row="3" Grid.Column="0"
                  Background="Transparent"
