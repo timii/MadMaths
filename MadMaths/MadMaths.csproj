@@ -198,6 +198,7 @@
   <ItemGroup>
     <Resource Include="assets\sound\correct.wav" />
     <Resource Include="assets\sound\wrong.wav" />
+    <Resource Include="assets\sound\empty.wav" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\icons\NextExerciseButton.png" />
@@ -227,7 +228,7 @@
     <Resource Include="assets\icons\home3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\sound\empty.wav" />
+    <Resource Include="assets\icons\InfoIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

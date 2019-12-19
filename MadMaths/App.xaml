@@ -213,6 +213,15 @@
             </Setter>
         </Style>
 
+        <!-- Style für der Info Button im AufabenFenser -->
+        <Style x:Key="InfoButton" BasedOn="{StaticResource AvatarSettingButton}" TargetType="Button">
+            <Setter Property="Control.Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="6" Direction="315" Color="Gray" Opacity="0.0" BlurRadius="10.5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
         <!-- Style für Letzte Aufgaben Button -->
         <Style x:Key="LetzteAufgabenButton" TargetType="Button">
             <Setter Property="FontSize" Value="28"/>

@@ -37,6 +37,13 @@ namespace MadMaths.pages
                 NextExerciseButton.Click -= NextExerciseButton_Click;
                 NextExerciseButton.Click += NextChallengeButton_Click;
             }
+
+             
+            switch (Controller.currentExercise)
+            {
+                case "Addieren": InfoText.Text += "\n"; break; 
+                default:InfoText.Text += "\n"; break;
+            }
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
@@ -120,6 +127,18 @@ namespace MadMaths.pages
             int index = rand.Next(myList.Count);
             Controller.currentExercise = myList[index];
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
+        }
+
+        private void InfoClick(object sender, RoutedEventArgs e)
+        {
+            if (InfoPopup.IsOpen == false)
+            {
+                InfoPopup.IsOpen = true;
+            }
+            else
+            {
+                InfoPopup.IsOpen = false;
+            }
         }
     }
 }

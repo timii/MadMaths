@@ -5,7 +5,7 @@ namespace MadMaths.calculations
 {
     static public class CalcFunctions_Grundschule
     {
-        static public Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
+        public static Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
         #region
         {
             {"Addieren1", new Func<int,int,int>(standard_addieren)},
@@ -56,13 +56,13 @@ namespace MadMaths.calculations
         #endregion
 
         /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
-        static public int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
-        static public int standard_addieren(int a) { return a + a; }
-        static public int standard_subtrahieren(int input_a, int input_b) { return input_b - input_a; }
-        static public int standard_subtrahieren(int input_a, int input_b, int input_c) { return input_a - input_b - input_c; }
+        public static int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
+        public static int standard_addieren(int a) { return a + a; }
+        public static int standard_subtrahieren(int input_a, int input_b) { return input_b - input_a; }
+        public static int standard_subtrahieren(int input_a, int input_b, int input_c) { return input_a - input_b - input_c; }
 
-        static public int standard_multiplizieren(int input_a, int input_b) { return (input_a * input_b); }
-        static public int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
+        public static int standard_multiplizieren(int input_a, int input_b) { return (input_a * input_b); }
+        public static int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
         {
             if (input_b % input_a == 0)
             {
@@ -73,12 +73,12 @@ namespace MadMaths.calculations
                 return input_a / input_b;
             }
         }
-        static public int kindersachtext(int input_a) //darf kein nachkomma stellen haben als lösung
+        public static int kindersachtext(int input_a) //darf kein nachkomma stellen haben als lösung
         {
             return input_a / 4;
 
         }
-        static public int timaufgabe(int input_a, int input_b) /* input_a = Anfangsgeld, input_b = Jahr */
+        public static int timaufgabe(int input_a, int input_b) /* input_a = Anfangsgeld, input_b = Jahr */
         {
             int zaehler = 0;
             for (int i = 2; i <= input_b; i++)
@@ -88,7 +88,7 @@ namespace MadMaths.calculations
             return zaehler + input_a;
         }
 
-        static public int timaufgabe_insgesamt(int input_a, int input_b)
+        public static int timaufgabe_insgesamt(int input_a, int input_b)
         {
             int zaehler = 0;
             for (int i = 1; i <= input_b; i++)
@@ -97,15 +97,15 @@ namespace MadMaths.calculations
             }
             return zaehler;
         }
-        static public int essenaufgabe(int input_a, int input_b) { return (input_a - input_b); }
+        public static int essenaufgabe(int input_a, int input_b) { return (input_a - input_b); }
 
-        static public string GroesserKleiner1(int input_a, int input_b)
+        public static string GroesserKleiner1(int input_a, int input_b)
         {
             if (input_a == input_b) { return "gleich"; }
             else if (input_a > input_b) { return ">"; }
             else return "<";
         }
-        static public bool GroesserKleiner2(int input_a, int input_b)
+        public static bool GroesserKleiner2(int input_a, int input_b)
         {
             if (input_a < input_b)
             {
@@ -116,7 +116,7 @@ namespace MadMaths.calculations
                 return false;
             }
         }
-        static public string GeradeUngerade(int input_a)
+        public static string GeradeUngerade(int input_a)
         {
             if (input_a % 2 == 0)
             {
@@ -128,26 +128,26 @@ namespace MadMaths.calculations
             }
         }
 
-        static public int VerdoppelHalbieren1(int input_a) { return input_a * 2; }
-        static public int VerdoppelHalbieren2(int input_a) { return input_a / 2; }
+        public static int VerdoppelHalbieren1(int input_a) { return input_a * 2; }
+        public static int VerdoppelHalbieren2(int input_a) { return input_a / 2; }
 
-        static public int Kettenaufgabe1(int input_a, int input_b, int input_c) { return (input_a - input_b - input_c); }
-        static public int Kettenaufgabe2(int input_a, int input_b, int input_c) { return (input_a + input_b + input_c); }
-        static public int Kettenaufgabe3(int input_a, int input_b, int input_c) { return (input_a + input_b - input_c); }
-        static public int Kettenaufgabe4(int input_a, int input_b, int input_c) { return (input_a - input_b + input_c); }
-        static public int Kettenaufgabe5(int input_a, int input_b, int input_c) { return (input_a * input_b + input_c); }
-        static public int Kettenaufgabe6(int input_a, int input_b, int input_c) { return (input_a * input_b - input_c); }
-        static public int Kettenaufgabe7(int input_a, int input_b, int input_c, int input_d) { return (input_a + input_b - input_c + input_d); }
+        public static int Kettenaufgabe1(int input_a, int input_b, int input_c) { return (input_a - input_b - input_c); }
+        public static int Kettenaufgabe2(int input_a, int input_b, int input_c) { return (input_a + input_b + input_c); }
+        public static int Kettenaufgabe3(int input_a, int input_b, int input_c) { return (input_a + input_b - input_c); }
+        public static int Kettenaufgabe4(int input_a, int input_b, int input_c) { return (input_a - input_b + input_c); }
+        public static int Kettenaufgabe5(int input_a, int input_b, int input_c) { return (input_a * input_b + input_c); }
+        public static int Kettenaufgabe6(int input_a, int input_b, int input_c) { return (input_a * input_b - input_c); }
+        public static int Kettenaufgabe7(int input_a, int input_b, int input_c, int input_d) { return (input_a + input_b - input_c + input_d); }
 
-        static public string Zeitaufgabe1() { return "10:15"; }
-        static public string Zeitaufgabe2() { return "18:45"; }
-        static public string Zeitaufgabe3() { return "11:00"; }
-        static public string Zeitaufgabe4() { return "03:30"; }
-        static public string Zeitaufgabe5() { return "00:15"; }
+        public static string Zeitaufgabe1() { return "10:15"; }
+        public static string Zeitaufgabe2() { return "18:45"; }
+        public static string Zeitaufgabe3() { return "11:00"; }
+        public static string Zeitaufgabe4() { return "03:30"; }
+        public static string Zeitaufgabe5() { return "00:15"; }
 
-        static public int TeilenmitRest1(int input_a, int input_b) { return (input_a % input_b); }
+        public static int TeilenmitRest1(int input_a, int input_b) { return (input_a % input_b); }
 
-        static public int Runden1(int input_a)
+        public static int Runden1(int input_a)
         {
             if (input_a % 10 == 0)
             {
@@ -155,7 +155,7 @@ namespace MadMaths.calculations
             }
             return (10 - input_a % 10) + input_a;
         }
-        static public int Runden2(int input_a)
+        public static int Runden2(int input_a)
         {
             if (input_a % 100 == 0)
             {
@@ -163,7 +163,7 @@ namespace MadMaths.calculations
             }
             return (100 - input_a % 100) + input_a;
         }
-        static public int Runden3(int input_a)
+        public static int Runden3(int input_a)
         {
             if (input_a % 1000 == 0)
             {
@@ -171,12 +171,12 @@ namespace MadMaths.calculations
             }
             return (1000 - input_a % 1000) + input_a;
         }
-        static public int Gleichungen1(int input_a, int input_b, int input_c) { return ((input_a + input_b) - input_c); }
+        public static int Gleichungen1(int input_a, int input_b, int input_c) { return ((input_a + input_b) - input_c); }
 
-        static public float Umwandeln1(int input_a) { return (input_a * 1000); }
-        static public float Umwandeln2(int input_a) { return (input_a * 1000); }
-        static public float Umwandeln3(int input_a) { return (input_a * 1000); }
-        static public float Umwandeln4(float input_a) { return (input_a / 100); }
-        static public float Umwandeln5(float input_a) { return (input_a / 1000); }
+        public static float Umwandeln1(int input_a) { return (input_a * 1000); }
+        public static float Umwandeln2(int input_a) { return (input_a * 1000); }
+        public static float Umwandeln3(int input_a) { return (input_a * 1000); }
+        public static float Umwandeln4(float input_a) { return (input_a / 100); }
+        public static float Umwandeln5(float input_a) { return (input_a / 1000); }
     }
 }
