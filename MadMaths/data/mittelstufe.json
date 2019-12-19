@@ -4,8 +4,8 @@
     "Variablen2": "a - {0} = {1}",
     "Variablen3": "{0}*a = {1} (Lösung auf 2 Nachkommastellen runden)",
     "Variablen4": "{0}/a = {1}",
-    "Variablen5": "{0}x + {2}y + {1}x + {3}y = _? (Lösung im Stil: ax + by)", /* 0 und 1 selbe variable, 2 und 3 selbe */
-    "Variablen6": "{0}x + {2}y - {1}x + {3}y = _? (Lösung im Stil: ax + by)",
+    "Variablen5": "{0}x + {1}y + {2}x + {3}y = _? (Lösung im Stil: ax + by)",
+    "Variablen6": "{0}x + {1}y - {2}x + {3}y = _? (Lösung im Stil: ax + by)",
     "Variablen7": "Wir haben y = x + {0} und setzen x = {1} ein. Wie groß ist y?",
     "Variablen8": "Wir haben die Gleichung {0} * x + {1} * x. Setze x = {2} ein und berechne die Lösung"
   },

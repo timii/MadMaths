@@ -8,11 +8,11 @@ namespace MadMaths.calculations
         static public Dictionary<string, Delegate> ms_funcs = new Dictionary<string, Delegate>()
         #region
         {
-            {"Variablen1", new Func<int,int,int>(Variablen1)},
-            {"Variablen2", new Func<int,int,int>(Variablen2)},
+            {"Variablen1", new Func<double,double,double>(Variablen1)},
+            {"Variablen2", new Func<double,double,double>(Variablen2)},
             {"Variablen3", new Func<double,double,double>(Variablen3)},
-            {"Variablen4", new Func<int,int,int>(Variablen4)},
-            {"Variablen5", new Func<int,int, int, int, string>(Variablen5)},
+            {"Variablen4", new Func<double,double,double>(Variablen4)},
+            {"Variablen5", new Func<double,double, double, double, string>(Variablen5)},
             {"Variablen6", new Func<double, double, double, double, string>(Variablen6)},
             {"Variablen7", new Func<double, double, double>(Variablen7)},
             {"Variablen8", new Func<double, double, double, double>(Variablen8)},
@@ -66,7 +66,7 @@ namespace MadMaths.calculations
         #endregion
         static private double runden(double input)
         {
-            return Math.Round(input, 2, MidpointRounding.AwayFromZero);
+            return Math.Round(input, 2, MidpointRounding.ToEven);
         }
         static private double hoch(double input_a, double hochzahl)
         {
@@ -101,14 +101,14 @@ namespace MadMaths.calculations
             }
             return result;
         }
-        static public int Variablen1(int input_a, int input_b) { return input_b - input_a; }
-        static public int Variablen2(int input_a, int input_b) { return input_b + input_a; }
+        static public double Variablen1(double input_a, double input_b) { return input_b - input_a; }
+        static public double Variablen2(double input_a, double input_b) { return input_b + input_a; }
         static public double Variablen3(double input_a, double input_b) { return runden(input_b / input_a); }
-        static public int Variablen4(int input_a, int input_b) { return input_b * input_a; }
-        static public string Variablen5(int input_a, int input_b, int input_c, int input_d)
+        static public double Variablen4(double input_a, double input_b) { return input_b * input_a; }
+        static public string Variablen5(double input_a, double input_b, double input_c, double input_d)
         {
-            int ergebnis_a = input_a + input_c;
-            int ergebnis_b = input_b + input_d;
+            Double ergebnis_a = input_a + input_b;
+            Double ergebnis_b = input_c + input_d;
             return string.Format("{0}x + {1}y",ergebnis_a,ergebnis_b);
         }
         static public string Variablen6(double input_a, double input_b, double input_c, double input_d)

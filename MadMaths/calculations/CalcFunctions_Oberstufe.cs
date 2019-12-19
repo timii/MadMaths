@@ -33,7 +33,7 @@ namespace MadMaths.calculations
         #endregion
         static private double runden(double input)
         {
-            return Math.Round(input, 2, MidpointRounding.AwayFromZero);
+            return Math.Round(input, 2, MidpointRounding.ToEven);
         }
         //Ableiten
         #region
