@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MadMaths.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="920"
+      d:DesignHeight="660" d:DesignWidth="1100"
       Title="AufgabenFenster">
 
     <Grid>
@@ -28,13 +28,6 @@
             <TextBox Name="ThemenName" Background="Transparent" Text="Thema" HorizontalAlignment="Center" VerticalAlignment="Center"
                      IsReadOnly="True" FontSize="20" BorderThickness="0" Grid.Row="0"/>
             <Separator Width="200" Background="#ff9640" VerticalAlignment="Top" Grid.Row="1" Height="2"/>
-            <Button Background="Transparent" HorizontalAlignment="Right" Cursor="Hand" Width="50" VerticalAlignment="Top" Style="{StaticResource InfoButton}" Click="InfoClick">
-                <Image Name="InfoButton" Source="../assets/icons/InfoIcon.png" Width="40" Height="50" Margin="0,0,10,15"/>
-            </Button>
-            <Popup Name="InfoPopup" IsOpen="False" PlacementTarget="{Binding ElementName=InfoButton}" HorizontalOffset="100">
-                <TextBlock Name="InfoText" FontSize="14" Background="#ffa500" FontFamily="Microsoft Sans Serif"
-                           Text="Tipps: &#x0a;Auf 2 nach Nachkommastellen Runden." TextWrapping="Wrap" MaxWidth="300" MaxHeight="600" Padding="5"/>
-            </Popup>
             <TextBox x:Name="AufgabenStellung" Grid.Row="1" Grid.Column="0" Margin="20,0" TextWrapping="Wrap"
                  IsReadOnly="True" Background="Transparent" Text="Aufgabe"
                  TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="30"/>
@@ -45,6 +38,15 @@
                  BorderBrush="AliceBlue" BorderThickness="2" FontSize="20" GotKeyboardFocus="Antwort_GotKeyboardFocus" KeyDown="Antwort_KeyDown"/>
         <Button Name="abgabebtn" Grid.Row="2" Content="Abgabe" VerticalContentAlignment="Center"
                 MinHeight="50" MaxHeight="90" MinWidth="100" MaxWidth="250" Click="Abgabe_Click"/>
+        <Button Background="Transparent" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,320,0" Cursor="Hand" Width="50" Style="{StaticResource InfoButton}" >
+            <Image Name="InfoButton" Source="../assets/icons/InfoIcon.png" Width="30" Height="40" />
+        </Button>
+        <Popup Name="InfoPopup" PopupAnimation="Fade" AllowsTransparency="True" PlacementTarget="{Binding ElementName=InfoButton}" Placement="Right" VerticalOffset="-15" HorizontalOffset="5">
+            <Border BorderBrush="#ffa500" BorderThickness="0" CornerRadius="5">
+                <TextBlock Name="InfoText" FontSize="14" Background="#ffa500" FontFamily="Microsoft Sans Serif"
+                           Text="Tipps: &#x0a;Auf 2 nach Nachkommastellen Runden." TextWrapping="Wrap" MaxWidth="300" MaxHeight="600" Padding="5"/>
+            </Border>
+        </Popup>
         <TextBlock x:Name="Lösung" Grid.Row="3" Grid.Column="0"
                  Background="Transparent"
                  TextAlignment="Center" VerticalAlignment="Center" FontSize="25"/>

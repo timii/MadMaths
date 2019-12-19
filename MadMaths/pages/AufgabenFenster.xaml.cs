@@ -38,10 +38,26 @@ namespace MadMaths.pages
                 NextExerciseButton.Click += NextChallengeButton_Click;
             }
 
-             
-            switch (Controller.currentExercise)
+            // Zum erstellen der verschiedenen Tipp Popups
+            switch (Controller.currentPage)
             {
-                case "Addieren": InfoText.Text += "\n"; break; 
+                case "Variablen5": case "Varaiblen6": InfoText.Text += "\nLösung im Stil: ax + by"; break;
+                case "Gleichungssystem1": case "Gleichungssystem2":case "Gleichungssystem3": InfoText.Text += "\nLösung im Stil: x = a,y = b"; break;
+                case "BinomischeFormeln1":case "BinomischeFormeln2":case "BinomischeFormeln3":case "BinomischeFormeln4": InfoText.Text += "\nLösung im Stil: (a^2 + b^2)"; break;
+                case "QuadratischeGleichungen1": InfoText.Text += "\nLösung im Stil: b , a"; break;
+                case "Ableiten1": case "HöherAbleiten1": InfoText.Text += "\nLösung im Stil: ax^b"; break;
+                case "Ableiten2": case "HöherAbleiten2": InfoText.Text += "\nLösung im Stil: ax^b + cx^d bzw. ax^b"; break;
+                case "Ableiten3": InfoText.Text += "\nLösung im Stil: ax^b + cx^d bzw. ax^b oder ax^b + cx^d + ex^f"; break;
+                case "Ableiten4": InfoText.Text += "\nLösung im Stil: ax^b bzw. ax^b + cx^d"; break;
+                case "Ableiten5": InfoText.Text += "\nLösung im Stil: ax^b bzw ax^b + cx^d + ..."; break;
+                case "Ableiten6": InfoText.Text += "\nLösung im Stil: ax^b + cx^d)/(ex^f + g)^2"; break;
+                case "Ableiten7": InfoText.Text += "\nLösung im Stil: ae^(bx + c)"; break;
+                case "Ableiten8": InfoText.Text += "\nLösung im Stil: a * (bx - c)^d)"; break;
+                case "Ableiten9": InfoText.Text += "\nLösung im Stil: a * sin(bx) + c * cos(dx) * ex)"; break;
+                case "Wendepunkte": InfoText.Text += "\nLösung im Stil: (x1;y1) (x2;y2)"; break;
+                case "Intergralregel1":case "Intergralregel2": InfoText.Text += "\nLösung im Stil: sin(x) + a"; break;
+                case "Intergralregel3": InfoText.Text += "\nLösung im Stil: x * ln(x) + a + b"; break;
+                case "Symmetrie": InfoText.Text = "Tipps: \n Das gefragte Wort als Lösung angeben"; break; 
                 default:InfoText.Text += "\n"; break;
             }
         }

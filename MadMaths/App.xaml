@@ -36,6 +36,32 @@
             </Setter>
         </Style>
 
+        <!-- Style für das Infobox Popup, damit es hovert und nicht clickbar ist -->
+        <Style TargetType="Popup">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMouseOver, ElementName=InfoButton}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsOpen" FillBehavior="HoldEnd">
+                                    <DiscreteBooleanKeyFrame Value="True" KeyTime="0:0:0" />
+                                </BooleanAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                    <DataTrigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="IsOpen" FillBehavior="HoldEnd">
+                                    <DiscreteBooleanKeyFrame Value="False" KeyTime="0:0:.7" />
+                                </BooleanAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.ExitActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Style um einen animierten Border beim Login in der Textbox des Usernamen zu haben  -->
         <Style x:Key="BorderAnimationTextBox" TargetType="{x:Type TextBox}">
             <!--<Setter Property="FocusVisualStyle" Value="{x:Null}"/>-->
