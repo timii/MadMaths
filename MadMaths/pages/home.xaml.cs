@@ -46,6 +46,7 @@ namespace MadMaths.pages
             {
                 ShowLastSessions();
             }
+            Controller.CreateRankList();
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)

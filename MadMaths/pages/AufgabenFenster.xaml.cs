@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,9 +16,16 @@ namespace MadMaths.pages
     {
         bool wasFocused = false;
         public static bool ChallengeMode = false;
+        private readonly Uri RightAnswer = new Uri("MadMaths;component/assets/sound/correct.wav", UriKind.Relative);
+        private readonly Uri WrongAnswer = new Uri("MadMaths;component/assets/sound/wrong.wav", UriKind.Relative);
+        private readonly Uri helperSound = new Uri("MadMaths;component/assets/sound/empty.wav", UriKind.Relative);
+        private SoundPlayer Right, Wrong;
 
         public AufgabenFenster()
         {
+            Right = new SoundPlayer(Application.GetResourceStream(RightAnswer).Stream);
+            Wrong = new SoundPlayer(Application.GetResourceStream(WrongAnswer).Stream);
+            new SoundPlayer(Application.GetResourceStream(helperSound).Stream).Play();
             InitializeComponent();
             AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise);
             NextExerciseButton.IsEnabled = false;
@@ -44,6 +52,7 @@ namespace MadMaths.pages
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
+                Right.Play();
                 Controller.UpdateLevel();
                 if (ChallengeMode) Controller.UpdateChallengeData();
             }
@@ -51,6 +60,7 @@ namespace MadMaths.pages
             {
                 Lösung.Text = "Falsch!" + Environment.NewLine + _lösung;
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
+                Wrong.Play();
             }
             if (ChallengeMode)
             {
