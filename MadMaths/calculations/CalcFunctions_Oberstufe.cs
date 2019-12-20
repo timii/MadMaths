@@ -257,7 +257,7 @@ namespace MadMaths.calculations
         }
         public static string Ableiten7(double input_a, double input_b)
         {
-            return string.Format("{0}e^({1}x + {2}", (input_a), (input_a), (input_b));
+            return string.Format("{0}e^({1}x + {2})", (input_a), (input_a), (input_b));
         }
         public static string Ableiten8(double input_a, double input_b, double input_c)
         {
