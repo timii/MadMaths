@@ -197,7 +197,7 @@ namespace MadMaths
                         rank = rank++
                     });
                 }
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < ranklist.Count; i++)
                 {
                     switch (i)
                     {
