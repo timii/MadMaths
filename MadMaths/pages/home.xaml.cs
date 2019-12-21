@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.IO;
+using System.Threading.Tasks;
+#pragma warning disable 4014
 
 namespace MadMaths.pages
 {
@@ -37,7 +39,8 @@ namespace MadMaths.pages
             }
             Level.Text = Controller.user.level.ToString();
             progressInNumbers.Text = string.Format("{0}/{1}", Controller.user.currentProgress, Controller.user.level * 100);
-            RankingList.ItemsSource = Controller.ranklist;
+            //Controller.CreateRankList();
+            //RankingList.ItemsSource = Controller.ranklist;
             progress.Value = Controller.user.currentProgress;
             progress.Maximum = Controller.user.level * 100;
 
@@ -46,7 +49,13 @@ namespace MadMaths.pages
             {
                 ShowLastSessions();
             }
-            Controller.CreateRankList();
+            LoadRanklist();
+        }
+
+        private async Task LoadRanklist()
+        {
+            await Controller.CreateRankList();
+            RankingList.ItemsSource = Controller.ranklist;
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
@@ -122,13 +131,11 @@ namespace MadMaths.pages
 
         private void SettingClick(object sender, RoutedEventArgs e)
         {
-            if (Controller.UserIsLoggedIn)
+
+            if ((bool)new SettingsWindow().ShowDialog())
             {
-                if ((bool)new SettingsWindow().ShowDialog())
-                {
-                    Controller.UserIsLoggedIn = false;
-                    NavigationService.Navigate(new home());
-                }
+                Controller.UserIsLoggedIn = false;
+                NavigationService.Navigate(new home());
             }
         }
 

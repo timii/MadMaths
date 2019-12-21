@@ -17,8 +17,6 @@ namespace MadMaths
                 IntPtr handle = (new WindowInteropHelper(this)).Handle;
                 HwndSource.FromHwnd(handle).AddHook(new HwndSourceHook(CustomWindowSizing.WindowProc));
             };
-
-            //Controller.CreateRankList();
             InitializeComponent();
             if (Controller.UserIsOnline) { onlineStatus.Content = "verbunden"; }
             else { onlineStatus.Content = "nicht verbunden"; }

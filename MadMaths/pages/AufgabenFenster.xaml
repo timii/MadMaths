@@ -54,5 +54,6 @@
         <Button x:Name="NextExerciseButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Transparent" 
                 Style="{StaticResource NextExerciseButton}" Grid.Row="4"
                 Height="45" Width="45" Margin="10" Click="NextExerciseButton_Click" Opacity="0"/>
+        <ProgressBar Name="TimerProgress" Grid.Row="4" Height="20" Width="500" Style="{StaticResource ProgressBarStyle1}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10" Visibility="Hidden"/>
     </Grid>
 </Page>

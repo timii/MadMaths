@@ -26,7 +26,7 @@ namespace MadMaths
         private static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
         private static readonly string LocalRanklist = Path.Combine(UserSaveDir, "ranklist.json");
         internal static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
-        internal static List<UserRank> ranklist = new List<UserRank>();
+        internal static List<UserRank> ranklist;
 
         internal static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
@@ -138,6 +138,7 @@ namespace MadMaths
                 user.currentProgress = 0;
                 LevelUpWindow lvlup = new LevelUpWindow(user.level.ToString());
                 lvlup.Owner = System.Windows.Application.Current.MainWindow;
+                Task.Run(() => Client.UpdateUserData("LEVEL"));
                 lvlup.ShowDialog();
             }
         }
@@ -169,13 +170,14 @@ namespace MadMaths
             UpdateUserJson();
         }
 
-        internal static void CreateRankList()
+        internal static async Task CreateRankList()
         {
+            ranklist = new List<UserRank>();
             string stringjson;
             if (UserIsOnline)
             {
-                stringjson = Client.GetRanklist();
-                Task.Run(() => SaveRanklistLocal(stringjson));
+                stringjson = await Task.Run<string>(() => Client.GetRanklist());
+                await Task.Run(() => SaveRanklistLocal(stringjson));
             }
             else
             {

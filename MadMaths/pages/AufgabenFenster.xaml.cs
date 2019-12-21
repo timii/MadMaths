@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Media;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,7 @@ namespace MadMaths.pages
         private readonly Uri WrongAnswer = new Uri("MadMaths;component/assets/sound/wrong.wav", UriKind.Relative);
         private readonly Uri helperSound = new Uri("MadMaths;component/assets/sound/empty.wav", UriKind.Relative);
         private readonly SoundPlayer Right, Wrong;
+        private BackgroundWorker timer;
 
         public AufgabenFenster()
         {
@@ -35,8 +37,16 @@ namespace MadMaths.pages
             if (ChallengeMode)
             {
                 BackButton.Visibility = Visibility.Hidden;
+                TimerProgress.Visibility = Visibility.Visible;
                 NextExerciseButton.Click -= NextExerciseButton_Click;
                 NextExerciseButton.Click += NextChallengeButton_Click;
+                timer = new BackgroundWorker();
+                timer.WorkerReportsProgress = true;
+                timer.DoWork += timer_DoWork;
+                timer.ProgressChanged += timer_ProgressChanged;
+                timer.RunWorkerCompleted += timer_ProgressCompleted;
+                timer.WorkerSupportsCancellation = true;
+                StartTimer();
             }
             getInfoUpdate();
         }
@@ -44,6 +54,7 @@ namespace MadMaths.pages
         ~AufgabenFenster()
         {
             Right.Dispose();Wrong.Dispose();
+            if (timer != null) timer.Dispose();
         }
 
         private void ThemenBackClick(object sender, RoutedEventArgs e)
@@ -53,29 +64,32 @@ namespace MadMaths.pages
 
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
-
             if (Controller.Stufen[Controller.currentGrade].checksSolution(Antwort.Text, out string _lösung))
             {
                 Lösung.Text = "Richtig!";
                 Lösung.Foreground = new SolidColorBrush(Colors.LawnGreen);
-                Right.Play();
-                switch (Controller.currentGrade)
+                if (SettingsWindow.IsSoundOn) Right.Play();
+                if (ChallengeMode)
                 {
-                    case "Grundschule": Controller.UpdateLevel(1.3f);break;
-                    case "Mittelstufe": Controller.UpdateLevel(1.5f);break;
-                    case "Oberstufe": Controller.UpdateLevel(2f);break;
-                    default: Controller.UpdateLevel();break;
+                    Controller.UpdateChallengeData();
+                    switch (Controller.currentGrade)
+                    {
+                        case "Grundschule": Controller.UpdateLevel(1.3f); break;
+                        case "Mittelstufe": Controller.UpdateLevel(1.5f); break;
+                        case "Oberstufe": Controller.UpdateLevel(2f); break;
+                    }
                 }
-                if (ChallengeMode) Controller.UpdateChallengeData();
+                else Controller.UpdateLevel();
             }
             else
             {
                 Lösung.Text = "Falsch!" + Environment.NewLine + _lösung;
                 Lösung.Foreground = new SolidColorBrush(Colors.Red);
-                Wrong.Play();
+                if (SettingsWindow.IsSoundOn) Wrong.Play();
             }
             if (ChallengeMode)
             {
+                timer.CancelAsync();
                 --challengeAuswahl.Versuche[Controller.currentGrade];
                 if (challengeAuswahl.Versuche[Controller.currentGrade] <= 0)
                 {
@@ -170,6 +184,40 @@ namespace MadMaths.pages
             {
                 InfoPopup.IsOpen = false;
             }
+        }
+
+        private void StartTimer()
+        {
+            TimerProgress.Value = 0;
+            switch (Controller.currentGrade)
+            {
+                case "Grundschule": TimerProgress.Maximum = 1000; break;
+                case "Mittelstufe": TimerProgress.Maximum = 2000; break;
+                case "Oberstufe": TimerProgress.Maximum = 3000; break;
+            }
+            timer.RunWorkerAsync(TimerProgress.Maximum);
+        }
+
+        private void timer_DoWork(object sender, DoWorkEventArgs e)
+        {
+            int max = Convert.ToInt32(e.Argument);
+            for (int i = 0; i <= max; i++)
+            {
+                (sender as BackgroundWorker).ReportProgress(i);
+                if (timer.CancellationPending) return;
+                System.Threading.Thread.Sleep(10);
+            }
+        }
+        
+        private void timer_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            TimerProgress.Value = e.ProgressPercentage;
+        }
+
+        private void timer_ProgressCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            TimerProgress.Value = TimerProgress.Maximum;
+            Abgabe_Click(null, null);
         }
     }
 }

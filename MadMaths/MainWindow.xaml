@@ -27,6 +27,7 @@
         <Grid VerticalAlignment="Top" Background="DarkOrange" Grid.Row="0">
             <Label Content="Server: " FontWeight="Bold" VerticalContentAlignment="Center" Margin="5,0" Foreground="White" FontFamily="Segoe UI"/>
             <Label x:Name="onlineStatus" VerticalContentAlignment="Center" Margin="48,0" Foreground="White" FontFamily="Segoe UI"/>
+            <Label Content="beta 0.312" VerticalContentAlignment="Center" Margin="100,0" Foreground="White" FontFamily="Segoe UI" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <StackPanel HorizontalAlignment="Right" Height="35"
                         WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
                 <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Width="35" 
