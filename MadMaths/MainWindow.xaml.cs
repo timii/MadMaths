@@ -12,11 +12,6 @@ namespace MadMaths
     {
         public MainWindow()
         {
-            SourceInitialized += (s, e) =>
-            {
-                IntPtr handle = (new WindowInteropHelper(this)).Handle;
-                HwndSource.FromHwnd(handle).AddHook(new HwndSourceHook(CustomWindowSizing.WindowProc));
-            };
             InitializeComponent();
             if (Controller.UserIsOnline) { onlineStatus.Content = "verbunden"; }
             else { onlineStatus.Content = "nicht verbunden"; }
@@ -28,10 +23,6 @@ namespace MadMaths
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         { this.WindowState = WindowState.Minimized; }
 
-        // Maximize Button Click
-        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
-        { AdjustWindowSize(); }
-
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Controller.UpdateUserJson();
@@ -42,19 +33,6 @@ namespace MadMaths
             }
             Application.Current.Shutdown();
         }
-        private void AdjustWindowSize()
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                this.WindowState = WindowState.Normal;
-                MaximizeButton.Style = Application.Current.FindResource("WindowButtonMaximize") as Style;
-            }
-            else
-            {
-                this.WindowState = WindowState.Maximized;
-                MaximizeButton.Style = Application.Current.FindResource("WindowButtonMinimize") as Style;
-            }
-        }
 
         /// TitleBar_MouseDown - Drag if single-click
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -62,18 +40,6 @@ namespace MadMaths
             if (e.ChangedButton == MouseButton.Left)
             {
                 Application.Current.MainWindow.DragMove();
-            }
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (this.WindowState == WindowState.Maximized)
-            {
-                MaximizeButton.Style = Application.Current.FindResource("WindowButtonMinimize") as Style;
-            }
-            else if (this.WindowState == WindowState.Normal)
-            {
-                MaximizeButton.Style = Application.Current.FindResource("WindowButtonMaximize") as Style;
             }
         }
 
