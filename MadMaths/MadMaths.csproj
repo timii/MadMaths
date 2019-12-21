@@ -95,7 +95,6 @@
     <Compile Include="CustomMB.xaml.cs">
       <DependentUpon>CustomMB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomWindowSizing.cs" />
     <Compile Include="LevelUpWindow.xaml.cs">
       <DependentUpon>LevelUpWindow.xaml</DependentUpon>
     </Compile>
