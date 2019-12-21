@@ -20,20 +20,13 @@ namespace MadMaths.pages
     /// </summary>
     public partial class challengeAuswahl : Page
     {
-        static public int versucheAnzahl = 10;
-
-        static public Dictionary<string, int> Versuche = new Dictionary<string, int>()
-        {
-            {"Grundschule",versucheAnzahl},
-            {"Mittelstufe", versucheAnzahl},
-            {"Oberstufe", versucheAnzahl}
-        };
+        int versuche = 10;
         public challengeAuswahl()
         {
             InitializeComponent();
-            GrundschuleFortschritt.Text = string.Format("{0}/{1}", Controller.user.grundschule, versucheAnzahl);
-            MittelstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.mittelstufe, versucheAnzahl);
-            OberstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.oberstufe, versucheAnzahl);
+            GrundschuleFortschritt.Text = string.Format("{0}/{1}", Controller.user.grundschule, versuche);
+            MittelstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.mittelstufe, versuche);
+            OberstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.oberstufe, versuche);
         }
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {

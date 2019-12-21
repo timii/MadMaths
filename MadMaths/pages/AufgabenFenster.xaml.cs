@@ -22,6 +22,7 @@ namespace MadMaths.pages
         private readonly Uri helperSound = new Uri("MadMaths;component/assets/sound/empty.wav", UriKind.Relative);
         private readonly SoundPlayer Right, Wrong;
         private BackgroundWorker timer;
+        private static int ChallengeVersuche = 10;
 
         public AufgabenFenster()
         {
@@ -64,6 +65,9 @@ namespace MadMaths.pages
 
         private void Abgabe_Click(object sender, RoutedEventArgs e)
         {
+            abgabebtn.IsEnabled = false;
+            Antwort.IsReadOnly = true;
+            Antwort.Focusable = false;
             if (Controller.Stufen[Controller.currentGrade].checksSolution(Antwort.Text, out string _lösung))
             {
                 Lösung.Text = "Richtig!";
@@ -90,16 +94,14 @@ namespace MadMaths.pages
             if (ChallengeMode)
             {
                 timer.CancelAsync();
-                --challengeAuswahl.Versuche[Controller.currentGrade];
-                if (challengeAuswahl.Versuche[Controller.currentGrade] <= 0)
+                --ChallengeVersuche;
+                if (ChallengeVersuche <= 0)
                 {
                     ChallengeMode = false;
+                    ChallengeVersuche = 10;
                     NavigationService.Navigate(new challengeAuswahl());
                 }
             }
-            abgabebtn.IsEnabled = false;
-            Antwort.IsReadOnly = true;
-            Antwort.Focusable = false;
             NextExerciseButton.Opacity = 100;
             NextExerciseButton.IsEnabled = true;
         }
@@ -217,7 +219,7 @@ namespace MadMaths.pages
         private void timer_ProgressCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             TimerProgress.Value = TimerProgress.Maximum;
-            Abgabe_Click(null, null);
+            if (abgabebtn.IsEnabled) Abgabe_Click(null, null);
         }
     }
 }
