@@ -182,7 +182,7 @@ namespace MadMaths.calculations
 
         public static double Dreisatz1(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a),2, MidpointRounding.AwayFromZero); }
         public static double Dreisatz2(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a),2, MidpointRounding.AwayFromZero); }
-        public static double Dreisatz3(double input_a, double input_b, double input_c) { return Runden((input_b * input_c) / input_a); }
+        public static double Dreisatz3(double input_a, double input_b, double input_c) { return Runden((input_a * input_c) / input_b); }
 
         public static double Prozentrechnung1(double input_a, double input_b, double input_c) { return Math.Round(input_b * Hoch((input_a * 0.01 + 1), input_c), 2, MidpointRounding.AwayFromZero); }
         public static double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a * (input_b * 0.01), 2, MidpointRounding.AwayFromZero); }
