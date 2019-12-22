@@ -32,7 +32,7 @@
   },
 
   "Integral II": {
-    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(x) = x + {2} "
+    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen \nf(x) = x² + {0}x + {1} und \ng(x) = x + {2} "
   },
 
   "Symmetrie": {

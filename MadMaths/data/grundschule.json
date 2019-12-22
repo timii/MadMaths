@@ -1,14 +1,14 @@
 {
   "Addieren": { /* Zahlenraum bis 10 */
     "Addieren1": "Addiere {0} mit {1}",
-    "Addieren2": "Max hat {0} Bananen und holt sich noch {1} dazu. Wieviele hat Max nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
+    "Addieren2": "Max hat {0} Bananen und holt sich noch {1} dazu. Wie viele hat Max nun?", /* 0 = Name, 1 und 3 = Zahl, 2 = Objekt das man haben kann*/
     "Addieren3": "Max kauft sich {0} mal eine Melone. Wieviele hat Max wenn er die gleiche Anzahl wieder kauft?", /* 0 = Name, 1 = Zahl, 2 = Objekt */
-    "Addieren4": "Du hast Zuhause {0} Melonen. Wenn du noch {1} holst, wieviele hast du dann?" /* alles zahlen */
+    "Addieren4": "Du hast Zuhause {0} Melonen. Wenn du noch {1} holst, wie viele hast du dann?" /* alles zahlen */
   },
 
   "Subtrahieren": { /* Zahlenraum bis 10 */
     "Subtrahieren 1": "Subtrahiere {0} von {1}",
-    "Subtrahieren 2": "Max hat {0} Birnen und gibt {1} an Felix ab. Wieviele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
+    "Subtrahieren 2": "Max hat {0} Birnen und gibt {1} an Felix ab. Wie viele hat Max wenn du nochmal {2} abziehst?" /* 0,4 = Name, 1,3,5 = Zahl, 2 = Objekt */
   },
 
   "Multiplizieren": { /* Zahlenraum bis 10 */
@@ -22,10 +22,10 @@
   },
 
   "Textaufgaben": {
-    "essenaufgabe": "Felix hat {0} Äpfel und isst {1} davon. Wie viele hat er?",
-    "grundschule_subtrahieren": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}. Was ist meine Zahl ?",
-    "standard_subtrahieren": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
-    "standard_multiplizieren": "Meine Zahl ist {0} mal größer als {1}"
+    "Textaufgabe1": "Felix hat {0} Äpfel und isst {1} davon. Wie viele hat er?",
+    "Textaufgabe2": "Addiere {0} zu meiner Zahl und du erhältst als Summe {1}. Was ist meine Zahl ?",
+    "Textaufgabe3": "Subtrahiere {0} von {1} und du erhältst meine Zahl ",
+    "Textaufgabe4": "Meine Zahl ist {0} mal größer als {1}"
   },
 
   "Größer oder Kleiner": {
@@ -76,11 +76,11 @@
   },
 
   "Umwandeln": {
-    "Umwandeln1": "Gib {0}l in ml an",
-    "Umwandeln2": "Gib {0}kg in g an",
-    "Umwandeln3": "Gib {0}km in m an",
-    "Umwandeln4": "Gib {0}cm in m an",
-    "Umwandeln5": "Gib {0}mm in m an"
+    "Umwandeln1": "Gib {0} l in ml an",
+    "Umwandeln2": "Gib {0} kg in g an",
+    "Umwandeln3": "Gib {0} km in m an",
+    "Umwandeln4": "Gib {0} cm in m an",
+    "Umwandeln5": "Gib {0} mm in m an"
   },
   "Textaufgaben II": {
     "kindersachtext": "Die drei Kinder der Familie Meier bekommen zusammen {0}€ Taschengeld. Vuong, der Älteste bekommt doppelt so viel, wie seine beiden Brüder. Wie viel bekommen die beiden jüngeren jeweils?",

@@ -357,40 +357,34 @@ namespace MadMaths.calculations
         public static double Integral1(double input_a, double input_b, double input_c, double input_d)
         {
             double stamm_a = input_a / 2;
-            double stamm_b = input_b;
-            return Math.Round((input_d * input_d * stamm_a + input_d * input_b) - (input_c * input_c * stamm_a + input_d * input_b),2, MidpointRounding.AwayFromZero);
+            return Math.Round((input_d * input_d * stamm_a + input_d * input_b) - (input_c * input_c * stamm_a + input_c * input_b),2, MidpointRounding.AwayFromZero);
         }
         public static double Integral2()
         {
-            return 1 / 3;
+            return runden(1.0 / 3.0);
         }
 
         public static double SchwerIntegrieren1(double input_a, double input_b, double input_c)
         {
             double tmp;
-            double x1 = (-(input_a - 1) + Math.Sqrt(Math.Pow((input_a - 1), 2) - 4 * (input_b * input_c))) / 2;
-            double x2 = (-(input_a - 1) - Math.Sqrt(Math.Pow((input_a - 1), 2) - 4 * (input_b * input_c))) / 2;
-            if (x1 > x2)
-            {
-                tmp = x1;
-                x1 = x2;
-                x2 = tmp;
-            }
-            double Flaeche_Hilfe1 = (1 / 3) * Math.Pow(x2, 3) + (input_a / 2) * Math.Pow(x2, 2) + input_b * x2;
-            double Flaeche_Hilfe2 = (1 / 3) * Math.Pow(x1, 3) + (input_a / 2) * Math.Pow(x1, 2) + input_b * x1;
-            double Flaeche1 = Flaeche_Hilfe1 - Flaeche_Hilfe2;
+            double DifInput_a = input_a - 1;
+            double DifInput_b = input_b - input_c;
+            double x1 = (-(input_a - 1) + Math.Sqrt(Math.Pow((DifInput_a), 2) - 4  * (DifInput_b))) / 2;
+            double x2 = (-(input_a - 1) - Math.Sqrt(Math.Pow((DifInput_a), 2) - 4  * (DifInput_b))) / 2;
 
-            Flaeche_Hilfe1 = (1 / 2) * Math.Pow(x2, 2) + input_c * x2;
-            Flaeche_Hilfe2 = (1 / 2) * Math.Pow(x1, 2) + input_c * x1;
-            double Flaeche2 = Flaeche_Hilfe1 - Flaeche_Hilfe2;
-            if (Flaeche1 < Flaeche2)
+            
+            double Flaeche_Hilfe1 = (1.0 / 3.0) * Math.Pow(x2, 3) + (DifInput_a / 2) * Math.Pow(x2, 2) + DifInput_b * x2;
+            double Flaeche_Hilfe2 = (1.0 / 3.0) * Math.Pow(x1, 3) + (DifInput_a / 2) * Math.Pow(x1, 2) + DifInput_b * x1;
+            if (Flaeche_Hilfe1 < Flaeche_Hilfe2)
             {
-                tmp = Flaeche2;
-                Flaeche2 = Flaeche1;
-                Flaeche1 = tmp;
+                tmp = Flaeche_Hilfe1;
+                Flaeche_Hilfe1 = Flaeche_Hilfe2;
+                Flaeche_Hilfe2 = tmp;
             }
+            double Flaeche = Flaeche_Hilfe1 - Flaeche_Hilfe2;
 
-            return Math.Round(Flaeche1 - Flaeche2,2, MidpointRounding.AwayFromZero);
+
+            return runden(Flaeche);
         }
         #endregion
         public static string SymmetrieI(double a, double b, double c, double d, double e, double f)

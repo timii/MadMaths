@@ -144,6 +144,7 @@ namespace MadMaths.pages
                 case "Intergralregel1": case "Intergralregel2": InfoText.Text = "Lösung im Stil: sin(x) + a"; break;
                 case "Intergralregel3": InfoText.Text = "Lösung im Stil: x * ln(x) + a + b"; break;
                 case "Symmetrie": InfoText.Text = "Tipps:  Das gefragte Wort als Lösung angeben"; break;
+
                 default: break;
             }
         }

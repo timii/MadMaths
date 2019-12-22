@@ -73,7 +73,7 @@
   //KoordinatenSystem
   "Wurzeln": {
     "Wurzeln1": "Ziehe die Wurzel aus der Zahl: {0}",
-    "Wurzeln2": "Berechne das Ergebnis: a² = {0}"
+    "Wurzeln2": "Berechne das Ergebnis: a² = {0} - löse nach a auf"
   },
 
   "Quadratische Gleichungen": {
@@ -95,7 +95,7 @@
     "Fakultät2": "Berechne folgende Fakultäten: ({0}!/{1}!)"
   },
   "Urnenmodell": {
-    "Urnenmodell1": "Wir haben eine Urne mit {0}  Kugeln. Wir ziehen {1} mal. Alle Kugeln werden mit zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
+    "Urnenmodell1": "Wir haben eine Urne mit {0}  verschiedenen Kugeln. Wir ziehen {1} mal. Alle Kugeln werden mit zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?",
     "Urnenmodell2": "In einer Urne befinden sich {0} Kugeln. Es soll insgesamt {1} mal gezogen werden, wobei die Kugel stets wieder in dir Urne zurückgelegt wird. Wie viele Möglichkeiten der Entnahme gibt es ?",
     "Urnenmodell3": "Wir haben eine Urne mit {0}  Kugeln. Alle Kugeln werden ohne zurücklegen gezogen, es wird eine geordnete Stichprobe entnommen. Wie viele Möglichkeiten gibt es für die Ziehung?"
   },
