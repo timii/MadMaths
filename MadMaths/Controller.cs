@@ -129,13 +129,11 @@ namespace MadMaths
         {
             int exp = Convert.ToInt32(CalcLevel() * multiplier);
             var maxEXP = user.level * 100;
-            if (user.currentProgress + exp <= maxEXP) { user.currentProgress += exp; }
-            else { user.currentProgress = maxEXP; }
-
+            if (user.level < 99) user.currentProgress += exp;
             if (user.currentProgress >= maxEXP && user.level < 99)
             {
                 ++user.level;
-                user.currentProgress = 0;
+                user.currentProgress -= maxEXP;
                 LevelUpWindow lvlup = new LevelUpWindow(user.level.ToString());
                 lvlup.Owner = System.Windows.Application.Current.MainWindow;
                 Task.Run(() => Client.UpdateUserData("LEVEL"));
