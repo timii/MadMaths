@@ -107,7 +107,7 @@ namespace MadMaths.pages
 
         private void ShowLastSessions()
         {
-            foreach (var item in Controller.user.lastSessions.Reverse().ToArray().Take(3))
+            foreach (var item in Controller.user.lastSessions.Reverse().ToArray().Take(5))
             {
                 var LastSession = item.Split(':');
                 Style style = FindResource("LetzteAufgabenPanelButton") as Style;
