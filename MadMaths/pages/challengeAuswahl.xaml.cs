@@ -35,6 +35,12 @@ namespace MadMaths.pages
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
             Controller.currentGrade = (sender as Button).Content as string;
+            switch (Controller.currentGrade)
+            {
+                case "Grundschule": Controller.user.grundschule = 0;break;
+                case "Mittelstufe": Controller.user.mittelstufe = 0;break;
+                case "Oberstufe": Controller.user.oberstufe = 0;break;
+            }
             List<string> myList = Controller.Stufen[Controller.currentGrade].ThemenListe;
             Random rand = new Random();
             int index = rand.Next(myList.Count);

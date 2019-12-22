@@ -262,7 +262,8 @@ namespace MadMaths
             catch (SocketException) {} 
         }
         /// <summary>
-        /// Ein Workaround für ein Verbindungsproblem, welches während des Testens aufgetreten ist
+        /// Ein Workaround für ein Verbindungsproblem, welches während des Testens aufgetreten ist.
+        /// Da das Problem nur innerhalb des HS-Netzwerks auftritt, vermute ich, dass dies an den strikten Firewall Einstellungen der HS liegt
         /// </summary>
         /// <returns>Gibt true zurück, wenn die Verbindung erfolgreich hergestellt wurde, false andernfalls</returns>
         static private bool CheckConnection()
@@ -273,7 +274,7 @@ namespace MadMaths
             }
             catch (Exception)
             {
-                for (int i = 0; i < 200; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     try
                     {

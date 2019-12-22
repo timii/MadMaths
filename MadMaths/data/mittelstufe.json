@@ -55,7 +55,7 @@
   "Dreisatz": {
     "Dreisatz1": "{0} Lampen kosten {1} Euro. Wie viel kosten {2} Lampen?",
     "Dreisatz2": "{0} Personen brauchen {1} Stunden um einen Reifen zu wechseln. Wie lange benötigen {2} Personen? ",
-    "Dreisatz3": "Eine Person laeuft {0} Kilometer in {1} Stunden. Wie viele Kilometer läuft die Person in {2} Stunden? "
+    "Dreisatz3": "Eine Person läuft {0} Kilometer in {1} Stunden. Wie viele Kilometer läuft die Person in {2} Stunden? "
   },
 
   "Prozentrechnung": {
