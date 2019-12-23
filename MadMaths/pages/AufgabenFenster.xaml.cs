@@ -195,9 +195,9 @@ namespace MadMaths.pages
             TimerProgress.Value = 0;
             switch (Controller.currentGrade)
             {
-                case "Grundschule": TimerProgress.Maximum = 1000; break;
-                case "Mittelstufe": TimerProgress.Maximum = 2000; break;
-                case "Oberstufe": TimerProgress.Maximum = 3000; break;
+                case "Grundschule": TimerProgress.Maximum = 3000; break;   // 30 Sekunden
+                case "Mittelstufe": TimerProgress.Maximum = 4000; break;  // 40 Sekunden
+                case "Oberstufe": TimerProgress.Maximum = 4000; break;
             }
             timer.RunWorkerAsync(TimerProgress.Maximum);
         }

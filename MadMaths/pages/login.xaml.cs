@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Navigation;
 
 namespace MadMaths.pages
@@ -33,6 +34,9 @@ namespace MadMaths.pages
             if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }    // unterbindet das Copy&Paste von ungültigen Passwörtern
         }
 
+        private void UserName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        { if (e.Text == "_") e.Handled = true; }
+
         private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // überprüft, ob Leerzeichen vorkommen
@@ -46,7 +50,10 @@ namespace MadMaths.pages
             if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }
         }
 
-        private void Register_Click(object sender, RoutedEventArgs e)
+        private void UserPassword_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        { if (e.Text == "_") e.Handled = true; }
+
+        private async void Register_Click(object sender, RoutedEventArgs e)
         {
             UsernameFeedback.Text = "";
             PasswordFeedback.Text = "";
@@ -56,16 +63,28 @@ namespace MadMaths.pages
                 {
                     Controller.user.UserName = UserName.Text;
                     Controller.user.password = GetHashString(UserPassword.Password);
-                    Task.Run(() => Client.RegisterUser(Controller.user.UserName, Controller.user.password));
+                    await Task.Run(() => Client.RegisterUser(Controller.user.UserName, Controller.user.password));
                     Controller.UpdateUserJson();
                     NavigationService.Navigate(new home());
                 }
-                else { UsernameFeedback.Text = "Benutzername existiert bereits"; }
+                else 
+                { 
+                    UsernameFeedback.Text = "Benutzername existiert bereits";
+                    UserName.BorderBrush = Brushes.Red;
+                }
             }
             else
             {
-                if (UserPassword.Password.Length < 8) PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
-                if (UserName.Text.Length < 2) UsernameFeedback.Text = "Benutzername zu kurz (mind. 2 Zeichen)";
+                if (UserPassword.Password.Length < 8) 
+                { 
+                    PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
+                    UserPassword.BorderBrush = Brushes.Red;
+                }
+                if (UserName.Text.Length < 2)
+                {
+                    UsernameFeedback.Text = "Benutzername zu kurz (mind. 2 Zeichen)";
+                    UserPassword.BorderBrush = Brushes.Red;
+                }
             }
         }
 

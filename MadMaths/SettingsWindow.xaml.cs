@@ -38,7 +38,9 @@ namespace MadMaths
             Controller.UserIsLoggedIn = false;
             Client.UpdateUserData("LEVEL");
             Client.LogoutUser();
+            var temp = Controller.user.lastSessions;
             Controller.user = new User();
+            Controller.user.lastSessions = temp;
             Controller.UpdateUserJson();
             DialogResult = true;
             Close();
