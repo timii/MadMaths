@@ -8,11 +8,11 @@ namespace MadMaths.calculations
         static public Dictionary<string, Delegate> ms_funcs = new Dictionary<string, Delegate>()
         #region
         {
-            {"Variablen1", new Func<int,int,int>(Variablen1)},
-            {"Variablen2", new Func<int,int,int>(Variablen2)},
-            {"Variablen3", new Func<int,int,int>(Variablen3)},
-            {"Variablen4", new Func<int,int,int>(Variablen4)},
-            {"Variablen5", new Func<int,int, int, int, string>(Variablen5)},
+            {"Variablen1", new Func<double,double,double>(Variablen1)},
+            {"Variablen2", new Func<double,double,double>(Variablen2)},
+            {"Variablen3", new Func<double,double,double>(Variablen3)},
+            {"Variablen4", new Func<double,double,double>(Variablen4)},
+            {"Variablen5", new Func<double,double, double, double, string>(Variablen5)},
             {"Variablen6", new Func<double, double, double, double, string>(Variablen6)},
             {"Variablen7", new Func<double, double, double>(Variablen7)},
             {"Variablen8", new Func<double, double, double, double>(Variablen8)},
@@ -25,15 +25,15 @@ namespace MadMaths.calculations
             {"Gleichungen7", new Func<double, double, double, double, double>(Gleichungen7)},
             {"Gleichungen8", new Func<double, double, double, double, double>(Gleichungen8)},
             {"Gleichungssystem1", new Func<double, double, double, double, double, double, string>(Gleichungssystem1)},
-            {"Gleichungssystem2", new Func<double, double, double, double, double, double, string>(Gleichungssystem1)},
-            {"Gleichungssystem3", new Func<double, double, double, double, double, double, string>(Gleichungssystem1)},
+            {"Gleichungssystem2", new Func<double, double, double, double, double, double, string>(Gleichungssystem2)},
+            {"Gleichungssystem3", new Func<double, double, double, double, double, double, string>(Gleichungssystem3)},
             {"Umwandeln1", new Func<double, double>(Umwandeln1)},
             {"Umwandeln2", new Func<double, double>(Umwandeln2)},
             {"Umwandeln3", new Func<double, double>(Umwandeln3)},
             {"Umwandeln4", new Func<double, double>(Umwandeln4)},
             {"Umwandeln5", new Func<double, double>(Umwandeln5)},
             {"Umwandeln6", new Func<double, double>(Umwandeln6)},
-            {"Stochastik1", new Func<double>(Stochastik1)},
+            {"Stochastik1", new Func<int,double>(Stochastik1)},
             {"Stochastik2", new Func<int,int,double>(Stochastik2)},
             {"Stochastik3", new Func<double>(Stochastik3)},
             {"Stochastik4", new Func<double>(Stochastik4)},
@@ -47,10 +47,10 @@ namespace MadMaths.calculations
             {"BinomischeFormeln1", new Func<double, double, double, string>(BinomischeFormeln1)},
             {"BinomischeFormeln2", new Func<double, string>(BinomischeFormeln2)},
             {"BinomischeFormeln3", new Func<double, string>(BinomischeFormeln3)},
-            {"BinomischeFormeln4", new Func<double, double, string>(BinomischeFormeln4)},
+            {"BinomischeFormeln4", new Func<double, string>(BinomischeFormeln4)},
             {"Wurzeln1", new Func<double, double>(Wurzeln1)},
             {"Wurzeln2", new Func<double, double>(Wurzeln2)},
-            {"QuadratischeGleichungen1", new Func<double, double, double, double>(QuadratischeGleichungen1)},
+            {"QuadratischeGleichungen1", new Func<double, double, double, string>(QuadratischeGleichungen1)},
             {"Potenzen1", new Func<double, double, double>(Potenzen1)},
             {"Logarithmen1", new Func<double, double, double>(Logarithmen1)},
             {"Logarithmen2", new Func<double, double, double>(Logarithmen2)},
@@ -64,8 +64,11 @@ namespace MadMaths.calculations
             {"Mittelwert2", new Func<double, double, double, double, double>(Mittelwert2)}
         };
         #endregion
-
-        static private double hoch(double input_a, double hochzahl)
+        private static double Runden(double input)
+        {
+            return Math.Round(input, 2, MidpointRounding.ToEven);
+        }
+        private static double Hoch(double input_a, double hochzahl)
         {
             double ergebnis = 1;
             for (int i = 0; i < hochzahl; i++)
@@ -74,7 +77,7 @@ namespace MadMaths.calculations
             }
             return ergebnis;
         }
-        static private double Fakultät(double zahl)
+        private static double Fakultät(double zahl)
         {
             double fakultät = 1;
 
@@ -88,7 +91,7 @@ namespace MadMaths.calculations
 
             return fakultät;
         }
-        static private double Binomialkoeffizient(double N, double K)
+        private static double Binomialkoeffizient(double N, double K)
         {
             double result = 1;
             for (int i = 1; i <= K; i++)
@@ -98,38 +101,32 @@ namespace MadMaths.calculations
             }
             return result;
         }
-        static public int Variablen1(int input_a, int input_b) { return input_b - input_a; }
-        static public int Variablen2(int input_a, int input_b) { return input_b + input_a; }
-        static public int Variablen3(int input_a, int input_b) { return input_b / input_a; }
-        static public int Variablen4(int input_a, int input_b) { return input_b * input_a; }
-        static public string Variablen5(int input_a, int input_b, int input_c, int input_d)
+        public static double Variablen1(double input_a, double input_b) { return input_b - input_a; }
+        public static double Variablen2(double input_a, double input_b) { return input_b + input_a; }
+        public static double Variablen3(double input_a, double input_b) { return Runden(input_b / input_a); }
+        public static double Variablen4(double input_a, double input_b) { return input_b * input_a; }
+        public static string Variablen5(double input_a, double input_b, double input_c, double input_d)
         {
-            int ergebnis_a = input_a + input_c;
-            string ergebnis = ergebnis_a + "x";
-            int ergebnis_b = input_b + input_d;
-            ergebnis = ergebnis + " + " + ergebnis_b + "y";
-
-            return ergebnis;
+            Double ergebnis_a = input_a + input_b;
+            Double ergebnis_b = input_c + input_d;
+            return string.Format("{0}x + {1}y",ergebnis_a,ergebnis_b);
         }
-        static public string Variablen6(double input_a, double input_b, double input_c, double input_d)
+        public static string Variablen6(double input_a, double input_b, double input_c, double input_d)
         {
             double ergebnis_a = input_a - input_c;
-            string ergebnis = ergebnis_a + "x";
             double ergebnis_b = input_b + input_d;
-            ergebnis = ergebnis + " + " + ergebnis_b + "y";
-
-            return ergebnis;
+            return string.Format("{0}x + {1}y", ergebnis_a, ergebnis_b);
         }
-        static public double Variablen7(double input_a, double input_b) { return input_a + input_b; }
-        static public double Variablen8(double input_a, double input_b, double input_c) { return input_a * input_c + input_b * input_c; }
-        static public double Gleichungen1(double input_a, double input_b) { return input_b - input_a; }
-        static public double Gleichungen2(double input_a, double input_b) { return input_b - input_a; }
-        static public double Gleichungen3(double input_a, double input_b) { return input_a + input_b; }
-        static public double Gleichungen4(double input_a, double input_b, double input_c) { return input_c - input_a - input_b; }
-        static public double Gleichungen5(double input_a, double input_b, double input_c, double input_d) { return input_a - input_b + input_c - input_d; }
-        static public double Gleichungen6(double input_a, double input_b) { return input_b / input_a; }
-        static public double Gleichungen7(double input_a, double input_b, double input_c, double input_d) { return (input_d - (input_b * input_c)) / input_a; }
-        static public double Gleichungen8(double input_a, double input_b, double input_c, double input_d)
+        public static double Variablen7(double input_a, double input_b) { return input_a + input_b; }
+        public static double Variablen8(double input_a, double input_b, double input_c) { return input_a * input_c + input_b * input_c; }
+        public static double Gleichungen1(double input_a, double input_b) { return input_b - input_a; }
+        public static double Gleichungen2(double input_a, double input_b) { return input_b - input_a; }
+        public static double Gleichungen3(double input_a, double input_b) { return input_a + input_b; }
+        public static double Gleichungen4(double input_a, double input_b, double input_c) { return input_c - input_a - input_b; }
+        public static double Gleichungen5(double input_a, double input_b, double input_c, double input_d) { return input_a - input_b + input_c - input_d; }
+        public static double Gleichungen6(double input_a, double input_b) { return Runden(input_b / input_a); }
+        public static double Gleichungen7(double input_a, double input_b, double input_c, double input_d) { return Runden((input_d - (input_b * input_c)) / input_a); }
+        public static double Gleichungen8(double input_a, double input_b, double input_c, double input_d)
         {
             double variablenseite;
             double nummernseite;
@@ -144,130 +141,133 @@ namespace MadMaths.calculations
                 variablenseite = input_d - input_a;
                 nummernseite = (input_b * input_b) * (-1);
             }
-            return (nummernseite / variablenseite);
+            return Runden(nummernseite / variablenseite);
         }
 
-        static public string Gleichungssystem1(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
+        public static string Gleichungssystem1(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = ((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d));
-            double x = (input_c - input_b * y) / input_a;
-
-            return "x = " + x + " \ny = " + y;
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d)),2,MidpointRounding.AwayFromZero);
+            double x = Math.Round((input_c - input_b * y) / input_a,2);
+            return string.Format("x = {0}, y = {1}", x, y);
+            //return "x = " + x + ", y = " + y;
 
         }
-        static public string Gleichungssystem2(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
+        public static string Gleichungssystem2(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = ((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) + (input_e / input_d));
-            double x = (input_c - input_b * y) / input_a;
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) + (input_e / input_d)),2, MidpointRounding.AwayFromZero);
+            double x = Math.Round((input_c - input_b * y) / input_a,2, MidpointRounding.AwayFromZero);
 
-
-            return "x = " + x + " \ny = " + y;
+            return string.Format("x = {0}, y = {1}", x, y);
         }
-        static public string Gleichungssystem3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
+        public static string Gleichungssystem3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = ((input_c / input_a) - (input_f / input_d)) / (-(input_b / input_a) + (input_e / input_d));
-            double x = (input_c + input_b * y) / input_a;
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / (-(input_b / input_a) + (input_e / input_d)),2, MidpointRounding.AwayFromZero);
+            double x = Math.Round((input_c + input_b * y) / input_a,2,MidpointRounding.AwayFromZero);
 
-
-            return "x = " + x + " \ny = " + y;
+            return string.Format("x = {0}, y = {1}", x, y);
+            //return "x = " + x + ", y = " + y;
         }
-        static public double Umwandeln1(double input_a) { return input_a / 1000; }
-        static public double Umwandeln2(double input_a) { return input_a / 100; }
-        static public double Umwandeln3(double input_a) { return input_a / 1000; }
-        static public double Umwandeln4(double input_a) { return input_a * 1000; }
-        static public double Umwandeln5(double input_a) { return input_a * 1000; }
-        static public double Umwandeln6(double input_a) { return input_a * 100; }
+        public static double Umwandeln1(double input_a) { return input_a / 1000; }
+        public static double Umwandeln2(double input_a) { return input_a / 100; }
+        public static double Umwandeln3(double input_a) { return input_a / 1000; }
+        public static double Umwandeln4(double input_a) { return input_a * 1000; }
+        public static double Umwandeln5(double input_a) { return input_a * 1000; }
+        public static double Umwandeln6(double input_a) { return input_a * 100; }
 
-        static public double Stochastik1() { return (1 / 6); }
-        static public double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return 1 / 6; } return (2 / 6); }
-        static public double Stochastik3() { return (3 / 6); }
-        static public double Stochastik4() { return (3 / 6); }
-        static public double Stochastik5() { return (1 / 4); }
+        public static double Stochastik1(int _) { return Math.Round(1.0 / 6.0,2, MidpointRounding.AwayFromZero); }
+        public static double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return Math.Round(1.0 / 6.0,2, MidpointRounding.AwayFromZero); } return Math.Round((2.0 / 6.0),2, MidpointRounding.AwayFromZero); }
+        public static double Stochastik3() { return (3.0 / 6.0); }
+        public static double Stochastik4() { return (3.0 / 6.0); }
+        public static double Stochastik5() { return (1.0 / 4.0); }
 
-        static public double Dreisatz1(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
-        static public double Dreisatz2(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
-        static public double Dreisatz3(double input_a, double input_b, double input_c) { return ((input_b * input_c) / input_a); }
+        public static double Dreisatz1(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a),2, MidpointRounding.AwayFromZero); }
+        public static double Dreisatz2(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a),2, MidpointRounding.AwayFromZero); }
+        public static double Dreisatz3(double input_a, double input_b, double input_c) { return Runden((input_a * input_c) / input_b); }
 
-        static public double Prozentrechnung1(double input_a, double input_b, double input_c) { return Math.Round(input_b * hoch((input_a * 0.01 + 1), input_c), 2); }
-        static public double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a * (input_b * 0.01), 2); }
-        static public double Prozentrechnung3(double input_a, double input_b, double input_c) { return Math.Round(input_a * hoch(input_b * 0.01 + 1, input_c) - input_a, 2); }
+        public static double Prozentrechnung1(double input_a, double input_b, double input_c) { return Math.Round(input_b * Hoch((input_a * 0.01 + 1), input_c), 2, MidpointRounding.AwayFromZero); }
+        public static double Prozentrechnung2(double input_a, double input_b) { return Math.Round(input_a * (input_b * 0.01), 2, MidpointRounding.AwayFromZero); }
+        public static double Prozentrechnung3(double input_a, double input_b, double input_c) { return Math.Round(input_a * Hoch(input_b * 0.01 + 1, input_c) - input_a, 2, MidpointRounding.AwayFromZero); }
 
-        static public string BinomischeFormeln1(double input_a, double input_b, double input_c)
+        public static string BinomischeFormeln1(double input_a, double input_b, double input_c)
         {
-            double x = Math.Sqrt(input_a);
-            double y = Math.Sqrt(input_c);
-            return "(" + x + "^2 + " + y + "^2)";
+            double x = Runden(Math.Sqrt(input_a));
+            double y = Runden(Math.Sqrt(input_c));
+            return string.Format("({0}x + {1})^2", x,y);
 
         }
-        static public string BinomischeFormeln2(double input_a)
-        {
-            double x = Math.Pow(input_a, 2);
-            return x + " " + 2 * input_a + "b + b^2";
-        }
-        static public string BinomischeFormeln3(double input_a)
+        public static string BinomischeFormeln2(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x + " -" + 2 * input_a + "b + b^2";
+            return string.Format("{0} + {1}b + b^2", x, input_a*2);
         }
-        static public string BinomischeFormeln4(double input_a, double input_b)
+        public static string BinomischeFormeln3(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return x + " - b^2";
+            return string.Format("{0} - {1}b + b^2", x, input_a * 2);
         }
-        static public double Wurzeln1(double input_a) { return Math.Sqrt(input_a); }
-        static public double Wurzeln2(double input_a) { return Math.Sqrt(input_a); }
-        static public double QuadratischeGleichungen1(double input_a, double input_b, double input_c)
+        public static string BinomischeFormeln4(double input_a)
         {
-            double ergebnis;
-            ergebnis = (input_b + Math.Sqrt(-4 * input_a * input_c)) / (input_a * 2);
-            return ergebnis;
+            double x = Math.Pow(input_a, 2);
+            return string.Format("{0} - b^2", x);
         }
-        static public double Potenzen1(double input_a, double input_b)
+        public static double Wurzeln1(double input_a) { return Runden(Math.Sqrt(input_a)); }
+        public static double Wurzeln2(double input_a) { return Runden(Math.Sqrt(input_a)); }
+        public static string QuadratischeGleichungen1(double input_a, double input_b, double input_c)
         {
-            return Math.Round(hoch(input_a, input_b), 2, MidpointRounding.AwayFromZero);
+            double ergebnis1;
+            double ergebnis2;
+            ergebnis1 = (-input_b + Math.Sqrt(Math.Pow(input_b,2)- 4 * input_a * input_c)) / (input_a * 2);
+            ergebnis2 = (-input_b - Math.Sqrt(Math.Pow(input_b,2)- 4 * input_a * input_c)) / (input_a * 2);
+
+
+            return string.Format("{0} , {1}",Runden(ergebnis1),Runden(ergebnis2));
         }
-        static public double Logarithmen1(double input_a, double input_b)
+        public static double Potenzen1(double input_a, double input_b)
+        {
+            return Math.Round(Hoch(input_a, input_b), 2, MidpointRounding.AwayFromZero);
+        }
+        public static double Logarithmen1(double input_a, double input_b)
         {
             return Math.Round(Math.Log(input_a, input_b), 2, MidpointRounding.AwayFromZero);
         }
-        static public double Logarithmen2(double input_a, double input_b)
+        public static double Logarithmen2(double input_a, double input_b)
         {
             double ergebnis;
             ergebnis = Math.Pow(input_a, 1 / input_b);
-            return Math.Round(ergebnis,3, MidpointRounding.AwayFromZero);
+            return Math.Round(ergebnis,2, MidpointRounding.AwayFromZero);
         }
-        static public double Fakultät1(double input_a)
+        public static double Fakultät1(double input_a)
         {
             return Fakultät(input_a);
 
         }
-        static public double Fakultät2(double input_a, double input_b)
+        public static double Fakultät2(double input_a, double input_b)
         {
-            return (Fakultät(input_a) / Fakultät(input_b));
+            return Runden(Fakultät(input_a) / Fakultät(input_b));
         }
-        static public double Urnenmodell1(double input_a, double input_b)
+        public static double Urnenmodell1(double input_a, double input_b)
         {
             return Math.Pow(input_a, input_b);
         }
-        static public double Urnenmodell2(double input_a, double input_b)
+        public static double Urnenmodell2(double input_a, double input_b)
         {
             return Binomialkoeffizient(input_a, input_b);
         }
-        static public double Urnenmodell3(double input_a)
+        public static double Urnenmodell3(double input_a)
         {
             return Fakultät(input_a);
         }
-        static public double HypergeometrischeVerteilung1(double input_a, double input_b, double input_c, double input_d)
+        public static double HypergeometrischeVerteilung1(double input_a, double input_b, double input_c, double input_d)
         {
             return Math.Round((Binomialkoeffizient(input_b, input_d) * Binomialkoeffizient(input_a - input_b, input_c - input_d)) / (Binomialkoeffizient(input_a, input_c)), 2, MidpointRounding.AwayFromZero);
         }
-        static public double Mittelwert1(double input_a, double input_b, double input_c, double input_d, double input_e)
+        public static double Mittelwert1(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
-            return (input_a + input_b + input_c + input_d + input_e) / 5;
+            return Runden((input_a + input_b + input_c + input_d + input_e) / 5);
         }
-        static public double Mittelwert2(double input_a, double input_b, double input_c, double input_d)
+        public static double Mittelwert2(double input_a, double input_b, double input_c, double input_d)
         {
-            return (input_a + input_b + input_c + input_d) / 4;
+            return Runden((input_a + input_b + input_c + input_d) / 4);
         }
 
 

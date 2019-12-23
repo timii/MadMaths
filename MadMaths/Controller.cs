@@ -7,6 +7,7 @@ using MadMaths.calculations;
 using System.Net.Sockets;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using System.Threading.Tasks;
 
 namespace MadMaths
 {
@@ -14,22 +15,20 @@ namespace MadMaths
     /// Diese Klasse sorgt für den Datenaustausch zwischen den einzelnen Pages sowie
     /// zwischen den Komponenten innerhalb der Pages
     /// </summary>
-    static public class Controller
+    static internal class Controller
     {
-        public static string currentPage { get; set; } = "None";  // enthält den Namen der aktuell aufgerufenen Page
-        public static string currentExercise { get; set; }
+        internal static string currentGrade; // enthält den Namen der aktuell ausgewählten Stufe (z.B. Grundschule)
+        internal static string currentTheme; // enthält den Namen des aktuellen Themas (z.B. Addieren)
+        internal static string currentExercise; // enthält den genauen Namen der aktuellen Aufgabe (z.B. Addieren I)
+        internal static bool UserIsLoggedIn = false;
+        internal static bool UserIsOnline = false;
+        private static readonly string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
+        private static readonly string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
+        private static readonly string LocalRanklist = Path.Combine(UserSaveDir, "ranklist.json");
+        internal static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
+        internal static List<UserRank> ranklist;
 
-        public static bool UserIsLoggedIn = false;
-
-        public static bool UserIsOnline = false;
-
-        private static string UserSaveDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), ".madmaths/");
-
-        public static string UserSaveFile = Path.Combine(UserSaveDir, "user.json");
-
-        public static User user;           // das user Objekt, welches alle Daten des  Benutzers zur Laufzeit enthält
-
-        public static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
+        internal static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
             {"Grundschule",new Grundschule() },
             {"Mittelstufe", new Mittelstufe() },
@@ -39,26 +38,21 @@ namespace MadMaths
         static Controller()
         {
             // Initialisierung
-            if (!CheckSaveDir())
-            {
-                CreateSaveDir();
-            }
-            if (!CheckSaveFile())
-            {
-                CreateUserJS();
-            }
-            FileInfo fi = new FileInfo(UserSaveFile);
-            fi.Attributes = FileAttributes.Normal;
+            if (!CheckSaveDir()) CreateSaveDir();
+            if (!CheckSaveFile()) CreateUserJS();
 
             user = new User();
-
             if (ReadUserJS(out string userjson))
             {
                 user = JsonConvert.DeserializeObject<User>(userjson); // die daten werden im User Objekt gespeichert
             }
+            if (!Client.LoginUser())
+            {
+                new CustomMB("Falscher Benutzername oder Passwort").ShowDialog();
+            }
         }
 
-        public static BitmapImage LoadImage(in byte[] imageData)
+        internal static BitmapImage LoadImage(in byte[] imageData)    // Code von https://bit.ly/2YFCn3E
         // nimmt das Bild als bytes an und wandelt es zu BitmapImage um
         {
             if (imageData == null || imageData.Length == 0) return null;
@@ -77,30 +71,29 @@ namespace MadMaths
             return image;
         }
 
-        public static bool CheckSaveDir()           // überprüft, ob der .madmaths Ordner vorhanden ist
+        private static bool CheckSaveDir()           // überprüft, ob der .madmaths Ordner vorhanden ist
         {
             return Directory.Exists(UserSaveDir);
         }
 
-        public static bool CheckSaveFile()          // überprüft, ob die user.json vorhanden ist
+        private static bool CheckSaveFile()          // überprüft, ob die user.json vorhanden ist
         {
             return File.Exists(UserSaveFile);
         }
 
-        public static void CreateSaveDir()
+        private static void CreateSaveDir()
         {
             DirectoryInfo di = Directory.CreateDirectory(UserSaveDir);
             di.Attributes = FileAttributes.Directory | FileAttributes.Hidden; // erstellt einen versteckten Ordner
-
             CreateUserJS();
         }
 
-        public static void CreateUserJS()           // erstellt die user.json
+        private static void CreateUserJS()           // erstellt die user.json
         {
             using (File.Create(UserSaveFile)) { };
         }
 
-        public static bool ReadUserJS(out string UserJson)
+        private static bool ReadUserJS(out string UserJson)
         {
             FileInfo fi = new FileInfo(UserSaveFile);
             fi.Attributes = FileAttributes.Normal;
@@ -113,7 +106,7 @@ namespace MadMaths
             else { return false; }
         }
 
-        public static void UpdateUserJson()
+        internal static void UpdateUserJson()
         {
             FileInfo fi = new FileInfo(UserSaveFile);
             fi.Attributes = FileAttributes.Normal;
@@ -125,35 +118,124 @@ namespace MadMaths
             fi.Attributes = FileAttributes.ReadOnly | FileAttributes.Hidden;
         }
 
-        public static void UpdateAvatarImg(in BinaryReader img, in long fileLength)
+        internal static void UpdateAvatarImg(in BinaryReader img, in long fileLength)
         {
             user.avatarImg = System.Convert.ToBase64String(img.ReadBytes((int)fileLength));
             UpdateUserJson();
-            Client.UpdateAvatar();
+            Task.Run(() => Client.UpdateAvatar());
         }
 
-        public static void UpdateLevel(in int exp)
+        internal static void UpdateLevel(in float multiplier=1)
         {
-            user.currentProgress += exp;
+            int exp = Convert.ToInt32(CalcLevel() * multiplier);
             var maxEXP = user.level * 100;
-            if (user.currentProgress >= maxEXP)
+            if (user.level < 99) user.currentProgress += exp;
+            if (user.currentProgress >= maxEXP && user.level < 99)
             {
-                user.level++;
-                user.currentProgress = 0;
+                ++user.level;
+                user.currentProgress -= maxEXP;
                 LevelUpWindow lvlup = new LevelUpWindow(user.level.ToString());
                 lvlup.Owner = System.Windows.Application.Current.MainWindow;
+                Task.Run(() => Client.UpdateUserData("LEVEL"));
                 lvlup.ShowDialog();
             }
         }
 
-        public static void FillLastSessions()
+        private static int CalcLevel()
         {
-            if (user.lastSessions != null)
+            switch (currentTheme)
             {
-                user.lastSessions += ',';
+                case "Zeitaufgaben" : return 5;
+                case "Textaufgaben II": 
+                case "Gleichungssysteme2x2": 
+                case "Quadratische Gleichungen": 
+                case "Logarithmen": 
+                case "Integralregeln":
+                case "Symmetrie":
+                case "Extrempunkte":
+                case "Nullstellen":
+                case "Wendepunkte": return 15;
+                case "Hypergeometrische Verteilung": case "Ableiten": case "Integral": return 20;
+                case "Ableiten II": case "Integral II":  return 25;
+                default: return 10;
             }
-            user.lastSessions += currentPage + ':' + currentExercise;
+        }
+
+        internal static void FillLastSessions()
+        {
+            if (user.lastSessions.Count == 5) user.lastSessions.Dequeue();
+            user.lastSessions.Enqueue(currentGrade + ':' + currentTheme);
             UpdateUserJson();
+        }
+
+        internal static async Task CreateRankList()
+        {
+            ranklist = new List<UserRank>();
+            string stringjson;
+            if (UserIsOnline)
+            {
+                stringjson = await Task.Run<string>(() => Client.GetRanklist());
+                await Task.Run(() => SaveRanklistLocal(stringjson));
+            }
+            else
+            {
+                stringjson = LoadRanklistLocal();
+            }
+            if (stringjson.Length > 0)
+            {
+                int rank = 1;
+                var rawjson = JObject.Parse(stringjson);
+                foreach (var item in rawjson)
+                {
+                    ranklist.Add(new UserRank()
+                    {
+                        UserName = item.Key,
+                        Points = Int32.Parse(item.Value["Points"].ToString()),
+                        avatarImg = LoadImage(Convert.FromBase64String(item.Value["avatarImg"].ToString())),
+                        rank = rank++
+                    });
+                }
+                for (int i = 0; i < ranklist.Count; i++)
+                {
+                    switch (i)
+                    {
+                        case 0: ranklist[i].RankColor = "Orange"; break;
+                        case 1: ranklist[i].RankColor = "#FFFDB83B"; break;
+                        case 2: ranklist[i].RankColor = "#FFFDC560"; break;
+                    }
+                }
+            }
+        }
+
+        private static void SaveRanklistLocal(in string RanklistString)
+        {
+            using (StreamWriter file = new StreamWriter(LocalRanklist, false))
+            {
+                file.Write(RanklistString);
+            }
+        }
+        private static string LoadRanklistLocal()
+        {
+            if (File.Exists(LocalRanklist))
+            {
+                string RanklistString;
+                using (StreamReader file = new StreamReader(LocalRanklist))
+                {
+                    RanklistString = file.ReadToEnd();
+                }
+                return RanklistString;
+            }
+            return "";
+        }
+
+        internal static void UpdateChallengeData()
+        {
+            switch (currentGrade)
+            {
+                case "Grundschule": ++user.grundschule; break;
+                case "Mittelstufe": ++user.mittelstufe; break;
+                case "Oberstufe": ++user.oberstufe; break;
+            }
         }
     }
 
@@ -166,8 +248,8 @@ namespace MadMaths
         {
             try
             {
-                //client = new TcpClient("127.0.0.1", 7777);
-                //client = new TcpClient("45.88.108.218", 7777);
+                // client = new TcpClient("127.0.0.1", 7777);
+                // client = new TcpClient("45.88.108.218", 7777);
                 client = new TcpClient("uselesscode.works", 7777);
                 stream = client.GetStream();
                 buffer = new byte[1024];
@@ -177,13 +259,11 @@ namespace MadMaths
                 }
                 else { throw new SocketException(); }
             }
-            catch (SocketException)
-            {
-                new CustomMB("Verbindung zum Server fehlgeschlagen").ShowDialog();
-            }
+            catch (SocketException) {} 
         }
         /// <summary>
-        /// Ein Workaround für ein Verbindungsproblem, welches während des Testens aufgetreten ist
+        /// Ein Workaround für ein Verbindungsproblem, welches während des Testens aufgetreten ist.
+        /// Da das Problem nur innerhalb des HS-Netzwerks auftritt, vermute ich, dass dies an den strikten Firewall Einstellungen der HS liegt
         /// </summary>
         /// <returns>Gibt true zurück, wenn die Verbindung erfolgreich hergestellt wurde, false andernfalls</returns>
         static private bool CheckConnection()
@@ -194,12 +274,12 @@ namespace MadMaths
             }
             catch (Exception)
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     try
                     {
                         client.Connect("uselesscode.works", 7777);
-                        //client.Connect("127.0.0.1", 7777);
+                        // client.Connect("127.0.0.1", 7777);
                         stream = client.GetStream();
                         if (recv() == "connected") { return true; }
                     }
@@ -209,7 +289,7 @@ namespace MadMaths
             return false;
         }
 
-        static public string RegisterUser(in string username, in string usrpwd)
+        static internal string RegisterUser(in string username, in string usrpwd)
         {
             if (Controller.UserIsOnline)
             {
@@ -220,7 +300,7 @@ namespace MadMaths
             return null;
         }
 
-        static public bool LoginUser(in string username, in string pw)
+        static internal bool LoginUser(in string username, in string pw)
         {
             if (Controller.UserIsOnline && username != null && pw != null)
             {
@@ -237,17 +317,17 @@ namespace MadMaths
             return true;
         }
 
-        static public bool LoginUser()
+        static internal bool LoginUser()
         {
             return LoginUser(Controller.user.UserName, Controller.user.password);
         }
 
-        static public void LogoutUser()
+        static internal void LogoutUser()
         {
             send("LOGOUTUSER");
         }
 
-        static public bool CheckUsername(in string username)
+        static internal bool CheckUsername(in string username)
         {
             if (Controller.UserIsOnline)
             {
@@ -260,7 +340,7 @@ namespace MadMaths
             return true;
         }
 
-        static public void UpdateAvatar()
+        static internal void UpdateAvatar()
         {
             string msg = "UPDATEAVATARIMG";
             send(msg);
@@ -268,7 +348,7 @@ namespace MadMaths
             send("ENDIMGSTREAM");
         }
 
-        static public void UpdateUserData(in string cmd)
+        static internal void UpdateUserData(in string cmd)
         {
             if (Controller.UserIsLoggedIn)
             {
@@ -277,7 +357,7 @@ namespace MadMaths
             }
         }
 
-        static public string GetRanklist()
+        static internal string GetRanklist()
         {
             if (Controller.UserIsOnline)
             {
@@ -288,10 +368,10 @@ namespace MadMaths
             return null;
         }
 
-        static public void GetUserData()
+        static internal async Task GetUserData()
         {
             send("GETUSERDATA");
-            var rawdata = recv();
+            var rawdata = await Task.Run(() => recv());
             var userdata = JObject.Parse(rawdata);
             Controller.user.level = (int)userdata["level"].ToObject(typeof(int));
             Controller.user.currentProgress = (int)userdata["currentProgress"].ToObject(typeof(int));
@@ -325,7 +405,7 @@ namespace MadMaths
                 stream.Write(Encoding.UTF8.GetBytes(msg), 0, msg.Length);
                 System.Threading.Thread.Sleep(500);      // gibt dem Server Zeit, die Befehle zu verarbeiten
             }
-            catch (Exception) { Controller.UserIsOnline = false; }
+            catch (Exception) { Controller.UserIsOnline = false; MainWindow.updateStatus("nicht verbunden"); }
         }
     }
 }

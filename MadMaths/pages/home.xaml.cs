@@ -7,7 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.IO;
-using System.Windows.Media.Imaging;
+using System.Threading.Tasks;
+using System.Windows.Media;
+#pragma warning disable 4014
 
 namespace MadMaths.pages
 {
@@ -38,11 +40,8 @@ namespace MadMaths.pages
             }
             Level.Text = Controller.user.level.ToString();
             progressInNumbers.Text = string.Format("{0}/{1}", Controller.user.currentProgress, Controller.user.level * 100);
-
-            RankList.Add(new UserRank() { UserName = "Daniel", progress = 1337 });
-            RankList.Add(new UserRank() { UserName = "Rodion", progress = 69 });
-            RankList.Add(new UserRank() { UserName = "Tim", progress = 420 });
-            RankingList.ItemsSource = RankList;
+            //Controller.CreateRankList();
+            //RankingList.ItemsSource = Controller.ranklist;
             progress.Value = Controller.user.currentProgress;
             progress.Maximum = Controller.user.level * 100;
 
@@ -50,19 +49,26 @@ namespace MadMaths.pages
             if (Controller.user.lastSessions != null)
             {
                 ShowLastSessions();
-            }      
+            }
+            LoadRanklist();
+        }
+
+        private async Task LoadRanklist()
+        {
+            await Controller.CreateRankList();
+            RankingList.ItemsSource = Controller.ranklist;
         }
 
         private void StufenClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentPage = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
+            Controller.currentGrade = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
             NavigationService.Navigate(new ThemenAuswahl()); // Bei Klick Änderung der Page auf die Themenauswahl
         }
         private void AvatarClick(object sender, RoutedEventArgs e)
         {
             if (Controller.UserIsLoggedIn)
             {
-                CustomMB mb = new CustomMB("Die Datei darf nicht über 2MB groß sein !");
+                CustomMB mb = new CustomMB("Die Datei darf nicht über 1MB groß sein !");
                 mb.Owner = System.Windows.Application.Current.MainWindow;
 
                 OpenFileDialog op = new OpenFileDialog
@@ -76,7 +82,7 @@ namespace MadMaths.pages
                 if (op.ShowDialog() == true)
                 {
                     FileInfo fi = new FileInfo(op.FileName);
-                    if (fi.Length > 2000000)
+                    if (fi.Length > 1000000)
                     {
                         mb.ShowDialog();
                         AvatarClick(sender, e);
@@ -100,40 +106,45 @@ namespace MadMaths.pages
             }
         }
 
-        private void ShowLastSessions() 
+        private void ShowLastSessions()
         {
-            var temp = Controller.user.lastSessions.Split(',');
-            List<string[]> lastSessions = new List<string[]>();
-            Array.Reverse(temp);
-            Array.ForEach(temp, x => lastSessions.Add(x.Split(':')));
-            foreach (var item in lastSessions
-                .Take(3))
+            foreach (var item in Controller.user.lastSessions.Reverse().ToArray().Take(5))
             {
-                //lastSessionsPanel.Children.Add(new Separator());
-                Button b = new Button();
-                b.Tag = item[0];
-                b.Content = item[1];
-                Style style = this.FindResource("LetzteAufgabenPanelButton") as Style;
-                b.Style = style;
+                var LastSession = item.Split(':');
+                Style style = FindResource("LetzteAufgabenPanelButton") as Style;
+                Button b = new Button
+                {
+                    Tag = LastSession[0],
+                    Content = LastSession[1],
+                    Style = style
+                };
                 b.Click += AufgabenClick;
+                //lastSessionsPanel.Children.Add(new Separator());
                 lastSessionsPanel.Children.Add(b);
             }
         }
+
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentPage = (sender as Button).Tag as string;
-            Controller.currentExercise = (sender as Button).Content as string;
+            Controller.currentGrade = (sender as Button).Tag as string;
+            Controller.currentTheme = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 
         private void SettingClick(object sender, RoutedEventArgs e)
         {
+
             if ((bool)new SettingsWindow().ShowDialog())
             {
-                Username.Text = "Einloggen";
-                Avatar.Source = new BitmapImage(new Uri("MadMaths;component/assets/icons/profile-picture-icon.jpg", UriKind.Relative));
-                Username.Cursor = Cursors.Hand;
+                Controller.UserIsLoggedIn = false;
+                NavigationService.Navigate(new home());
             }
+        }
+
+        private void ChallengeClick(object sender, RoutedEventArgs e)
+        {
+            Controller.currentGrade = (sender as Button).Content.ToString();     // speichert den Namen des geclickten Buttons
+            NavigationService.Navigate(new challengeAuswahl()); // Bei Klick Änderung der Page auf die challengeAuswahl
         }
     }
 }

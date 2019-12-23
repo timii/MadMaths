@@ -1,20 +1,20 @@
 /* Oberstufen.json */
 {
   "Ableiten": {
-    "Ableiten1": "Leite ab: f(x) = {0}x^{1}",
-    "Ableiten2": "Leite ab: f(x) = {0}x^{1} +{2}x^{3}",
-    "Ableiten3": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5}",
-    "Ableiten4": "Leite ab: f(x) = ({0}x^{1}+{2}x^{3}) * ({4}x)",
-    "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7})", //rodions
-    "Ableiten6": "Leite ab: f(x) = ({0}x^{1} + {2})/({3}x^{4} +{5})",
-    "Ableiten7": "Leite ab: f(x) = e^({0}x + {1})",
-    "Ableiten8": "Leite ab: f(x) = ( {0}x - {1} )^{2}",
-    "Ableiten9": "Leite ab: f(x) = {0}x * sin ( {1}x )"
+    "Ableiten1": "Leite ab: f(x) = {0}x^{1} ",
+    "Ableiten2": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} ",
+    "Ableiten3": "Leite ab: f(x) = {0}x^{1} +{2}x^{3} +{4}x^{5} ",
+    "Ableiten4": "Leite ab: f(x) = ({0}x^{1}+{2}x^{3}) * ({4}x) ",
+    "Ableiten5": "Leite ab: f(x) = ({0}x^{1} +{2}x^{3}) * ({4}x^{5} +{6}x^{7}) ",
+    "Ableiten6": "Leite ab: f(x) = ({0}x^{1} + {2})/({3}x^{4} +{5}) ",
+    "Ableiten7": "Leite ab: f(x) = e^({0}x + {1}) ",
+    "Ableiten8": "Leite ab: f(x) = ( {0}x - {1} )^{2} ",
+    "Ableiten9": "Leite ab: f(x) = {0}x * sin ({1}x)  "
   },
 
   "Ableiten II": {
-    "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2}", //{0}. muss kleiner als {1} sein+
-    "HöherAbleiten2": "Schreib, die 2. Ableitung auf: f(x) = ({0}x^{1} + {2}x^{3}) * ({4}x)"
+    "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2} ", //{0}. muss kleiner als {1} sein+
+    "HöherAbleiten2": "Schreib, die 2. Ableitung auf: f(x) = ({0}x^{1} + {2}x^{3}) * ({4}x) "
   },
 
   "Wendepunkte": {
@@ -32,16 +32,16 @@
   },
 
   "Integral II": {
-    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen f(x) = x² + {0}x + {1} und g(x) = x + {2}"
+    "SchwerIntegrieren1": "Berechne die Fläche zwischen den Funktionen \nf(x) = x² + {0}x + {1} und \ng(x) = x + {2} "
   },
 
-  "Symmetrie":{
-	"SymmetrieI":"Ist die Funktion Punktsymmetrisch, Achsensymmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5}"
+  "Symmetrie": {
+    "SymmetrieI": "Ist die Funktion Punktsymmetrisch, Achsensymmetrisch oder Asymmetrisch : f(x) = {0}x^{1} + {2}x^{3} + {4}x^{5} "
   },
   "Extrempunkte":{
-	"ExtrempunktI":"Berechne :die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3} "
+	"ExtrempunktI":"Berechne die Extrempunkte folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
   },
   "Nullstellen":{
-	"NullstellenI":"Berechne :die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
+	"NullstellenI":"Berechne die Nullstellen folgender Funktion: f(x) = {0}x^{1} +{2}x^{3}"
   }
 }

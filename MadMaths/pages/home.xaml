@@ -1,19 +1,19 @@
 ﻿<Page x:Class="MadMaths.pages.home"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:MadMaths.pages"
       xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
-      mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="920"
+      mc:Ignorable="d"
+      d:DesignHeight="660" d:DesignWidth="1100"
       Title="home">
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -51,36 +51,42 @@
         </Grid>
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
-                <Button x:Name="challenge" Content="Herausforderung" Margin="5"/>
-                <Button x:Name="lastSession" Content="letzte Übungen" Margin="5, 5, 5, 0" Style="{StaticResource LetzteAufgabenButton}"/>
-                <StackPanel Name="lastSessionsPanel" Orientation="Vertical">
+                <Button x:Name="challenge" Content="Herausforderung" Margin="5,20" Click="ChallengeClick"/>
+                <Button x:Name="lastSession" Content="letzte Übungen" Margin="5, 10, 5, 0" Style="{StaticResource LetzteAufgabenButton}"/>
+                <StackPanel Name="lastSessionsPanel" Orientation="Vertical" Margin="0,-1,0,0">
                 </StackPanel>
             </StackPanel>
         </Border>
-        <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2" 
-                 HorizontalContentAlignment="Stretch" Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5"
-                 >
-            <!--<ListBoxItem VerticalAlignment="Center" HorizontalAlignment="Center" IsEnabled="False">
-                <TextBlock Text="Rangliste" FontSize="15"/>
-            </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle1}">
-                <TextBlock Text="1. Rodion"/>
-            </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle2}">
-                <TextBlock Text="2. Sentouki"/>
-            </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle3}">
-                <TextBlock Text="3. Black Star"/>
-            </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle}">
-                <TextBlock Text="4. Juzcan"/>
-            </ListBoxItem>
-            <ListBoxItem Style="{StaticResource RankingListStyle}">
-                <TextBlock Text="5. ToAst"/>
-            </ListBoxItem>-->
+        <ListBox x:Name="RankingList" Grid.Row="1" Grid.Column="2"
+                 Background="Transparent" BorderThickness="1" BorderBrush="Beige" Margin="5">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding UserName}"/>
+                    <!--<StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,10,0,0">
+                        <Image Source="{Binding avatarImg}" Stretch="UniformToFill">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="15" RadiusY="15" Center="25,20"/>
+                            </Image.Clip>
+                        </Image>
+                        <Label Content="{Binding UserName}" HorizontalAlignment="Left"/>
+                        <Label Content="{Binding Points}"/>
+                    </StackPanel>-->
+                    <Grid Background="Transparent" Height="45" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{Binding rank}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14"/>
+                        <Image Source="{Binding avatarImg}" Stretch="UniformToFill" Grid.Column="1" VerticalAlignment="Center" Margin="0,5,0,-10" Height="50">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="18" RadiusY="18" Center="25,18"/>
+                            </Image.Clip>
+                        </Image>
+                        <Label Content="{Binding UserName}" HorizontalAlignment="Left" Grid.Column="2" FontSize="15" VerticalAlignment="Center"/>
+                        <Label Grid.Column="3" Content="{Binding Points}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
+                        </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -97,20 +103,22 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button  Width="70" Height="70" HorizontalAlignment="Left" Margin="10,0,0,0" Click="AvatarClick" 
-                         Background="Transparent" Cursor="Hand" Grid.RowSpan="2">
-                    <Image Source="../assets/icons/profile-picture-icon.jpg" x:Name="Avatar" Stretch="UniformToFill">
+                <Button  Width="70" Height="70" HorizontalAlignment="Left" Margin="10,0,0,0" Click="AvatarClick"
+                         Background="Transparent" Cursor="Hand" Grid.RowSpan="2" Style="{StaticResource AvatarSettingButton}">
+                    <Image Source="../assets/icons/profile-picture-icon.jpg" x:Name="Avatar" Stretch="UniformToFill" >
                         <Image.Clip>
                             <EllipseGeometry RadiusX="35" RadiusY="35" Center="35,35"/>
                         </Image.Clip>
                     </Image>
                 </Button>
                 <TextBlock x:Name="Username" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="User_Name" FontSize="25" VerticalAlignment="Center" MouseLeftButtonDown="Username_MouseLeftButtonDown" Cursor="Hand"/>
-                <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" MinWidth="300" Style="{StaticResource ProgressBarStyle1}"/>
-                <TextBlock Name="Level" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" FontSize="70" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,15"/>
-                <TextBlock Grid.Row="0" Grid.Column="2" Text="Level: " FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="2" Text="0/0" FontSize="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Button  Width="30" HorizontalAlignment="Left" Background="Transparent" Cursor="Hand" Grid.Column="4" Grid.Row="0" Click="SettingClick">
+                <TextBlock Name="Level" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" FontSize="70" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Text="Level: " FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                <Grid Grid.Row="1" Grid.Column="1" Background="Transparent">
+                    <ProgressBar Name="progress" Grid.Row="1" Grid.Column="1" Margin="20,10,10,10" Minimum="0" MinWidth="330" Style="{StaticResource ProgressBarStyle1}"/>
+                    <TextBlock Name="progressInNumbers" Grid.Row="1" Grid.Column="1" Text="0/0" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF363535"/>
+                </Grid>
+                <Button  Width="30" HorizontalAlignment="Left" Background="Transparent" Cursor="Hand" Grid.Column="4" Grid.Row="0" Click="SettingClick" Style="{StaticResource AvatarSettingButton}">
                     <Image Source="../assets/icons/settingsButton.png" x:Name="Settings" Width="auto" Height="20" Margin="0,0,0,40"/>
                 </Button>
             </Grid>

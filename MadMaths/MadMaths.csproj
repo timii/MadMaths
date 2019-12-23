@@ -26,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>7.2</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +36,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +47,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -55,6 +58,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>assets\logo\WindowIcon3.ico</ApplicationIcon>
@@ -91,9 +95,11 @@
     <Compile Include="CustomMB.xaml.cs">
       <DependentUpon>CustomMB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomWindowSizing.cs" />
     <Compile Include="LevelUpWindow.xaml.cs">
       <DependentUpon>LevelUpWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\challengeAuswahl.xaml.cs">
+      <DependentUpon>challengeAuswahl.xaml</DependentUpon>
     </Compile>
     <Compile Include="randnumbers.cs" />
     <Compile Include="SettingsWindow.xaml.cs">
@@ -122,6 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="pages\AufgabenFenster.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\challengeAuswahl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,7 +194,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="assets\sound\correct.wav" />
+    <Resource Include="assets\sound\wrong.wav" />
+    <Resource Include="assets\sound\empty.wav" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\icons\NextExerciseButton.png" />
     <Resource Include="assets\icons\backButton.png">
@@ -211,6 +225,9 @@
     <Resource Include="assets\icons\home1.png" />
     <Resource Include="assets\icons\home2.png" />
     <Resource Include="assets\icons\home3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\InfoIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

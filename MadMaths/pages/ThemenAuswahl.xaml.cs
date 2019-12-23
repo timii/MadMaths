@@ -12,33 +12,31 @@ namespace MadMaths.pages
         public ThemenAuswahl()
         {
             InitializeComponent();
-            StufenName.Text = Controller.currentPage;   // setzt die aktuelle Stufe als Überschrift
+            StufenName.Text = Controller.currentGrade;   // setzt die aktuelle Stufe als Überschrift
 
-            foreach (var item in Controller.Stufen[Controller.currentPage].ThemenListe)
+            foreach (var item in Controller.Stufen[Controller.currentGrade].ThemenListe)
             {
                 Button b = new Button();
                 b.Content = item as string;
                 if (item.Length > 12)
                 {
-                    b.FontSize = 26;
+                    b.FontSize = 28;
                 }
                 if (item.Length > 15)
                 {
-                    b.FontSize = 20;
+                    b.FontSize = 22;
                 }
                 if (item.Length > 20)
                 {
-                    b.FontSize = 17;
+                    b.FontSize = 19;
                 }
                 if (item.Length > 25)
                 {
-                    b.FontSize = 16;
+                    b.FontSize = 17;
                 }
-                b.MaxHeight = 60;
-                b.MinWidth = 200;
-                //b.Width = double.NaN;
-                b.Width = 220;
-                b.Margin = new Thickness(50,20,10,20);
+                b.Height = 80;
+                b.Width = 245;
+                b.Margin = new Thickness(65,20,50,20);
                 b.Click += AufgabenClick;
                 AufgabenButtons.Children.Add(b);
             }
@@ -46,7 +44,7 @@ namespace MadMaths.pages
 
         private void AufgabenClick(object sender, RoutedEventArgs e)
         {
-            Controller.currentExercise = (sender as Button).Content as string;
+            Controller.currentTheme = (sender as Button).Content as string;
             NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
         }
 

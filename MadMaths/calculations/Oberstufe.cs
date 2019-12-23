@@ -15,8 +15,6 @@ namespace MadMaths.calculations
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/oberstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }
         public object[] AufgabenZahlen { get; set; }
-        public string AufgabenKey { get; set; }
-
         Random rand = new Random();
 
         public Oberstufe()
@@ -27,27 +25,36 @@ namespace MadMaths.calculations
 
         public bool checksSolution(in object BenutzerLösung, out string Lösung)
         {
-            var AufgabenFunc = CalcFunctions_Oberstufe.os_funcs[AufgabenKey];
-            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString().Replace(" ", string.Empty);
-            if (Lösung.ToString().Replace(" ", string.Empty) == BenutzerLösung.ToString().Replace(" ", string.Empty))
+            var AufgabenFunc = CalcFunctions_Oberstufe.os_funcs[Controller.currentExercise];
+            Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString();
+            //var ArrayToString = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
+            string[] Loesungs_seperator = Lösung.Split(' ');
+            string[] User_seperator = BenutzerLösung.ToString().Split(' ');
+            bool vergleich = Enumerable.SequenceEqual(Loesungs_seperator.OrderBy(x => x), User_seperator.OrderBy(x => x));
+
+            if (vergleich)
             {
                 return true;
             }
+
+            //if (Lösung.Replace(" ", string.Empty).ToLower() == BenutzerLösung.ToString().Replace(" ", string.Empty).ToLower())
+            //{
+            //    return true;
+            //}
             return false;
         }
 
         public string getAufgabenText(string aufgabe)
         {
+            var aufgabe_real = aufgabe;
+
             AufgabenZahlen = null;
             var randIndex = rand.Next(0, Aufgaben[aufgabe].Count);
-            AufgabenKey = Aufgaben[aufgabe].ElementAt(randIndex).Key;
+            Controller.currentExercise = Aufgaben[aufgabe].ElementAt(randIndex).Key;
             aufgabe = Aufgaben[aufgabe].ElementAt(randIndex).Value;
             var argsNum = Regex.Matches(aufgabe, @"{[0-9]+}").OfType<Match>().Select(m => m.Value).Distinct().Count();
-            AufgabenZahlen = new object[argsNum];
-            for (int i = 0; i < argsNum; i++)
-            {
-                AufgabenZahlen[i] = rand.Next(1, 10);
-            }
+            if (argsNum == 0) return aufgabe;
+            AufgabenZahlen = randnumbers.Zahlen(argsNum, aufgabe_real, Controller.currentExercise);
             return string.Format(aufgabe, AufgabenZahlen.Select(x => x.ToString()).ToArray());
         }
 

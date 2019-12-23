@@ -7,34 +7,10 @@
         mc:Ignorable="d"
         Title="CustomMB" Height="170" Width="300" FontFamily="Microsoft Sans Serif" 
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
-        AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "False">
+        AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "True">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="50"/>
     </WindowChrome.WindowChrome>
-    
-    <!--<Border BorderBrush="DarkOrange" BorderThickness="0" >
-        <Grid>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="100"/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="1" Text="Die Datei darf nicht über 2 MB groß sein" Padding="70,30"
-                           FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="70" Click="Button_Click" />
-                </StackPanel>
-            </Grid>
-            <Grid VerticalAlignment="Top" Background="DarkOrange" Grid.Row="0">
-                <TextBlock Text="Datei zu groß" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10"
-                           Padding="3"/>
-            </Grid>
-        </Grid>
-    </Border>-->
     <Border BorderBrush="#FFFF7800" BorderThickness="0,0,0,10">
         <Grid>
             <Grid Background="White">

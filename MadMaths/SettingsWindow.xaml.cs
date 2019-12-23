@@ -21,17 +21,27 @@ namespace MadMaths
     /// </summary>
     public partial class SettingsWindow : Window
     {
+        public static bool IsSoundOn = true;
         public SettingsWindow()
         {
             InitializeComponent();
+            if (!Controller.UserIsLoggedIn)
+            {
+                logoutbtn.IsEnabled = false;
+            }
+            if (IsSoundOn) soundbtn.Content = "Sound on";
+            else soundbtn.Content = "Sound off";
         }
 
         private void Logoutclick(object sender, RoutedEventArgs e)
         {
             Controller.UserIsLoggedIn = false;
-            Controller.user = new User();
             Client.UpdateUserData("LEVEL");
             Client.LogoutUser();
+            var temp = Controller.user.lastSessions;
+            Controller.user = new User();
+            Controller.user.lastSessions = temp;
+            Controller.UpdateUserJson();
             DialogResult = true;
             Close();
         }
@@ -40,6 +50,20 @@ namespace MadMaths
         {
             DialogResult = false;
             Close();
+        }
+
+        private void Soundbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsSoundOn)
+            {
+                IsSoundOn = false;
+                soundbtn.Content = "Sound off";
+            }
+            else
+            {
+                IsSoundOn = true;
+                soundbtn.Content = "Sound on";
+            }
         }
     }
 }

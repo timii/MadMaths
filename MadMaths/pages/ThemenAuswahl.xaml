@@ -24,18 +24,15 @@
             <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"/>
             <TextBlock Name="StufenName" Text="Placeholder" Grid.Column="0" Grid.Row="1"
-                   TextAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+                   TextAlignment="Center" VerticalAlignment="Center" FontSize="50" Margin="0,-30,0,0"/>
+            <Separator Width="300" Background="#ff9640" Grid.Row="1" Grid.Column="0" Height="0.75" Margin="0,30,0,0">
+                <Separator.RenderTransform>
+                    <ScaleTransform ScaleY="2" />
+                </Separator.RenderTransform>
+            </Separator>
         </Grid>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <WrapPanel Name="AufgabenButtons" Orientation="Horizontal" VerticalAlignment="Top">
-                <!--<Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>
-            <Button Content="Aufgabe" MaxHeight="60" Margin="50,20,40,20" MinWidth="200" Width="auto" Click="AufgabenClick"/>-->
             </WrapPanel>
         </ScrollViewer>
     </Grid>
