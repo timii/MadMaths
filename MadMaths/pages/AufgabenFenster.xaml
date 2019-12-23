@@ -43,7 +43,7 @@
         </Button>
         <Popup Name="InfoPopup" PopupAnimation="Fade" AllowsTransparency="True" PlacementTarget="{Binding ElementName=InfoButton}" Placement="Right" VerticalOffset="-18" HorizontalOffset="5">
             <StackPanel Orientation="Vertical" Background="#ffa500">
-                <TextBlock Text="Tipps: &#x0a;Auf 2 nach Nachkommastellen Runden." FontSize="14" Padding="5,5,5,0" FontWeight="SemiBold"/>
+                <TextBlock Name="InfoText0" Text="Tipps: &#x0a;Auf 2 nach Nachkommastellen Runden." FontSize="14" Padding="5,5,5,0" FontWeight="SemiBold"/>
                 <TextBlock Name="InfoText" FontSize="14" Padding="5,0,5,5" FontWeight="SemiBold"
                            Text="" TextWrapping="Wrap" MaxWidth="300" MaxHeight="600"/>
             </StackPanel>

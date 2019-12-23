@@ -143,7 +143,8 @@ namespace MadMaths.pages
                 case "Wendepunkte": InfoText.Text = "Lösung im Stil: (x1;y1) (x2;y2)"; break;
                 case "Intergralregel1": case "Intergralregel2": InfoText.Text = "Lösung im Stil: sin(x) + a"; break;
                 case "Intergralregel3": InfoText.Text = "Lösung im Stil: x * ln(x) + a + b"; break;
-                case "Symmetrie": InfoText.Text = "Tipps:  Das gefragte Wort als Lösung angeben"; break;
+                case "Symmetrie": InfoText.Text = "Tipps:  Das gefragte Wort als Lösung angeben"; InfoText0.Text = ""; break;
+                case "Umwandeln1": case "Umwandeln2":case "Umwandeln3":case "Umwandeln4": case "Umwandeln5": InfoText0.Text = "Tipps: \nAuf 3 Nachkommastellen runden"; break;
 
                 default: break;
             }
