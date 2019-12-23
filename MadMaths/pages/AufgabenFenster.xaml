@@ -38,7 +38,7 @@
                  BorderBrush="AliceBlue" BorderThickness="2" FontSize="20" GotKeyboardFocus="Antwort_GotKeyboardFocus" KeyDown="Antwort_KeyDown"/>
         <Button Name="abgabebtn" Grid.Row="2" Content="Abgabe" VerticalContentAlignment="Center"
                 MinHeight="50" MaxHeight="90" MinWidth="100" MaxWidth="250" Click="Abgabe_Click"/>
-        <Button Background="Transparent" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,320,0" Cursor="Hand" Width="50" Style="{StaticResource InfoButton}" >
+        <Button Background="Transparent" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,370,0" Cursor="Hand" Width="50" Style="{StaticResource InfoButton}" >
             <Image Name="InfoButton" Source="../assets/icons/InfoIcon.png" Width="30" Height="40" />
         </Button>
         <Popup Name="InfoPopup" PopupAnimation="Fade" AllowsTransparency="True" PlacementTarget="{Binding ElementName=InfoButton}" Placement="Right" VerticalOffset="-18" HorizontalOffset="5">
