@@ -304,7 +304,7 @@
                 <Setter.Value>
                     <!--überschreibe das Standard ControlTemplate, um MouseOver Effekt nutzen zu können-->
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" BorderBrush="#FF212121" BorderThickness="0" CornerRadius="1">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="#e67e00" BorderThickness="0,2,0,0" CornerRadius="5">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
                                               TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="Grayscale"/>
                         </Border>

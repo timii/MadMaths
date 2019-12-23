@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows.Media;
 #pragma warning disable 4014
 
 namespace MadMaths.pages
@@ -118,6 +119,7 @@ namespace MadMaths.pages
                     Style = style
                 };
                 b.Click += AufgabenClick;
+                //lastSessionsPanel.Children.Add(new Separator());
                 lastSessionsPanel.Children.Add(b);
             }
         }
