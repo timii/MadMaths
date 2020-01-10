@@ -33,6 +33,7 @@ namespace MadMaths
                 case "Urnenmodell": maxValue = 15; break;
                 case "Hypergeometrische Verteilung": maxValue = 40; break;
                 case "Fakultät": maxValue = 10; break;
+                case "Ableiten": maxValue = 15; break;
                 case "Prozentrechnung": maxValue = 10; break;
                 default: minValue = 1; maxValue = 50; break;
             }

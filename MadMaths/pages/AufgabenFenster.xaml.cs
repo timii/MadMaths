@@ -127,7 +127,8 @@ namespace MadMaths.pages
         {
             switch (Controller.currentExercise)
             {
-                case "Variablen5": case "Varaiblen6": InfoText.Text = "Lösung im Stil: ax + by"; break;
+                case "Variablen5": case "Variablen6": InfoText.Text = "Lösung im Stil: ax + by"; break;
+                case "TeilenmitRest1": InfoText.Text = "Integerdivison, keine nachkommastellen"; break;
                 case "Gleichungssystem1": case "Gleichungssystem2": case "Gleichungssystem3": InfoText.Text = "Lösung im Stil: x = a,y = b"; break;
                 case "BinomischeFormeln1": case "BinomischeFormeln2": case "BinomischeFormeln3": case "BinomischeFormeln4": InfoText.Text = "Lösung im Stil: (a^2 + b^2)"; break;
                 case "QuadratischeGleichungen1": InfoText.Text = "Lösung im Stil: b , a"; break;
