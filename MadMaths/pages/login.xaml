@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="920"
       Title="login" FontSize="20">
-
+    
+    <!-- XAML für das Loginfenster -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -20,9 +21,12 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+
+        <!-- Zurückbutton -->
         <Button Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"
                 MaxHeight="50" />
+        
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Login/Register" Margin="20" FontSize="30"
                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Grid.Row="1" Text="Benutzername" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -33,6 +37,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             
+            <!-- Eingabe des Benutzernamen -->
             <TextBox x:Name="UserName" Grid.Column="1" Margin="5" FontSize="18" Style="{StaticResource BorderAnimationTextBox}" 
                  MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#2B2B2B" PreviewKeyDown="UserName_PreviewKeyDown" PreviewTextInput="UserName_PreviewTextInput"/>
             <TextBlock Name="UsernameFeedback" VerticalAlignment="Center" Grid.Column="2" FontSize="16" Foreground="Red"/>
@@ -44,6 +49,8 @@
                 <ColumnDefinition Width="220"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
+            <!-- Eingabe des Passworts -->
             <PasswordBox x:Name="UserPassword"  Grid.Column="1" MinWidth="70" MaxWidth="200" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5" PreviewKeyDown="UserPassword_PreviewKeyDown" Style="{StaticResource BorderAnimationPasswordBox}" PreviewTextInput="UserPassword_PreviewTextInput"/>
             <TextBlock Name="PasswordFeedback" VerticalAlignment="Center" Grid.Column="2" FontSize="16" Foreground="Red"/>
         </Grid>

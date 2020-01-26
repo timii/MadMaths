@@ -8,10 +8,11 @@
         Title="CustomMB" Height="300" Width="350" FontFamily="Microsoft Sans Serif" 
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterOwner"
         AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "False">
+    
+    <!-- XAML für das LevelUp Window -->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="45"/>
     </WindowChrome.WindowChrome>
-    
     <Grid>
         <Grid Background="White">
             <Grid.RowDefinitions>
@@ -26,6 +27,8 @@
             
             <TextBlock Grid.Row="1" Padding="60,15" Text="Du hast das nächste Level erreicht" FontWeight="Bold"
                            FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636"/>
+
+            <!-- Anzeigen des erreichten Levels -->
             <Rectangle Fill="#FFFF7800" Margin="118,46,118,10" Grid.Row="1">
                 <Rectangle.LayoutTransform>
                     <RotateTransform Angle="-45"/>

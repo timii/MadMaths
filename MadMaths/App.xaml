@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:MadMaths"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
+        <!-- XAML für alle Stlyes -->
         <Style TargetType="{x:Type Page}">
             <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
             <Setter Property="FontSize" Value="15"/>
@@ -64,7 +66,6 @@
 
         <!-- Style um einen animierten Border beim Login in der Textbox des Usernamen zu haben  -->
         <Style x:Key="BorderAnimationTextBox" TargetType="{x:Type TextBox}">
-            <!--<Setter Property="FocusVisualStyle" Value="{x:Null}"/>-->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -83,7 +84,7 @@
                                     </VisualState>
                                     <VisualState Name="Focused">
                                         <Storyboard>
-                                            <ColorAnimation To="LimeGreen"
+                                            <ColorAnimation To="Green"
                                                 Duration="0:0:0.3"
                                                 AutoReverse="False"
                                                 Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
@@ -119,7 +120,7 @@
                                     </VisualState>
                                     <VisualState Name="Focused">
                                         <Storyboard>
-                                            <ColorAnimation To="LimeGreen"
+                                            <ColorAnimation To="Green"
                                                 Duration="0:0:0.3"
                                                 AutoReverse="False"
                                                 Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
@@ -200,21 +201,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <!--<Setter Property="Control.Background">
-                
-             -->
-            <!--Standard Background-->
-            <!-- 
-            
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
-                        <GradientStop Offset="0.0" Color="Orange"/>
-                        <GradientStop Offset="0.5" Color="DarkOrange"/>
-                        <GradientStop Offset="1.0" Color="OrangeRed"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>-->
-
         </Style>
 
         <!-- Style für den Avatar und den Settings Button, damit der Orange Hintergrund nicht auftaucht -->
@@ -272,18 +258,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <!--<Setter Property="Control.Background">
-                -->
-            <!-- Standard Background -->
-            <!--
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,2">
-                        <GradientStop Offset="0.0" Color="Orange"/>
-                        <GradientStop Offset="0.5" Color="DarkOrange"/>
-                        <GradientStop Offset="1.0" Color="OrangeRed"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>-->
         </Style>
 
         <!-- Style für Letzte Aufgaben Panel Button -->
@@ -677,33 +651,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

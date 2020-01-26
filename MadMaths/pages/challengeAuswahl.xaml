@@ -7,7 +7,8 @@
       mc:Ignorable="d" FontFamily="Microsoft Sans Serif"
       d:DesignHeight="600" d:DesignWidth="920"
       Title="challengeAuswahl">
-
+    
+    <!-- XAML für die Auswahl der Stufen bei der Herausforderung -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -19,14 +20,24 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
+
+        <!-- Zurückbutton -->
         <Button VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent" Height="40"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"/>
+
+        <!-- Grundschulebutton -->
         <Button x:Name="Grundschule" Grid.Row="0" Grid.Column="1" Height="100"
                     Content="Grundschule" Margin="20,40,20,0" Click="AufgabenClick"/>
+
+        <!-- Mittelstufebutton -->
         <Button x:Name="Mittelstufe" Grid.Row="1" Grid.Column="1" Height="100"
                     Content="Mittelstufe" Margin="25" Click="AufgabenClick"/>
+
+        <!-- Oberstufebutton -->
         <Button x:Name="Oberstufe" Grid.Row="2" Grid.Column="1" Height="100"
                     Content="Oberstufe" Margin="20,0,20,40" Click="AufgabenClick"/>
+
+        <!-- Anzeigen des letzten Versuchs -->
         <TextBlock Grid.Column="2" Grid.Row="0" Margin="0,50,10,50"
                    VerticalAlignment="Center" FontSize="20" Text="Letzter Versuch: "/>
         <TextBlock x:Name="GrundschuleFortschritt" Grid.Column="2" Grid.Row="0" Margin="0,100,10,50"
