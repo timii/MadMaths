@@ -17,11 +17,14 @@ namespace MadMaths.pages
     {
         bool wasFocused = false;
         public static bool ChallengeMode = false;
+
+        // Einlesen der Sounddateien
         private readonly Uri RightAnswer = new Uri("MadMaths;component/assets/sound/correct.wav", UriKind.Relative);
         private readonly Uri WrongAnswer = new Uri("MadMaths;component/assets/sound/wrong.wav", UriKind.Relative);
         private readonly Uri helperSound = new Uri("MadMaths;component/assets/sound/empty.wav", UriKind.Relative);
         private readonly SoundPlayer Right, Wrong;
         private BackgroundWorker timer;
+
         private static int ChallengeVersuche = 10;
 
         public AufgabenFenster()
@@ -117,7 +120,6 @@ namespace MadMaths.pages
 
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
             AufgabenStellung.Text = Controller.Stufen[Controller.currentGrade].getAufgabenText(Controller.currentTheme); // Speichereffizienter
             getInfoUpdate();
             reset();
@@ -169,9 +171,6 @@ namespace MadMaths.pages
 
         private void NextChallengeButton_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
-            //AufgabenStellung.Text = Controller.Stufen[Controller.currentPage].getAufgabenText(Controller.currentExercise); // Speichereffizienter
-            //reset();
             List<string> myList = Controller.Stufen[Controller.currentGrade].ThemenListe;
             Random rand = new Random();
             int index = rand.Next(myList.Count);
@@ -191,6 +190,7 @@ namespace MadMaths.pages
             }
         }
 
+        // setzt den Timer für die Herausforderungen der verschiedenen Stufen
         private void StartTimer()
         {
             TimerProgress.Value = 0;
