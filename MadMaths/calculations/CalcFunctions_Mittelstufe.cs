@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
+
 namespace MadMaths.calculations
 {
+    //Beinhaltet Alle Funktionen zur Berechnung der Mittelstufe Aufgaben
     static public class CalcFunctions_Mittelstufe
     {
+        //liest Die Funktionen in nem Dictionary auf
         static public Dictionary<string, Delegate> ms_funcs = new Dictionary<string, Delegate>()
         #region
         {
@@ -107,8 +111,8 @@ namespace MadMaths.calculations
         public static double Variablen4(double input_a, double input_b) { return input_b * input_a; }
         public static string Variablen5(double input_a, double input_b, double input_c, double input_d)
         {
-            Double ergebnis_a = input_a + input_b;
-            Double ergebnis_b = input_c + input_d;
+            double ergebnis_a = input_a + input_b;
+            double ergebnis_b = input_c + input_d;
             return string.Format("{0}x + {1}y",ergebnis_a,ergebnis_b);
         }
         public static string Variablen6(double input_a, double input_b, double input_c, double input_d)
@@ -149,7 +153,6 @@ namespace MadMaths.calculations
             double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d)),2,MidpointRounding.AwayFromZero);
             double x = Math.Round((input_c - input_b * y) / input_a,2);
             return string.Format("x = {0}, y = {1}", x, y);
-            //return "x = " + x + ", y = " + y;
 
         }
         public static string Gleichungssystem2(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
@@ -165,7 +168,6 @@ namespace MadMaths.calculations
             double x = Math.Round((input_c + input_b * y) / input_a,2,MidpointRounding.AwayFromZero);
 
             return string.Format("x = {0}, y = {1}", x, y);
-            //return "x = " + x + ", y = " + y;
         }
         public static double Umwandeln1(double input_a) { return input_a / 1000; }
         public static double Umwandeln2(double input_a) { return input_a / 100; }
