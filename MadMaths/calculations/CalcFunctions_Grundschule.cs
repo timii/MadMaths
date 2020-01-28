@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace MadMaths.calculations
 {
-    //Beinhaltet alle Funktionen zur Berechnung der Grundschul Aufgaben
+    //Beinhaltet alle Funktionen zur Berechnung der Grundschule-Aufgaben
     static public class CalcFunctions_Grundschule
     {
         
 
-        //liest Die Funktionen in nem Dictionary auf
+        //liest Die Funktionen in einem Dictionary auf
         public static Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
         #region
         {

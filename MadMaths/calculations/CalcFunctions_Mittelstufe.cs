@@ -5,10 +5,10 @@ using System.Collections.Generic;
 
 namespace MadMaths.calculations
 {
-    //Beinhaltet Alle Funktionen zur Berechnung der Mittelstufe Aufgaben
+    //Beinhaltet Alle Funktionen zur Berechnung der Mittelstufe-Aufgaben
     static public class CalcFunctions_Mittelstufe
     {
-        //liest Die Funktionen in nem Dictionary auf
+        //liest Die Funktionen in einem Dictionary auf
         static public Dictionary<string, Delegate> ms_funcs = new Dictionary<string, Delegate>()
         #region
         {

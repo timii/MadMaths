@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace MadMaths.calculations
 {
-    //Beinhaltet alle Funktionen zur Berechnung der Oberstufen Aufgaben
+    //Beinhaltet alle Funktionen zur Berechnung der Oberstufen-Aufgaben
     static public class CalcFunctions_Oberstufe
     {
+        //liest Die Funktionen in einem Dictionary auf
         public static Dictionary<string, Delegate> os_funcs = new Dictionary<string, Delegate>()
         #region
         {
