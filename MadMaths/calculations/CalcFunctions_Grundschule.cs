@@ -3,8 +3,12 @@ using System.Collections.Generic;
 
 namespace MadMaths.calculations
 {
+    //Beinhaltet alle Funktionen zur Berechnung der Grundschule-Aufgaben
     static public class CalcFunctions_Grundschule
     {
+        
+
+        //liest Die Funktionen in einem Dictionary auf
         public static Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
         #region
         {
@@ -55,23 +59,26 @@ namespace MadMaths.calculations
         };
         #endregion
 
-        /* funktions.addieren / funktions.subtrahieren / usw. als berechnung für LÖSUNG */
-        public static int standard_addieren(int input_a, int input_b) { return (input_a + input_b); }
-        public static int standard_addieren(int a) { return a + a; }
-        public static int standard_subtrahieren(int input_a, int input_b) { return input_b - input_a; }
-        public static int standard_subtrahieren(int input_a, int input_b, int input_c) { return input_a - input_b - input_c; }
+        
+        public static int standard_addieren(int input_a, int input_b) {
+            return (input_a + input_b);
+        }
+        public static int standard_addieren(int a) {
+            return a + a;
+        }
+        public static int standard_subtrahieren(int input_a, int input_b) {
+            return input_b - input_a;
+        }
+        public static int standard_subtrahieren(int input_a, int input_b, int input_c) {
+            return input_a - input_b - input_c;
+        }
 
-        public static int standard_multiplizieren(int input_a, int input_b) { return (input_a * input_b); }
+        public static int standard_multiplizieren(int input_a, int input_b) {
+            return (input_a * input_b);
+        }
         public static int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
         {
-            if (input_b % input_a == 0)
-            {
-                return input_b / input_a;
-            }
-            else
-            {
-                return input_a / input_b;
-            }
+            return input_a / input_b;
         }
         public static int kindersachtext(int input_a) //darf kein nachkomma stellen haben als lösung
         {
@@ -98,6 +105,7 @@ namespace MadMaths.calculations
             return zaehler;
         }
         public static int essenaufgabe(int input_a, int input_b) { return (input_a - input_b); }
+
 
         public static string GroesserKleiner1(int input_a, int input_b)
         {

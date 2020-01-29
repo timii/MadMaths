@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="660" d:DesignWidth="1100"
       Title="AufgabenFenster">
-
+    
+    <!-- XAML für das Aufgabenfenster -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -23,24 +24,36 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <!-- Zurückbutton -->
             <Button Name="BackButton" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Transparent"
                     Style="{StaticResource BackButton}" Click="ThemenBackClick" Margin="10,5,0,0"/>
+            
+            <!-- Anzeige des Themas -->
             <TextBox Name="ThemenName" Background="Transparent" Text="Thema" HorizontalAlignment="Center" VerticalAlignment="Center"
                      IsReadOnly="True" FontSize="20" BorderThickness="0" Grid.Row="0"/>
             <Separator Width="200" Background="#ff9640" VerticalAlignment="Top" Grid.Row="1" Height="2"/>
+            
+            <!-- Aufgabenstellung -->
             <TextBox x:Name="AufgabenStellung" Grid.Row="1" Grid.Column="0" Margin="20,0" TextWrapping="Wrap"
                  IsReadOnly="True" Background="Transparent" Text="Aufgabe"
                  TextAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" FontSize="30"/>
         </Grid>
+        
+        <!-- Eingabefenster für Antwort -->
         <TextBox x:Name="Antwort" Grid.Row="1" Grid.Column="0"
                  IsReadOnly="False" Background="Transparent" Text="Gib deine Antwort ein"
                  TextAlignment="Center" VerticalContentAlignment="Center" Margin="50,20,50,20" 
                  BorderBrush="AliceBlue" BorderThickness="2" FontSize="20" GotKeyboardFocus="Antwort_GotKeyboardFocus" KeyDown="Antwort_KeyDown"/>
+        
+        <!-- Abgabebutton -->
         <Button Name="abgabebtn" Grid.Row="2" Content="Abgabe" VerticalContentAlignment="Center"
                 MinHeight="50" MaxHeight="90" MinWidth="100" MaxWidth="250" Click="Abgabe_Click"/>
         <Button Background="Transparent" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,370,0" Cursor="Hand" Width="50" Style="{StaticResource InfoButton}" >
             <Image Name="InfoButton" Source="../assets/icons/InfoIcon.png" Width="30" Height="40" />
         </Button>
+        
+        <!-- Tippfenster -->
         <Popup Name="InfoPopup" PopupAnimation="Fade" AllowsTransparency="True" PlacementTarget="{Binding ElementName=InfoButton}" Placement="Right" VerticalOffset="-18" HorizontalOffset="5">
             <StackPanel Orientation="Vertical" Background="#ffa500">
                 <TextBlock Name="InfoText0" Text="Tipps: &#x0a;Auf 2 nach Nachkommastellen Runden." FontSize="14" Padding="5,5,5,0" FontWeight="SemiBold"/>
@@ -48,9 +61,13 @@
                            Text="" TextWrapping="Wrap" MaxWidth="300" MaxHeight="600"/>
             </StackPanel>
         </Popup>
+
+        <!-- Anzeige der Lösung -->
         <TextBlock x:Name="Lösung" Grid.Row="3" Grid.Column="0"
                  Background="Transparent"
                  TextAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+
+        <!-- Button um nächste Aufgabe zu laden -->
         <Button x:Name="NextExerciseButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="Transparent" 
                 Style="{StaticResource NextExerciseButton}" Grid.Row="4"
                 Height="45" Width="45" Margin="10" Click="NextExerciseButton_Click" Opacity="0"/>

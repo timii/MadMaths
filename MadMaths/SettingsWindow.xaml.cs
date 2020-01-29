@@ -46,7 +46,7 @@ namespace MadMaths
             Close();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e) // FIXME Close Button funktioniert nicht
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
             Close();

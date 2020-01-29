@@ -8,18 +8,24 @@
         Title="CustomMB" Height="150" Width="300" FontFamily="Microsoft Sans Serif" 
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" ShowActivated="True" ShowInTaskbar="False" BorderThickness="0">
+
+    <!-- XAML für das Einstellungsfenster -->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
-    <Border BorderBrush="#FFFF7800" BorderThickness="0,0,0,10">
+    <Border BorderBrush="OrangeRed" BorderThickness="0,0,0,10">
         <Grid>
             <Grid Background="White">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+
+                <!-- Schließbutton -->
                 <Button Click="CloseButton_Click" Content="✖" Width="20" Height="20"
                         Style="{StaticResource WindowButtonClose}" FontSize="10" Margin="-2,0,0,0" HorizontalAlignment="Right"/>
+
+                <!-- Buttonspanel -->
                 <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button Name="soundbtn" Content="Sound status" MinHeight="40" MinWidth="120" FontSize="20" Click="Soundbtn_Click"/>
                     <Button Name="logoutbtn" Content="Ausloggen" FontSize="20" MinHeight="40" MinWidth="120" Background="#FFFF7800" Click="Logoutclick" Margin="0,20"/>

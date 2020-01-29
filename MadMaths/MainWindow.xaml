@@ -10,7 +10,8 @@
         Icon="assets/logo/WindowIcon3.png" WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True">
     <!-- WindowStyle=None Entfernt Standard Windows Border-->
-    
+    <!-- XAML für das MainWindow und den Selbsterstellter Border des Programms -->
+
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="35"/>
     </WindowChrome.WindowChrome>
@@ -24,15 +25,19 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="{Binding}"
            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"/>
 
+        <!-- Selbstersteller Border -->
         <Grid VerticalAlignment="Top" Background="DarkOrange" Grid.Row="0">
+
+            <!-- Serverstatus -->
             <Label Content="Server: " FontWeight="Bold" VerticalContentAlignment="Center" Margin="5,0" Foreground="White" FontFamily="Segoe UI"/>
             <Label x:Name="onlineStatus" VerticalContentAlignment="Center" Margin="48,0" Foreground="White" FontFamily="Segoe UI"/>
-            <Label Content="beta 0.330" VerticalContentAlignment="Center" Margin="100,0" Foreground="White" FontFamily="Segoe UI" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            
+            <!-- Minimier- / Schließbuttons -->
             <StackPanel HorizontalAlignment="Right" Height="35"
                         WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
-                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Width="35" 
+                <Button x:Name="MinimizeButton" Click="MinimizeButton_Click" Width="35"
                         Style="{StaticResource WindowButton}" Content="-"/>
-                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="✖" Width="35" 
+                <Button x:Name="CloseButton" Click="CloseButton_Click" Content="✖" Width="35"
                         Style="{StaticResource WindowButton}" FontSize="10" Margin="-2,0,0,0"/>
             </StackPanel>
         </Grid>

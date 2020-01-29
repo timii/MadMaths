@@ -119,7 +119,6 @@ namespace MadMaths.pages
                     Style = style
                 };
                 b.Click += AufgabenClick;
-                //lastSessionsPanel.Children.Add(new Separator());
                 lastSessionsPanel.Children.Add(b);
             }
         }

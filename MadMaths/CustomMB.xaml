@@ -8,10 +8,14 @@
         Title="CustomMB" Height="170" Width="300" FontFamily="Microsoft Sans Serif" 
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "True">
+    
+    <!-- XAML für die Custom MessageBox -->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="50"/>
     </WindowChrome.WindowChrome>
-    <Border BorderBrush="#FFFF7800" BorderThickness="0,0,0,10">
+
+    <!-- Customborder -->
+    <Border BorderBrush="OrangeRed" BorderThickness="0,0,0,10">
         <Grid>
             <Grid Background="White">
                 <Grid.RowDefinitions>
@@ -19,8 +23,11 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="70"/>
                 </Grid.RowDefinitions>
+
+                <!-- Inhalt der MessageBox -->
                 <TextBlock x:Name="msgBox" Grid.Row="1" Padding="80,40" FontFamily="Microsoft Sans Serif"
                            FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF363636"/>
+
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800" Cursor="Hand"/>
                 </StackPanel>

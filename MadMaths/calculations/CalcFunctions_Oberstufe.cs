@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace MadMaths.calculations
 {
+    //Beinhaltet alle Funktionen zur Berechnung der Oberstufen-Aufgaben
     static public class CalcFunctions_Oberstufe
     {
+        //liest Die Funktionen in einem Dictionary auf
         public static Dictionary<string, Delegate> os_funcs = new Dictionary<string, Delegate>()
         #region
         {
@@ -44,6 +46,7 @@ namespace MadMaths.calculations
         public static string Ableiten2(double input_a, double input_b, double input_c, double input_d)
         {
             double vorx;
+            //wenn beide Exponenten gleich sind
             if (input_b == input_d)
             {
                 vorx = input_a + input_b;
@@ -58,11 +61,13 @@ namespace MadMaths.calculations
         public static string Ableiten3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
             double vorx;
+            //wenn alle Exponenten Gleich sind
             if (input_b == input_d && input_b == input_f)
             {
                 vorx = input_a + input_b + input_c;
                 return string.Format("{0}x^{1}", vorx * input_b, input_b - 1);
             }
+            //wenn 2 Exponenten Gleich sind
             if (input_b == input_d || input_b == input_f || input_d == input_f)
             {
                 if (input_b == input_d)
@@ -88,6 +93,7 @@ namespace MadMaths.calculations
         public static string Ableiten4(double input_a, double input_b, double input_c, double input_d, double input_e)
         {
             double vorx;
+            //wenn beide Exponenten gleich sind
             if (input_b == input_d)
             {
                 vorx = (input_a + input_b) * input_e;
@@ -246,6 +252,7 @@ namespace MadMaths.calculations
 
         public static string Ableiten6(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
+            //Wenn beide Exponenten gleich sind
             if ((input_e) == (input_b))
             {
                 return string.Format("({0}x^{1} + {2}x^{3})/({4}x^{5} + {6})^2", (input_a * input_b * input_d - input_d * input_e * input_a), (input_b - 1 + input_e), (input_a * input_b * input_f - input_d * input_c * input_e * -1), (input_e - 1), (input_d), (input_e), (input_f));
@@ -285,6 +292,7 @@ namespace MadMaths.calculations
         {
             double vorx1 = input_a * (input_b + 1) * input_e * input_b;
             double vorx2 = input_c * (input_d + 1) * input_e * input_d;
+            //Wenn beide Exponenten gleich sind
             if (input_b == input_d)
             {
                 double zusammenx = vorx1 + vorx2;
@@ -357,7 +365,7 @@ namespace MadMaths.calculations
         public static double Integral1(double input_a, double input_b, double input_c, double input_d)
         {
             double stamm_a = input_a / 2;
-            return Math.Round((input_d * input_d * stamm_a + input_d * input_b) - (input_c * input_c * stamm_a + input_c * input_b),2, MidpointRounding.AwayFromZero);
+            return runden((input_d * input_d * stamm_a + input_d * input_b) - (input_c * input_c * stamm_a + input_c * input_b));
         }
         public static double Integral2()
         {
@@ -390,6 +398,7 @@ namespace MadMaths.calculations
         public static string SymmetrieI(double a, double b, double c, double d, double e, double f)
         {
             int Zaehler = 0;
+            //Für uns Festgelegt, dass wennn die ersten 50 Stellen übereinstimmen, die Funktion mit hoher Wahrscheinlichkeit Achsensymmetrisch ist
             for (int i = 0; i < 50; i++)
             {
                 if ((a * Math.Pow(-i, b) + c * Math.Pow(-i, d) + e * Math.Pow(-i, f) == (a * Math.Pow(i, b) + c * Math.Pow(i, d) + e * Math.Pow(i, f))))
@@ -413,6 +422,7 @@ namespace MadMaths.calculations
 
             return "Asymmetrisch";
         }
+        //SymmetrieII wird für Nullstellen benutzt und Extrempunkte
         public static string SymmetrieII(double a, double b, double c, double d)
         {
             int Zaehler = 0;

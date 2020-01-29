@@ -140,7 +140,11 @@ namespace MadMaths
                 lvlup.ShowDialog();
             }
         }
-
+        /// <summary>
+        /// Funktion zur Punkteberechnung
+        /// Die Anzahl der Punkte wird durch die jeweilige Aufgabe bestimmt
+        /// </summary>
+        /// <returns>Punkte</returns>
         private static int CalcLevel()
         {
             switch (currentTheme)
@@ -248,7 +252,7 @@ namespace MadMaths
         {
             try
             {
-                // client = new TcpClient("127.0.0.1", 7777);
+                // client = new TcpClient("127.0.0.1", 7777);       // localhost zum debuggen
                 // client = new TcpClient("45.88.108.218", 7777);
                 client = new TcpClient("uselesscode.works", 7777);
                 stream = client.GetStream();
@@ -279,7 +283,7 @@ namespace MadMaths
                     try
                     {
                         client.Connect("uselesscode.works", 7777);
-                        // client.Connect("127.0.0.1", 7777);
+                        // client.Connect("127.0.0.1", 7777);  // localhost zum debuggen
                         stream = client.GetStream();
                         if (recv() == "connected") { return true; }
                     }
