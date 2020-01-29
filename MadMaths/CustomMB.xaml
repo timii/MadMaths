@@ -15,7 +15,7 @@
     </WindowChrome.WindowChrome>
 
     <!-- Customborder -->
-    <Border BorderBrush="#FFFF7800" BorderThickness="0,0,0,10">
+    <Border BorderBrush="OrangeRed" BorderThickness="0,0,0,10">
         <Grid>
             <Grid Background="White">
                 <Grid.RowDefinitions>
