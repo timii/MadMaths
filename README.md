@@ -24,13 +24,14 @@ Die Aufgaben werden in einer .json Datei gespeichert und von dort aus herausgele
 ## Systemvoraussetzungen
 
 ### Zum Ausführen:
- - Bildschirm mit einer Auflösung von mind. 800x600
+ - Bildschirm mit einer Auflösung von mind. 1100x670
  - RAM 2GB
  - 64MB Festplattenspeicher
- - mind. Windows 7
+ - mind. Windows 7 SP1
+ - .NET Framework 4.7.2
  - Internetverbindung empfohlen
 
 ### Zum Bauen:
  - Microsoft Visual Studio (s. Voraussetzungen auf der offizellen Seite)
- - .NET Framework 4.7.2
+ - .NET Framework 4.7.2 Developer Pack
  - Newtonsoft.Json
