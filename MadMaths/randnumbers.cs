@@ -19,8 +19,14 @@ namespace MadMaths
         {
             Random rand = new Random();
             int minValue = 1;
-            int maxValue;
+            int maxValue = 10;
             object[] Zahl_Rückgabe = new object[argnum];
+            switch (Controller.currentGrade) {
+                case "Grundschule": maxValue = 100; break;
+                case "Mittelstufe": maxValue = 100; break;
+                case "Oberstufe": maxValue = 10; break;
+            }
+
             switch(Thema) {
                 case "Kettenaufgaben":  maxValue = 10; break;
                 case "Zahlen Runden":  maxValue = 10000; break;
@@ -35,7 +41,6 @@ namespace MadMaths
                 case "Fakultät": maxValue = 10; break;
                 case "Ableiten": maxValue = 15; break;
                 case "Prozentrechnung": maxValue = 10; break;
-                default: minValue = 1; maxValue = 50; break;
             }
             switch (Aufgabe)
             {
@@ -45,7 +50,6 @@ namespace MadMaths
                 case "NullstellenI": maxValue = 10;break;
                 case "WendepunkteI": maxValue = 10;break;
                 case "Urnenmodell1": maxValue = 10;break;
-                default: break;
             }
 
             if (Aufgabe == "Subtrahieren 1") {
