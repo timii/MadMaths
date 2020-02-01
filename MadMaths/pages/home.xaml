@@ -8,7 +8,7 @@
       mc:Ignorable="d"
       d:DesignHeight="660" d:DesignWidth="1100"
       Title="home">
-    
+
     <!-- XAML für die Startseite -->
     <Grid>
         <Grid.ColumnDefinitions>
@@ -50,10 +50,10 @@
         </Grid>
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="Beige" BorderThickness="1" Margin="5">
             <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top">
-                
+
                 <!-- Herausforderungbutton -->
                 <Button x:Name="challenge" Content="Herausforderung" Margin="5,20" Click="ChallengeClick"/>
-                
+
                 <!-- letzteÜbungenPanel -->
                 <Button x:Name="lastSession" Content="letzte Übungen" Margin="5, 10, 5, 0" Style="{StaticResource LetzteAufgabenButton}"/>
                 <StackPanel Name="lastSessionsPanel" Orientation="Vertical" Margin="0,-1,0,0">
@@ -82,7 +82,7 @@
                         </Image>
                         <Label Content="{Binding UserName}" HorizontalAlignment="Left" Grid.Column="2" FontSize="15" VerticalAlignment="Center"/>
                         <Label Grid.Column="3" Content="{Binding Points}" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12"/>
-                        </Grid>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

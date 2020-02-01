@@ -14,6 +14,7 @@ namespace MadMaths.pages
             InitializeComponent();
             StufenName.Text = Controller.currentGrade;   // setzt die aktuelle Stufe als Überschrift
 
+            // Buttons werden dynamisch erzeugt; dabei wird die Schriftgröße an die Länge des Themennamens angepasst
             foreach (var item in Controller.Stufen[Controller.currentGrade].ThemenListe)
             {
                 Button b = new Button();
@@ -36,7 +37,7 @@ namespace MadMaths.pages
                 }
                 b.Height = 80;
                 b.Width = 245;
-                b.Margin = new Thickness(65,20,50,20);
+                b.Margin = new Thickness(65, 20, 50, 20);
                 b.Click += AufgabenClick;
                 AufgabenButtons.Children.Add(b);
             }

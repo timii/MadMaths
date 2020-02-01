@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
 
 namespace MadMaths
 {
@@ -21,7 +20,7 @@ namespace MadMaths
 
         // Minimize Button Click
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        { this.WindowState = WindowState.Minimized; }
+        { WindowState = WindowState.Minimized; }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -34,7 +33,7 @@ namespace MadMaths
             Application.Current.Shutdown();
         }
 
-        /// TitleBar_MouseDown - Drag if single-click
+        // ermöglicht das Verschieben des Fensters
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

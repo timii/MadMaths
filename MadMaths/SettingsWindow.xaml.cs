@@ -1,18 +1,4 @@
-﻿using MadMaths.pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace MadMaths
 {
@@ -29,8 +15,8 @@ namespace MadMaths
             {
                 logoutbtn.IsEnabled = false;
             }
-            if (IsSoundOn) soundbtn.Content = "Sound on";
-            else soundbtn.Content = "Sound off";
+            if (IsSoundOn) soundbtn.Content = "Ton an";
+            else soundbtn.Content = "Ton aus";
         }
 
         private void Logoutclick(object sender, RoutedEventArgs e)
@@ -57,12 +43,12 @@ namespace MadMaths
             if (IsSoundOn)
             {
                 IsSoundOn = false;
-                soundbtn.Content = "Sound off";
+                soundbtn.Content = "Ton aus";
             }
             else
             {
                 IsSoundOn = true;
-                soundbtn.Content = "Sound on";
+                soundbtn.Content = "Ton an";
             }
         }
     }

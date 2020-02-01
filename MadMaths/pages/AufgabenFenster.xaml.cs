@@ -11,7 +11,7 @@ using System.Windows.Navigation;
 namespace MadMaths.pages
 {
     /// <summary>
-    /// Interaktionslogik für AufgabenFenster.xaml
+    /// Das Aufgabenfenster
     /// </summary>
     public partial class AufgabenFenster : Page
     {
@@ -24,15 +24,15 @@ namespace MadMaths.pages
         private readonly Uri helperSound = new Uri("MadMaths;component/assets/sound/empty.wav", UriKind.Relative);
         private readonly SoundPlayer Right, Wrong;
         private BackgroundWorker timer;
-
-        private static int ChallengeVersuche = 10;
+        // hier wird die Anzahl der geschafften Aufgaben einer Challenge gespeichert
+        internal static int challengeVersucheGeschafft = challengeAuswahl.challengeVersucheGesamt;
 
         public AufgabenFenster()
         {
             Right = new SoundPlayer(Application.GetResourceStream(RightAnswer).Stream);
             Wrong = new SoundPlayer(Application.GetResourceStream(WrongAnswer).Stream);
             var helper = new SoundPlayer(Application.GetResourceStream(helperSound).Stream);
-            helper.Play(); helper.Dispose();
+            helper.Play(); helper.Dispose();        // Workaround; beim ersten Abspielen eines Sounds kommt es (warum auch immer) zu einer Verzögerung
             InitializeComponent();
             AufgabenStellung.Text = Controller.Stufen[Controller.currentGrade].getAufgabenText(Controller.currentTheme);
             NextExerciseButton.IsEnabled = false;
@@ -57,7 +57,7 @@ namespace MadMaths.pages
 
         ~AufgabenFenster()
         {
-            Right.Dispose();Wrong.Dispose();
+            Right.Dispose(); Wrong.Dispose();
             if (timer != null) timer.Dispose();
         }
 
@@ -97,11 +97,11 @@ namespace MadMaths.pages
             if (ChallengeMode)
             {
                 timer.CancelAsync();
-                --ChallengeVersuche;
-                if (ChallengeVersuche <= 0)
+                --challengeVersucheGeschafft;
+                if (challengeVersucheGeschafft <= 0)
                 {
                     ChallengeMode = false;
-                    ChallengeVersuche = 10;
+                    challengeVersucheGeschafft = 10;
                     NavigationService.Navigate(new challengeAuswahl());
                 }
             }
@@ -120,11 +120,11 @@ namespace MadMaths.pages
 
         private void NextExerciseButton_Click(object sender, RoutedEventArgs e)
         {
-            AufgabenStellung.Text = Controller.Stufen[Controller.currentGrade].getAufgabenText(Controller.currentTheme); // Speichereffizienter
+            AufgabenStellung.Text = Controller.Stufen[Controller.currentGrade].getAufgabenText(Controller.currentTheme);
             getInfoUpdate();
             reset();
         }
-
+        #region["Tipps zur Lösungsabgabe"]
         private void getInfoUpdate()
         {
             switch (Controller.currentExercise)
@@ -147,11 +147,12 @@ namespace MadMaths.pages
                 case "Intergralregel1": case "Intergralregel2": InfoText.Text = "Lösung im Stil: sin(x) + a"; break;
                 case "Intergralregel3": InfoText.Text = "Lösung im Stil: x * ln(x) + a + b"; break;
                 case "Symmetrie": InfoText.Text = "Tipps:  Das gefragte Wort als Lösung angeben"; InfoText0.Text = ""; break;
-                case "Umwandeln1": case "Umwandeln2":case "Umwandeln3":case "Umwandeln4": case "Umwandeln5": InfoText0.Text = "Tipps: \nAuf 3 Nachkommastellen runden"; break;
+                case "Umwandeln1": case "Umwandeln2": case "Umwandeln3": case "Umwandeln4": case "Umwandeln5": InfoText0.Text = "Tipps: \nAuf 3 Nachkommastellen runden"; break;
 
                 default: break;
             }
         }
+        #endregion
 
         private void Antwort_KeyDown(object sender, KeyEventArgs e)
         {
@@ -214,7 +215,7 @@ namespace MadMaths.pages
                 System.Threading.Thread.Sleep(10);
             }
         }
-        
+
         private void timer_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             TimerProgress.Value = e.ProgressPercentage;

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="920"
       Title="ThemenAuswahl">
-    
+
     <!-- XAML für die Auswahl der Themen -->
     <Grid>
         <Grid.ColumnDefinitions>

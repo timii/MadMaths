@@ -10,7 +10,7 @@ using System.Windows.Navigation;
 namespace MadMaths.pages
 {
     /// <summary>
-    /// Interaktionslogik für login.xaml
+    /// Das Loginfenster
     /// </summary>
     public partial class login : Page
     {
@@ -20,7 +20,7 @@ namespace MadMaths.pages
             if (!Controller.UserIsOnline) { Login.IsEnabled = false; }
             UserName.ContextMenu = UserPassword.ContextMenu = null;     // deaktiviert das Context Menü, um das Einfügen von ungültigen Benutzernamen und Passwörtern zu unterbinden
         }
-
+        #region["Benutzername_Eingabefeld"]
         private void UserName_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // überprüft, ob Leerzeichen vorkommen
@@ -31,12 +31,15 @@ namespace MadMaths.pages
                 UsernameFeedback.Text = "Name zu lang (maximal 12 Zeichen)";
             }
             else { UsernameFeedback.Text = ""; }
-            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }    // unterbindet das Copy&Paste von ungültigen Passwörtern
+            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }    // unterbindet das Copy&Paste von ungültigen Benutzernamen
         }
 
         private void UserName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        // Unterstrich nicht erlaubt, da es beim Parsen von Befehlen, die an den Server gesendet werden, zu Fehlern kommen würde
         { if (e.Text == "_") e.Handled = true; }
+        #endregion
 
+        #region["Benutzerpasswort_Eingabefeld"]
         private void UserPassword_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             // überprüft, ob Leerzeichen vorkommen
@@ -47,11 +50,11 @@ namespace MadMaths.pages
                 PasswordFeedback.Text = "Passwort zu lang (maximal 16 Zeichen)";
             }
             else { PasswordFeedback.Text = ""; }
-            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }
+            if (e.Key == Key.V && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) { e.Handled = true; }    // unterbindet das Copy&Paste von ungültigen Passwörtern
         }
-
         private void UserPassword_PreviewTextInput(object sender, TextCompositionEventArgs e)
         { if (e.Text == "_") e.Handled = true; }
+        #endregion
 
         private async void Register_Click(object sender, RoutedEventArgs e)
         {
@@ -67,16 +70,16 @@ namespace MadMaths.pages
                     Controller.UpdateUserJson();
                     NavigationService.Navigate(new home());
                 }
-                else 
-                { 
+                else
+                {
                     UsernameFeedback.Text = "Benutzername existiert bereits";
                     UserName.BorderBrush = Brushes.Red;
                 }
             }
             else
             {
-                if (UserPassword.Password.Length < 8) 
-                { 
+                if (UserPassword.Password.Length < 8)
+                {
                     PasswordFeedback.Text = "Passwort ist zu kurz (mind. 8 Zeichen)";
                     UserPassword.BorderBrush = Brushes.Red;
                 }

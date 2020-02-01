@@ -8,13 +8,12 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using System.IO;
 using System.Threading.Tasks;
-using System.Windows.Media;
 #pragma warning disable 4014
 
 namespace MadMaths.pages
 {
     /// <summary>
-    /// Interaktionslogik für home.xaml
+    /// Die Hauptseite
     /// </summary>
     public partial class home : Page
     {
@@ -40,8 +39,6 @@ namespace MadMaths.pages
             }
             Level.Text = Controller.user.level.ToString();
             progressInNumbers.Text = string.Format("{0}/{1}", Controller.user.currentProgress, Controller.user.level * 100);
-            //Controller.CreateRankList();
-            //RankingList.ItemsSource = Controller.ranklist;
             progress.Value = Controller.user.currentProgress;
             progress.Maximum = Controller.user.level * 100;
 
@@ -127,7 +124,7 @@ namespace MadMaths.pages
         {
             Controller.currentGrade = (sender as Button).Tag as string;
             Controller.currentTheme = (sender as Button).Content as string;
-            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die das AufgabenFenster
+            NavigationService.Navigate(new AufgabenFenster()); // Bei Klick Änderung der Page auf die "das AufgabenFenster"
         }
 
         private void SettingClick(object sender, RoutedEventArgs e)

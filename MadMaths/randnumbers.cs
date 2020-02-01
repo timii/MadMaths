@@ -21,19 +21,21 @@ namespace MadMaths
             int minValue = 1;
             int maxValue = 10;
             object[] Zahl_Rückgabe = new object[argnum];
-            switch (Controller.currentGrade) {
+            switch (Controller.currentGrade)
+            {
                 case "Grundschule": maxValue = 100; break;
                 case "Mittelstufe": maxValue = 100; break;
                 case "Oberstufe": maxValue = 10; break;
             }
 
-            switch(Thema) {
-                case "Kettenaufgaben":  maxValue = 10; break;
-                case "Zahlen Runden":  maxValue = 10000; break;
-                case "TextaufgabenII":  maxValue = 10; break;
-                case "Stochastik":  maxValue = 6; break;
-                case "BinomischeFormeln":  maxValue = 25; break;
-                case "Wurzeln":  maxValue = 25; break;
+            switch (Thema)
+            {
+                case "Kettenaufgaben": maxValue = 10; break;
+                case "Zahlen Runden": maxValue = 10000; break;
+                case "TextaufgabenII": maxValue = 10; break;
+                case "Stochastik": maxValue = 6; break;
+                case "BinomischeFormeln": maxValue = 25; break;
+                case "Wurzeln": maxValue = 25; break;
                 case "Quadratische Gleichungen": maxValue = 25; break;
                 case "Potenzen": maxValue = 10; break;
                 case "Urnenmodell": maxValue = 15; break;
@@ -44,15 +46,16 @@ namespace MadMaths
             }
             switch (Aufgabe)
             {
-                case "Mittelwert1": maxValue = 1000;break;
-                case "Mittelwert2": maxValue = 5;break;
-                case "ExtrempunktI": maxValue = 10;break;
-                case "NullstellenI": maxValue = 10;break;
-                case "WendepunkteI": maxValue = 10;break;
-                case "Urnenmodell1": maxValue = 10;break;
+                case "Mittelwert1": maxValue = 1000; break;
+                case "Mittelwert2": maxValue = 5; break;
+                case "ExtrempunktI": maxValue = 10; break;
+                case "NullstellenI": maxValue = 10; break;
+                case "WendepunkteI": maxValue = 10; break;
+                case "Urnenmodell1": maxValue = 10; break;
             }
 
-            if (Aufgabe == "Subtrahieren 1") {
+            if (Aufgabe == "Subtrahieren 1")
+            {
                 Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
                 do
                 {
@@ -60,7 +63,8 @@ namespace MadMaths
                 } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) > Int32.Parse(Zahl_Rückgabe[1].ToString()));
                 return Zahl_Rückgabe;
             }
-            if (Aufgabe == "Subtrahieren 2") {
+            if (Aufgabe == "Subtrahieren 2")
+            {
                 Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
                 do
                 {
@@ -74,7 +78,7 @@ namespace MadMaths
                 return Zahl_Rückgabe;
             }
             //Kettenaufgaben
-            #region
+            #region["Kettenaufgaben"]
             if (Aufgabe == "Kettenaufgabe1")
             {
                 do
@@ -140,6 +144,15 @@ namespace MadMaths
                 } while (Double.Parse(Zahl_Rückgabe[0].ToString()) % Double.Parse(Zahl_Rückgabe[1].ToString()) != 0 || Double.Parse(Zahl_Rückgabe[0].ToString()) == Double.Parse(Zahl_Rückgabe[1].ToString()) || Double.Parse(Zahl_Rückgabe[1].ToString()) == 1);
                 return Zahl_Rückgabe;
             }
+            if (Aufgabe == "VerdoppelHalbieren2")
+            {
+                do
+                {
+                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
+                } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) % 2 != 0);
+                return Zahl_Rückgabe;
+            }
+            #region["Textaufgaben"]
             if (Aufgabe == "Textaufgabe1")
             {
                 do
@@ -149,15 +162,8 @@ namespace MadMaths
                 } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) < Int32.Parse(Zahl_Rückgabe[1].ToString()));
                 return Zahl_Rückgabe;
             }
-            if (Aufgabe == "VerdoppelHalbieren2")
+            if (Aufgabe == "kindersachtext")
             {
-                do
-                {
-                    Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
-                } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) % 2 != 0);
-                return Zahl_Rückgabe;
-            }
-            if (Aufgabe == "kindersachtext") {
                 do
                 {
                     Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
@@ -184,6 +190,7 @@ namespace MadMaths
                 return Zahl_Rückgabe;
 
             }
+            #endregion
             if (Thema == "Gleichungen")
             {
                 do
@@ -200,10 +207,10 @@ namespace MadMaths
                 Zahl_Rückgabe[0] = Int32.Parse(Zahl_Rückgabe[0].ToString()) * Int32.Parse(Zahl_Rückgabe[0].ToString());
                 return Zahl_Rückgabe;
             }
-            if (Aufgabe == "ExtrempunktI") 
+            if (Aufgabe == "ExtrempunktI")
             {
                 double rand_vorzeichen = 1;
-                for (int i = 0; i < rand.Next(1,10);i++)
+                for (int i = 0; i < rand.Next(1, 10); i++)
                 {
                     rand_vorzeichen *= -1;
                 }
@@ -222,16 +229,16 @@ namespace MadMaths
                         rand_vorzeichen *= -1;
                     }
                     input_a = rand.Next(minValue, maxValue) * rand_vorzeichen;
-                    input_b = rand.Next(minValue+2, maxValue);
+                    input_b = rand.Next(minValue + 2, maxValue);
                     for (int i = 0; i < rand.Next(1, 10); i++)
                     {
                         rand_vorzeichen *= -1;
                     }
                     input_c = rand.Next(minValue, maxValue) * rand_vorzeichen;
-                    input_d = rand.Next(minValue+2, maxValue);
+                    input_d = rand.Next(minValue + 2, maxValue);
                     vorx1 = input_a * input_b;
                     vorx2 = input_c * input_d;
-                    if  (input_d > input_b )
+                    if (input_d > input_b)
                     {
                         if ((-vorx1 / vorx2) > 0)
                         {
@@ -326,13 +333,13 @@ namespace MadMaths
                 do
                 {
                     Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
-                } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) < Int32.Parse(Zahl_Rückgabe[1].ToString())) ;
+                } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) < Int32.Parse(Zahl_Rückgabe[1].ToString()));
                 return Zahl_Rückgabe;
 
             }
             if (Thema == "Hypergeometrische Verteilung")
             {
-                
+
                 Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
                 do
                 {
@@ -353,7 +360,7 @@ namespace MadMaths
                 return Zahl_Rückgabe;
 
             }
-            
+
             if (Aufgabe == "QuadratischeGleichungen1")
             {
                 do
@@ -361,7 +368,7 @@ namespace MadMaths
                     Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
                     Zahl_Rückgabe[1] = rand.Next(minValue, maxValue);
                     Zahl_Rückgabe[2] = rand.Next(minValue, maxValue);
-                } while (Math.Pow(Int32.Parse(Zahl_Rückgabe[1].ToString()),2) < (Int32.Parse(Zahl_Rückgabe[2].ToString()) * Int32.Parse(Zahl_Rückgabe[0].ToString()) * 4));
+                } while (Math.Pow(Int32.Parse(Zahl_Rückgabe[1].ToString()), 2) < (Int32.Parse(Zahl_Rückgabe[2].ToString()) * Int32.Parse(Zahl_Rückgabe[0].ToString()) * 4));
                 return Zahl_Rückgabe;
             }
             if (Aufgabe == "Integral1")
@@ -423,11 +430,12 @@ namespace MadMaths
                 return Zahl_Rückgabe;
             }
 
-            for (int i = 0; i < argnum; i++) {
+            for (int i = 0; i < argnum; i++)
+            {
                 Zahl_Rückgabe[i] = rand.Next(minValue, maxValue);
             }
             return Zahl_Rückgabe;
-            
+
 
         }
     }

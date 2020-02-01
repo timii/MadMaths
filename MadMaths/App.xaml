@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:MadMaths"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
         <!-- XAML für alle Stlyes -->
         <Style TargetType="{x:Type Page}">
             <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
@@ -233,7 +233,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <!-- Style für Letzte Aufgaben Button -->
         <Style x:Key="LetzteAufgabenButton" TargetType="Button">
             <Setter Property="FontSize" Value="28"/>

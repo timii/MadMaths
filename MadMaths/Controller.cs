@@ -27,7 +27,9 @@ namespace MadMaths
         private static readonly string LocalRanklist = Path.Combine(UserSaveDir, "ranklist.json");
         internal static User user;           // das user Objekt, welches alle Daten des Benutzers zur Laufzeit enthält
         internal static List<UserRank> ranklist;
-
+        /// <summary>
+        /// Das Dictionary enthält Objekte, die zur Aufgabenerzeugung sowie zur Lösungsberechnung benutzt werden
+        /// </summary>
         internal static Dictionary<string, IStufe> Stufen = new Dictionary<string, IStufe>()
         {
             {"Grundschule",new Grundschule() },
@@ -125,7 +127,7 @@ namespace MadMaths
             Task.Run(() => Client.UpdateAvatar());
         }
 
-        internal static void UpdateLevel(in float multiplier=1)
+        internal static void UpdateLevel(in float multiplier = 1)
         {
             int exp = Convert.ToInt32(CalcLevel() * multiplier);
             var maxEXP = user.level * 100;
@@ -149,22 +151,24 @@ namespace MadMaths
         {
             switch (currentTheme)
             {
-                case "Zeitaufgaben" : return 5;
-                case "Textaufgaben II": 
-                case "Gleichungssysteme2x2": 
-                case "Quadratische Gleichungen": 
-                case "Logarithmen": 
+                case "Zeitaufgaben": return 5;
+                case "Textaufgaben II":
+                case "Gleichungssysteme2x2":
+                case "Quadratische Gleichungen":
+                case "Logarithmen":
                 case "Integralregeln":
                 case "Symmetrie":
                 case "Extrempunkte":
                 case "Nullstellen":
                 case "Wendepunkte": return 15;
                 case "Hypergeometrische Verteilung": case "Ableiten": case "Integral": return 20;
-                case "Ableiten II": case "Integral II":  return 25;
+                case "Ableiten II": case "Integral II": return 25;
                 default: return 10;
             }
         }
-
+        /// <summary>
+        /// Füllt die "Letzte Übung" Liste
+        /// </summary>
         internal static void FillLastSessions()
         {
             if (user.lastSessions.Count == 5) user.lastSessions.Dequeue();
@@ -210,7 +214,10 @@ namespace MadMaths
                 }
             }
         }
-
+        /// <summary>
+        /// Speichert die Rangliste lokal ab
+        /// </summary>
+        /// <param name="RanklistString">string in JSON Format</param>
         private static void SaveRanklistLocal(in string RanklistString)
         {
             using (StreamWriter file = new StreamWriter(LocalRanklist, false))
@@ -218,6 +225,10 @@ namespace MadMaths
                 file.Write(RanklistString);
             }
         }
+        /// <summary>
+        /// Lädt die lokal abgespeicherte Rangliste, falls keine Verbindung zum Server besteht
+        /// </summary>
+        /// <returns>Rangliste als string im JSON Format</returns>
         private static string LoadRanklistLocal()
         {
             if (File.Exists(LocalRanklist))
@@ -263,7 +274,7 @@ namespace MadMaths
                 }
                 else { throw new SocketException(); }
             }
-            catch (SocketException) {} 
+            catch (SocketException) { }
         }
         /// <summary>
         /// Ein Workaround für ein Verbindungsproblem, welches während des Testens aufgetreten ist.

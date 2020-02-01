@@ -6,11 +6,12 @@ namespace MadMaths.calculations
     //Beinhaltet alle Funktionen zur Berechnung der Grundschule-Aufgaben
     static public class CalcFunctions_Grundschule
     {
-        
 
-        //liest Die Funktionen in einem Dictionary auf
+        /// <summary>
+        /// Funktionen werden in einem Dictionary gehalten, um auf sie mithilfe eines Keys (Aufgabenname/Controller.currentExercise) zu zugreifen
+        /// </summary>
         public static Dictionary<string, Delegate> gs_funcs = new Dictionary<string, Delegate>()
-        #region
+        #region["Dictionary mit den Funktionen zur Berechnung"]
         {
             {"Addieren1", new Func<int,int,int>(standard_addieren)},
             {"Addieren2", new Func<int,int,int>(standard_addieren)},
@@ -59,21 +60,26 @@ namespace MadMaths.calculations
         };
         #endregion
 
-        
-        public static int standard_addieren(int input_a, int input_b) {
+        #region["Die einzelnen Funktionen"]
+        public static int standard_addieren(int input_a, int input_b)
+        {
             return (input_a + input_b);
         }
-        public static int standard_addieren(int a) {
+        public static int standard_addieren(int a)
+        {
             return a + a;
         }
-        public static int standard_subtrahieren(int input_a, int input_b) {
+        public static int standard_subtrahieren(int input_a, int input_b)
+        {
             return input_b - input_a;
         }
-        public static int standard_subtrahieren(int input_a, int input_b, int input_c) {
+        public static int standard_subtrahieren(int input_a, int input_b, int input_c)
+        {
             return input_a - input_b - input_c;
         }
 
-        public static int standard_multiplizieren(int input_a, int input_b) {
+        public static int standard_multiplizieren(int input_a, int input_b)
+        {
             return (input_a * input_b);
         }
         public static int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
@@ -186,5 +192,7 @@ namespace MadMaths.calculations
         public static float Umwandeln3(int input_a) { return (input_a * 1000); }
         public static float Umwandeln4(float input_a) { return (input_a / 100); }
         public static float Umwandeln5(float input_a) { return (input_a / 1000); }
+
+        #endregion
     }
 }

@@ -1,32 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MadMaths.pages
 {
-    /// <summary>
-    /// Interaktionslogik für challengeAuswahl.xaml
-    /// </summary>
     public partial class challengeAuswahl : Page
     {
-        int versuche = 10;
+        internal static int challengeVersucheGesamt = 10;      // Anzahl der Fragen die bei einer Herausforderung kommen
         public challengeAuswahl()
         {
             InitializeComponent();
-            GrundschuleFortschritt.Text = string.Format("{0}/{1}", Controller.user.grundschule, versuche);
-            MittelstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.mittelstufe, versuche);
-            OberstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.oberstufe, versuche);
+            GrundschuleFortschritt.Text = string.Format("{0}/{1}", Controller.user.grundschule, challengeVersucheGesamt);
+            MittelstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.mittelstufe, challengeVersucheGesamt);
+            OberstufeFortschritt.Text = string.Format("{0}/{1}", Controller.user.oberstufe, challengeVersucheGesamt);
         }
         private void ThemenBackClick(object sender, RoutedEventArgs e)
         {
@@ -37,9 +25,9 @@ namespace MadMaths.pages
             Controller.currentGrade = (sender as Button).Content as string;
             switch (Controller.currentGrade)
             {
-                case "Grundschule": Controller.user.grundschule = 0;break;
-                case "Mittelstufe": Controller.user.mittelstufe = 0;break;
-                case "Oberstufe": Controller.user.oberstufe = 0;break;
+                case "Grundschule": Controller.user.grundschule = 0; break;
+                case "Mittelstufe": Controller.user.mittelstufe = 0; break;
+                case "Oberstufe": Controller.user.oberstufe = 0; break;
             }
             List<string> myList = Controller.Stufen[Controller.currentGrade].ThemenListe;
             Random rand = new Random();

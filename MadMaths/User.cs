@@ -12,6 +12,8 @@ namespace MadMaths
         public int level { get; set; } = 1;
         public int currentProgress { get; set; } = 0;
         public Queue<string> lastSessions { get; set; } = new Queue<string>();
+
+        // hier wird die Anzahl der geschafften Challenge Aufgaben gespeichert
         public int grundschule { get; set; }
         public int mittelstufe { get; set; }
         public int oberstufe { get; set; }
@@ -33,6 +35,9 @@ namespace MadMaths
                 }
             }
         }
+        /// <summary>
+        /// Nummer des Rangplatzes
+        /// </summary>
         public int rank { get; set; }
         public string RankColor { get; set; } = "#FF01C8FF";
     }

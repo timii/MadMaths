@@ -7,7 +7,7 @@
       mc:Ignorable="d" FontFamily="Microsoft Sans Serif"
       d:DesignHeight="600" d:DesignWidth="920"
       Title="challengeAuswahl">
-    
+
     <!-- XAML für die Auswahl der Stufen bei der Herausforderung -->
     <Grid>
         <Grid.RowDefinitions>
@@ -47,7 +47,7 @@
                    VerticalAlignment="Center" FontSize="20" Text="Letzter Versuch: "/>
         <TextBlock x:Name="MittelstufeFortschritt" Grid.Column="2" Grid.Row="1" Margin="0,70,10,50"
                    VerticalAlignment="Center" FontSize="20" Text="0/0"/>
-        
+
         <TextBlock Grid.Column="2" Grid.Row="2" Margin="0,-20,10,50"
                    VerticalAlignment="Center" FontSize="20" Text="Letzter Versuch: "/>
         <TextBlock x:Name="OberstufeFortschritt" Grid.Column="2" Grid.Row="2" Margin="0,30,10,50"

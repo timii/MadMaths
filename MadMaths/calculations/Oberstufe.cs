@@ -27,7 +27,6 @@ namespace MadMaths.calculations
         {
             var AufgabenFunc = CalcFunctions_Oberstufe.os_funcs[Controller.currentExercise];
             Lösung = AufgabenFunc.DynamicInvoke(AufgabenZahlen).ToString();
-            //var ArrayToString = AufgabenFunc.DynamicInvoke(AufgabenZahlen);
             string[] Loesungs_seperator = Lösung.Split(' ');
             string[] User_seperator = BenutzerLösung.ToString().Split(' ');
             bool vergleich = Enumerable.SequenceEqual(Loesungs_seperator.OrderBy(x => x), User_seperator.OrderBy(x => x));
@@ -36,11 +35,6 @@ namespace MadMaths.calculations
             {
                 return true;
             }
-
-            //if (Lösung.Replace(" ", string.Empty).ToLower() == BenutzerLösung.ToString().Replace(" ", string.Empty).ToLower())
-            //{
-            //    return true;
-            //}
             return false;
         }
 

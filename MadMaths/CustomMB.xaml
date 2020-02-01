@@ -8,7 +8,7 @@
         Title="CustomMB" Height="170" Width="300" FontFamily="Microsoft Sans Serif" 
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "True">
-    
+
     <!-- XAML für die Custom MessageBox -->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="50"/>

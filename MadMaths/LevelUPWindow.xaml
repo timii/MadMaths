@@ -8,7 +8,7 @@
         Title="CustomMB" Height="300" Width="350" FontFamily="Microsoft Sans Serif" 
         WindowStyle="None" ResizeMode="NoResize" FontSize="18" WindowStartupLocation="CenterOwner"
         AllowsTransparency="True" ShowActivated = "True" ShowInTaskbar = "False">
-    
+
     <!-- XAML für das LevelUp Window -->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="45"/>
@@ -22,9 +22,9 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Padding="0,10" Text="Glückwunsch!"
                            FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636" FontWeight="Bold"/>
-            
+
             <Separator Grid.Row="0" Background="Gray" VerticalAlignment="Bottom" Height="2"/>
-            
+
             <TextBlock Grid.Row="1" Padding="60,15" Text="Du hast das nächste Level erreicht" FontWeight="Bold"
                            FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF363636"/>
 
@@ -35,9 +35,9 @@
                 </Rectangle.LayoutTransform>
             </Rectangle>
             <TextBlock x:Name="LevelPopUp" Grid.Row="1" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60" Margin="0,55,0,20"/>
-            
+
             <Separator Grid.Row="1" Background="Gray" VerticalAlignment="Bottom" Height="2"/>
-            
+
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button Content="OK" FontSize="13" MinHeight="30" MinWidth="80" Click="Button_Click" Background="#FFFF7800" FontWeight="Bold"/>
             </StackPanel>

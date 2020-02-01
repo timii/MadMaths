@@ -8,9 +8,11 @@ namespace MadMaths.calculations
     //Beinhaltet Alle Funktionen zur Berechnung der Mittelstufe-Aufgaben
     static public class CalcFunctions_Mittelstufe
     {
-        //liest Die Funktionen in einem Dictionary auf
+        /// <summary>
+        /// Funktionen werden in einem Dictionary gehalten, um auf sie mithilfe eines Keys (Aufgabenname/Controller.currentExercise) zu zugreifen
+        /// </summary>
         static public Dictionary<string, Delegate> ms_funcs = new Dictionary<string, Delegate>()
-        #region
+        #region["Dictionary mit den Funktionen zur Berechnung"]
         {
             {"Variablen1", new Func<double,double,double>(Variablen1)},
             {"Variablen2", new Func<double,double,double>(Variablen2)},
@@ -68,6 +70,8 @@ namespace MadMaths.calculations
             {"Mittelwert2", new Func<double, double, double, double, double>(Mittelwert2)}
         };
         #endregion
+
+        #region["Die einzelnen Funktionen"]
         private static double Runden(double input)
         {
             return Math.Round(input, 2, MidpointRounding.ToEven);
@@ -113,7 +117,7 @@ namespace MadMaths.calculations
         {
             double ergebnis_a = input_a + input_b;
             double ergebnis_b = input_c + input_d;
-            return string.Format("{0}x + {1}y",ergebnis_a,ergebnis_b);
+            return string.Format("{0}x + {1}y", ergebnis_a, ergebnis_b);
         }
         public static string Variablen6(double input_a, double input_b, double input_c, double input_d)
         {
@@ -150,22 +154,22 @@ namespace MadMaths.calculations
 
         public static string Gleichungssystem1(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d)),2,MidpointRounding.AwayFromZero);
-            double x = Math.Round((input_c - input_b * y) / input_a,2);
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) - (input_e / input_d)), 2, MidpointRounding.AwayFromZero);
+            double x = Math.Round((input_c - input_b * y) / input_a, 2);
             return string.Format("x = {0}, y = {1}", x, y);
 
         }
         public static string Gleichungssystem2(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) + (input_e / input_d)),2, MidpointRounding.AwayFromZero);
-            double x = Math.Round((input_c - input_b * y) / input_a,2, MidpointRounding.AwayFromZero);
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / ((input_b / input_a) + (input_e / input_d)), 2, MidpointRounding.AwayFromZero);
+            double x = Math.Round((input_c - input_b * y) / input_a, 2, MidpointRounding.AwayFromZero);
 
             return string.Format("x = {0}, y = {1}", x, y);
         }
         public static string Gleichungssystem3(double input_a, double input_b, double input_c, double input_d, double input_e, double input_f)
         {
-            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / (-(input_b / input_a) + (input_e / input_d)),2, MidpointRounding.AwayFromZero);
-            double x = Math.Round((input_c + input_b * y) / input_a,2,MidpointRounding.AwayFromZero);
+            double y = Math.Round(((input_c / input_a) - (input_f / input_d)) / (-(input_b / input_a) + (input_e / input_d)), 2, MidpointRounding.AwayFromZero);
+            double x = Math.Round((input_c + input_b * y) / input_a, 2, MidpointRounding.AwayFromZero);
 
             return string.Format("x = {0}, y = {1}", x, y);
         }
@@ -176,14 +180,14 @@ namespace MadMaths.calculations
         public static double Umwandeln5(double input_a) { return input_a * 1000; }
         public static double Umwandeln6(double input_a) { return input_a * 100; }
 
-        public static double Stochastik1(int _) { return Math.Round(1.0 / 6.0,2, MidpointRounding.AwayFromZero); }
-        public static double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return Math.Round(1.0 / 6.0,2, MidpointRounding.AwayFromZero); } return Math.Round((2.0 / 6.0),2, MidpointRounding.AwayFromZero); }
+        public static double Stochastik1(int _) { return Math.Round(1.0 / 6.0, 2, MidpointRounding.AwayFromZero); }
+        public static double Stochastik2(int input_a, int input_b) { if (input_a == input_b) { return Math.Round(1.0 / 6.0, 2, MidpointRounding.AwayFromZero); } return Math.Round((2.0 / 6.0), 2, MidpointRounding.AwayFromZero); }
         public static double Stochastik3() { return (3.0 / 6.0); }
         public static double Stochastik4() { return (3.0 / 6.0); }
         public static double Stochastik5() { return (1.0 / 4.0); }
 
-        public static double Dreisatz1(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a),2, MidpointRounding.AwayFromZero); }
-        public static double Dreisatz2(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a),2, MidpointRounding.AwayFromZero); }
+        public static double Dreisatz1(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a), 2, MidpointRounding.AwayFromZero); }
+        public static double Dreisatz2(double input_a, double input_b, double input_c) { return Math.Round(((input_b * input_c) / input_a), 2, MidpointRounding.AwayFromZero); }
         public static double Dreisatz3(double input_a, double input_b, double input_c) { return Runden((input_a * input_c) / input_b); }
 
         public static double Prozentrechnung1(double input_a, double input_b, double input_c) { return Math.Round(input_b * Hoch((input_a * 0.01 + 1), input_c), 2, MidpointRounding.AwayFromZero); }
@@ -194,13 +198,13 @@ namespace MadMaths.calculations
         {
             double x = Runden(Math.Sqrt(input_a));
             double y = Runden(Math.Sqrt(input_c));
-            return string.Format("({0}x + {1})^2", x,y);
+            return string.Format("({0}x + {1})^2", x, y);
 
         }
         public static string BinomischeFormeln2(double input_a)
         {
             double x = Math.Pow(input_a, 2);
-            return string.Format("{0} + {1}b + b^2", x, input_a*2);
+            return string.Format("{0} + {1}b + b^2", x, input_a * 2);
         }
         public static string BinomischeFormeln3(double input_a)
         {
@@ -218,11 +222,11 @@ namespace MadMaths.calculations
         {
             double ergebnis1;
             double ergebnis2;
-            ergebnis1 = (-input_b + Math.Sqrt(Math.Pow(input_b,2)- 4 * input_a * input_c)) / (input_a * 2);
-            ergebnis2 = (-input_b - Math.Sqrt(Math.Pow(input_b,2)- 4 * input_a * input_c)) / (input_a * 2);
+            ergebnis1 = (-input_b + Math.Sqrt(Math.Pow(input_b, 2) - 4 * input_a * input_c)) / (input_a * 2);
+            ergebnis2 = (-input_b - Math.Sqrt(Math.Pow(input_b, 2) - 4 * input_a * input_c)) / (input_a * 2);
 
 
-            return string.Format("{0} , {1}",Runden(ergebnis1),Runden(ergebnis2));
+            return string.Format("{0} , {1}", Runden(ergebnis1), Runden(ergebnis2));
         }
         public static double Potenzen1(double input_a, double input_b)
         {
@@ -236,7 +240,7 @@ namespace MadMaths.calculations
         {
             double ergebnis;
             ergebnis = Math.Pow(input_a, 1 / input_b);
-            return Math.Round(ergebnis,2, MidpointRounding.AwayFromZero);
+            return Math.Round(ergebnis, 2, MidpointRounding.AwayFromZero);
         }
         public static double Fakultät1(double input_a)
         {
@@ -272,6 +276,6 @@ namespace MadMaths.calculations
             return Runden((input_a + input_b + input_c + input_d) / 4);
         }
 
-
+        #endregion
     }
 }

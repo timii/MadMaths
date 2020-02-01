@@ -6,9 +6,11 @@ namespace MadMaths.calculations
     //Beinhaltet alle Funktionen zur Berechnung der Oberstufen-Aufgaben
     static public class CalcFunctions_Oberstufe
     {
-        //liest Die Funktionen in einem Dictionary auf
+        /// <summary>
+        /// Funktionen werden in einem Dictionary gehalten, um auf sie mithilfe eines Keys (Aufgabenname/Controller.currentExercise) zu zugreifen
+        /// </summary>
         public static Dictionary<string, Delegate> os_funcs = new Dictionary<string, Delegate>()
-        #region
+        #region["Dictionary mit den Funktionen zur Berechnung"]
         {
             {"Ableiten1", new Func<double, double, string>(Ableiten1)},
             {"Ableiten2", new Func<double, double, double, double, string>(Ableiten2)},
@@ -37,8 +39,8 @@ namespace MadMaths.calculations
         {
             return Math.Round(input, 2, MidpointRounding.ToEven);
         }
-        //Ableiten
-        #region
+
+        #region["Funktionen zur Ableitung"]
         public static string Ableiten1(double input_a, double input_b)
         {
             return string.Format("{0}x^{1}", input_a * input_b, input_b - 1);
@@ -305,8 +307,8 @@ namespace MadMaths.calculations
         {
             string Lösung = "";
 
-            double vorx1 = input_a * input_b * (input_b-1);
-            double vorx2 = input_c * input_d * (input_d-1);
+            double vorx1 = input_a * input_b * (input_b - 1);
+            double vorx2 = input_c * input_d * (input_d - 1);
             double extr; //extremstelle
             double LoesHilf;
             //Keine EP wenn 2. ABleitung 0
@@ -348,8 +350,7 @@ namespace MadMaths.calculations
 
 
         }
-        //Integral
-        #region
+        #region["Integral"]
         public static string Intergralregel1()
         {
             return "-cos(x) + c";
@@ -377,10 +378,10 @@ namespace MadMaths.calculations
             double tmp;
             double DifInput_a = input_a - 1;
             double DifInput_b = input_b - input_c;
-            double x1 = (-(input_a - 1) + Math.Sqrt(Math.Pow((DifInput_a), 2) - 4  * (DifInput_b))) / 2;
-            double x2 = (-(input_a - 1) - Math.Sqrt(Math.Pow((DifInput_a), 2) - 4  * (DifInput_b))) / 2;
+            double x1 = (-(input_a - 1) + Math.Sqrt(Math.Pow((DifInput_a), 2) - 4 * (DifInput_b))) / 2;
+            double x2 = (-(input_a - 1) - Math.Sqrt(Math.Pow((DifInput_a), 2) - 4 * (DifInput_b))) / 2;
 
-            
+
             double Flaeche_Hilfe1 = (1.0 / 3.0) * Math.Pow(x2, 3) + (DifInput_a / 2) * Math.Pow(x2, 2) + DifInput_b * x2;
             double Flaeche_Hilfe2 = (1.0 / 3.0) * Math.Pow(x1, 3) + (DifInput_a / 2) * Math.Pow(x1, 2) + DifInput_b * x1;
             if (Flaeche_Hilfe1 < Flaeche_Hilfe2)
@@ -394,7 +395,9 @@ namespace MadMaths.calculations
 
             return runden(Flaeche);
         }
-        #endregion
+        #endregion[]
+
+        #region["Andere Funktionen zur Berechnung"]
         public static string SymmetrieI(double a, double b, double c, double d, double e, double f)
         {
             int Zaehler = 0;
@@ -454,11 +457,11 @@ namespace MadMaths.calculations
             string Lösung = "";
 
             double vorx1 = input_a * input_b;
-            double vorx2 = input_c * input_d;   
+            double vorx2 = input_c * input_d;
             double xextr = 0; //extremstelle
             double yextr = 0; //y Wert der ES
             //Keine EP wenn 2. ABleitung 0
-            if (input_b-2 < 0 && input_d-2 < 0)
+            if (input_b - 2 < 0 && input_d - 2 < 0)
             {
                 double vorx = vorx1 + vorx2;
                 if (vorx == 0)
@@ -468,34 +471,34 @@ namespace MadMaths.calculations
                 }
             }
 
-            if (((vorx1 * Math.Pow(0,input_b-1)+ vorx2 * Math.Pow(0,input_d-1)) == 0))
+            if (((vorx1 * Math.Pow(0, input_b - 1) + vorx2 * Math.Pow(0, input_d - 1)) == 0))
             {
-                Lösung+=  "(0;0),";
+                Lösung += "(0;0),";
             }
 
             if (input_d > input_b)
             {
-                xextr = Math.Pow(((-1 * vorx1) / vorx2), 1/((input_d - 1) - (input_b - 1)));
-            }   
+                xextr = Math.Pow(((-1 * vorx1) / vorx2), 1 / ((input_d - 1) - (input_b - 1)));
+            }
 
             else
             {
-                xextr = Math.Pow(((-1 * vorx2) / vorx1), 1/((input_b - 1) - (input_d - 1)));
+                xextr = Math.Pow(((-1 * vorx2) / vorx1), 1 / ((input_b - 1) - (input_d - 1)));
             }
-            
+
             if ((vorx1 * (input_b - 1) + vorx2 * (input_d - 1) * Math.Pow(xextr, input_d - 2)) != 0)
             {
                 yextr = (input_a * Math.Pow(xextr, input_b) + input_c * Math.Pow(xextr, input_d));
-                if (string.Format("({0};{1})", runden(xextr), runden(yextr))+"," == Lösung)
+                if (string.Format("({0};{1})", runden(xextr), runden(yextr)) + "," == Lösung)
                 {
                     return Lösung;
                 }
-                Lösung+=  string.Format("({0};{1})", runden(xextr), runden(yextr));
+                Lösung += string.Format("({0};{1})", runden(xextr), runden(yextr));
             }
 
-            if (SymmetrieII(input_a,input_b,input_c,input_d) == "Punktsymmetrisch")
+            if (SymmetrieII(input_a, input_b, input_c, input_d) == "Punktsymmetrisch")
             {
-                Lösung+= string.Format("({0};{1})", runden(-xextr), runden(-yextr));
+                Lösung += string.Format("({0};{1})", runden(-xextr), runden(-yextr));
             }
             if (SymmetrieII(input_a, input_b, input_c, input_d) == "Achsensymmetrisch")
             {
@@ -506,8 +509,6 @@ namespace MadMaths.calculations
                 Lösung += "NaN";
             }
             return Lösung;
-
-
         }
 
         public static string NullstellenI(double input_a, double input_b, double input_c, double input_d)
@@ -529,17 +530,17 @@ namespace MadMaths.calculations
             else if (input_b > input_d)
             {
                 vorx = (-1 * input_c) / input_a;
-                pot = 1/(input_b - input_d);
-            } 
+                pot = 1 / (input_b - input_d);
+            }
             else
             {
                 vorx = (-1 * input_a) / input_c;
-                pot = 1/(input_d - input_b);
+                pot = 1 / (input_d - input_b);
             }
-            
-            double NS= Math.Pow(vorx, pot);
-            Loesung += string.Format(" ({0};0)",runden(NS));
-            if (SymmetrieII(input_a,input_b,input_c,input_d) == "Punktsymmetrisch")
+
+            double NS = Math.Pow(vorx, pot);
+            Loesung += string.Format(" ({0};0)", runden(NS));
+            if (SymmetrieII(input_a, input_b, input_c, input_d) == "Punktsymmetrisch")
             {
                 Loesung += string.Format(" ({0};0)", runden(-NS));
             }
@@ -549,6 +550,6 @@ namespace MadMaths.calculations
             }
             return Loesung;
         }
-
+        #endregion
     }
 }

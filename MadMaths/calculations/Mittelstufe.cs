@@ -12,6 +12,9 @@ namespace MadMaths.calculations
     {
         public List<string> ThemenListe { get; set; } = new List<string>();
         public Dictionary<string, Dictionary<string, string>> Aufgaben { get; set; } = new Dictionary<string, Dictionary<string, string>>();
+        /// <summary>
+        /// Sonderbehandlung der Aufgabe
+        /// </summary>
         public Dictionary<string, List<string>> Gleichungssysteme = new Dictionary<string, List<string>>();
         public Uri aufgabenPath { get; set; } = new Uri("MadMaths;component/data/mittelstufe.json", UriKind.Relative);
         public dynamic RawJson { get; set; }

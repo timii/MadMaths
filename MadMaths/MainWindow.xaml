@@ -31,7 +31,7 @@
             <!-- Serverstatus -->
             <Label Content="Server: " FontWeight="Bold" VerticalContentAlignment="Center" Margin="5,0" Foreground="White" FontFamily="Segoe UI"/>
             <Label x:Name="onlineStatus" VerticalContentAlignment="Center" Margin="48,0" Foreground="White" FontFamily="Segoe UI"/>
-            
+
             <!-- Minimier- / Schließbuttons -->
             <StackPanel HorizontalAlignment="Right" Height="35"
                         WindowChrome.IsHitTestVisibleInChrome="True" Orientation="Horizontal">
