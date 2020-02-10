@@ -4,6 +4,7 @@ namespace MadMaths
 {
     static class randnumbers
     {
+        //Zur überprüfung ob eine Zahl eine Primzahl ist
         static private bool isPrim(int Zahl)
         {
             for (int i = 2; i < Zahl; i++)
@@ -15,19 +16,21 @@ namespace MadMaths
             }
             return true;
         }
+        //Funktion zur Generierung der Zahlen
         static public object[] Zahlen(int argnum, string Thema, string Aufgabe)
         {
             Random rand = new Random();
             int minValue = 1;
             int maxValue = 10;
             object[] Zahl_Rückgabe = new object[argnum];
+            //MaxValue anhand Stufe eingrenzen
             switch (Controller.currentGrade)
             {
                 case "Grundschule": maxValue = 100; break;
                 case "Mittelstufe": maxValue = 100; break;
                 case "Oberstufe": maxValue = 10; break;
             }
-
+            //MaxValue anhand des Themas eingrenzen
             switch (Thema)
             {
                 case "Kettenaufgaben": maxValue = 10; break;
@@ -44,6 +47,7 @@ namespace MadMaths
                 case "Ableiten": maxValue = 15; break;
                 case "Prozentrechnung": maxValue = 10; break;
             }
+            //MaxValue anhand der Aufgabe eingrenzen
             switch (Aufgabe)
             {
                 case "Mittelwert1": maxValue = 1000; break;
@@ -53,7 +57,8 @@ namespace MadMaths
                 case "WendepunkteI": maxValue = 10; break;
                 case "Urnenmodell1": maxValue = 10; break;
             }
-
+            //Jede If-Anweisung berechnet die Zufallszahlen der jeweiligen Aufgaben
+            //Manche müssen komplett Anders gehandhabt werden als Andere -> z.B. Subtrahieren2 hat hat mehr Zahlen als Subtrahieren1 und braucht hierbei eigene Eingrenzung 
             if (Aufgabe == "Subtrahieren 1")
             {
                 Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
@@ -63,6 +68,7 @@ namespace MadMaths
                 } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) > Int32.Parse(Zahl_Rückgabe[1].ToString()));
                 return Zahl_Rückgabe;
             }
+
             if (Aufgabe == "Subtrahieren 2")
             {
                 Zahl_Rückgabe[0] = rand.Next(minValue, maxValue);
@@ -77,7 +83,7 @@ namespace MadMaths
                 } while (Int32.Parse(Zahl_Rückgabe[0].ToString()) < (Int32.Parse(Zahl_Rückgabe[1].ToString()) + Int32.Parse(Zahl_Rückgabe[2].ToString())));
                 return Zahl_Rückgabe;
             }
-            //Kettenaufgaben
+            
             #region["Kettenaufgaben"]
             if (Aufgabe == "Kettenaufgabe1")
             {
@@ -360,7 +366,6 @@ namespace MadMaths
                 return Zahl_Rückgabe;
 
             }
-
             if (Aufgabe == "QuadratischeGleichungen1")
             {
                 do
@@ -430,6 +435,7 @@ namespace MadMaths
                 return Zahl_Rückgabe;
             }
 
+            //Ist es bei einer Aufgabe egal, wird einfach ein Zufallswert anhand der min, bzw. maxValue bestimmt
             for (int i = 0; i < argnum; i++)
             {
                 Zahl_Rückgabe[i] = rand.Next(minValue, maxValue);

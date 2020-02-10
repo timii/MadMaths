@@ -82,11 +82,11 @@ namespace MadMaths.calculations
         {
             return (input_a * input_b);
         }
-        public static int grundschule_dividieren_glatt(int input_a, int input_b) /* Ohne gleitkomma */
+        public static int grundschule_dividieren_glatt(int input_a, int input_b) 
         {
             return input_a / input_b;
         }
-        public static int kindersachtext(int input_a) //darf kein nachkomma stellen haben als lösung
+        public static int kindersachtext(int input_a) 
         {
             return input_a / 4;
 

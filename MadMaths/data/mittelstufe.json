@@ -21,7 +21,7 @@
     "Gleichungen8": "{0}x + {1} * {2} = {3}x "
 
   },
-  //ungleichungen
+
   "Gleichungssysteme2x2": {
     "Gleichungssystem1": [
       "{0}x + {1}y = {2}",
@@ -70,7 +70,7 @@
     "BinomischeFormeln3": "Wende die Binomische Formeln an: ({0} - b )² ",
     "BinomischeFormeln4": "Wende die Binomische Formeln an: ({0} + b) * ({0} - b)) "
   },
-  //KoordinatenSystem
+  
   "Wurzeln": {
     "Wurzeln1": "Ziehe die Wurzel aus der Zahl: {0}",
     "Wurzeln2": "Berechne das Ergebnis: a² = {0} - löse nach a auf"
@@ -79,12 +79,11 @@
   "Quadratische Gleichungen": {
     "QuadratischeGleichungen1": "Wie lautet die Lösung von x:  {0}x² + {1}x + {2} = 0 "
   },
-  //Strahlensatzl
-  //Pythagoras
+  
   "Potenzen": {
     "Potenzen1": "Berechne: {0}^({1})"
   },
-  //Trigonometrie
+  
   "Logarithmen": {
     "Logarithmen1": "Berechne den folgenden Logarithmus mit der Basis {0} Log({1})",
     "Logarithmen2": "Berechne die Basis: Der Logarithmus der Zahl {0} ist {1}. "
@@ -102,8 +101,7 @@
   "Hypergeometrische Verteilung": {
     "HypergeometrischeVerteilung1": "In einer Urne befinden sich {0} Kugeln ( N = {0} ), davon sind {1} Kugeln rot ( K = {1} ). Wir entnehmen {2} Kugeln ( n = {2} ) ohne zurücklegen. Wie groß ist die Wahrscheinlichkeit, dass in der Stichprobe genau {3} rote  Kugeln ( k = {3} ) vorhanden sind? "
   },
-  //Bedingte Wahrscheinlichkeit
-  //
+  
   "Mittelwert": {
     "Mittelwert1": "Fünf Arbeitnehmer wurden gefragt, welches Gehalt sie jeden Monat erhalten. Die Arbeitnehmer gaben die Werte {0} Euro, {1} Euro, {2} Euro, {3} Euro und {4} Euro an. Welcher Mittelwert kann mit diesen Angaben errechnet werden, sprich was verdienen diese Menschen im Durchschnitt? ",
     "Mittelwert2": "Bei einem Sportfest hat ein Springer folgende Weiten beim Weitsprung erreicht: {0}m; {1}m; {2}m, {3}m. Wie weit ist der Springer im Durchschnitt gesprungen? "

@@ -76,6 +76,7 @@ namespace MadMaths.calculations
         {
             return Math.Round(input, 2, MidpointRounding.ToEven);
         }
+        //Funktion um POW von Math zu ersetzen 
         private static double Hoch(double input_a, double hochzahl)
         {
             double ergebnis = 1;
@@ -85,6 +86,7 @@ namespace MadMaths.calculations
             }
             return ergebnis;
         }
+        //Zum Berechnen von Fakultäten, wegen Fakultäts Aufgaben
         private static double Fakultät(double zahl)
         {
             double fakultät = 1;
@@ -99,6 +101,7 @@ namespace MadMaths.calculations
 
             return fakultät;
         }
+        //Zum Berechnen der Binomialkoeffizienten, wegen Wahrscheinlichkeitsrechnung
         private static double Binomialkoeffizient(double N, double K)
         {
             double result = 1;

@@ -13,7 +13,7 @@
   },
 
   "Ableiten II": {
-    "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2} ", //{0}. muss kleiner als {1} sein+
+    "HöherAbleiten1": "Schreib die {0}.te Ableitung auf: f(x) = {1}x^{2} ", 
     "HöherAbleiten2": "Schreib, die 2. Ableitung auf: f(x) = ({0}x^{1} + {2}x^{3}) * ({4}x) "
   },
 
